@@ -1,16 +1,5 @@
 program PCMDEVManager;
 
-
-
-
-
-
-
-
-
-
-
-
 uses
   inifiles,
   NtTranslator,
