@@ -1,6 +1,16 @@
 program PCMDEVManager;
 
 
+
+
+
+
+
+
+
+
+
+
 uses
   inifiles,
   NtTranslator,
@@ -15,7 +25,15 @@ uses
   PCM.Ticket in 'Modules\PCM.Ticket.pas' {frm_Ticket},
   PCM.Entwicklung in 'Modules\PCM.Entwicklung.pas' {frm_Dev},
   PCM.Modul.B_Config in 'Modules\PCM.Modul.B_Config.pas' {frm_Config},
-  PCM.Helper;
+  PCM.Helper,
+  PCM.splash in 'PCM.splash.pas' {SplashScreen},
+  PCM.Swagger in 'Modules\PCM.Swagger.pas' {frm_Swagger},
+  PCM.Modul.C_Update.Import in 'Modules\PCM.Modul.C_Update.Import.pas',
+  PCM.Modul.C_Update in 'Modules\PCM.Modul.C_Update.pas',
+  PCM.Modul.C_Update.Version in 'Modules\PCM.Modul.C_Update.Version.pas',
+  PCM.Modul.D_Doku in 'Modules\PCM.Modul.D_Doku.pas',
+  PCM.Modul.D_Doku.Programm in 'Modules\PCM.Modul.D_Doku.Programm.pas',
+  PCM.Modul.D_Doku.Version in 'Modules\PCM.Modul.D_Doku.Version.pas';
 
 {$R *.res}
 
@@ -52,11 +70,7 @@ begin
   Application.Title:= 'PCM - Devmanager 32-Bit';
   {$ENDIF}
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(Tfrm_PCM_Main, frm_PCM_Main);
   Application.CreateForm(Tdm_PCM, dm_PCM);
-  Application.CreateForm(Tfrm_Ticket, frm_Ticket);
-  Application.CreateForm(Tfrm_Dev, frm_Dev);
-  Application.ShowMainForm:= False;
-  Application.ShowMainForm := true;
+  Application.CreateForm(Tfrm_PCM_Main, frm_PCM_Main);
   Application.Run;
 end.

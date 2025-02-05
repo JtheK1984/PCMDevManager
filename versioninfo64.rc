@@ -1,12 +1,12 @@
 #define VERSION_MAJOR 1
 #define VERSION_MINOR 6
+#define VERSION_BUILD 72
 #define VERSION_REVISION 0
-#define VERSION_BUILD 130
 
 #define STRINGIFY(x) #x
 #define VERSION_STRING(a,b,c,d) STRINGIFY(a) "." STRINGIFY(b) "." STRINGIFY(c) "." STRINGIFY(d)
 #define VERSION_STRING_FULL VERSION_STRING(VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD)
-#define VERSION_STRING1(a,b) STRINGIFY(a) "." STRINGIFY(b) 
+#define VERSION_STRING1(a,b) STRINGIFY(a) "." STRINGIFY(b)
 #define VERSION_STRING_SMALL VERSION_STRING1(VERSION_MAJOR,VERSION_MINOR)
 1 VERSIONINFO
 FILEVERSION VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD
@@ -21,11 +21,11 @@ BEGIN
   BEGIN
     BLOCK "040704B0"
     BEGIN
-      VALUE "FileDescription", "PCM Entwicklungsprojekte\0"
+      VALUE "FileDescription", "Verwaltung von Projekten\0"
       VALUE "FileVersion", VERSION_STRING_FULL "\0"
       VALUE "InternalName", "PCMDEVManager.exe\0"
       VALUE "LegalCopyright", "PCM (Jens Henske)\0"
-      VALUE "ProductName", "PCMDevManager 64-Bit\0"
+      VALUE "ProductName", "PCMDEVManager 64-Bit\0"
       VALUE "ProductVersion",VERSION_STRING_SMALL "\0"
       VALUE "CompanyName", "PCM\0"
       VALUE "OriginalFilename", "PCMDEVManager.exe (64-Bit)\0"

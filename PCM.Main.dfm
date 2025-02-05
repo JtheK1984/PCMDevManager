@@ -42,11 +42,9 @@ object frm_PCM_Main: Tfrm_PCM_Main
     OptionsView.HamburgerMenu.SpaceBetweenGroups = 50
     object navbrgrp_Optionen: TdxNavBarGroup
       Caption = 'Optionen'
-      LargeImageIndex = 3
       SelectedLinkIndex = -1
       TopVisibleLinkIndex = 0
       UseSmallImages = False
-      OptionsExpansion.Expanded = False
       Links = <
         item
           Item = iBenutzerverwaltung
@@ -58,13 +56,11 @@ object frm_PCM_Main: Tfrm_PCM_Main
           Item = iDesign
         end>
     end
-    object navbr_mainGroup1: TdxNavBarGroup
+    object navbrgrp_Dev: TdxNavBarGroup
       Caption = 'Entwicklung'
-      LargeImageIndex = 2
       SelectedLinkIndex = -1
       TopVisibleLinkIndex = 0
       UseSmallImages = False
-      OptionsExpansion.Expanded = False
       Links = <
         item
           Item = iEntwicklung
@@ -73,28 +69,33 @@ object frm_PCM_Main: Tfrm_PCM_Main
           Item = iTickets
         end>
     end
-    object navbr_mainGroup2: TdxNavBarGroup
+    object navbrgrp_XML_DOKU: TdxNavBarGroup
       Caption = 'DB-XML / Doku'
-      LargeImageIndex = 4
       SelectedLinkIndex = -1
       TopVisibleLinkIndex = 0
       UseSmallImages = False
-      OptionsExpansion.Expanded = False
       Links = <
         item
-          Item = navbr_mainItem2
+          Item = iDokumentation
         end
         item
-          Item = navbr_mainItem1
+          Item = iUpdateXML
+        end>
+    end
+    object navbrgrp_Rest: TdxNavBarGroup
+      Caption = 'Swagger'
+      SelectedLinkIndex = -1
+      TopVisibleLinkIndex = 0
+      Links = <
+        item
+          Item = iRestAPI
         end>
     end
     object navbrgrp_Info: TdxNavBarGroup
       Caption = 'Info'
-      LargeImageIndex = 1
       SelectedLinkIndex = -1
       TopVisibleLinkIndex = 0
       UseSmallImages = False
-      OptionsExpansion.Expanded = False
       Links = <
         item
           Item = iSysteminfo
@@ -108,11 +109,9 @@ object frm_PCM_Main: Tfrm_PCM_Main
     end
     object navbrgrp_Programm: TdxNavBarGroup
       Caption = 'Programm'
-      LargeImageIndex = 0
       SelectedLinkIndex = -1
       TopVisibleLinkIndex = 0
       UseSmallImages = False
-      OptionsExpansion.Expanded = False
       Links = <
         item
           Item = iSprache
@@ -194,11 +193,21 @@ object frm_PCM_Main: Tfrm_PCM_Main
       SmallImageIndex = 2
       OnClick = NavBarClick
     end
-    object navbr_mainItem1: TdxNavBarItem
-      Caption = 'navbr_mainItem1'
+    object iUpdateXML: TdxNavBarItem
+      Caption = 'Update XML'
+      SmallImageIndex = 82
+      OnClick = NavBarClick
     end
-    object navbr_mainItem2: TdxNavBarItem
-      Caption = 'navbr_mainItem2'
+    object iDokumentation: TdxNavBarItem
+      Caption = 'Dokumentation'
+      SmallImageIndex = 80
+      OnClick = NavBarClick
+    end
+    object iRestAPI: TdxNavBarItem
+      Caption = 'Rest-API'
+      LargeImageIndex = 0
+      SmallImageIndex = 92
+      OnClick = NavBarClick
     end
     object navbrStyleIt_main: TdxNavBarStyleItem
       Style.BackColor = clGray

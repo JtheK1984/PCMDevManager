@@ -11,7 +11,3 @@ copy /y /v E:\Projekte\Windows\PCMDevmanager\Win64\Release\PCMDEVManager.exe "e:
 copy /y /v E:\Projekte\Windows\PCMDevmanager\Win64\Release\PCMDEVManager.DE "e:\Inno\Setupfiles\Programme\PCMDEVManager_x64"
 copy /y /v E:\Projekte\Windows\PCMDevmanager\Win64\Release\PCMDEVManager.EN "e:\Inno\Setupfiles\Programme\PCMDEVManager_x64"
 
-echo "Kopiere Doku ins Setupverzeichnis"
-copy /y /v E:\Projekte\Windows\PCMDevmanager\PCMDEVManager.docx "e:\Inno\Setupfiles\Programme\PCMDEVManager"
-copy /y /v E:\Projekte\Windows\PCMDevmanager\PCMDEVManager.pdf "e:\Inno\Setupfiles\Programme\PCMDEVManager"
-copy /y /v E:\Projekte\Windows\PCMDevmanager\PCMDEVManager.htm "e:\Inno\Setupfiles\Programme\PCMDEVManager"

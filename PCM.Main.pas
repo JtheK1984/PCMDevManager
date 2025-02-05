@@ -4,6 +4,13 @@ interface
 
 uses
   {$Region Uses}
+    {$IFDEF WIN64}
+      {$I Skins.inc}
+       dxSkinsForm, dxSkinsdxBarPainter, dxSkinscxPCPainter,
+    {$ELSE}
+      {$I Skins.inc}
+      dxSkinsForm, dxSkinsdxBarPainter, dxSkinscxPCPainter,
+    {$ENDIF}
   SYSTEM.uitypes, Winapi.Windows, Winapi.Messages, System.SysUtils,
   System.Variants, System.Classes, Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs,
   Vcl.ImgList, Vcl.Menus, NTTranslator, Strutils, DateUtils,shellapi, Vcl.Themes,
@@ -16,27 +23,11 @@ uses
   dxChartXYSeriesAreaView, dxChartMarkers, dxChartXYSeriesBarView,
   dxChartDBData, dxCoreClasses, dxChartControl, VCLTee.TeeDBCrossTab,
   cxGridChartView, cxPivotGridChartConnection, cxCustomPivotGrid, cxDBPivotGrid,
-  dxSkinWXI, dxBarExtItems, cxBarEditItem,
+  dxBarExtItems, cxBarEditItem,
   cxSplitter, cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters,
   cxEdit, cxClasses, System.ImageList, cxContainer, dxBarBuiltInMenu,
   Vcl.ExtCtrls, cxPC, dxNavBarCollns, dxNavBarBase, dxNavBar, dxSkinsCore,
-  dxSkinBasic, dxSkinBlack, dxSkinBlue, dxSkinBlueprint, dxSkinCaramel,
-  dxSkinCoffee, dxSkinDarkroom, dxSkinDarkSide, dxSkinDevExpressDarkStyle,
-  dxSkinDevExpressStyle, dxSkinFoggy, dxSkinGlassOceans, dxSkinHighContrast,
-  dxSkiniMaginary, dxSkinLilian, dxSkinLiquidSky, dxSkinLondonLiquidSky,
-  dxSkinMcSkin, dxSkinMetropolis, dxSkinMetropolisDark, dxSkinMoneyTwins,
-  dxSkinOffice2007Black, dxSkinOffice2007Blue, dxSkinOffice2007Green,
-  dxSkinOffice2007Pink, dxSkinOffice2007Silver, dxSkinOffice2010Black,
-  dxSkinOffice2010Blue, dxSkinOffice2010Silver, dxSkinOffice2013DarkGray,
-  dxSkinOffice2013LightGray, dxSkinOffice2013White, dxSkinOffice2016Colorful,
-  dxSkinOffice2016Dark, dxSkinOffice2019Black, dxSkinOffice2019Colorful,
-  dxSkinOffice2019DarkGray, dxSkinOffice2019White, dxSkinPumpkin, dxSkinSeven,
-  dxSkinSevenClassic, dxSkinSharp, dxSkinSharpPlus, dxSkinSilver,
-  dxSkinSpringtime, dxSkinStardust, dxSkinSummer2008, dxSkinTheAsphaltWorld,
-  dxSkinTheBezier, dxSkinsDefaultPainters, dxSkinValentine,
-  dxSkinVisualStudio2013Blue, dxSkinVisualStudio2013Dark,
-  dxSkinVisualStudio2013Light, dxSkinVS2010, dxSkinWhiteprint,
-  dxSkinXmas2008Blue, dxBar, cxLocalization, cxLabel, cxGroupBox, dxNavBarStyles,inifiles, Data.DB,PCM.Modul.B_Config,
+  dxBar, cxLocalization, cxLabel, cxGroupBox, dxNavBarStyles,inifiles, Data.DB,PCM.Modul.B_Config,
   dxShellDialogs;
   {$EndRegion Uses}
 type
@@ -101,7 +92,7 @@ type
     dxBarButton1: TdxBarButton;
     Menuezurueck: TdxBarButton;
     dxBarGroup1: TdxBarGroup;
-    navbr_mainGroup1: TdxNavBarGroup;
+    navbrgrp_Dev: TdxNavBarGroup;
     iTickets: TdxNavBarItem;
     ts_Dashboard: TcxTabSheet;
     chartctrl_Customer: TdxChartControl;
@@ -112,9 +103,11 @@ type
     pnl_Dashboard: TcxGroupBox;
     iKonfiguration: TdxNavBarItem;
     dxOpenFileDialog1: TdxOpenFileDialog;
-    navbr_mainGroup2: TdxNavBarGroup;
-    navbr_mainItem1: TdxNavBarItem;
-    navbr_mainItem2: TdxNavBarItem;
+    navbrgrp_XML_DOKU: TdxNavBarGroup;
+    iUpdateXML: TdxNavBarItem;
+    iDokumentation: TdxNavBarItem;
+    navbrgrp_Rest: TdxNavBarGroup;
+    iRestAPI: TdxNavBarItem;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormResize(Sender: TObject);
@@ -131,14 +124,15 @@ type
     procedure iSpracheClick(Sender: TObject);
   private
     { Private-Deklarationen }
+  public
+    { Public-Deklarationen }
+    bAbmelden: Boolean;
     Modules: TCollection;
     function CurrentModule: TForm;
     procedure Abmelden;
     procedure CloseModules;
     procedure LoadData;
-  public
-    { Public-Deklarationen }
-    bAbmelden: Boolean;
+    procedure RegisterNavBarItems;
   end;
   {$EndRegion Type}
 var
@@ -162,7 +156,7 @@ uses  PCM.Benutzerverwaltung,
 			PCM.Strings,
       PCM.SQL,
       PCM.Ticket,
-      PCM.Entwicklung;
+      PCM.Entwicklung, PCM.splash, PCM.Swagger,PCM.Modul.C_Update,PCM.Modul.D_Doku;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //
@@ -224,6 +218,54 @@ begin
     dm_pcm.qry_Chart.Refresh
   else
     dm_pcm.qry_Chart.open;
+end;
+procedure Tfrm_PCM_Main.RegisterNavBarItems;
+  procedure RegisterForm(SideBarItemName: string; FormClass: TFormClass; Instance: Pointer; Right: Integer);
+  var
+    NewModule: TModule;
+    Item: TdxNavBarItem;
+  begin
+    Item := navbr_main.Items.Items[navbr_main.Items.ItemByName(SideBarItemName).index];
+    if Assigned(Item) then
+    begin
+      NewModule := TModule(Modules.Add);
+      Item.Tag := NewModule.ID;
+      NewModule.FormClass := FormClass;
+      NewModule.Instance := Instance;
+      NewModule.Right := Right;
+      NewModule.ModuleName := SideBarItemName;
+      NewModule.ImageIndex := Item.SmallImageIndex;
+    end;
+  end;
+  procedure RegisterEvent(SideBarItemName: string; Event: TMethod);
+  var
+    NewModule: TModule;
+    Item: TdxNavBarItem;
+  begin
+    Item := navbr_main.Items.Items[navbr_main.Items.ItemByName(SideBarItemName).index];
+    if Assigned(Item) then
+    begin
+      NewModule := TModule(Modules.Add);
+      Item.Tag := NewModule.ID;
+      NewModule.Event := Event;
+      NewModule.ModuleName := SideBarItemName;
+    end
+  end;
+begin
+  Modules.Clear;
+  RegisterForm('iBenutzerverwaltung', Tfrm_User, @frm_User, 1);
+  RegisterForm('iKonfiguration', Tfrm_config, @frm_config, 1);
+  RegisterForm('iDesign', Tfrm_Design, @frm_Design, 1);
+  RegisterForm('iTickets',Tfrm_Ticket, @frm_Ticket, 1);
+  RegisterForm('iEntwicklung', Tfrm_Dev, @frm_Dev, 1);
+  RegisterForm('iRestAPI', Tfrm_Swagger, @frm_Swagger, 1);
+  RegisterForm('iDokumentation', Tfrm_Doku, @frm_Doku, 1);
+  RegisterForm('iUpdateXML', Tfrm_Update, @frm_Update, 1);
+  RegisterForm('iSysteminfo',Tfrm_PCM_System, @frm_PCM_System, 1);
+  RegisterForm('iInfo',Tfrm_PCM_InfoApp, @frm_PCM_InfoApp, 1);
+  RegisterForm('iHandbuch',Tfrm_Handbuch,@frm_Handbuch, 1);
+  RegisterEvent('iAbmelden', Abmelden);
+  RegisterEvent('iBeenden', Close);
 end;
 {$EndRegion Hilfsfunktionen}
 ////////////////////////////////////////////////////////////////////////////////
@@ -347,7 +389,7 @@ begin
       begin
         sModul:= mModule.ModuleName;
         sModulCaption:= mModule.ModuleName;
-        case AnsiIndexStr(sModul, ['iBenutzerverwaltung','iKonfiguration','iDesign','iEntwicklung','iTickets','iSysteminfo','iInfo','iHandbuch']) of
+        case AnsiIndexStr(sModul, ['iBenutzerverwaltung','iKonfiguration','iDesign','iEntwicklung','iTickets','iSysteminfo','iInfo','iHandbuch','iRestAPI','iDokumentation','iUpdateXML']) of
 
         0:
           begin
@@ -389,6 +431,21 @@ begin
             sModulCaption := 'i'  + rs_PCM_Handbuch;
             dm_PCM.iModulTab:= 3;
           end;
+				8:
+					begin
+            sModulCaption := 'i'  + 'Rest-API Dokumentation' ;
+            dm_PCM.iModulTab:= 1;
+          end;
+        9:
+					begin
+            sModulCaption := 'i'  + 'Dokumentation' ;
+            dm_PCM.iModulTab:= 1;
+          end;
+        10:
+					begin
+            sModulCaption := 'i'  + 'Update XML' ;
+            dm_PCM.iModulTab:= 1;
+          end;
         end;
         iPageIndex := TabExist('tsh' + sModul);
         if iPageIndex > -1 then
@@ -412,7 +469,7 @@ begin
           finally
             Screen.Cursor := crDefault;
           end;
-          ShowWaitForm(TForm(Self), PWideChar('Formular wird geladen'), 1,ClientWidth, Height);
+          ShowWaitForm(TForm(Self), PWideChar('Formular wird geladen'), 1,417, 65);
           frm_TabForm := TForm((mModule.Instance)^);
           iPageIndex := CreateNewTabSheet('tsh' + sModul);
           frm_TabForm.Parent := pc_Main.Pages[iPageIndex];
@@ -450,15 +507,8 @@ begin
   WriteLog(PCM_Logname,rs_PCM_Beenden,0);
 end;
 procedure Tfrm_PCM_Main.FormCreate(Sender: TObject);
-//var
-//   r : TRect;
 begin
   Modules := TCollection.Create(TModule);
-//  BorderStyle := bsNone; // Remove borders
-//  WindowState := wsMaximized; // Maximize the window
-//  SystemParametersInfo(SPI_GETWORKAREA, 0, @r, 0); // Get usable work area
-//  SetBounds(r.Left, r.Top, r.Right - r.Left, r.Bottom - r.Top); // Set form bounds
-
 end;
 procedure Tfrm_PCM_Main.FormDestroy(Sender: TObject);
 begin
@@ -535,96 +585,6 @@ begin
   BarResize;
 end;
 procedure Tfrm_PCM_Main.FormShow(Sender: TObject);
-  procedure RegisterForm(SideBarItemName: string; FormClass: TFormClass; Instance: Pointer; Right: Integer);
-  var
-    NewModule: TModule;
-    Item: TdxNavBarItem;
-  begin
-    Item := navbr_main.Items.Items[navbr_main.Items.ItemByName(SideBarItemName).index];
-    if Assigned(Item) then
-    begin
-      NewModule := TModule(Modules.Add);
-      Item.Tag := NewModule.ID;
-      NewModule.FormClass := FormClass;
-      NewModule.Instance := Instance;
-      NewModule.Right := Right;
-      NewModule.ModuleName := SideBarItemName;
-      NewModule.ImageIndex := Item.SmallImageIndex;
-    end;
-  end;
-  procedure RegisterEvent(SideBarItemName: string; Event: TMethod);
-  var
-    NewModule: TModule;
-    Item: TdxNavBarItem;
-  begin
-    Item := navbr_main.Items.Items[navbr_main.Items.ItemByName(SideBarItemName).index];
-    if Assigned(Item) then
-    begin
-      NewModule := TModule(Modules.Add);
-      Item.Tag := NewModule.ID;
-      NewModule.Event := Event;
-      NewModule.ModuleName := SideBarItemName;
-    end
-  end;
-  procedure RegisterNavBarItems;
-  begin
-    Modules.Clear;
-    RegisterForm('iBenutzerverwaltung', Tfrm_User, @frm_User, 1);
-    RegisterForm('iKonfiguration', Tfrm_config, @frm_config, 1);
-    RegisterForm('iDesign', Tfrm_Design, @frm_Design, 1);
-    RegisterForm('iTickets',Tfrm_Ticket, @frm_Ticket, 1);
-    RegisterForm('iEntwicklung', Tfrm_Dev, @frm_Dev, 1);
-    RegisterForm('iSysteminfo',Tfrm_PCM_System, @frm_PCM_System, 1);
-    RegisterForm('iInfo',Tfrm_PCM_InfoApp, @frm_PCM_InfoApp, 1);
-    RegisterForm('iHandbuch',Tfrm_Handbuch,@frm_Handbuch, 1);
-    RegisterEvent('iAbmelden', Abmelden);
-    RegisterEvent('iBeenden', Close);
-  end;
-  procedure InitializeRights;
-  begin
-    dm_PCM.qry_Work.SQL.Text:= ASSQL_GetAllRights[dm_PCM.iDBType];
-    dm_PCM.qry_Work.ParamByName('ID').AsInteger:= dm_PCM.iIDBenutzerPCM;
-    dm_PCM.qry_Work.Open;
-    dm_PCM.iBenutzer:= dm_PCM.qry_Work.FieldByName('Benutzer').asInteger;
-    dm_PCM.iKonfiguration:= dm_PCM.qry_Work.FieldByName('konfiguration').asInteger;
-    dm_PCM.iDesign:= dm_PCM.qry_Work.FieldByName('Design').asInteger;
-    dm_PCM.iLizenzenRecht:= dm_PCM.qry_Work.FieldByName('lg_lizenzen').asInteger;
-    dm_PCM.qry_Work.Close;
-  end;
-  procedure LoadLanguageIni;
-  begin
-    try
-      loc_lang.LoadFromFile(GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\cxLocalLang.ini');
-      loc_lang.LanguageIndex := 1;
-    except
-      on e:Exception do
-      begin
-        MessageDlg(rs_PCM_Sprachdatei, mtWarning, [mbOk], 0);
-      end
-    end;
-  end;
-  procedure CheckLogin;
-  begin
-    if not bAbmelden then
-      dm_PCM.bLogin := Autologin
-    else
-      dm_PCM.bLogin := false;
-    if not dm_PCM.bLogin then
-    begin
-      Application.CreateForm(Tfrm_PCM_Login, frm_PCM_Login);
-      dm_PCM.bLogin := frm_pcm_login.Login_User;
-      frm_PCM_Login.Free;
-    end;
-    if not dm_PCM.bLogin then
-      Application.Terminate;
-    bAbmelden:= False;
-  end;
-  procedure SetTrayMenu;
-  begin
-    Caption:= PCM_Programmname;
-    if dm_PCM.bDemo then
-      Caption:=PCM_Programmname + rs_PCM_Demolizenz + DateTostr(dm_PCM.dtGueltig);
-  end;
 begin
   {$ifdef WIn32}
   iSprache.Visible:= false;
@@ -637,19 +597,14 @@ begin
   end
   else begin
     lafCtrl_Main.SkinName:= dm_PCM.sDesign;
-    LoadLanguageIni;
+    SplashScreen := TSplashScreen.Create(nil);
+    SplashScreen.Update; // Force it to render immediately
+    SplashScreen.Execute(dm_PCM.bStyle);
     if dm_PCM.bStyle then
     begin
       NavBarClick(iDesign);
-    end
-    else begin
-      CheckLogin;
-      InitializeRights;
-      LoadData;
-      WriteLog(PCM_Logname,rs_PCM_Start,0);
-      SetTrayMenu;
-      RegisterNavBarItems;
     end;
+    WriteLog(PCM_Logname,rs_PCM_Start,0);
   end;
 end;
 {$EndRegion Formfunktionen}
