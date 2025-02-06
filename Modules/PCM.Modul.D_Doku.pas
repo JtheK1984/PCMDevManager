@@ -892,7 +892,7 @@ begin
   Application.CreateForm(Tfrm_DokuCreate, frm_DokuCreate);
   if frm_DokuCreate.Execute(True,sApplikation) then
   begin
-    ShowWaitForm(TForm(Self), PWideChar('Dokumentation HTM wird erstellt'), 1,frm_PCM_Main.ClientWidth, frm_PCM_Main.Height);
+    ShowWaitForm(TForm(Self), PWideChar('Dokumentation HTM wird erstellt'), 1,417, 65);
     try
       CreateDokuHTM(sApplikation,sApplikation = 'Alle');
       WaitFormStep;
@@ -911,7 +911,7 @@ begin
   Application.CreateForm(Tfrm_DokuCreate, frm_DokuCreate);
   if frm_DokuCreate.Execute(True,sApplikation) then
   begin
-    ShowWaitForm(TForm(Self), PWideChar('Dokumentation HTM wird erstellt'), 2,frm_PCM_Main.ClientWidth, frm_PCM_Main.Height);
+    ShowWaitForm(TForm(Self), PWideChar('Dokumentation HTM wird erstellt'), 2,417,65);
     try
       CreateDokuHTM(sApplikation,sApplikation = 'Alle');
       WaitFormStep;
@@ -933,7 +933,7 @@ begin
   Application.CreateForm(Tfrm_DokuCreate, frm_DokuCreate);
   if frm_DokuCreate.Execute(True,sApplikation) then
   begin
-    ShowWaitForm(TForm(Self), PWideChar('Dokumentation DOC wird erstellt'), 1,frm_PCM_Main.ClientWidth, frm_PCM_Main.Height);
+    ShowWaitForm(TForm(Self), PWideChar('Dokumentation DOC wird erstellt'), 1,417,65);
     try
       WaitFormSetText('Dokumentation DOC wird erstellt');
       CreateDokuDOCPDF(sApplikation,sApplikation = 'Alle');
