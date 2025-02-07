@@ -83,7 +83,7 @@ type
     procedure FormActivate(Sender: TObject);
   private
     { Private-Deklarationen }
-    function Base64FromBitmap(Bitmap: TImage): Ansistring;
+    function Base64FromBitmap(Bitmap: TImage): String;
     procedure CreateDokuHTM(AApplikation: String; AAll: boolean);
     procedure CreateDokuDOCPDF(AApplikation: String; AAll: boolean);
   public
@@ -119,7 +119,7 @@ uses  PCM.Data,
 // Hilfsfunktionen                                                            //
 ////////////////////////////////////////////////////////////////////////////////
 {$Region Helperfunctions}
-function Tfrm_Doku.Base64FromBitmap(Bitmap: TImage): Ansistring;
+function Tfrm_Doku.Base64FromBitmap(Bitmap: TImage): String;
 var
   Input: TBytesStream;
   Output: TStringStream;
@@ -142,7 +142,7 @@ end;
 procedure Tfrm_Doku.CreateDokuHTM(AApplikation: String; AAll: boolean);
 var
   slDoku: TStringList;
-  sbase64: Ansistring;
+  sbase64: string;
   sProgramm: string;
   bmPicture: TImage;
   fBreite: double;
@@ -255,9 +255,451 @@ var
   vBookmark,wdGoToTableOfContents : OleVariant;
   InsertRange,InlineShapes: OleVariant;
   iSize: integer;
+  sProgramm: string;
 begin
   if AAll then
   begin
+    dm_PCM.qry_work_Sub.SQL.Text:= 'SELECT Programm FROM lizenzgenerator_programme GROUP BY Programm ORDER BY Programm';
+    dm_PCM.qry_work_Sub.open;
+    while not dm_PCM.qry_work_Sub.Eof do
+    begin
+      sProgramm:= StringReplace(dm_PCM.qry_work_Sub.FieldByName('Programm').AsString,'-',' - ',[rfIgnoreCase,rfReplaceAll]);
+      WordApp := CreateOleObject('Word.Application');
+      WaitFormSetText('Dokumentation DOC wird erstellt');
+      WriteLog(PCM_Logname,'Dokument wird geöffnet',0);
+      WordDoc := WordApp.Documents.Open(ExtractFilePath(Paramstr(0)) + 'PCMVorlage.docx');
+
+      WriteLog(PCM_Logname,'Dokument ' + ExtractFilePath(Paramstr(0)) + 'PCMVorlage.docx' + ' geöffnet',0);
+      Sleep(100);
+      WordApp.Visible := False;
+      WordApp.DisplayAlerts := False;
+      try
+        vBookmark:='AppName';
+        WordApp.Selection.Goto(wdGotoBookmark, Unassigned, Unassigned, vBookmark);
+        WordApp.Selection.TypeText(AApplikation);
+        WordApp.Selection.GoTo(wdGoToTableOfContents, wdGoToLast);
+        WordApp.Selection.EndKey(wdStory);
+        WordApp.Selection.InsertBreak(wdPageBreak);
+        {$Region Database}
+        dm_PCM.qry_Work.SQL.Text:= 'SELECT * FROM doku_body Where program = :Program and headertype <> '''' order by Sortierung asc';
+        dm_PCM.qry_Work.ParamByName('Program').AsString:= AApplikation;
+        dm_PCM.qry_Work.open;
+        while not dm_PCM.qry_Work.eof do
+        begin
+          // Überschrift
+          WaitFormSetText('Dokumentation DOC: ' + dm_PCM.qry_Work.FieldByname('header').AsString);
+          WriteLog(PCM_Logname,'Schreibe Header ' + dm_PCM.qry_Work.FieldByname('header').AsString ,0);
+          Application.ProcessMessages;
+          if dm_PCM.qry_Work.FieldByname('header').AsString <> '' then
+          begin
+            InsertRange := WordDoc.Range(WordDoc.Content.End - 1, WordDoc.Content.End - 1);
+            if dm_PCM.qry_Work.FieldByname('newpage').AsBoolean then
+            begin
+              InsertRange.InsertBreak(wdPageBreak);
+            end;
+            InsertRange.Text := dm_PCM.qry_Work.FieldByname('header').AsString + #13#10; // CRLF for a new paragraph
+            InsertRange.Style:= dm_PCM.qry_Work.FieldByname('headertype').AsString;
+          end;
+          if dm_PCM.qry_Work.FieldByname('header').AsString = '2. Systemvoraussetzungen' then
+          begin
+            {$Region Table}
+            InsertRange := WordDoc.Range(WordDoc.Content.End - 1, WordDoc.Content.End - 1);
+            InsertRange.Style:= 'Standard';
+            Table := WordDoc.Tables.Add(Range := InsertRange, NumRows := 10, NumColumns := 2);
+            // Tabelle Verbinden
+            Table.Cell(1, 1).Merge(Table.Cell(1, 2));
+            Table.Cell(1, 1).Range.Text := 'Systemvoraussetzungen';
+            // Font and Background color
+            Table.Cell(1, 1).Range.Font.Color:= wdColorWhite;
+            Table.Cell(1, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+            // Border
+            Table.Cell(1, 1).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(1, 1).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(1, 1).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(1, 1).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(1, 1).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(1, 1).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(1, 1).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(1, 1).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(1, 1).width:= 453 ;
+            // Font and Background color
+            Table.Cell(2, 1).Range.Text := 'Betriebssystem:';
+            Table.Cell(2, 1).Range.Font.Color:= wdColorWhite;
+            Table.Cell(2, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+            // Border
+            Table.Cell(2, 1).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(2, 1).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(2, 1).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(2, 1).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(2, 1).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(2, 1).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(2, 1).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(2, 1).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(2, 1).width:= 113;
+            // Font and Background color
+            Table.Cell(2, 2).Range.Text := 'Windows 8, Windows 10, Windows 11';
+            Table.Cell(2, 2).Range.Font.Color:= wdColorWhite;
+            Table.Cell(2, 2).Shading.BackgroundPatternColor := RGB(119, 136, 153);
+            // Border
+            Table.Cell(2, 2).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(2, 2).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(2, 2).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(2, 2).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(2, 2).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(2, 2).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(2, 2).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(2, 2).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(2, 2).width:= 340;
+            // Font and Background color
+            Table.Cell(3, 1).Range.Text := 'Prozessor:';
+            Table.Cell(3, 1).Range.Font.Color:= wdColorWhite;
+            Table.Cell(3, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+            // Border
+            Table.Cell(3, 1).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(3, 1).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(3, 1).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(3, 1).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(3, 1).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(3, 1).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(3, 1).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(3, 1).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(3, 1).width:= 113;
+            // Font and Background color
+            Table.Cell(3, 2).Range.Text := 'Prozessor mit 1 GHz oder höher';
+            Table.Cell(3, 2).Range.Font.Color:= wdColorWhite;
+            Table.Cell(3, 2).Shading.BackgroundPatternColor := RGB(119, 136, 153);
+            // Border
+            Table.Cell(3, 2).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(3, 2).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(3, 2).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(3, 2).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(3, 2).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(3, 2).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(3, 2).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(3, 2).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(3, 2).width:= 340;
+            // Font and Background color
+            Table.Cell(4, 1).Range.Text := 'Arbeitsspeicher:';
+            Table.Cell(4, 1).Range.Font.Color:= wdColorWhite;
+            Table.Cell(4, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+            // Border
+            Table.Cell(4, 1).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(4, 1).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(4, 1).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(4, 1).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(4, 1).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(4, 1).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(4, 1).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(4, 1).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(4, 1).width:= 113;
+            // Font and Background color
+            Table.Cell(4, 2).Range.Text := '2 Gigabyte';
+            Table.Cell(4, 2).Range.Font.Color:= wdColorWhite;
+            Table.Cell(4, 2).Shading.BackgroundPatternColor := RGB(119, 136, 153);
+            // Border
+            Table.Cell(4, 2).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(4, 2).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(4, 2).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(4, 2).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(4, 2).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(4, 2).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(4, 2).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(4, 2).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(4, 2).width:= 340;
+            // Font and Background color
+            Table.Cell(5, 1).Range.Text := 'Festplattenspeicher:';
+            Table.Cell(5, 1).Range.Font.Color:= wdColorWhite;
+            Table.Cell(5, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+            // Border
+            Table.Cell(5, 1).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(5, 1).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(5, 1).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(5, 1).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(5, 1).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(5, 1).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(5, 1).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(5, 1).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(5, 1).width:= 113;
+            // Font and Background color
+            Table.Cell(5, 2).Range.Text := 'ca. 1 Gigabyte';
+            Table.Cell(5, 2).Range.Font.Color:= wdColorWhite;
+            Table.Cell(5, 2).Shading.BackgroundPatternColor := RGB(119, 136, 153);
+            // Border
+            Table.Cell(5, 2).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(5, 2).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(5, 2).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(5, 2).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(5, 2).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(5, 2).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(5, 2).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(5, 2).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(5, 2).width:= 340;
+            // Font and Background color
+            Table.Cell(6, 1).Range.Text := 'Grafikkarte:';
+            Table.Cell(6, 1).Range.Font.Color:= wdColorWhite;
+            Table.Cell(6, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+            // Border
+            Table.Cell(6, 1).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(6, 1).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(6, 1).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(6, 1).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(6, 1).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(6, 1).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(6, 1).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(6, 1).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(6, 1).width:= 113;
+            // Font and Background color
+            Table.Cell(6, 2).Range.Text := 'DirectX 9 oder höher';
+            Table.Cell(6, 2).Range.Font.Color:= wdColorWhite;
+            Table.Cell(6, 2).Shading.BackgroundPatternColor := RGB(119, 136, 153);
+            // Border
+            Table.Cell(6, 2).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(6, 2).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(6, 2).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(6, 2).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(6, 2).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(6, 2).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(6, 2).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(6, 2).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(6, 2).width:= 340;
+            // Font and Background color
+            Table.Cell(7, 1).Range.Text := 'Display:';
+            Table.Cell(7, 1).Range.Font.Color:= wdColorWhite;
+            Table.Cell(7, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+            // Border
+            Table.Cell(7, 1).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(7, 1).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(7, 1).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(7, 1).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(7, 1).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(7, 1).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(7, 1).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(7, 1).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(7, 1).width:= 113;
+            // Font and Background color
+            Table.Cell(7, 2).Range.Text := '1280 x 800';
+            Table.Cell(7, 2).Range.Font.Color:= wdColorWhite;
+            Table.Cell(7, 2).Shading.BackgroundPatternColor := RGB(119, 136, 153);
+            // Border
+            Table.Cell(7, 2).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(7, 2).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(7, 2).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(7, 2).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(7, 2).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(7, 2).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(7, 2).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(7, 2).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(7, 2).width:= 340;
+            // Font and Background color
+            Table.Cell(8, 1).Range.Text := 'Internetverbindung:';
+            Table.Cell(8, 1).Range.Font.Color:= wdColorWhite;
+            Table.Cell(8, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+            // Border
+            Table.Cell(8, 1).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(8, 1).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(8, 1).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(8, 1).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(8, 1).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(8, 1).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(8, 1).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(8, 1).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(8, 1).width:= 113;
+            // Font and Background color
+            Table.Cell(8, 2).Range.Text := 'Für die Aufrufe über die REST-API';
+            Table.Cell(8, 2).Range.Font.Color:= wdColorWhite;
+            Table.Cell(8, 2).Shading.BackgroundPatternColor := RGB(119, 136, 153);
+            // Border
+            Table.Cell(8, 2).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(8, 2).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(8, 2).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(8, 2).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(8, 2).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(8, 2).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(8, 2).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(8, 2).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(8, 2).width:= 340;
+            // Font and Background color
+            Table.Cell(9, 1).Range.Text := 'Portfreigaben:';
+            Table.Cell(9, 1).Range.Font.Color:= wdColorWhite;
+            Table.Cell(9, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+            // Border
+            Table.Cell(9, 1).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(9, 1).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(9, 1).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(9, 1).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(9, 1).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(9, 1).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(9, 1).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(9, 1).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(9, 1).width:= 113;
+            // Font and Background color
+            Table.Cell(9, 2).Range.Text := '55700 TCP ausgehend';
+            Table.Cell(9, 2).Range.Font.Color:= wdColorWhite;
+            Table.Cell(9, 2).Shading.BackgroundPatternColor := RGB(119, 136, 153);
+            // Border
+            Table.Cell(9, 2).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(9, 2).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(9, 2).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(9, 2).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(9, 2).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(9, 2).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(9, 2).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(9, 2).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(9, 2).width:= 340;
+            // Font and Background color
+            Table.Cell(10, 1).Range.Text := 'SQL-Server:';
+            Table.Cell(10, 1).Range.Font.Color:= wdColorWhite;
+            Table.Cell(10, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+            // Border
+            Table.Cell(10, 1).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(10, 1).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(10, 1).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(10, 1).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(10, 1).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(10, 1).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(10, 1).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(10, 1).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(10, 1).width:= 113;
+            // Font and Background color
+            Table.Cell(10, 2).Range.Text := 'MYSQL 5.x für 32-Bit' + #13#10 + 'MYSQL 8.x für 64-Bit';
+            Table.Cell(10, 2).Range.Font.Color:= wdColorWhite;
+            Table.Cell(10, 2).Shading.BackgroundPatternColor := RGB(119, 136, 153);
+            // Border
+            Table.Cell(10, 2).Borders.Item(wdBorderRight).LineStyle := wdLineStyleSingle;
+            Table.Cell(10, 2).Borders.Item(wdBorderLeft).LineStyle := wdLineStyleSingle;
+            Table.Cell(10, 2).Borders.Item(wdBorderTop).LineStyle := wdLineStyleSingle;
+            Table.Cell(10, 2).Borders.Item(wdBorderBottom).LineStyle := wdLineStyleSingle;
+            // Boarder Color
+            Table.Cell(10, 2).Borders.Item(wdBorderRight).Color := wdColorWhite;
+            Table.Cell(10, 2).Borders.Item(wdBorderLeft).Color := wdColorWhite;
+            Table.Cell(10, 2).Borders.Item(wdBorderTop).Color := wdColorWhite;
+            Table.Cell(10, 2).Borders.Item(wdBorderBottom).Color := wdColorWhite;
+            Table.Cell(10, 2).width:= 340;
+            InsertRange := WordDoc.Range(WordDoc.Content.End - 1, WordDoc.Content.End - 1);
+            InsertRange.Style:= 'Standard';
+            InsertRange.Text:= #13#10;
+            {$EndRegion Table}
+          end
+          else begin
+            if dm_PCM.qry_Work.FieldByname('header').AsString = '4. Hinweis' then
+            begin
+              {$Region Hinweis}
+              InsertRange := WordDoc.Range(WordDoc.Content.End - 1, WordDoc.Content.End - 1);
+              InsertRange.Style:= 'Standard';
+              Table := WordDoc.Tables.Add(Range := InsertRange, NumRows := 2, NumColumns := 2);
+              // Tabelle Verbinden
+              Table.Cell(1, 1).Merge(Table.Cell(1, 2));
+              Table.Cell(1, 1).Range.Text := 'Hinweis';
+              // Font and Background color
+              Table.Cell(1, 1).Range.Font.Color:= wdColorWhite;
+              Table.Cell(1, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
+              Table.Cell(1, 1).width:= 453;
+              // Font and Background color
+              InlineShapes:= Table.Cell(2, 1).Range.InlineShapes.AddPicture(dm_PCM.qry_Work.FieldByname('bild').AsString, False, True);
+              Table.Cell(2, 1).width:= 48;
+              Table.Cell(2, 2).Range.Text := 'Der Benutzer PCM ist der standardmäßig eingerichtete Benutzer. Er besitzt alle Rechte in der PCM – Software.';
+              Table.Cell(2, 2).width:= 405;
+              OriginalWidth := InlineShapes.width;
+              OriginalHeight := InlineShapes.Height;
+              AspectRatio := OriginalHeight / OriginalWidth;
+              InlineShapes.Width := 46;
+              InlineShapes.Height := 46 * AspectRatio;
+              {$EndRegion Hinweis}
+            end
+            else begin
+              // Text
+              if dm_PCM.qry_Work.FieldByname('content').AsString <> '' then
+              begin
+                {$Region Content}
+                InsertRange := WordDoc.Range(WordDoc.Content.End - 1, WordDoc.Content.End - 1);
+                if (dm_PCM.qry_Work.FieldByname('newpage').AsBoolean) and (dm_PCM.qry_Work.FieldByname('header').AsString ='') then
+                begin
+                  InsertRange.InsertBreak(wdPageBreak);
+                end;
+                InsertRange.Text := dm_PCM.qry_Work.FieldByname('content').AsString + #13#10;
+                InsertRange.Style:= 'Standard';
+                {$EndRegion Content}
+              end;
+              if dm_PCM.qry_Work.FieldByname('bild').AsString <> '' then
+              begin
+                // Image
+                {$Region Bild}
+                InsertRange := WordDoc.Range(WordDoc.Content.End - 1, WordDoc.Content.End - 1);
+                InsertRange.Style:= 'Standard';
+                InsertRange.Text :=  #13#10;
+                InsertRange.ParagraphFormat.Alignment := 1;
+                if (dm_PCM.qry_Work.FieldByname('newpage').AsBoolean) and (dm_PCM.qry_Work.FieldByname('header').AsString ='') and (dm_PCM.qry_Work.FieldByname('content').AsString ='') then
+                begin
+                  InsertRange.InsertBreak(wdPageBreak);
+                end;
+                InlineShapes:= WordDoc.InlineShapes.AddPicture(dm_PCM.qry_Work.FieldByname('bild').AsString, False, True, InsertRange);
+                InlineShapes.Select;
+                OriginalWidth := InlineShapes.width;
+                OriginalHeight := InlineShapes.Height;
+                AspectRatio := OriginalHeight / OriginalWidth;
+                if dm_PCM.qry_Work.FieldByName('Breite').AsFloat > 0 then
+                begin
+                  iSize := Trunc(dm_PCM.qry_Work.FieldByName('Breite').AsFloat * 27.2215269);
+                  InlineShapes.Width := iSize;
+                  InlineShapes.Height := iSize * AspectRatio;
+                end
+                else begin
+                  InlineShapes.Width := 453;
+                  InlineShapes.Height := 453 * AspectRatio;
+                end;
+                InsertRange := WordDoc.Range(WordDoc.Content.End - 1, WordDoc.Content.End - 1);
+                InsertRange.Style:= 'Standard';
+                if dm_PCM.qry_Work.FieldByName('Leerzeile').AsBoolean then
+                  InsertRange.Text := #13#10;
+                {$EndRegion Bild}
+              end;
+            end;
+          end;
+          dm_PCM.qry_Work.Next;
+        end;
+        dm_PCM.qry_Work.Close;
+        {$EndRegion Database}
+        WriteLog(PCM_Logname,'Dokumentation Inhaltsverzeichnis aktualisieren',0);
+        WordApp.Selection.WholeStory;
+        WordApp.Selection.Fields.Update;
+        WriteLog(PCM_Logname,'Dokumentation PDF speichern: ' + ExtractFilePath(Paramstr(0)) + 'Doku\'+ StringReplace(sProgramm,' - ','',[rfIgnoreCase,rfReplaceAll]) ,0);
+        WaitFormSetText('Dokumentation PDF speichern');
+        WordApp.ActiveDocument.SaveAs2(ExtractFilePath(Paramstr(0)) + 'Doku\'+ StringReplace(sProgramm,' - ','',[rfIgnoreCase,rfReplaceAll]),17);
+        WaitFormSetText('Dokumentation Doc speichern');
+        WriteLog(PCM_Logname,'Dokumentation Doc speichern' + ExtractFilePath(Paramstr(0)) + 'Doku\'+ StringReplace(sProgramm,' - ','',[rfIgnoreCase,rfReplaceAll]),0);
+        WordApp.ActiveDocument.SaveAs(ExtractFilePath(Paramstr(0)) + 'Doku\'+ StringReplace(sProgramm,' - ','',[rfIgnoreCase,rfReplaceAll])  +'.docx');
+        if not VarIsNull(WordApp) then
+        begin
+          WordApp.Quit;
+          WordApp := Unassigned;
+        end;
+      except
+        if not VarIsNull(WordApp) then
+        begin
+          WordApp.Quit;
+          WordApp := Unassigned;
+        end;
+      end;
+      dm_PCM.qry_work_Sub.Next;
+    end;
   end
   else begin
     WordApp := CreateOleObject('Word.Application');

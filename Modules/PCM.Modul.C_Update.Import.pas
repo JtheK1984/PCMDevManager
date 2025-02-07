@@ -166,11 +166,11 @@ end;
 ////////////////////////////////////////////////////////////////////////////////
 procedure Tfrm_PCM_Import.btn_importClick(Sender: TObject);
 var
-  Node_Programm,Node_Version,Node_Description,Node_Description1: IXMLNode;
+  Node_Programm,Node_Version,Node_Description: IXMLNode;
   XMLDoc :IXMLDocument;
   sProgram,sBeschreibung,sStatement,sTablename,sSpalte,sDataType,
   sFeld,sDatentyp,sDatentyp1,sDatentyp2,sStandartWert,sPrimaerschluessel,
-  sline,sline1,sline2,sline3,sLeerwert: String;
+  sline,sline1,sLeerwert: String;
   dDateVersion: TDate;
   iProgram,iMajor, iMinor, iSQLStatement, iArrayCount,iLastID,iCount,iPos,iLaenge,
   iVorkomma,iNachkomma: integer;

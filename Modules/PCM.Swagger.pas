@@ -226,7 +226,7 @@ begin
     RestRequest.Execute;
     Result:= TJSonObject.ParseJSONValue(RestRequest.Response.JSONText) as TJSONObject;
   finally
-    RestRequest.DisposeOf;
+    RestRequest.Free;
   end;
 end;
 {$EndRegion Restfunctions}
@@ -248,10 +248,9 @@ begin
   if iTotalHeight > 400 then
   begin
     iTotalHeight:= 400;
-    rchedt_ResponseBody.Properties.ScrollBars:= TScrollStyle.ssVertical;
+//    rchedt_ResponseBody.Properties.ScrollBars:= System.UITypes.TScrollStyle.ssVertical;
   end;
   rchedt_ResponseBody.Height := iTotalHeight;
-  iTotalHeight := rchedt_ResponseHeaders.Lines.Count * 16;
   grpbx_ResponseDetail.Height:= rchedt_ResponseHeaders.top + rchedt_ResponseHeaders.Height + 8;
   grpbx_Responsepanel.left:= 200;
   grpbx_Responsepanel.Width:= ClientWidth-400;

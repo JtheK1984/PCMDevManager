@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
-  cxLookAndFeelPainters, Vcl.ExtCtrls,
+  cxLookAndFeelPainters, Vcl.ExtCtrls,FireDAC.Stan.Param,
   dxGDIPlusClasses, dxActivityIndicator, cxContainer, cxEdit, cxProgressBar,
   cxImage, cxLabel, cxGroupBox, cxClasses, inifiles;
 
@@ -63,7 +63,6 @@ var
   ffiVerValue: PVSFixedFileInfo;
   dwdDummy: DWord;
   Result: String;
-  itest: integer;
 begin
   dwVerInfoSize := GetFileVersionInfoSize(PChar(ParamStr(0)), dwdDummy);
   if dwVerInfoSize = 0 then

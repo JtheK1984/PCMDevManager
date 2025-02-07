@@ -63,6 +63,8 @@ type
     cxGridDBTableView1Mobile: TcxGridDBColumn;
     cxGridDBTableView1Lizenz: TcxGridDBColumn;
     cxGridDBTableView1Localize: TcxGridDBColumn;
+    dxBarLargeButton1: TdxBarLargeButton;
+    dxBarLargeButton2: TdxBarLargeButton;
     procedure FormShow(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure cxGridDBTableView1CellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
@@ -72,6 +74,8 @@ type
       ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton;
       AShift: TShiftState; var AHandled: Boolean);
     procedure btn_SubScriptEditClick(Sender: TObject);
+    procedure dxBarLargeButton1Click(Sender: TObject);
+    procedure dxBarLargeButton2Click(Sender: TObject);
   private
     { Private-Deklarationen }
     function GetNotepad : string;
@@ -139,6 +143,235 @@ procedure Tfrm_Dev.cxGridDBTableView2CellDblClick(Sender: TcxCustomGridTableView
 begin
   ShellExecute(Application.Handle,'open',PChar(qry_Scripts.FieldByName('Path').asString),nil, nil, SW_NORMAL);
 end;
+procedure Tfrm_Dev.dxBarLargeButton1Click(Sender: TObject);
+Var
+  sPath: String;
+  sFile: String;
+  sFileWithoutExt: String;
+  slVersionH: TStringList;
+begin
+  if qry_Projects.FieldByName('ID').AsInteger > 0 then
+  begin
+    sPath:= StringReplace(qry_Projects.FieldByName('Path').AsString,qry_Projects.FieldByName('Name').AsString + '.dproj','',[rfReplaceAll,rfIgnoreCase]);
+    sFile:= StringReplace(qry_Projects.FieldByName('Name').AsString,'.dproj','.exe',[rfReplaceAll,rfIgnoreCase]);
+    sFileWithoutExt:= StringReplace(qry_Projects.FieldByName('Name').AsString,'.exe','',[rfReplaceAll,rfIgnoreCase]);
+    if qry_Projects.FieldByName('64Bit').AsBoolean then
+    begin
+      slVersionH := TStringList.Create;
+      try
+        slVersionH.Add('#define VERSION_MAJOR ' + qry_Projects.FieldByName('Major').AsString);
+        slVersionH.Add('#define VERSION_MINOR ' + qry_Projects.FieldByName('Minor').AsString);
+        slVersionH.Add('#define VERSION_BUILD ' + qry_Projects.FieldByName('Build').AsString);
+        slVersionH.Add('#define VERSION_REVISION ' + qry_Projects.FieldByName('Output').AsString);
+        slVersionH.Add('');
+        slVersionH.Add('#define STRINGIFY(x) #x');
+        slVersionH.Add('#define VERSION_STRING(a,b,c,d) STRINGIFY(a) "." STRINGIFY(b) "." STRINGIFY(c) "." STRINGIFY(d)');
+        slVersionH.Add('#define VERSION_STRING_FULL VERSION_STRING(VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD)');
+        slVersionH.Add('#define VERSION_STRING1(a,b) STRINGIFY(a) "." STRINGIFY(b)');
+        slVersionH.Add('#define VERSION_STRING_SMALL VERSION_STRING1(VERSION_MAJOR,VERSION_MINOR)');
+        slVersionH.Add('1 VERSIONINFO');
+        slVersionH.Add('FILEVERSION VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD');
+        slVersionH.Add('PRODUCTVERSION VERSION_MAJOR,VERSION_MINOR');
+        slVersionH.Add('FILEFLAGSMASK 0x3fL');
+        slVersionH.Add('FILEFLAGS 0x0L');
+        slVersionH.Add('FILEOS 0x4L');
+        slVersionH.Add('FILETYPE 0x1L');
+        slVersionH.Add('FILESUBTYPE 0x0L');
+        slVersionH.Add('BEGIN');
+        slVersionH.Add('  BLOCK "StringFileInfo"');
+        slVersionH.Add('  BEGIN');
+        slVersionH.Add('    BLOCK "040704B0"');
+        slVersionH.Add('    BEGIN');
+        slVersionH.Add('      VALUE "FileDescription", "' + qry_Projects.FieldByName('Beschreibung').AsString + '\0"');
+        slVersionH.Add('      VALUE "FileVersion", VERSION_STRING_FULL "\0"');
+        slVersionH.Add('      VALUE "InternalName", "'+ sFile +'\0"');
+        slVersionH.Add('      VALUE "LegalCopyright", "PCM (Jens Henske)\0"');
+        slVersionH.Add('      VALUE "ProductName", "PCMDEVManager 64-Bit\0"');
+        slVersionH.Add('      VALUE "ProductVersion",VERSION_STRING_SMALL "\0"');
+        slVersionH.Add('      VALUE "CompanyName", "PCM\0"');
+        slVersionH.Add('      VALUE "OriginalFilename", "'+ sFile +' (64-Bit)\0"');
+        slVersionH.Add('      VALUE "Comments", "\0"');
+        slVersionH.Add('    END');
+        slVersionH.Add('  END');
+        slVersionH.Add('');
+        slVersionH.Add('  BLOCK "VarFileInfo"');
+        slVersionH.Add('  BEGIN');
+        slVersionH.Add('    VALUE "Translation", 0x0407,1200');
+        slVersionH.Add('  END');
+        slVersionH.Add('END');
+        slVersionH.SaveToFile(spath + 'versioninfo64.rc');
+      finally
+        slVersionH.Free;
+      end;
+    end;
+    if qry_Projects.FieldByName('32Bit').AsBoolean then
+    begin
+      slVersionH := TStringList.Create;
+      try
+        slVersionH.Add('#define VERSION_MAJOR ' + qry_Projects.FieldByName('Major').AsString);
+        slVersionH.Add('#define VERSION_MINOR ' + qry_Projects.FieldByName('Minor').AsString);
+        slVersionH.Add('#define VERSION_BUILD ' + qry_Projects.FieldByName('Build').AsString);
+        slVersionH.Add('#define VERSION_REVISION ' + qry_Projects.FieldByName('Output').AsString);
+        slVersionH.Add('');
+        slVersionH.Add('#define STRINGIFY(x) #x');
+        slVersionH.Add('#define VERSION_STRING(a,b,c,d) STRINGIFY(a) "." STRINGIFY(b) "." STRINGIFY(c) "." STRINGIFY(d)');
+        slVersionH.Add('#define VERSION_STRING_FULL VERSION_STRING(VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD)');
+        slVersionH.Add('#define VERSION_STRING1(a,b) STRINGIFY(a) "." STRINGIFY(b)');
+        slVersionH.Add('#define VERSION_STRING_SMALL VERSION_STRING1(VERSION_MAJOR,VERSION_MINOR)');
+        slVersionH.Add('1 VERSIONINFO');
+        slVersionH.Add('FILEVERSION VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD');
+        slVersionH.Add('PRODUCTVERSION VERSION_MAJOR,VERSION_MINOR');
+        slVersionH.Add('FILEFLAGSMASK 0x3fL');
+        slVersionH.Add('FILEFLAGS 0x0L');
+        slVersionH.Add('FILEOS 0x4L');
+        slVersionH.Add('FILETYPE 0x1L');
+        slVersionH.Add('FILESUBTYPE 0x0L');
+        slVersionH.Add('BEGIN');
+        slVersionH.Add('  BLOCK "StringFileInfo"');
+        slVersionH.Add('  BEGIN');
+        slVersionH.Add('    BLOCK "040704B0"');
+        slVersionH.Add('    BEGIN');
+        slVersionH.Add('      VALUE "FileDescription", "' + qry_Projects.FieldByName('Beschreibung').AsString + '\0"');
+        slVersionH.Add('      VALUE "FileVersion", VERSION_STRING_FULL "\0"');
+        slVersionH.Add('      VALUE "InternalName", "PCMDEVManager.exe\0"');
+        slVersionH.Add('      VALUE "LegalCopyright", "PCM (Jens Henske)\0"');
+        slVersionH.Add('      VALUE "ProductName", "PCMDEVManager 32-Bit\0"');
+        slVersionH.Add('      VALUE "ProductVersion",VERSION_STRING_SMALL "\0"');
+        slVersionH.Add('      VALUE "CompanyName", "PCM\0"');
+        slVersionH.Add('      VALUE "OriginalFilename", "PCMDEVManager.exe (32-Bit)\0"');
+        slVersionH.Add('      VALUE "Comments", "\0"');
+        slVersionH.Add('    END');
+        slVersionH.Add('  END');
+        slVersionH.Add('');
+        slVersionH.Add('  BLOCK "VarFileInfo"');
+        slVersionH.Add('  BEGIN');
+        slVersionH.Add('    VALUE "Translation", 0x0407,1200');
+        slVersionH.Add('  END');
+        slVersionH.Add('END');
+        slVersionH.SaveToFile(spath + 'versioninfo32.rc');
+      finally
+        slVersionH.Free;
+      end;
+    end;
+  end;
+end;
+procedure Tfrm_Dev.dxBarLargeButton2Click(Sender: TObject);
+Var
+  sPath: String;
+  sFile: String;
+  sFileWithoutExt: String;
+  slVersionH: TStringList;
+begin
+  qry_Projects.First;
+  while not qry_Projects.eof do
+  begin
+    if qry_Projects.FieldByName('ID').AsInteger > 0 then
+    begin
+      sPath:= StringReplace(qry_Projects.FieldByName('Path').AsString,qry_Projects.FieldByName('Name').AsString + '.dproj','',[rfReplaceAll,rfIgnoreCase]);
+      sFile:= StringReplace(qry_Projects.FieldByName('Name').AsString,'.dproj','.exe',[rfReplaceAll,rfIgnoreCase]);
+      sFileWithoutExt:= StringReplace(qry_Projects.FieldByName('Name').AsString,'.exe','',[rfReplaceAll,rfIgnoreCase]);
+      if (qry_Projects.FieldByName('64Bit').AsBoolean) and (not qry_Projects.FieldByName('mobile').AsBoolean) then
+      begin
+        slVersionH := TStringList.Create;
+        try
+          slVersionH.Add('#define VERSION_MAJOR ' + qry_Projects.FieldByName('Major').AsString);
+          slVersionH.Add('#define VERSION_MINOR ' + qry_Projects.FieldByName('Minor').AsString);
+          slVersionH.Add('#define VERSION_BUILD ' + qry_Projects.FieldByName('Build').AsString);
+          slVersionH.Add('#define VERSION_REVISION ' + qry_Projects.FieldByName('Output').AsString);
+          slVersionH.Add('');
+          slVersionH.Add('#define STRINGIFY(x) #x');
+          slVersionH.Add('#define VERSION_STRING(a,b,c,d) STRINGIFY(a) "." STRINGIFY(b) "." STRINGIFY(c) "." STRINGIFY(d)');
+          slVersionH.Add('#define VERSION_STRING_FULL VERSION_STRING(VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD)');
+          slVersionH.Add('#define VERSION_STRING1(a,b) STRINGIFY(a) "." STRINGIFY(b)');
+          slVersionH.Add('#define VERSION_STRING_SMALL VERSION_STRING1(VERSION_MAJOR,VERSION_MINOR)');
+          slVersionH.Add('1 VERSIONINFO');
+          slVersionH.Add('FILEVERSION VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD');
+          slVersionH.Add('PRODUCTVERSION VERSION_MAJOR,VERSION_MINOR');
+          slVersionH.Add('FILEFLAGSMASK 0x3fL');
+          slVersionH.Add('FILEFLAGS 0x0L');
+          slVersionH.Add('FILEOS 0x4L');
+          slVersionH.Add('FILETYPE 0x1L');
+          slVersionH.Add('FILESUBTYPE 0x0L');
+          slVersionH.Add('BEGIN');
+          slVersionH.Add('  BLOCK "StringFileInfo"');
+          slVersionH.Add('  BEGIN');
+          slVersionH.Add('    BLOCK "040704B0"');
+          slVersionH.Add('    BEGIN');
+          slVersionH.Add('      VALUE "FileDescription", "' + qry_Projects.FieldByName('Beschreibung').AsString + '\0"');
+          slVersionH.Add('      VALUE "FileVersion", VERSION_STRING_FULL "\0"');
+          slVersionH.Add('      VALUE "InternalName", "'+ sFile +'\0"');
+          slVersionH.Add('      VALUE "LegalCopyright", "PCM (Jens Henske)\0"');
+          slVersionH.Add('      VALUE "ProductName", "PCMDEVManager 64-Bit\0"');
+          slVersionH.Add('      VALUE "ProductVersion",VERSION_STRING_SMALL "\0"');
+          slVersionH.Add('      VALUE "CompanyName", "PCM\0"');
+          slVersionH.Add('      VALUE "OriginalFilename", "'+ sFile +' (64-Bit)\0"');
+          slVersionH.Add('      VALUE "Comments", "\0"');
+          slVersionH.Add('    END');
+          slVersionH.Add('  END');
+          slVersionH.Add('');
+          slVersionH.Add('  BLOCK "VarFileInfo"');
+          slVersionH.Add('  BEGIN');
+          slVersionH.Add('    VALUE "Translation", 0x0407,1200');
+          slVersionH.Add('  END');
+          slVersionH.Add('END');
+          slVersionH.SaveToFile(spath + 'versioninfo64.rc');
+        finally
+          slVersionH.Free;
+        end;
+      end;
+      if (qry_Projects.FieldByName('32Bit').AsBoolean) and (not qry_Projects.FieldByName('mobile').AsBoolean) then
+      begin
+        slVersionH := TStringList.Create;
+        try
+          slVersionH.Add('#define VERSION_MAJOR ' + qry_Projects.FieldByName('Major').AsString);
+          slVersionH.Add('#define VERSION_MINOR ' + qry_Projects.FieldByName('Minor').AsString);
+          slVersionH.Add('#define VERSION_BUILD ' + qry_Projects.FieldByName('Build').AsString);
+          slVersionH.Add('#define VERSION_REVISION ' + qry_Projects.FieldByName('Output').AsString);
+          slVersionH.Add('');
+          slVersionH.Add('#define STRINGIFY(x) #x');
+          slVersionH.Add('#define VERSION_STRING(a,b,c,d) STRINGIFY(a) "." STRINGIFY(b) "." STRINGIFY(c) "." STRINGIFY(d)');
+          slVersionH.Add('#define VERSION_STRING_FULL VERSION_STRING(VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD)');
+          slVersionH.Add('#define VERSION_STRING1(a,b) STRINGIFY(a) "." STRINGIFY(b)');
+          slVersionH.Add('#define VERSION_STRING_SMALL VERSION_STRING1(VERSION_MAJOR,VERSION_MINOR)');
+          slVersionH.Add('1 VERSIONINFO');
+          slVersionH.Add('FILEVERSION VERSION_MAJOR,VERSION_MINOR,VERSION_REVISION,VERSION_BUILD');
+          slVersionH.Add('PRODUCTVERSION VERSION_MAJOR,VERSION_MINOR');
+          slVersionH.Add('FILEFLAGSMASK 0x3fL');
+          slVersionH.Add('FILEFLAGS 0x0L');
+          slVersionH.Add('FILEOS 0x4L');
+          slVersionH.Add('FILETYPE 0x1L');
+          slVersionH.Add('FILESUBTYPE 0x0L');
+          slVersionH.Add('BEGIN');
+          slVersionH.Add('  BLOCK "StringFileInfo"');
+          slVersionH.Add('  BEGIN');
+          slVersionH.Add('    BLOCK "040704B0"');
+          slVersionH.Add('    BEGIN');
+          slVersionH.Add('      VALUE "FileDescription", "' + qry_Projects.FieldByName('Beschreibung').AsString + '\0"');
+          slVersionH.Add('      VALUE "FileVersion", VERSION_STRING_FULL "\0"');
+          slVersionH.Add('      VALUE "InternalName", "PCMDEVManager.exe\0"');
+          slVersionH.Add('      VALUE "LegalCopyright", "PCM (Jens Henske)\0"');
+          slVersionH.Add('      VALUE "ProductName", "PCMDEVManager 32-Bit\0"');
+          slVersionH.Add('      VALUE "ProductVersion",VERSION_STRING_SMALL "\0"');
+          slVersionH.Add('      VALUE "CompanyName", "PCM\0"');
+          slVersionH.Add('      VALUE "OriginalFilename", "PCMDEVManager.exe (32-Bit)\0"');
+          slVersionH.Add('      VALUE "Comments", "\0"');
+          slVersionH.Add('    END');
+          slVersionH.Add('  END');
+          slVersionH.Add('');
+          slVersionH.Add('  BLOCK "VarFileInfo"');
+          slVersionH.Add('  BEGIN');
+          slVersionH.Add('    VALUE "Translation", 0x0407,1200');
+          slVersionH.Add('  END');
+          slVersionH.Add('END');
+          slVersionH.SaveToFile(spath + 'versioninfo32.rc');
+        finally
+          slVersionH.Free;
+        end;
+      end;
+    end;
+    qry_Projects.Next;
+  end;
+end;
 procedure Tfrm_Dev.btn_MainScriptEditClick(Sender: TObject);
   procedure CreateOverMsBuild(APath,AScript,AName: String);
   var
@@ -198,7 +431,7 @@ procedure Tfrm_Dev.btn_MainScriptEditClick(Sender: TObject);
       begin
         slIni.Add('call "C:\Program Files (x86)\Embarcadero\Studio\23.0\bin\rsvars.bat"');
         slIni.Add('echo "Build erstellen"');
-        sNewPath:=  ReplaceStr(APath,'\','/');
+        sNewPath:=  StringReplace(APath,'\','/',[rfIgnoreCase,rfReplaceAll]);
         // Build
         {$Region Build}
         if A32 then
@@ -218,8 +451,8 @@ procedure Tfrm_Dev.btn_MainScriptEditClick(Sender: TObject);
         begin
           slIni.Add('');
           slIni.Add('echo "Kopiere Datei ins Setupverzeichnis 32-Bit"');
-          sNewPathApp:= ReplaceStr(APath,Aname + '.dproj','Android\Debug\' + AName + '\bin\' + AName + '.apk');
-          sNewPathexe:= ReplaceStr(APath,Aname + '.dproj','Win32\Release\' + AName + '.exe');
+          sNewPathApp:= StringReplace(APath,Aname + '.dproj','Android\Debug\' + AName + '\bin\' + AName + '.apk',[rfIgnoreCase,rfReplaceAll]);
+          sNewPathexe:= StringReplace(APath,Aname + '.dproj','Win32\Release\' + AName + '.exe',[rfIgnoreCase,rfReplaceAll]);
           slIni.Add('copy /y /v ' + sNewPathApp + ' "e:\Inno\Setupfiles\Programme\' + AName +'"');
           slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'"');
         end;
@@ -227,8 +460,8 @@ procedure Tfrm_Dev.btn_MainScriptEditClick(Sender: TObject);
         begin
           slIni.Add('');
           slIni.Add('echo "Kopiere Datei ins Setupverzeichnis 64-Bit"');
-          sNewPathApp:= ReplaceStr(APath,Aname + '.dproj','Android64\Debug\' + Aname + '\bin\' + AName + '.apk');
-          sNewPathexe:= ReplaceStr(APath,Aname + '.dproj','Win64\Release\' + AName + '.exe');
+          sNewPathApp:= StringReplace(APath,Aname + '.dproj','Android64\Debug\' + Aname + '\bin\' + AName + '.apk',[rfIgnoreCase,rfReplaceAll]);
+          sNewPathexe:= StringReplace(APath,Aname + '.dproj','Win64\Release\' + AName + '.exe',[rfIgnoreCase,rfReplaceAll]);
           slIni.Add('copy /y /v ' + sNewPathApp + ' "e:\Inno\Setupfiles\Programme\' + AName +'_x64"');
           slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'_x64"');
         end;
@@ -240,7 +473,7 @@ procedure Tfrm_Dev.btn_MainScriptEditClick(Sender: TObject);
       else begin
         slIni.Add('call "C:\Program Files (x86)\Embarcadero\Studio\23.0\bin\rsvars.bat"');
         slIni.Add('echo "Build erstellen"');
-        sNewPath:=  ReplaceStr(APath,'\','/');
+        sNewPath:=  StringReplace(APath,'\','/',[rfIgnorecase,rfReplaceAll]);
         // Build
         {$Region Build}
         if A32 then
@@ -314,15 +547,15 @@ procedure Tfrm_Dev.btn_MainScriptEditClick(Sender: TObject);
           slIni.Add('echo "Demolizenz erstellen"');
           if not A64  then
           begin
-            slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + ReplaceStr(AName,'PCM','PCM-') + ' /1.6 /E:\Inno\Setupfiles\Programme\' + AName);
+            slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + StringReplace(AName,'PCM','PCM-',[rfIgnorecase,rfReplaceAll]) + ' /1.6 /E:\Inno\Setupfiles\Programme\' + AName);
           end
           else begin
             if (AName = 'PCMBackup') or (AName = 'PCMBackupService') or (AName = 'PCMServiceManager') then
             begin
-              slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + ReplaceStr(AName,'PCM','PCM-') + ' /1.6 /E:\Inno\Setupfiles\Programme\' + sNewName32 );
+              slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + StringReplace(AName,'PCM','PCM-',[rfIgnorecase,rfReplaceAll]) + ' /1.6 /E:\Inno\Setupfiles\Programme\' + sNewName32 );
             end
             else begin
-              slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + ReplaceStr(AName,'PCM','PCM-') + ' /1.6 /E:\Inno\Setupfiles\Programme\' + AName + '_x64');
+              slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + StringReplace(AName,'PCM','PCM-',[rfIgnorecase,rfReplaceAll]) + ' /1.6 /E:\Inno\Setupfiles\Programme\' + AName + '_x64');
             end;
           end;
         end;
@@ -661,7 +894,6 @@ begin
   slMSBuildPCMAll.Free;
   CloseWaitForm;
 end;
-
 procedure Tfrm_Dev.btn_SubScriptEditClick(Sender: TObject);
 var
   sPath,sPathSub: String;

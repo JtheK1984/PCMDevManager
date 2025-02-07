@@ -25,10 +25,10 @@ object SplashScreen: TSplashScreen
     Height = 488
     Width = 1000
     object img_Splash: TImage
-      Left = 3
-      Top = 3
-      Width = 994
-      Height = 461
+      Left = 2
+      Top = 2
+      Width = 996
+      Height = 463
       Align = alClient
       Picture.Data = {
         0D546478536D617274496D61676589504E470D0A1A0A0000000D494844520000
@@ -2311,7 +2311,10 @@ object SplashScreen: TSplashScreen
         70381C0E87C3E1703C0238E1EE70381C0E87C3E1703C0238E1EE70381C0E87C3
         E1703C0238E1EE70381C0E87C3E1703C0238E1EE70381C0E87C3E1703C02FCEF
         12C994D5D0AFFDAD0000000049454E44AE426082}
+      ExplicitLeft = 3
       ExplicitTop = -3
+      ExplicitWidth = 994
+      ExplicitHeight = 461
     end
     object lbl_ProgVersion: TcxLabel
       Left = 464
@@ -2329,8 +2332,8 @@ object SplashScreen: TSplashScreen
       Transparent = True
     end
     object prgbr_Splash: TcxProgressBar
-      Left = 3
-      Top = 464
+      Left = 2
+      Top = 465
       Align = alBottom
       ParentFont = False
       Position = 1.000000000000000000
@@ -2358,7 +2361,10 @@ object SplashScreen: TSplashScreen
       StyleHot.LookAndFeel.NativeStyle = False
       TabOrder = 1
       Transparent = True
-      Width = 994
+      ExplicitLeft = 3
+      ExplicitTop = 464
+      ExplicitWidth = 994
+      Width = 996
     end
     object ActivityIndicator: TdxActivityIndicator
       Left = 334

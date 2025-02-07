@@ -70,8 +70,6 @@ object frm_Swagger: Tfrm_Swagger
       TabOrder = 1
       Properties.ActivePage = cxTabSheet2
       Properties.CustomButtons.Buttons = <>
-      ExplicitTop = 61
-      ExplicitHeight = 659
       ClientRectBottom = 711
       ClientRectLeft = 2
       ClientRectRight = 1188
@@ -79,7 +77,6 @@ object frm_Swagger: Tfrm_Swagger
       object cxTabSheet2: TcxTabSheet
         Caption = 'APP REST-API: PCM - APP'
         ImageIndex = 2
-        ExplicitHeight = 624
         object dxLayoutControl1: TdxLayoutControl
           AlignWithMargins = True
           Left = 0
@@ -101,7 +98,6 @@ object frm_Swagger: Tfrm_Swagger
           AutoSize = True
           LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
           OptionsImage.Images = imglst_28x80
-          ExplicitHeight = 624
           object btn_Checkserver: TcxButton
             Left = 10000
             Top = 10382
@@ -828,11 +824,17 @@ object frm_Swagger: Tfrm_Swagger
       object cxTabSheet1: TcxTabSheet
         Caption = 'APP REST-API: PCM - Time'
         ImageIndex = 1
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
         ExplicitHeight = 679
       end
       object sdsds: TcxTabSheet
         Caption = 'DESKTOP REST-API PCM - Archiv'
         ImageIndex = 2
+        ExplicitLeft = 0
+        ExplicitTop = 0
+        ExplicitWidth = 0
         ExplicitHeight = 679
       end
     end
@@ -843,6 +845,7 @@ object frm_Swagger: Tfrm_Swagger
     Width = 1021
     Height = 344
     TabOrder = 1
+    Visible = False
     object grpbx_ResponseHeader: TPanel
       Left = 1
       Top = 1

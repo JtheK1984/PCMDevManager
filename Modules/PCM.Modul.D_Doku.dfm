@@ -25,10 +25,10 @@ object frm_Doku: Tfrm_Doku
     Height = 614
     Width = 1254
     object pc_main: TcxPageControl
-      Left = 2
-      Top = 2
-      Width = 1250
-      Height = 610
+      Left = 3
+      Top = 3
+      Width = 1248
+      Height = 608
       Align = alClient
       Color = clBtnFace
       ParentBackground = False
@@ -40,18 +40,27 @@ object frm_Doku: Tfrm_Doku
       Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea]
       Properties.TabSlants.Kind = skCutCorner
       Properties.TabWidth = 150
-      ClientRectBottom = 610
-      ClientRectRight = 1250
-      ClientRectTop = 26
+      ExplicitLeft = 2
+      ExplicitTop = 2
+      ExplicitWidth = 1250
+      ExplicitHeight = 610
+      ClientRectBottom = 602
+      ClientRectLeft = 2
+      ClientRectRight = 1242
+      ClientRectTop = 29
       object ts_Dokumentation: TcxTabSheet
         Caption = 'Dokumentation'
         ImageIndex = 80
+        ExplicitLeft = 0
+        ExplicitTop = 26
+        ExplicitWidth = 1250
+        ExplicitHeight = 584
         object pc_Kontakte_Kontakte: TcxPageControl
           AlignWithMargins = True
           Left = 0
           Top = 0
-          Width = 1250
-          Height = 584
+          Width = 1240
+          Height = 573
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
@@ -67,11 +76,18 @@ object frm_Doku: Tfrm_Doku
           Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea]
           Properties.TabSlants.Kind = skCutCorner
           Properties.TabWidth = 100
-          ClientRectBottom = 584
-          ClientRectRight = 1250
-          ClientRectTop = 26
+          ExplicitWidth = 1250
+          ExplicitHeight = 584
+          ClientRectBottom = 567
+          ClientRectLeft = 2
+          ClientRectRight = 1234
+          ClientRectTop = 29
           object ts_Dokumente: TcxTabSheet
             Caption = 'Dokumente'
+            ExplicitLeft = 0
+            ExplicitTop = 26
+            ExplicitWidth = 1250
+            ExplicitHeight = 558
             object grpbx_Browser: TcxGroupBox
               Left = 0
               Top = 0
@@ -79,23 +95,29 @@ object frm_Doku: Tfrm_Doku
               PanelStyle.Active = True
               Style.BorderStyle = ebsNone
               TabOrder = 0
-              Height = 558
-              Width = 1250
+              ExplicitWidth = 1250
+              ExplicitHeight = 558
+              Height = 538
+              Width = 1232
             end
           end
           object ts_Uebersicht: TcxTabSheet
             Caption = #220'bersicht'
+            ExplicitLeft = 0
+            ExplicitTop = 26
+            ExplicitWidth = 1250
+            ExplicitHeight = 558
             object grd_Version: TcxGrid
               Left = 0
-              Top = 58
-              Width = 1224
-              Height = 500
+              Top = 63
+              Width = 1206
+              Height = 475
               Align = alClient
               TabOrder = 0
               LookAndFeel.NativeStyle = False
-              ExplicitTop = 63
-              ExplicitWidth = 1206
-              ExplicitHeight = 475
+              ExplicitTop = 58
+              ExplicitWidth = 1224
+              ExplicitHeight = 500
               object tv_Version: TcxGridDBTableView
                 Navigator.Buttons.CustomButtons = <>
                 ScrollbarAnnotations.CustomAnnotations = <>
@@ -172,24 +194,26 @@ object frm_Doku: Tfrm_Doku
             object dxBarDockControl1: TdxBarDockControl
               Left = 0
               Top = 0
-              Width = 1250
-              Height = 58
+              Width = 1232
+              Height = 63
               Align = dalTop
               BarManager = brmgr_Main
             end
             object grpbx_PostfachMainSort: TcxGroupBox
-              Left = 1224
-              Top = 58
+              Left = 1206
+              Top = 63
               Align = alRight
               PanelStyle.Active = True
               TabOrder = 2
-              ExplicitHeight = 475
-              Height = 500
+              ExplicitLeft = 1224
+              ExplicitTop = 58
+              ExplicitHeight = 500
+              Height = 475
               Width = 26
               object btn_DokuMainbottom: TcxButton
-                Left = 2
-                Top = 62
-                Width = 22
+                Left = 3
+                Top = 63
+                Width = 20
                 Height = 20
                 Align = alTop
                 OptionsImage.Glyph.SourceDPI = 96
@@ -218,14 +242,14 @@ object frm_Doku: Tfrm_Doku
                   EB7C93A1EABC6E0000000049454E44AE426082}
                 TabOrder = 3
                 OnClick = btn_DokuMainbottomClick
-                ExplicitLeft = 3
-                ExplicitTop = 63
-                ExplicitWidth = 20
+                ExplicitLeft = 2
+                ExplicitTop = 62
+                ExplicitWidth = 22
               end
               object btn_DokuMaindown: TcxButton
-                Left = 2
-                Top = 42
-                Width = 22
+                Left = 3
+                Top = 43
+                Width = 20
                 Height = 20
                 Align = alTop
                 OptionsImage.Glyph.SourceDPI = 96
@@ -249,14 +273,14 @@ object frm_Doku: Tfrm_Doku
                   80779755FCCF7803E8D0E0915AAA27200000000049454E44AE426082}
                 TabOrder = 2
                 OnClick = btn_DokuMaindownClick
-                ExplicitLeft = 3
-                ExplicitTop = 43
-                ExplicitWidth = 20
+                ExplicitLeft = 2
+                ExplicitTop = 42
+                ExplicitWidth = 22
               end
               object btn_DokuMainUp: TcxButton
-                Left = 2
-                Top = 22
-                Width = 22
+                Left = 3
+                Top = 23
+                Width = 20
                 Height = 20
                 Align = alTop
                 OptionsImage.Glyph.SourceDPI = 96
@@ -281,14 +305,14 @@ object frm_Doku: Tfrm_Doku
                   454E44AE426082}
                 TabOrder = 1
                 OnClick = btn_DokuMainUpClick
-                ExplicitLeft = 3
-                ExplicitTop = 23
-                ExplicitWidth = 20
+                ExplicitLeft = 2
+                ExplicitTop = 22
+                ExplicitWidth = 22
               end
               object btn_DokuMainTop: TcxButton
-                Left = 2
-                Top = 2
-                Width = 22
+                Left = 3
+                Top = 3
+                Width = 20
                 Height = 20
                 Align = alTop
                 OptionsImage.Glyph.SourceDPI = 96
@@ -317,9 +341,9 @@ object frm_Doku: Tfrm_Doku
                   44AE426082}
                 TabOrder = 0
                 OnClick = btn_DokuMainTopClick
-                ExplicitLeft = 3
-                ExplicitTop = 3
-                ExplicitWidth = 20
+                ExplicitLeft = 2
+                ExplicitTop = 2
+                ExplicitWidth = 22
               end
             end
           end

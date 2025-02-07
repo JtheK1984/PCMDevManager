@@ -193,9 +193,6 @@ begin
   Close;
 end;
 procedure Tfrm_PCM_VersionDoku.btn_SQLSaveClick(Sender: TObject);
-var
-  iMain: integer;
-  iSub: integer;
 begin
   if cmbbx_Prog.ItemIndex = -1 then
   begin

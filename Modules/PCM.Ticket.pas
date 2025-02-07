@@ -644,7 +644,7 @@ procedure Tfrm_Ticket.btn_JReadTicketsClick(Sender: TObject);
       dm_PCM.qry_Work.ParamByName('FixVersion').AsString:= AFixVersion;
       dm_PCM.qry_Work.ParamByName('App').AsString:= AApp;
       dm_PCM.qry_Work.ParamByName('Stichwort').AsString:= ALabel;
-      dm_PCM.qry_Work.ParamByName('Beschreibung').AsMemo:= ADesc;
+      dm_PCM.qry_Work.ParamByName('Beschreibung').asString:= ADesc;
       dm_PCM.qry_Work.ParamByName('Zugewiesen').AsString:= AAssignee;
       dm_PCM.qry_Work.ParamByName('Board').AsString:= AKDNR;
       dm_PCM.qry_Work.ParamByName('Reporter').AsString:= AReporter;
@@ -702,7 +702,7 @@ procedure Tfrm_Ticket.btn_JReadTicketsClick(Sender: TObject);
       dm_PCM.qry_Work.ParamByName('FixVersion').AsString:= AFixVersion;
       dm_PCM.qry_Work.ParamByName('App').AsString:= AApp;
       dm_PCM.qry_Work.ParamByName('Stichwort').AsString:= ALabel;
-      dm_PCM.qry_Work.ParamByName('Beschreibung').AsMemo:= ADesc;
+      dm_PCM.qry_Work.ParamByName('Beschreibung').asString:= ADesc;
       dm_PCM.qry_Work.ParamByName('Zugewiesen').AsString:= AAssignee;
       dm_PCM.qry_Work.ParamByName('Board').AsString:= AKDNR;
       dm_PCM.qry_Work.ParamByName('Reporter').AsString:= AReporter;
@@ -863,7 +863,7 @@ begin
     WriteInDB(iTicket,sTicket,sStatus,sBetreff,sType,sEpic,sSprint,sPrio,sFixVersion,sApp,sName,sdesc,Sassi,sReporter,sTester,sTester2,sMelder,sStorypoint,sUHD,sLand,sKDNR,sBetrifftV);
   end;
   sTicketNr_ges:= Copy(sTicketNr_ges, 2, Length(sTicketNr_ges));
-  dm_PCM.qry_Work.SQL.Text:= 'Delete From manager_tickets where nr not in (' + sTicketNr_ges + ')';
+  dm_PCM.qry_Work.SQL.Text:= 'Delete From manager_tickets_priv where nr not in (' + sTicketNr_ges + ')';
   try
     dm_PCM.qry_Work.ExecSQL;
   except
@@ -1027,7 +1027,7 @@ procedure Tfrm_Ticket.btn_ABoardClick(Sender: TObject);
       dm_PCM.qry_Work.ParamByName('FixVersion').AsString:= AFixVersion;
       dm_PCM.qry_Work.ParamByName('App').AsString:= AApp;
       dm_PCM.qry_Work.ParamByName('Stichwort').AsString:= ALabel;
-      dm_PCM.qry_Work.ParamByName('Beschreibung').AsMemo:= ADesc;
+      dm_PCM.qry_Work.ParamByName('Beschreibung').asString:= ADesc;
       dm_PCM.qry_Work.ParamByName('Zugewiesen').AsString:= AAssignee;
       dm_PCM.qry_Work.ParamByName('Board').AsString:= AKDNR;
       dm_PCM.qry_Work.ParamByName('Reporter').AsString:= AReporter;
@@ -1085,7 +1085,7 @@ procedure Tfrm_Ticket.btn_ABoardClick(Sender: TObject);
       dm_PCM.qry_Work.ParamByName('FixVersion').AsString:= AFixVersion;
       dm_PCM.qry_Work.ParamByName('App').AsString:= AApp;
       dm_PCM.qry_Work.ParamByName('Stichwort').AsString:= ALabel;
-      dm_PCM.qry_Work.ParamByName('Beschreibung').AsMemo:= ADesc;
+      dm_PCM.qry_Work.ParamByName('Beschreibung').asString:= ADesc;
       dm_PCM.qry_Work.ParamByName('Zugewiesen').AsString:= AAssignee;
       dm_PCM.qry_Work.ParamByName('Board').AsString:= AKDNR;
       dm_PCM.qry_Work.ParamByName('Reporter').AsString:= AReporter;
@@ -1106,7 +1106,7 @@ var
 //  jarComponent,
   jarFixVersion: TJSONArray;
 //  joFields1,joLand, joUHD,  joTester2, joTester,joReporter,
-  joMelder, joAssignee,joComponent,joFixVersion,jopriority,josprint,joStatus,joIssuetype, joParent,joFields,joBody, joResult: TJSONObject;
+  joMelder, joAssignee,joFixVersion,jopriority,josprint,joStatus,joIssuetype, joParent,joFields,joBody, joResult: TJSONObject;
 //  jaLand,
   jaCustom1,  jaSprint: TJSONArray;
 //  sBetrifftV1,
@@ -1297,9 +1297,9 @@ procedure Tfrm_Ticket.btn_AReadTicketsClick(Sender: TObject);
     joBody := TJSONObject.ParseJSONValue(sJText) as TJSONObject;
     joResult := RestRequest('https://pcmapps.ddns.net:2443/PCM-DEV/PCM/_apis/wit',RESTClient_azure,joBody, '/wiql?api-version=7.0');
     joResult.TryGetValue<TJSONArray>('workItems', jArray);
-    for i := 0 to jArray.Size - 1 do
+    for i := 0 to jArray.Count - 1 do
     begin
-      joResult := TJSONObject.ParseJSONValue(jArray.Get(i).ToString) as TJSONObject;
+      joResult := TJSONObject.ParseJSONValue(jArray.Items[i].ToString) as TJSONObject;
       if (joResult.GetValue('id').Null) OR (not joResult.TryGetValue<Integer>('id', iTicket)) then
         iTicket:= 0;
       if iTicket > 0 then
@@ -1349,7 +1349,7 @@ procedure Tfrm_Ticket.btn_AReadTicketsClick(Sender: TObject);
       dm_PCM.qry_Work.ParamByName('FixVersion').AsString:= AFixVersion;
       dm_PCM.qry_Work.ParamByName('App').AsString:= AApp;
       dm_PCM.qry_Work.ParamByName('Stichwort').AsString:= ALabel;
-      dm_PCM.qry_Work.ParamByName('Beschreibung').AsMemo:= ADesc;
+      dm_PCM.qry_Work.ParamByName('Beschreibung').AsString:= ADesc;
       dm_PCM.qry_Work.ParamByName('Zugewiesen').AsString:= AAssignee;
       dm_PCM.qry_Work.ParamByName('Board').AsString:= AName;
       dm_PCM.qry_Work.ParamByName('Faellig').AsString:= AFaellig;
@@ -1393,7 +1393,7 @@ procedure Tfrm_Ticket.btn_AReadTicketsClick(Sender: TObject);
       dm_PCM.qry_Work.ParamByName('FixVersion').AsString:= AFixVersion;
       dm_PCM.qry_Work.ParamByName('App').AsString:= AApp;
       dm_PCM.qry_Work.ParamByName('Stichwort').AsString:= ALabel;
-      dm_PCM.qry_Work.ParamByName('Beschreibung').AsMemo:= ADesc;
+      dm_PCM.qry_Work.ParamByName('Beschreibung').AsString:= ADesc;
       dm_PCM.qry_Work.ParamByName('Zugewiesen').AsString:= AAssignee;
       dm_PCM.qry_Work.ParamByName('Board').AsString:= AName;
       dm_PCM.qry_Work.ParamByName('Faellig').AsString:= AFaellig;
@@ -1439,9 +1439,9 @@ begin
   joBody := TJSONObject.ParseJSONValue(sJText) as TJSONObject;
   joResult := RestRequest('https://pcmapps.ddns.net:2443/PCM-DEV/PCM/_apis/wit',RESTClient_azure,joBody, '/wiql?api-version=7.0');
   joResult.TryGetValue<TJSONArray>('workItems', jArray);
-  for i := 0 to jArray.Size - 1 do
+  for i := 0 to jArray.Count - 1 do
   begin
-    joResult := TJSONObject.ParseJSONValue(jArray.Get(i).ToString) as TJSONObject;
+    joResult := TJSONObject.ParseJSONValue(jArray.Items[i].ToString) as TJSONObject;
     if (joResult.GetValue('id').Null) OR (not joResult.TryGetValue<Integer>('id', iTicket)) then
       iTicket:= 0;
     if iTicket > 0 then

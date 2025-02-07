@@ -127,7 +127,7 @@ begin
     RestRequest.Execute;
     Result:= TJSonObject.ParseJSONValue(RestRequest.Response.JSONText) as TJSONObject;
   finally
-    RestRequest.DisposeOf;
+    RestRequest.free;
   end;
 end;
 

@@ -355,6 +355,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
             '199'
             '200')
           TabOrder = 0
+          ExplicitHeight = 21
           Width = 623
         end
       end
@@ -406,6 +407,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
           Align = alClient
           Properties.OnChange = cmbbx_ProgPropertiesChange
           TabOrder = 0
+          ExplicitHeight = 21
           Width = 623
         end
       end
@@ -456,6 +458,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
           Margins.Bottom = 0
           Align = alClient
           TabOrder = 0
+          ExplicitHeight = 21
           Width = 623
         end
       end
@@ -521,6 +524,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
           Margins.Bottom = 0
           Align = alClient
           TabOrder = 0
+          ExplicitHeight = 21
           Width = 623
         end
       end
@@ -569,6 +573,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
             #220'berschrift 4'
             'Standard')
           TabOrder = 0
+          ExplicitHeight = 21
           Width = 623
         end
       end
@@ -686,6 +691,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
             end>
           Properties.OnButtonClick = edt_bildPropertiesButtonClick
           TabOrder = 0
+          ExplicitHeight = 21
           Width = 419
         end
         object lbl_width: TcxLabel
@@ -710,6 +716,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
           Properties.EditMask = '\d+,\d\d'
           TabOrder = 1
           Text = '1'
+          ExplicitHeight = 21
           Width = 121
         end
       end
@@ -724,7 +731,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Width = 742
       object chkbx_leer: TcxCheckBox
         AlignWithMargins = True
-        Left = 201
+        Left = 246
         Top = 2
         Margins.Left = 10
         Margins.Top = 0
@@ -737,6 +744,8 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
         Style.TransparentBorder = False
         TabOrder = 1
         Transparent = True
+        ExplicitLeft = 201
+        ExplicitHeight = 21
       end
       object chkbx_Newpage: TcxCheckBox
         AlignWithMargins = True
@@ -753,6 +762,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
         Style.TransparentBorder = False
         TabOrder = 0
         Transparent = True
+        ExplicitHeight = 21
       end
       object lbl_pages: TcxLabel
         AlignWithMargins = True

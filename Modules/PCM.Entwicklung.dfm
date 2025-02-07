@@ -24,18 +24,18 @@ object frm_Dev: Tfrm_Dev
     Height = 768
     Width = 831
     object cxGroupBox1: TcxGroupBox
-      Left = 3
-      Top = 3
+      Left = 2
+      Top = 2
       Align = alTop
       Caption = 'Hilfsprogramme'
       TabOrder = 0
       Height = 160
-      Width = 825
+      Width = 827
       object grd_Sender: TcxGrid
-        Left = 3
-        Top = 15
-        Width = 819
-        Height = 136
+        Left = 2
+        Top = 18
+        Width = 823
+        Height = 140
         Align = alClient
         BevelInner = bvLowered
         BevelKind = bkFlat
@@ -111,18 +111,18 @@ object frm_Dev: Tfrm_Dev
       end
     end
     object cxGroupBox2: TcxGroupBox
-      Left = 3
-      Top = 163
+      Left = 2
+      Top = 162
       Align = alClient
       Caption = 'Projekte'
       TabOrder = 1
-      Height = 362
-      Width = 825
+      Height = 364
+      Width = 827
       object cxGrid1: TcxGrid
-        Left = 3
-        Top = 78
-        Width = 819
-        Height = 275
+        Left = 2
+        Top = 76
+        Width = 823
+        Height = 286
         Align = alClient
         BevelInner = bvLowered
         BevelKind = bkFlat
@@ -233,27 +233,27 @@ object frm_Dev: Tfrm_Dev
         end
       end
       object dxBarDockControl1: TdxBarDockControl
-        Left = 3
-        Top = 15
-        Width = 819
-        Height = 63
+        Left = 2
+        Top = 18
+        Width = 823
+        Height = 58
         Align = dalTop
         BarManager = dxBarManager1
       end
     end
     object cxGroupBox3: TcxGroupBox
-      Left = 3
-      Top = 525
+      Left = 2
+      Top = 526
       Align = alBottom
       Caption = 'Scripte'
       TabOrder = 2
       Height = 240
-      Width = 825
+      Width = 827
       object cxGrid2: TcxGrid
-        Left = 3
-        Top = 15
-        Width = 819
-        Height = 216
+        Left = 2
+        Top = 18
+        Width = 823
+        Height = 220
         Align = alClient
         BevelInner = bvLowered
         BevelKind = bkFlat
@@ -1100,6 +1100,14 @@ object frm_Dev: Tfrm_Dev
         item
           Visible = True
           ItemName = 'btn_MainScriptEdit'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton1'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton2'
         end>
       OneOnRow = True
       Row = 0
@@ -1126,6 +1134,26 @@ object frm_Dev: Tfrm_Dev
       Hint = 'Dproj bearbeiten'
       Visible = ivAlways
       OnClick = btn_SubScriptEditClick
+      AutoGrayScale = False
+      LargeImageIndex = 125
+      Width = 150
+    end
+    object dxBarLargeButton1: TdxBarLargeButton
+      Caption = 'Resourcefile erstellen'
+      Category = 0
+      Hint = 'Resourcefile erstellen'
+      Visible = ivAlways
+      OnClick = dxBarLargeButton1Click
+      AutoGrayScale = False
+      LargeImageIndex = 125
+      Width = 125
+    end
+    object dxBarLargeButton2: TdxBarLargeButton
+      Caption = 'Alle Resourcefiles erstellen'
+      Category = 0
+      Hint = 'Alle Resourcefiles erstellen'
+      Visible = ivAlways
+      OnClick = dxBarLargeButton2Click
       AutoGrayScale = False
       LargeImageIndex = 125
       Width = 150

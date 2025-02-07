@@ -28,7 +28,7 @@ object frm_PCM_Import: Tfrm_PCM_Import
       Left = 8
       Top = 57
       Width = 198
-      Height = 25
+      Height = 27
       Margins.Left = 6
       Margins.Top = 0
       Margins.Right = 4
@@ -40,13 +40,14 @@ object frm_PCM_Import: Tfrm_PCM_Import
       TabOrder = 0
       WordWrap = True
       OnClick = btn_importClick
+      ExplicitHeight = 25
     end
     object cxButton2: TcxButton
       AlignWithMargins = True
       Left = 214
       Top = 57
       Width = 198
-      Height = 25
+      Height = 27
       Margins.Left = 4
       Margins.Top = 0
       Margins.Right = 6
@@ -56,6 +57,7 @@ object frm_PCM_Import: Tfrm_PCM_Import
       OptionsImage.ImageIndex = 0
       TabOrder = 1
       OnClick = cxButton2Click
+      ExplicitHeight = 25
     end
     object lbl_Importfile: TcxLabel
       AlignWithMargins = True
@@ -72,23 +74,25 @@ object frm_PCM_Import: Tfrm_PCM_Import
     object lbl_Status: TcxLabel
       AlignWithMargins = True
       Left = 7
-      Top = 86
+      Top = 88
       Margins.Left = 5
       Margins.Right = 5
       Align = alBottom
       Caption = 'Status:'
       Transparent = True
+      ExplicitTop = 86
     end
     object prgbr_Status: TcxProgressBar
       AlignWithMargins = True
       Left = 7
-      Top = 108
+      Top = 110
       Margins.Left = 5
       Margins.Top = 0
       Margins.Right = 5
       Margins.Bottom = 5
       Align = alBottom
       TabOrder = 4
+      ExplicitTop = 108
       Width = 406
     end
     object cxGroupBox2: TcxGroupBox
@@ -111,6 +115,7 @@ object frm_PCM_Import: Tfrm_PCM_Import
         Align = alClient
         Properties.OnEditValueChanged = cxTextEdit1PropertiesEditValueChanged
         TabOrder = 0
+        ExplicitHeight = 21
         Width = 382
       end
       object cxButton1: TcxButton
