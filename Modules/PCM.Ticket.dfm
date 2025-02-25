@@ -24,10 +24,10 @@ object frm_Ticket: Tfrm_Ticket
     Height = 768
     Width = 1140
     object pc_Tickets: TcxPageControl
-      Left = 2
-      Top = 2
-      Width = 1136
-      Height = 744
+      Left = 3
+      Top = 3
+      Width = 1134
+      Height = 742
       Align = alClient
       TabOrder = 0
       Properties.ActivePage = ts_jira
@@ -36,33 +36,34 @@ object frm_Ticket: Tfrm_Ticket
       Properties.Style = 11
       OnChange = pc_TicketsChange
       ExplicitTop = 1
-      ClientRectBottom = 742
+      ClientRectBottom = 736
       ClientRectLeft = 2
-      ClientRectRight = 1134
-      ClientRectTop = 23
+      ClientRectRight = 1128
+      ClientRectTop = 28
       object ts_jira: TcxTabSheet
         Caption = 'Jira - Tickets'
         ImageIndex = 19
         object brdckCtrl_Jira: TdxBarDockControl
           Left = 0
           Top = 0
-          Width = 1132
-          Height = 58
+          Width = 1126
+          Height = 63
           Align = dalTop
           BarManager = bmgr_main
         end
         object pc_Jira: TcxPageControl
           Left = 0
-          Top = 58
-          Width = 1132
-          Height = 661
+          Top = 63
+          Width = 1126
+          Height = 645
           Align = alClient
           TabOrder = 1
           Properties.ActivePage = ts_J
           Properties.CustomButtons.Buttons = <>
-          ClientRectBottom = 661
-          ClientRectRight = 1132
-          ClientRectTop = 24
+          ClientRectBottom = 639
+          ClientRectLeft = 2
+          ClientRectRight = 1120
+          ClientRectTop = 27
           object ts_J: TcxTabSheet
             Caption = 'Jira-Browser'
             ImageIndex = 2
@@ -72,32 +73,32 @@ object frm_Ticket: Tfrm_Ticket
               Align = alClient
               PanelStyle.Active = True
               TabOrder = 0
-              Height = 382
-              Width = 1132
+              Height = 357
+              Width = 1118
               object brdckCtrl_JiraBrowser: TdxBarDockControl
-                Left = 2
-                Top = 2
-                Width = 1128
-                Height = 58
+                Left = 3
+                Top = 3
+                Width = 1112
+                Height = 63
                 Align = dalTop
                 BarManager = bmgr_main
               end
             end
             object pnl_JDevTools: TcxGroupBox
               Left = 0
-              Top = 387
+              Top = 362
               Align = alBottom
               PanelStyle.Active = True
               TabOrder = 1
               Visible = False
               OnResize = pnl_JDevToolsResize
               Height = 250
-              Width = 1132
+              Width = 1118
             end
             object splt_J: TcxSplitter
               Left = 0
-              Top = 382
-              Width = 1132
+              Top = 357
+              Width = 1118
               Height = 5
               AlignSplitter = salTop
               Control = pnl_JDevTools
@@ -107,9 +108,6 @@ object frm_Ticket: Tfrm_Ticket
           object ts_JDesktop: TcxTabSheet
             Caption = #220'bersicht Desktop Board'
             ImageIndex = 0
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object cmbbx_Desktop: TcxComboBox
               AlignWithMargins = True
               Left = 6
@@ -154,9 +152,6 @@ object frm_Ticket: Tfrm_Ticket
           object ts_JApp: TcxTabSheet
             Caption = #220'bersicht Mobile Board'
             ImageIndex = 3
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object cmbbx_App: TcxComboBox
               AlignWithMargins = True
               Left = 6
@@ -204,11 +199,10 @@ object frm_Ticket: Tfrm_Ticket
             object grd_Jira: TcxGrid
               Left = 0
               Top = 0
-              Width = 1132
+              Width = 1118
               Height = 200
               Align = alTop
               TabOrder = 0
-              ExplicitWidth = 1118
               object grdDBTblView_Jira: TcxGridDBTableView
                 Navigator.Buttons.CustomButtons = <>
                 ScrollbarAnnotations.CustomAnnotations = <>
@@ -358,18 +352,17 @@ object frm_Ticket: Tfrm_Ticket
             object split_Jira: TcxSplitter
               Left = 0
               Top = 200
-              Width = 1132
+              Width = 1118
               Height = 5
               AlignSplitter = salTop
               Control = grd_Jira
-              ExplicitWidth = 1118
             end
             object dxLayoutControl2: TdxLayoutControl
               AlignWithMargins = True
               Left = 0
               Top = 205
-              Width = 1132
-              Height = 432
+              Width = 1118
+              Height = 407
               Margins.Left = 0
               Margins.Top = 0
               Margins.Right = 0
@@ -380,8 +373,8 @@ object frm_Ticket: Tfrm_Ticket
               LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
               object cxDBImageComboBox2: TcxDBImageComboBox
                 AlignWithMargins = True
-                Left = 79
-                Top = 65
+                Left = 76
+                Top = 76
                 Margins.Left = 8
                 Margins.Top = 1
                 Margins.Right = 8
@@ -436,12 +429,12 @@ object frm_Ticket: Tfrm_Ticket
                 Style.TransparentBorder = False
                 TabOrder = 0
                 Height = 19
-                Width = 625
+                Width = 617
               end
               object cxDBTextEdit18: TcxDBTextEdit
                 AlignWithMargins = True
-                Left = 79
-                Top = 100
+                Left = 76
+                Top = 111
                 Margins.Left = 8
                 Margins.Top = 1
                 Margins.Right = 8
@@ -452,12 +445,12 @@ object frm_Ticket: Tfrm_Ticket
                 Style.HotTrack = False
                 Style.TransparentBorder = False
                 TabOrder = 1
-                Width = 625
+                Width = 617
               end
               object cxDBTextEdit19: TcxDBTextEdit
                 AlignWithMargins = True
-                Left = 79
-                Top = 160
+                Left = 76
+                Top = 171
                 Margins.Left = 8
                 Margins.Top = 1
                 Margins.Right = 8
@@ -468,12 +461,12 @@ object frm_Ticket: Tfrm_Ticket
                 Style.HotTrack = False
                 Style.TransparentBorder = False
                 TabOrder = 3
-                Width = 625
+                Width = 617
               end
               object cxDBTextEdit21: TcxDBTextEdit
                 AlignWithMargins = True
-                Left = 79
-                Top = 130
+                Left = 76
+                Top = 141
                 Margins.Left = 8
                 Margins.Top = 1
                 Margins.Right = 8
@@ -484,11 +477,11 @@ object frm_Ticket: Tfrm_Ticket
                 Style.HotTrack = False
                 Style.TransparentBorder = False
                 TabOrder = 2
-                Width = 625
+                Width = 617
               end
               object cxRichEdit1: TcxRichEdit
-                Left = 22
-                Top = 220
+                Left = 19
+                Top = 231
                 Properties.AutoURLDetect = True
                 Properties.ReadOnly = True
                 Lines.Strings = (
@@ -516,12 +509,12 @@ object frm_Ticket: Tfrm_Ticket
                 StyleHot.BorderStyle = ebsNone
                 TabOrder = 4
                 Height = 14
-                Width = 682
+                Width = 674
               end
               object cxDBTextEdit22: TcxDBTextEdit
                 AlignWithMargins = True
-                Left = 813
-                Top = 35
+                Left = 796
+                Top = 46
                 Margins.Left = 8
                 Margins.Top = 1
                 Margins.Right = 8
@@ -532,12 +525,12 @@ object frm_Ticket: Tfrm_Ticket
                 Style.HotTrack = False
                 Style.TransparentBorder = False
                 TabOrder = 5
-                Width = 297
+                Width = 303
               end
               object cxDBTextEdit23: TcxDBTextEdit
                 AlignWithMargins = True
-                Left = 813
-                Top = 70
+                Left = 796
+                Top = 81
                 Margins.Left = 8
                 Margins.Top = 1
                 Margins.Right = 8
@@ -548,7 +541,7 @@ object frm_Ticket: Tfrm_Ticket
                 Style.HotTrack = False
                 Style.TransparentBorder = False
                 TabOrder = 6
-                Width = 297
+                Width = 303
               end
               object dxLayoutGroup5: TdxLayoutGroup
                 AlignHorz = ahClient
@@ -720,23 +713,24 @@ object frm_Ticket: Tfrm_Ticket
         object brdckCtrl_Azure: TdxBarDockControl
           Left = 0
           Top = 0
-          Width = 1132
-          Height = 58
+          Width = 1126
+          Height = 63
           Align = dalTop
           BarManager = bmgr_main
         end
         object pc_Azure: TcxPageControl
           Left = 0
-          Top = 58
-          Width = 1132
-          Height = 661
+          Top = 63
+          Width = 1126
+          Height = 645
           Align = alClient
           TabOrder = 1
           Properties.ActivePage = ts_A
           Properties.CustomButtons.Buttons = <>
-          ClientRectBottom = 661
-          ClientRectRight = 1132
-          ClientRectTop = 24
+          ClientRectBottom = 639
+          ClientRectLeft = 2
+          ClientRectRight = 1120
+          ClientRectTop = 27
           object ts_A: TcxTabSheet
             Caption = 'Azure-Browser'
             ImageIndex = 2
@@ -746,46 +740,41 @@ object frm_Ticket: Tfrm_Ticket
               Align = alClient
               PanelStyle.Active = True
               TabOrder = 0
-              Height = 382
-              Width = 1132
-              object dxBarDockControl2: TdxBarDockControl
-                Left = 2
-                Top = 2
-                Width = 1128
-                Height = 58
+              Height = 357
+              Width = 1118
+              object brdckCtrl_AzureMax: TdxBarDockControl
+                Left = 3
+                Top = 3
+                Width = 1112
+                Height = 63
                 Align = dalTop
                 BarManager = bmgr_main
               end
             end
             object splt_A: TcxSplitter
               Left = 0
-              Top = 382
-              Width = 1132
+              Top = 357
+              Width = 1118
               Height = 5
               AlignSplitter = salTop
               Control = pnl_ADevTools
               Visible = False
-              ExplicitTop = 357
-              ExplicitWidth = 1118
             end
             object pnl_ADevTools: TcxGroupBox
               Left = 0
-              Top = 387
+              Top = 362
               Align = alBottom
               PanelStyle.Active = True
               TabOrder = 2
               Visible = False
               OnResize = pnl_ADevToolsResize
               Height = 250
-              Width = 1132
+              Width = 1118
             end
           end
           object ts_ADetail: TcxTabSheet
             Caption = 'Details'
             ImageIndex = 1
-            ExplicitTop = 0
-            ExplicitWidth = 0
-            ExplicitHeight = 0
             object grd_Azure: TcxGrid
               Left = 0
               Top = 0
@@ -892,38 +881,36 @@ object frm_Ticket: Tfrm_Ticket
           Align = alClient
           PanelStyle.Active = True
           TabOrder = 0
-          Height = 464
-          Width = 1132
+          Height = 453
+          Width = 1126
           object brdckCtrl_Confluence: TdxBarDockControl
-            Left = 2
-            Top = 2
-            Width = 1128
-            Height = 58
+            Left = 3
+            Top = 3
+            Width = 1120
+            Height = 63
             Align = dalTop
             BarManager = bmgr_main
           end
         end
         object splt_C: TcxSplitter
           Left = 0
-          Top = 464
-          Width = 1132
+          Top = 453
+          Width = 1126
           Height = 5
           AlignSplitter = salTop
           Control = pnl_CDevTools
           Visible = False
-          ExplicitTop = 453
-          ExplicitWidth = 1126
         end
         object pnl_CDevTools: TcxGroupBox
           Left = 0
-          Top = 469
+          Top = 458
           Align = alBottom
           PanelStyle.Active = True
           TabOrder = 2
           Visible = False
           OnResize = pnl_CDevToolsResize
           Height = 250
-          Width = 1132
+          Width = 1126
         end
       end
       object ts_Swagger: TcxTabSheet
@@ -935,60 +922,56 @@ object frm_Ticket: Tfrm_Ticket
           Align = alClient
           PanelStyle.Active = True
           TabOrder = 0
-          Height = 209
-          Width = 1132
+          Height = 198
+          Width = 1126
           object brdckCtrl_Swagger: TdxBarDockControl
-            Left = 2
-            Top = 2
-            Width = 1128
-            Height = 58
+            Left = 3
+            Top = 3
+            Width = 1120
+            Height = 63
             Align = dalTop
             BarManager = bmgr_main
           end
         end
         object splt_S: TcxSplitter
           Left = 0
-          Top = 464
-          Width = 1132
+          Top = 453
+          Width = 1126
           Height = 5
           AlignSplitter = salTop
           Control = pnl_SDevtools
           Visible = False
-          ExplicitTop = 453
-          ExplicitWidth = 1126
         end
         object pnl_SDevtools: TcxGroupBox
           Left = 0
-          Top = 469
+          Top = 458
           Align = alBottom
           PanelStyle.Active = True
           TabOrder = 2
           Visible = False
           OnResize = pnl_SDevtoolsResize
           Height = 250
-          Width = 1132
+          Width = 1126
         end
         object pnl_SNotepad: TcxGroupBox
           Left = 0
-          Top = 214
+          Top = 203
           Align = alBottom
           PanelStyle.Active = True
           TabOrder = 3
           Visible = False
           OnResize = pnl_SNotepadResize
           Height = 250
-          Width = 1132
+          Width = 1126
         end
         object splt_sNp: TcxSplitter
           Left = 0
-          Top = 209
-          Width = 1132
+          Top = 198
+          Width = 1126
           Height = 5
           AlignSplitter = salTop
           Control = pnl_SNotepad
           Visible = False
-          ExplicitTop = 198
-          ExplicitWidth = 1126
         end
       end
       object ts_PCMAPPS: TcxTabSheet
@@ -1000,38 +983,36 @@ object frm_Ticket: Tfrm_Ticket
           Align = alClient
           PanelStyle.Active = True
           TabOrder = 0
-          Height = 464
-          Width = 1132
+          Height = 453
+          Width = 1126
           object brdckCtrl_PCMAPPS: TdxBarDockControl
-            Left = 2
-            Top = 2
-            Width = 1128
-            Height = 58
+            Left = 3
+            Top = 3
+            Width = 1120
+            Height = 63
             Align = dalTop
             BarManager = bmgr_main
           end
         end
         object splt_P: TcxSplitter
           Left = 0
-          Top = 464
-          Width = 1132
+          Top = 453
+          Width = 1126
           Height = 5
           AlignSplitter = salTop
           Control = pnl_PDevtools
           Visible = False
-          ExplicitTop = 453
-          ExplicitWidth = 1126
         end
         object pnl_PDevtools: TcxGroupBox
           Left = 0
-          Top = 469
+          Top = 458
           Align = alBottom
           PanelStyle.Active = True
           TabOrder = 2
           Visible = False
           OnResize = pnl_PDevtoolsResize
           Height = 250
-          Width = 1132
+          Width = 1126
         end
       end
       object ts_AI: TcxTabSheet
@@ -1043,15 +1024,44 @@ object frm_Ticket: Tfrm_Ticket
           Align = alClient
           PanelStyle.Active = True
           TabOrder = 0
-          Height = 719
-          Width = 1132
+          Height = 708
+          Width = 1126
+          object brdckCtrl_AI: TdxBarDockControl
+            Left = 3
+            Top = 3
+            Width = 1120
+            Height = 63
+            Align = dalTop
+            BarManager = bmgr_main
+          end
+        end
+      end
+      object ts_Github: TcxTabSheet
+        Caption = 'Github'
+        ImageIndex = 25
+        object pnl_Github: TcxGroupBox
+          Left = 0
+          Top = 0
+          Align = alClient
+          PanelStyle.Active = True
+          TabOrder = 0
+          Height = 708
+          Width = 1126
+          object brdckCtrl_Github: TdxBarDockControl
+            Left = 3
+            Top = 3
+            Width = 1120
+            Height = 63
+            Align = dalTop
+            BarManager = bmgr_main
+          end
         end
       end
     end
     object stbr_main: TdxStatusBar
-      Left = 2
-      Top = 746
-      Width = 1136
+      Left = 3
+      Top = 745
+      Width = 1134
       Height = 20
       Panels = <
         item
@@ -1221,11 +1231,11 @@ object frm_Ticket: Tfrm_Ticket
       Visible = True
       WholeRow = False
     end
-    object bmgr_mainBar1: TdxBar
+    object tb_AzureMax: TdxBar
       Caption = 'Custom 4'
       CaptionButtons = <>
-      DockControl = dxBarDockControl2
-      DockedDockControl = dxBarDockControl2
+      DockControl = brdckCtrl_AzureMax
+      DockedDockControl = brdckCtrl_AzureMax
       DockedLeft = 0
       DockedTop = 0
       FloatLeft = 859
@@ -1246,7 +1256,7 @@ object frm_Ticket: Tfrm_Ticket
       Visible = True
       WholeRow = False
     end
-    object bmgr_mainBar2: TdxBar
+    object tb_Confluence: TdxBar
       Caption = 'Custom 5'
       CaptionButtons = <>
       DockControl = brdckCtrl_Confluence
@@ -1355,6 +1365,56 @@ object frm_Ticket: Tfrm_Ticket
         item
           Visible = True
           ItemName = 'btn_pDevtools'
+        end>
+      OneOnRow = True
+      Row = 0
+      ShowMark = False
+      SizeGrip = False
+      UseOwnFont = False
+      UseRestSpace = True
+      Visible = True
+      WholeRow = False
+    end
+    object tb_Github: TdxBar
+      Caption = 'Custom 8'
+      CaptionButtons = <>
+      DockControl = brdckCtrl_Github
+      DockedDockControl = brdckCtrl_Github
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1168
+      FloatTop = 2
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btn_GitMinMaxBrowserPriv'
+        end>
+      OneOnRow = True
+      Row = 0
+      ShowMark = False
+      SizeGrip = False
+      UseOwnFont = False
+      UseRestSpace = True
+      Visible = True
+      WholeRow = False
+    end
+    object tb_AI: TdxBar
+      Caption = 'Custom 9'
+      CaptionButtons = <>
+      DockControl = brdckCtrl_AI
+      DockedDockControl = brdckCtrl_AI
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1168
+      FloatTop = 2
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btn_AIMinMaxBrowser'
         end>
       OneOnRow = True
       Row = 0
@@ -1601,6 +1661,26 @@ object frm_Ticket: Tfrm_Ticket
       OnClick = btn_SSwaggerUIClick
       AutoGrayScale = False
       LargeImageIndex = 125
+      Width = 125
+    end
+    object btn_AIMinMaxBrowser: TdxBarLargeButton
+      Caption = 'Maximieren'
+      Category = 0
+      Hint = 'Maximieren'
+      Visible = ivAlways
+      OnClick = btn_AIMinMaxBrowserClick
+      AutoGrayScale = False
+      LargeImageIndex = 32
+      Width = 125
+    end
+    object btn_GitMinMaxBrowserPriv: TdxBarLargeButton
+      Caption = 'Maximieren'
+      Category = 0
+      Hint = 'Maximieren'
+      Visible = ivAlways
+      OnClick = btn_GitMinMaxBrowserPrivClick
+      AutoGrayScale = False
+      LargeImageIndex = 32
       Width = 125
     end
   end
@@ -2553,6 +2633,42 @@ object frm_Ticket: Tfrm_Ticket
           8BE56ACD009BED42E577DA7E7BB0C71838AE4EE7CBF57687E12C66AAB8E87898
           BF639E40E905BCBF7F0370F22B7F617C007FB811C1C9EB91030000000049454E
           44AE426082}
+      end
+      item
+        ImageClass = 'TdxPNGImage'
+        Image.Data = {
+          89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+          61000000017352474200AECE1CE90000000467414D410000B18F0BFC61050000
+          00097048597300000EC300000EC301C76FA8640000001874455874536F667477
+          617265005061696E742E4E455420352E312E32FBBC03B6000000B66558496649
+          492A000800000005001A010500010000004A0000001B01050001000000520000
+          0028010300010000000200000031010200100000005A00000069870400010000
+          006A00000000000000600000000100000060000000010000005061696E742E4E
+          455420352E312E3200030000900700040000003032333001A003000100000001
+          00000005A0040001000000940000000000000002000100020004000000523938
+          0002000700040000003031303000000000E9D5F638CADA6C7A0000029C494441
+          54384F7592CF6B134114C7BFD9ECCE6E6693D95F26D96E59524ADAD04D233934
+          428B615B94D2D6D626487BF05FF12E78D583E0A195DA8352C18388A0A0072982
+          1611BC880DB68788BD146A9B92C0D2590FBA210DF403C33CDE9BEFFBC13CA08F
+          89898929D334D72CCBDA638C85AAAA86BAAEEF2593C935CFF3A6FADFC7236379
+          7939D16EB71F1D1C1C3C1045515014E5A9A228F729A5CF28A5BF63B1D8CCE1E1
+          E11DCBB286AAD5EADB46A31174B3D46AB584EBBA1F28A5C7B95C6EA91BE8636C
+          6C6C49D7F563DBB6B7E7E6E66837E0BAEE1AA5F4B8542A5DF67D3F794ED5C3EA
+          EA6A727A7ABAAC69DA1FC7711E0340AC52A94C351A8D6DC6D8A2AAAABBCD66F3
+          932CCBAF1863EF5AAD569E102212427E743A9D4ABBDDBE6D59D6754288DE6C36
+          5FE772B92A2CCB5A4BA7D35F01607474F48A2449218050108410C0393B1E8F87
+          C3C3C3F300C018FB6CDBF6862049D23542C80B000882609A730E0088EE5E9B73
+          0ECEF90C0010429EC762B19B608C85AEEBD60040D3B49DA8EA45475194060064
+          B3D91BF1783C1438E7100401FF3B90BA652F80732EAEACAC0891461045713F08
+          821200E8BADEE817F4934C26F7B7B6B678188645C7714E04CEF9FB4EA7530300
+          4992EE298A72DA2F8A9065F98C107217005AADD62DCEF94B148BC529C658383E
+          3E5E078042A150CE64320F29A53FA3B953A9D42FDBB6BBAB9CCFE79754550D0B
+          85421500E038CEBA699A27BEEF7B51B5743AFD264A6018C64EE49F9C9C1CD575
+          FD6860606023F26161618166B3D96D4DD38E3DCFBB59AFD7954422B1D7B30787
+          E572F9D2C8C8C83C63ECC8308C8FBEEFABDD0400303B3B4B3399CC7A2A950A75
+          5DFF2208C269CFF705A6697E638C854343439B8B8B8B17AE3B8AC5E255DBB69F
+          1886F15D96E533555543DBB677070707373DCFFB37730F7F015CEDD2F76004C8
+          880000000049454E44AE426082}
       end>
   end
   object ds_Azure: TDataSource

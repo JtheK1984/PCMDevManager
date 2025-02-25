@@ -156,8 +156,8 @@ type
     cxGridDBColumn15: TcxGridDBColumn;
     grdlvl_Azure: TcxGridLevel;
     pnl_BrowserAzurePriv: TcxGroupBox;
-    dxBarDockControl2: TdxBarDockControl;
-    bmgr_mainBar1: TdxBar;
+    brdckCtrl_AzureMax: TdxBarDockControl;
+    tb_AzureMax: TdxBar;
     btn_AMinMaxBrowserPriv: TdxBarLargeButton;
     ts_Confluence: TcxTabSheet;
     ts_Swagger: TcxTabSheet;
@@ -165,7 +165,7 @@ type
     brdckCtrl_Confluence: TdxBarDockControl;
     brdckCtrl_Swagger: TdxBarDockControl;
     brdckCtrl_PCMAPPS: TdxBarDockControl;
-    bmgr_mainBar2: TdxBar;
+    tb_Confluence: TdxBar;
     btn_CMinMaxBrowserPriv: TdxBarLargeButton;
     tb_Swagger: TdxBar;
     btn_SMinMaxBrowserPriv: TdxBarLargeButton;
@@ -202,6 +202,14 @@ type
     btn_SSwaggerUI: TdxBarLargeButton;
     ts_AI: TcxTabSheet;
     pnl_AI: TcxGroupBox;
+    ts_Github: TcxTabSheet;
+    pnl_Github: TcxGroupBox;
+    brdckCtrl_AI: TdxBarDockControl;
+    brdckCtrl_Github: TdxBarDockControl;
+    tb_Github: TdxBar;
+    tb_AI: TdxBar;
+    btn_AIMinMaxBrowser: TdxBarLargeButton;
+    btn_GitMinMaxBrowserPriv: TdxBarLargeButton;
     procedure FormShow(Sender: TObject);
     procedure btn_AReadTicketsClick(Sender: TObject);
     procedure grdDBTblView_JiraBeschreibungGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint;var AHintText: TCaption; var AIsHintMultiLine: Boolean;var AHintTextRect: TRect);
@@ -240,6 +248,8 @@ type
     procedure WVBrowser1FrameNavigationCompleted(Sender: TObject;
       const aWebView: ICoreWebView2;
       const aArgs: ICoreWebView2NavigationCompletedEventArgs);
+    procedure btn_AIMinMaxBrowserClick(Sender: TObject);
+    procedure btn_GitMinMaxBrowserPrivClick(Sender: TObject);
   private
     { Private-Deklarationen }
     AURL: String;
@@ -1266,6 +1276,23 @@ begin
       SendMessage(DevToolsHWND,WM_Close,0,0);
   end;
 end;
+procedure Tfrm_Ticket.btn_AIMinMaxBrowserClick(Sender: TObject);
+begin
+  Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
+  if pnl_SDevTools.Visible then
+  begin
+    if frm_Browser_FullScreen.Execute(True,'Perplexity AI',Aurl,true,DevToolsHWND) then
+    begin
+      GetWindowRect(pnl_PDevtools.Handle, DevToolsRect);
+      Winapi.Windows.SetParent(DevToolsHWND, pnl_PDevtools.Handle);
+      SetWindowPos(DevToolsHWND, 0, -8, -31,DevToolsRect.Right - DevToolsRect.Left +16,DevToolsRect.Bottom - DevToolsRect.Top + 39,SWP_NOZORDER);
+    end;
+  end
+  else begin
+    frm_Browser_FullScreen.Execute(True,'Perplexity AI',Aurl);
+  end;
+end;
+
 procedure Tfrm_Ticket.btn_AMinMaxBrowserPrivClick(Sender: TObject);
 begin
   Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
@@ -1531,6 +1558,23 @@ begin
     frm_Browser_FullScreen.Execute(True,'Confluence - PCM',Aurl);
   end;
 end;
+procedure Tfrm_Ticket.btn_GitMinMaxBrowserPrivClick(Sender: TObject);
+begin
+  Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
+  if pnl_CDevTools.Visible then
+  begin
+    if frm_Browser_FullScreen.Execute(True,'Github',Aurl,true,DevToolsHWND) then
+    begin
+      GetWindowRect(pnl_CDevtools.Handle, DevToolsRect);
+      Winapi.Windows.SetParent(DevToolsHWND, pnl_CDevtools.Handle);
+      SetWindowPos(DevToolsHWND, 0, -8, -31,DevToolsRect.Right - DevToolsRect.Left +16,DevToolsRect.Bottom - DevToolsRect.Top + 39,SWP_NOZORDER);
+    end;
+  end
+  else begin
+    frm_Browser_FullScreen.Execute(True,'Github',Aurl);
+  end;
+end;
+
 procedure Tfrm_Ticket.pnl_CDevToolsResize(Sender: TObject);
 begin
   GetWindowRect(pnl_CDevTools.Handle, DevToolsRect);
@@ -1882,6 +1926,39 @@ begin
     pnl_SNotepad.Visible:= false;
     splt_SNp.Visible:= false;
   end;
+
+  if pc_tickets.Properties.ActivePage = ts_Github then
+  begin
+    FreeAndNil(FWebBrowser);
+    GlobalWebView2Loader.Destroy;
+    GlobalWebView2Loader:= TWVLoader.Create(nil);
+    GlobalWebView2Loader.UserDataFolder := GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\CustomCache';
+    GlobalWebView2Loader.StartWebView2;
+    InitializeBrowser(pnl_Github);
+    AURL:= 'https://github.com/JtheK1984?tab=repositories&q=&type=&language=&sort=name';
+    FWebBrowser.Navigate(AURL);
+    btn_JDevtools.Caption:= 'Devtools einblenden';
+    pnl_JDevTools.Visible:= false;
+    splt_J.Visible:= false;
+    btn_ADevtools.Caption:= 'Devtools einblenden';
+    pnl_ADevTools.Visible:= false;
+    splt_A.Visible:= false;
+    btn_CDevtools.Caption:= 'Devtools einblenden';
+    pnl_CDevTools.Visible:= false;
+    splt_C.Visible:= false;
+    btn_SDevtools.Caption:= 'Devtools einblenden';
+    pnl_SDevTools.Visible:= false;
+    splt_S.Visible:= false;
+    if DevToolsHWND <> 0 then
+      SendMessage(DevToolsHWND,WM_Close,0,0);
+    if NotepadHWND <> 0 then
+    begin
+      SendMessage(NotepadHWND,WM_Close,0,0);
+    end;
+    pnl_SNotepad.Visible:= false;
+    splt_SNp.Visible:= false;
+  end;
+
 end;
 {$EndRegion}
 ////////////////////////////////////////////////////////////////////////////////
