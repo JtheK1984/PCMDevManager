@@ -14,61 +14,117 @@ object frm_DokuCreate: Tfrm_DokuCreate
   Font.Style = []
   Position = poScreenCenter
   TextHeight = 15
-  object grpbx_Design: TcxGroupBox
+  object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Align = alClient
-    PanelStyle.Active = True
-    Style.BorderStyle = ebsNone
-    TabOrder = 0
-    Height = 103
     Width = 425
+    Height = 103
+    Align = alClient
+    TabOrder = 0
+    AutoSize = True
+    LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    ExplicitLeft = 72
+    ExplicitTop = -56
+    ExplicitWidth = 300
+    ExplicitHeight = 250
     object cmbbx_Prog: TcxComboBox
       AlignWithMargins = True
-      Left = 7
-      Top = 36
+      Left = 12
+      Top = 33
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
       Margins.Bottom = 5
-      Align = alTop
+      Style.HotTrack = False
+      Style.TransparentBorder = False
       TabOrder = 0
       Text = 'cmbbx_Prog'
-      Width = 411
-    end
-    object lbl_Programm: TcxLabel
-      AlignWithMargins = True
-      Left = 7
-      Top = 7
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 5
-      Align = alTop
-      Caption = 'Bitte Programm w'#228'hlen'
-      Transparent = True
+      Width = 401
     end
     object btn_Save: TcxButton
-      Left = 8
-      Top = 68
-      Width = 200
+      Left = 12
+      Top = 61
+      Width = 197
       Height = 25
       Caption = #220'bernehmen'
       OptionsImage.ImageIndex = 56
       OptionsImage.Images = dm_PCM.imglst_16x16
-      TabOrder = 2
+      TabOrder = 1
       OnClick = btn_SaveClick
     end
     object btn_Cancel: TcxButton
       Left = 216
-      Top = 68
-      Width = 200
+      Top = 61
+      Width = 197
       Height = 25
       Caption = 'Abbrechen'
       OptionsImage.ImageIndex = 57
       OptionsImage.Images = dm_PCM.imglst_16x16
-      TabOrder = 3
+      TabOrder = 2
       OnClick = btn_CancelClick
+    end
+    object dxLayoutControl1Group_Root: TdxLayoutGroup
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Hidden = True
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = -1
+    end
+    object dxLayoutItem1: TdxLayoutItem
+      Parent = dxLayoutGroup4
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Bitte Programm w'#228'hlen'
+      CaptionOptions.Layout = clTop
+      Control = cmbbx_Prog
+      ControlOptions.OriginalHeight = 21
+      ControlOptions.OriginalWidth = 409
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem2: TdxLayoutItem
+      Parent = dxLayoutGroup5
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'btn_Save'
+      CaptionOptions.Visible = False
+      Control = btn_Save
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 200
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem3: TdxLayoutItem
+      Parent = dxLayoutGroup5
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'btn_Cancel'
+      CaptionOptions.Visible = False
+      Control = btn_Cancel
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 200
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutGroup5: TdxLayoutGroup
+      Parent = dxLayoutGroup4
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutGroup4: TdxLayoutGroup
+      Parent = dxLayoutControl1Group_Root
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      ShowBorder = False
+      Index = 0
     end
   end
 end

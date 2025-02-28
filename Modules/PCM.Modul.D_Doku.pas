@@ -19,7 +19,9 @@ uses
   dxDockControl, cxImageList, cxDropDownEdit, dxSparkline,
   cxBarEditItem, XMLIntf, XMLDoc,uWVLoader,PCM.Browser, Vcl.OleServer, WordXP,Soap.EncdDecd,
   Vcl.ExtCtrls, dxBarBuiltInMenu, cxCheckBox, Vcl.Menus, cxButtons,
-  cxGridCustomPopupMenu, cxGridPopupMenu,System.NetEncoding,system.UITypes;
+  cxGridCustomPopupMenu, cxGridPopupMenu,System.NetEncoding,system.UITypes,
+  dxUIAClasses, dxLayoutContainer, dxLayoutControlAdapters, dxLayoutControl,
+  dxLayoutcxEditAdapters;
   {$EndRegion Uses}
 type
   {$Region Type}
@@ -41,17 +43,9 @@ type
     grd_Version: TcxGrid;
     grdLvl_Version: TcxGridLevel;
     grdpmm_Doku: TcxGridPopupMenu;
-    grpbx_Browser: TcxGroupBox;
-    grpbx_Design: TcxGroupBox;
-    grpbx_PostfachMainSort: TcxGroupBox;
     imglst_16x16: TcxImageList;
-    pc_Kontakte_Kontakte: TcxPageControl;
-    pc_main: TcxPageControl;
     ppm_Doku: TdxBarPopupMenu;
     tb_main: TdxBar;
-    ts_Dokumentation: TcxTabSheet;
-    ts_Dokumente: TcxTabSheet;
-    ts_Uebersicht: TcxTabSheet;
     tv_Version: TcxGridDBTableView;
     tv_VersionBeschreibung: TcxGridDBColumn;
     tv_VersionBild: TcxGridDBColumn;
@@ -64,6 +58,21 @@ type
     tv_VersionSortierung: TcxGridDBColumn;
     btn_VersionExportPDF: TdxBarLargeButton;
     btn_VersionExportHTMLPDF: TdxBarLargeButton;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    dxLayoutGroup4: TdxLayoutGroup;
+    dxLayoutGroup5: TdxLayoutGroup;
+    dxLayoutGroup7: TdxLayoutGroup;
+    dxLayoutItem1: TdxLayoutItem;
+    dxLayoutItem2: TdxLayoutItem;
+    dxLayoutGroup10: TdxLayoutGroup;
+    dxLayoutItem3: TdxLayoutItem;
+    dxLayoutItem4: TdxLayoutItem;
+    dxLayoutItem5: TdxLayoutItem;
+    dxLayoutItem6: TdxLayoutItem;
+    dxLayoutItem7: TdxLayoutItem;
+    grpbx_Browser: TcxGroupBox;
+    dxLayoutGroup1: TdxLayoutGroup;
     procedure btn_CollapseClick(Sender: TObject);
     procedure btn_DokuMainbottomClick(Sender: TObject);
     procedure btn_DokuMaindownClick(Sender: TObject);

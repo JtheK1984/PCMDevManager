@@ -45,21 +45,16 @@ uses
   IdIOHandlerStack, cxMemo, cxRichEdit, dxLayoutContainer, dxLayoutControl,
   dxLayoutLookAndFeels, dxLayoutcxEditAdapters, cxImageComboBox,
   dxLayoutControlAdapters, dxDockControl, dxDockPanel, cxScrollBox, Vcl.ExtCtrls,
-  cxCalc, cxBlobEdit, cxCalendar, cxSpinEdit;
+  cxCalc, cxBlobEdit, cxCalendar, cxSpinEdit, dxUIAClasses;
   {$EndRegion Uses}
 type
   {$Region Type}
   Tfrm_Swagger = class(TForm)
     stbr_Rest: TdxStatusBar;
-    grpbx_Style: TcxGroupBox;
     imglst_32x32: TcxImageList;
     HTTPBasicAuthenticatorPCM: THTTPBasicAuthenticator;
     RESTClient: TRESTClient;
     qry_Config: TFDQuery;
-    pc_Main: TcxPageControl;
-    cxTabSheet2: TcxTabSheet;
-    dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList;
-    dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel;
     dxLayoutControl1: TdxLayoutControl;
     lagrp_Rest: TdxLayoutGroup;
     lagrp_PCMAPPCheckLogin: TdxLayoutGroup;
@@ -76,29 +71,17 @@ type
     lbl_GetContacts_Parameter: TdxLayoutLabeledItem;
     itm_CheckServer_Execute: TdxLayoutItem;
     btn_Checkserver: TcxButton;
-    btn_ClosePanel: TcxButton;
-    grpbx_ResponseDetail: TcxGroupBox;
-    lbl_RequestURL: TcxLabel;
     rchedt_RequestURL: TcxRichEdit;
     rchedt_ResponseHeaders: TcxRichEdit;
     rchedt_ResponseBody: TcxRichEdit;
-    lbl_Serverresponse: TcxLabel;
-    lbl_Code_Detail: TcxLabel;
-    lbl_Code: TcxLabel;
-    lbl_ResponseHeaders: TcxLabel;
-    scrlbx_Responsepanel: TcxScrollBox;
     sepitm_CheckServer_ParameterResponse: TdxLayoutSeparatorItem;
     itm_CheckServer_Example: TdxLayoutItem;
     mem_CheckServer_Example: TcxMemo;
     lagrp_PCMAPPGetContacts: TdxLayoutGroup;
     lagrp_PCMAPPSetContacts: TdxLayoutGroup;
     lagrp_PCMAPPSetDeviceID: TdxLayoutGroup;
-    cxTabSheet1: TcxTabSheet;
-    sdsds: TcxTabSheet;
     lagrp_PCMAPP_Checkserver: TdxLayoutGroup;
     imglst_28x80: TcxImageList;
-    grpbx_ResponseHeader: TPanel;
-    grpbx_Responsepanel: TPanel;
     lagrp_PCMAPPGetCalendar: TdxLayoutGroup;
     lagrp_PCMAPPSetCalendar: TdxLayoutGroup;
     lagrp_PCMAPPGetPasswords: TdxLayoutGroup;
@@ -162,13 +145,22 @@ type
     lagrp_PCMAPPSetGiftCards: TdxLayoutGroup;
     dxLayoutGroup11: TdxLayoutGroup;
     dxLayoutGroup13: TdxLayoutGroup;
-    dxLayoutGroup14: TdxLayoutGroup;
     dxLayoutGroup15: TdxLayoutGroup;
-    dxLayoutGroup16: TdxLayoutGroup;
-    dxLayoutGroup17: TdxLayoutGroup;
+    dxLayoutGroup1: TdxLayoutGroup;
+    grpbx_ResponsepanelGroup_Root: TdxLayoutGroup;
+    grpbx_Responsepanel: TdxLayoutControl;
+    dxLayoutGroup2: TdxLayoutGroup;
+    dxLayoutItem2: TdxLayoutItem;
+    dxLayoutLabeledItem1: TdxLayoutLabeledItem;
+    dxLayoutItem3: TdxLayoutItem;
+    dxLayoutLabeledItem2: TdxLayoutLabeledItem;
+    dxLayoutLabeledItem3: TdxLayoutLabeledItem;
+    dxLayoutLabeledItem4: TdxLayoutLabeledItem;
+    dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList;
+    dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel;
+    dxLayoutLabeledItem5: TdxLayoutLabeledItem;
+    dxLayoutItem4: TdxLayoutItem;
     procedure btn_CheckserverClick(Sender: TObject);
-    procedure btn_ClosePanelClick(Sender: TObject);
-    procedure grpbx_ResponsepanelResize(Sender: TObject);
     procedure FormResize(Sender: TObject);
     procedure btn_CheckLoginClick(Sender: TObject);
     procedure btn_CheckLoginSQLClick(Sender: TObject);
@@ -177,6 +169,8 @@ type
     procedure btn_GetContactsSQLClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure dxLayoutGroup2Button0Click(Sender: TObject);
+    procedure grpbx_ResponsepanelMouseLeave(Sender: TObject);
   private
     { Private-Deklarationen }
     freq, startTime, endTime: Int64;
@@ -229,18 +223,33 @@ begin
     RestRequest.Free;
   end;
 end;
+procedure Tfrm_Swagger.grpbx_ResponsepanelMouseLeave(Sender: TObject);
+  function GetComponentNameAtMousePosition: string;
+  var
+    m_Control: TWinControl;
+  begin
+    m_Control := FindVCLWindow(Mouse.CursorPos);
+    if Assigned(m_Control) then
+      Result := m_Control.Name
+    else
+      Result := '';
+  end;
+var
+  m_CompName: string;
+begin
+  m_CompName := GetComponentNameAtMousePosition;
+  if (m_CompName <> '') and (m_CompName <> 'rchedt_RequestURL') and (m_CompName <> 'rchedt_ResponseBody') and (m_CompName <> 'rchedt_ResponseHeaders') then
+    grpbx_Responsepanel.Visible:= false;
+end;
+
 {$EndRegion Restfunctions}
 ////////////////////////////////////////////////////////////////////////////////
 // OtherFunctions                                                             //
 ////////////////////////////////////////////////////////////////////////////////
 {$Region OtherFunctions}
-procedure Tfrm_Swagger.btn_ClosePanelClick(Sender: TObject);
+procedure Tfrm_Swagger.dxLayoutGroup2Button0Click(Sender: TObject);
 begin
   grpbx_Responsepanel.Visible:= false;
-end;
-procedure Tfrm_Swagger.grpbx_ResponsepanelResize(Sender: TObject);
-begin
-  grpbx_ResponseHeader.Width:= grpbx_Responsepanel.Width;
 end;
 procedure Tfrm_Swagger.ResizeResponse;
 begin
@@ -248,14 +257,11 @@ begin
   if iTotalHeight > 400 then
   begin
     iTotalHeight:= 400;
-//    rchedt_ResponseBody.Properties.ScrollBars:= System.UITypes.TScrollStyle.ssVertical;
+    rchedt_ResponseBody.Properties.ScrollBars:= ssVertical;
   end;
   rchedt_ResponseBody.Height := iTotalHeight;
-  grpbx_ResponseDetail.Height:= rchedt_ResponseHeaders.top + rchedt_ResponseHeaders.Height + 8;
-  grpbx_Responsepanel.left:= 200;
-  grpbx_Responsepanel.Width:= ClientWidth-400;
-  grpbx_Responsepanel.height:= grpbx_ResponseDetail.Height + 30;
-  grpbx_Responsepanel.Top:= Round((ClientHeight - grpbx_Responsepanel.height) / 2)
+  grpbx_Responsepanel.Left:=  Round((frm_Swagger.Width - grpbx_Responsepanel.Width) /2);
+  grpbx_Responsepanel.Top:=  Round((frm_Swagger.Height - grpbx_Responsepanel.Height) /2);
 end;
 {$EndRegion OtherFunctions}
 ////////////////////////////////////////////////////////////////////////////////

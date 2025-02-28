@@ -21483,4 +21483,10 @@ object dm_PCM: Tdm_PCM
     Left = 80
     Top = 240
   end
+  object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
+    object dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel
+      LookAndFeel.NativeStyle = False
+      PixelsPerInch = 96
+    end
+  end
 end

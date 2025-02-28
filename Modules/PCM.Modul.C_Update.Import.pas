@@ -11,7 +11,9 @@ uses
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Param,
   FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf, FireDAC.DApt.Intf,
   FireDAC.Stan.Async, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client,  system.DateUtils,System.StrUtils;
+  FireDAC.Comp.Client,  system.DateUtils,System.StrUtils, dxUIAClasses,
+  dxLayoutcxEditAdapters, dxLayoutControlAdapters, dxLayoutContainer, cxClasses,
+  dxLayoutControl;
 type
   TUpdateString = record
     iProgramm: Integer;
@@ -27,15 +29,21 @@ type
   Tfrm_PCM_Import = class(TForm)
     btn_import: TcxButton;
     cxButton2: TcxButton;
-    cxGroupBox1: TcxGroupBox;
     dxOpenFileDialog1: TdxOpenFileDialog;
-    lbl_Importfile: TcxLabel;
     qry_allg: TFDQuery;
-    lbl_Status: TcxLabel;
     prgbr_Status: TcxProgressBar;
-    cxGroupBox2: TcxGroupBox;
     edt_Importfile: TcxTextEdit;
     cxButton1: TcxButton;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    dxLayoutItem1: TdxLayoutItem;
+    dxLayoutItem2: TdxLayoutItem;
+    dxLayoutItem3: TdxLayoutItem;
+    dxLayoutItem4: TdxLayoutItem;
+    dxLayoutItem5: TdxLayoutItem;
+    dxLayoutGroup3: TdxLayoutGroup;
+    dxLayoutGroup2: TdxLayoutGroup;
+    dxLayoutGroup5: TdxLayoutGroup;
     procedure cxButton2Click(Sender: TObject);
     procedure btn_importClick(Sender: TObject);
     procedure cxButton1Click(Sender: TObject);
@@ -177,7 +185,7 @@ var
   arUpdate: TUpdateStrings;
   strLstDatatypes: TStringlist;
 begin
-  lbl_Status.Caption:= 'XML wird eingelesen';
+  dxLayoutItem5.Caption:= 'XML wird eingelesen';
   qry_Allg.SQL.text:= 'Delete From update_updateversion';
   qry_Allg.ExecSQL;
   qry_Allg.SQL.text:= 'Delete From update_updateversion_fields';
@@ -233,7 +241,7 @@ begin
   for iArrayCount := 0 to High(arUpdate) do
   begin
     prgbr_Status.Position:= prgbr_Status.Position + 1;
-    lbl_Status.caption:= 'Datenbank: ' + arUpdate[iArrayCount].sProgramm + '     Version: ' + IntToStr(arUpdate[iArrayCount].iVersionMain) + '.' + IntToStr(arUpdate[iArrayCount].iVersionSub);
+    dxLayoutItem5.caption:= 'Datenbank: ' + arUpdate[iArrayCount].sProgramm + '     Version: ' + IntToStr(arUpdate[iArrayCount].iVersionMain) + '.' + IntToStr(arUpdate[iArrayCount].iVersionSub);
 
 
     iSQLStatement:= SetSQLStatementCombo(arUpdate[iArrayCount].sStatement);

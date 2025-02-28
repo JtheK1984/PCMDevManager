@@ -15,119 +15,164 @@ object frm_Update: Tfrm_Update
   OnActivate = FormActivate
   OnShow = FormShow
   TextHeight = 15
-  object pnl_Design: TcxGroupBox
+  object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Align = alClient
-    PanelStyle.Active = True
-    Style.BorderStyle = ebsNone
-    TabOrder = 0
-    Height = 614
     Width = 1254
-    object pc_main: TcxPageControl
-      Left = 2
-      Top = 2
-      Width = 1250
-      Height = 610
-      Align = alClient
-      Color = clBtnFace
-      ParentBackground = False
-      ParentColor = False
-      TabOrder = 0
-      Properties.ActivePage = ts_Dokumentation
-      Properties.CustomButtons.Buttons = <>
-      Properties.Images = dm_PCM.imglst_16x16
-      Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea]
-      Properties.TabSlants.Kind = skCutCorner
-      Properties.TabWidth = 150
-      ClientRectBottom = 610
-      ClientRectRight = 1250
-      ClientRectTop = 26
-      object ts_Dokumentation: TcxTabSheet
-        Caption = 'Update XML'
-        ImageIndex = 82
-        object grd_Version: TcxGrid
-          Left = 0
-          Top = 58
-          Width = 245
-          Height = 526
-          Align = alClient
-          TabOrder = 0
-          LookAndFeel.NativeStyle = False
-          object tv_Version: TcxGridDBTableView
-            Navigator.Buttons.CustomButtons = <>
-            ScrollbarAnnotations.CustomAnnotations = <>
-            DataController.DataSource = dm_PCM.ds_Versions
-            DataController.Summary.DefaultGroupSummaryItems = <>
-            DataController.Summary.FooterSummaryItems = <>
-            DataController.Summary.SummaryGroups = <>
-            OptionsData.Deleting = False
-            OptionsData.Editing = False
-            OptionsData.Inserting = False
-            object tv_VersionProgramm: TcxGridDBColumn
-              DataBinding.FieldName = 'Program'
-              DataBinding.IsNullValueType = True
-              Visible = False
-              GroupIndex = 0
-              SortIndex = 0
-              SortOrder = soAscending
-            end
-            object tv_VersionVERSIONDate: TcxGridDBColumn
-              Caption = 'Datum'
-              DataBinding.FieldName = 'VERSIONDate'
-              DataBinding.IsNullValueType = True
-              SortIndex = 1
-              SortOrder = soAscending
-            end
-            object tv_VersionVersion: TcxGridDBColumn
-              DataBinding.FieldName = 'Version'
-              DataBinding.IsNullValueType = True
-              SortIndex = 2
-              SortOrder = soAscending
-            end
-            object tv_VersionDescription: TcxGridDBColumn
-              Caption = 'Beschreibung'
-              DataBinding.FieldName = 'Description'
-              DataBinding.IsNullValueType = True
-              Width = 250
-            end
-            object tv_VersionStatement: TcxGridDBColumn
-              DataBinding.FieldName = 'Statement'
-              DataBinding.IsNullValueType = True
-              Width = 400
-            end
-          end
-          object grdLvl_Version: TcxGridLevel
-            GridView = tv_Version
-          end
+    Height = 614
+    Align = alClient
+    TabOrder = 0
+    AutoSize = True
+    LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    ExplicitLeft = 680
+    ExplicitTop = 312
+    ExplicitWidth = 300
+    ExplicitHeight = 250
+    object grd_Version: TcxGrid
+      Left = 12
+      Top = 82
+      Width = 235
+      Height = 520
+      TabOrder = 1
+      LookAndFeel.NativeStyle = False
+      object tv_Version: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        ScrollbarAnnotations.CustomAnnotations = <>
+        DataController.DataSource = dm_PCM.ds_Versions
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsData.Deleting = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        object tv_VersionProgramm: TcxGridDBColumn
+          DataBinding.FieldName = 'Program'
+          DataBinding.IsNullValueType = True
+          Visible = False
+          GroupIndex = 0
+          SortIndex = 0
+          SortOrder = soAscending
         end
-        object mem_Statement: TcxDBMemo
-          Left = 250
-          Top = 58
-          Align = alRight
-          DataBinding.DataField = 'Statement'
-          Properties.ReadOnly = True
-          Properties.ScrollBars = ssVertical
-          TabOrder = 1
-          Height = 526
-          Width = 1000
+        object tv_VersionVERSIONDate: TcxGridDBColumn
+          Caption = 'Datum'
+          DataBinding.FieldName = 'VERSIONDate'
+          DataBinding.IsNullValueType = True
+          SortIndex = 1
+          SortOrder = soAscending
         end
-        object spl_Statement: TcxSplitter
-          Left = 245
-          Top = 58
-          Width = 5
-          Height = 526
-          Control = mem_Statement
+        object tv_VersionVersion: TcxGridDBColumn
+          DataBinding.FieldName = 'Version'
+          DataBinding.IsNullValueType = True
+          SortIndex = 2
+          SortOrder = soAscending
         end
-        object dxBarDockControl1: TdxBarDockControl
-          Left = 0
-          Top = 0
-          Width = 1250
-          Height = 58
-          Align = dalTop
-          BarManager = brmgr_Main
+        object tv_VersionDescription: TcxGridDBColumn
+          Caption = 'Beschreibung'
+          DataBinding.FieldName = 'Description'
+          DataBinding.IsNullValueType = True
+          Width = 250
+        end
+        object tv_VersionStatement: TcxGridDBColumn
+          DataBinding.FieldName = 'Statement'
+          DataBinding.IsNullValueType = True
+          Width = 400
         end
       end
+      object grdLvl_Version: TcxGridLevel
+        GridView = tv_Version
+      end
+    end
+    object mem_Statement: TcxDBMemo
+      Left = 266
+      Top = 82
+      DataBinding.DataField = 'Statement'
+      Properties.ReadOnly = True
+      Properties.ScrollBars = ssVertical
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 2
+      Height = 520
+      Width = 976
+    end
+    object dxBarDockControl1: TdxBarDockControl
+      Left = 12
+      Top = 12
+      Width = 1230
+      Height = 63
+      Align = dalNone
+      BarManager = brmgr_Main
+    end
+    object dxLayoutControl1Group_Root: TdxLayoutGroup
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Hidden = True
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = -1
+    end
+    object dxLayoutGroup3: TdxLayoutGroup
+      Parent = dxLayoutControl1Group_Root
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Update XML'
+      ItemIndex = 1
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem1: TdxLayoutItem
+      Parent = dxLayoutGroup3
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'dxBarDockControl1'
+      CaptionOptions.Visible = False
+      Control = dxBarDockControl1
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1240
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem2: TdxLayoutItem
+      Parent = dxLayoutGroup1
+      AlignHorz = ahLeft
+      AlignVert = avClient
+      CaptionOptions.Text = 'grd_Version'
+      CaptionOptions.Visible = False
+      Control = grd_Version
+      ControlOptions.OriginalHeight = 510
+      ControlOptions.OriginalWidth = 235
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutSplitterItem1: TdxLayoutSplitterItem
+      Parent = dxLayoutGroup1
+      SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+      SizeOptions.SizableHorz = False
+      SizeOptions.SizableVert = False
+      AllowCloseOnClick = True
+      Index = 1
+    end
+    object dxLayoutItem3: TdxLayoutItem
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'mem_Statement'
+      CaptionOptions.Visible = False
+      Control = mem_Statement
+      ControlOptions.OriginalHeight = 510
+      ControlOptions.OriginalWidth = 1000
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
+    object dxLayoutGroup1: TdxLayoutGroup
+      Parent = dxLayoutGroup3
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 1
     end
   end
   object brmgr_Main: TdxBarManager
@@ -145,7 +190,6 @@ object frm_Update: Tfrm_Update
     ImageOptions.LargeImages = dm_PCM.imglst_32x32
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
-    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 304

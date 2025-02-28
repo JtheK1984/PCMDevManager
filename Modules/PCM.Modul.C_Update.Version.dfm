@@ -14,555 +14,623 @@ object frm_PCM_Version: Tfrm_PCM_Version
   Font.Style = []
   Position = poScreenCenter
   TextHeight = 15
-  object sclbx_SQL: TcxScrollBox
+  object dxLayoutControl1: TdxLayoutControl
     Left = 0
-    Top = 58
+    Top = 63
     Width = 746
-    Height = 601
+    Height = 596
     Align = alClient
-    AutoScroll = False
-    BorderStyle = cxcbsNone
-    HorzScrollBar.Range = 0
-    TabOrder = 0
-    VertScrollBar.Range = 800
-    object grpbx_1Date: TcxGroupBox
-      Left = 0
-      Top = 0
-      Align = alTop
-      PanelStyle.Active = True
+    TabOrder = 4
+    AutoSize = True
+    LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    ExplicitLeft = 232
+    ExplicitTop = 224
+    ExplicitWidth = 300
+    ExplicitHeight = 250
+    object sclbx_SQL: TcxScrollBox
+      Left = 12
+      Top = 12
+      Width = 722
+      Height = 572
+      AutoScroll = False
+      BorderStyle = cxcbsNone
+      Color = 7566195
+      HorzScrollBar.Range = 0
+      ParentColor = False
       TabOrder = 0
-      Height = 35
-      Width = 729
-      object grpbx_2Date_Detail: TcxGroupBox
-        AlignWithMargins = True
-        Left = 2
-        Top = 2
-        Margins.Left = 0
-        Margins.Top = 0
-        Margins.Right = 0
-        Margins.Bottom = 0
-        Align = alClient
-        PanelStyle.Active = True
-        Style.BorderStyle = ebsNone
-        TabOrder = 0
-        Height = 31
-        Width = 725
-        object lbl_Date: TcxLabel
-          AlignWithMargins = True
-          Left = 5
-          Top = 4
-          Margins.Top = 2
-          Margins.Right = 0
-          Margins.Bottom = 2
-          Align = alLeft
-          AutoSize = False
-          Caption = 'Datum:'
-          Transparent = True
-          Height = 23
-          Width = 90
-        end
-        object dtedt_Date: TcxDateEdit
-          AlignWithMargins = True
-          Left = 95
-          Top = 2
-          Margins.Left = 0
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alClient
-          Properties.ReadOnly = True
-          TabOrder = 1
-          Width = 628
-        end
-      end
-    end
-    object grpbx_2Version: TcxGroupBox
-      Left = 0
-      Top = 35
-      Align = alTop
-      PanelStyle.Active = True
-      TabOrder = 1
-      Height = 35
-      Width = 729
-      object grpbx_3Version_Detail: TcxGroupBox
-        AlignWithMargins = True
-        Left = 2
-        Top = 2
-        Margins.Left = 0
-        Margins.Top = 0
-        Margins.Right = 0
-        Margins.Bottom = 0
-        Align = alClient
-        PanelStyle.Active = True
-        Style.BorderStyle = ebsNone
-        TabOrder = 0
-        Height = 31
-        Width = 725
-        object edt_Version: TcxTextEdit
-          AlignWithMargins = True
-          Left = 95
-          Top = 2
-          Margins.Left = 0
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alClient
-          Properties.ReadOnly = True
-          TabOrder = 0
-          Width = 628
-        end
-        object lbl_Version: TcxLabel
-          AlignWithMargins = True
-          Left = 5
-          Top = 4
-          Margins.Top = 2
-          Margins.Right = 0
-          Margins.Bottom = 2
-          Align = alLeft
-          AutoSize = False
-          Caption = 'Version:'
-          Transparent = True
-          Height = 23
-          Width = 90
-        end
-      end
-    end
-    object grpbx_3Beschreibung: TcxGroupBox
-      Left = 0
-      Top = 70
-      Align = alTop
-      PanelStyle.Active = True
-      TabOrder = 2
-      Height = 35
-      Width = 729
-      object grpbx_4Beschreibung_Detail: TcxGroupBox
-        AlignWithMargins = True
-        Left = 2
-        Top = 2
-        Margins.Left = 0
-        Margins.Top = 0
-        Margins.Right = 0
-        Margins.Bottom = 0
-        Align = alClient
-        PanelStyle.Active = True
-        Style.BorderStyle = ebsNone
-        TabOrder = 0
-        Height = 31
-        Width = 725
-        object edt_Beschreibung: TcxTextEdit
-          AlignWithMargins = True
-          Left = 95
-          Top = 2
-          Margins.Left = 0
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alClient
-          TabOrder = 0
-          Width = 628
-        end
-        object lbl_Beschreibung: TcxLabel
-          AlignWithMargins = True
-          Left = 5
-          Top = 4
-          Margins.Top = 2
-          Margins.Right = 0
-          Margins.Bottom = 2
-          Align = alLeft
-          AutoSize = False
-          Caption = 'Beschreibung:'
-          Transparent = True
-          Height = 23
-          Width = 90
-        end
-      end
-    end
-    object grpbx_4SQL: TcxGroupBox
-      Left = 0
-      Top = 105
-      Align = alClient
-      PanelStyle.Active = True
-      TabOrder = 3
-      Height = 544
-      Width = 729
-      object grpbx_4SQL_Detail_1: TcxGroupBox
-        AlignWithMargins = True
-        Left = 2
-        Top = 2
-        Margins.Left = 0
-        Margins.Top = 0
-        Margins.Right = 0
-        Margins.Bottom = 0
+      VertScrollBar.Range = 800
+      object grpbx_1Date: TcxGroupBox
+        Left = 0
+        Top = 0
         Align = alTop
         PanelStyle.Active = True
-        Style.BorderStyle = ebsNone
         TabOrder = 0
-        Height = 29
-        Width = 725
-        object cmbbx_SQLStatement: TcxComboBox
+        ExplicitWidth = 729
+        Height = 35
+        Width = 705
+        object grpbx_2Date_Detail: TcxGroupBox
           AlignWithMargins = True
-          Left = 95
-          Top = 2
-          Hint = 'Bitte SQL-Statement w'#228'hlen'
+          Left = 3
+          Top = 3
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
           Margins.Bottom = 0
           Align = alClient
-          Properties.Items.Strings = (
-            'CREATE TABLE IF NOT EXISTS'
-            'ALTER TABLE'
-            'INSERT INTO'
-            'UPDATE'
-            'DELETE FROM')
-          Properties.OnChange = cmbbx_SQLStatementPropertiesChange
-          Style.TextColor = clWindow
-          Style.TransparentBorder = True
-          StyleDisabled.TextColor = clBtnHighlight
+          PanelStyle.Active = True
+          Style.BorderStyle = ebsNone
           TabOrder = 0
-          Width = 628
-        end
-        object cxLabel2: TcxLabel
-          AlignWithMargins = True
-          Left = 5
-          Top = 4
-          Margins.Top = 2
-          Margins.Right = 0
-          Margins.Bottom = 2
-          Align = alLeft
-          AutoSize = False
-          Caption = 'SQL:'
-          Transparent = True
-          Height = 21
-          Width = 90
+          ExplicitWidth = 723
+          Height = 29
+          Width = 699
+          object lbl_Date: TcxLabel
+            AlignWithMargins = True
+            Left = 6
+            Top = 5
+            Margins.Top = 2
+            Margins.Right = 0
+            Margins.Bottom = 2
+            Align = alLeft
+            AutoSize = False
+            Caption = 'Datum:'
+            TabOrder = 0
+            Transparent = True
+            Height = 19
+            Width = 90
+          end
+          object dtedt_Date: TcxDateEdit
+            AlignWithMargins = True
+            Left = 96
+            Top = 3
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alClient
+            Properties.ReadOnly = True
+            TabOrder = 1
+            ExplicitWidth = 624
+            Width = 600
+          end
         end
       end
-      object grpbx_4SQL_Detail_2: TcxGroupBox
-        AlignWithMargins = True
-        Left = 2
-        Top = 31
-        Margins.Left = 0
-        Margins.Top = 0
-        Margins.Right = 0
-        Margins.Bottom = 0
+      object grpbx_2Version: TcxGroupBox
+        Left = 0
+        Top = 35
         Align = alTop
         PanelStyle.Active = True
-        Style.BorderStyle = ebsNone
         TabOrder = 1
-        Visible = False
-        Height = 29
-        Width = 725
-        object cxLabel1: TcxLabel
+        ExplicitWidth = 729
+        Height = 35
+        Width = 705
+        object grpbx_3Version_Detail: TcxGroupBox
           AlignWithMargins = True
-          Left = 5
-          Top = 4
-          Margins.Top = 2
-          Margins.Right = 0
-          Margins.Bottom = 2
-          Align = alLeft
-          AutoSize = False
-          Caption = 'Tabelle:'
-          Transparent = True
-          Height = 21
-          Width = 90
-        end
-        object edt_Tablename: TcxTextEdit
-          AlignWithMargins = True
-          Left = 95
-          Top = 2
+          Left = 3
+          Top = 3
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
           Margins.Bottom = 0
           Align = alClient
-          Properties.OnEditValueChanged = edt_TablenamePropertiesEditValueChanged
-          Style.TextColor = clWindow
-          Style.TransparentBorder = True
-          StyleDisabled.TextColor = clBtnHighlight
+          PanelStyle.Active = True
+          Style.BorderStyle = ebsNone
           TabOrder = 0
-          Width = 628
+          ExplicitWidth = 723
+          Height = 29
+          Width = 699
+          object edt_Version: TcxTextEdit
+            AlignWithMargins = True
+            Left = 96
+            Top = 3
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alClient
+            Properties.ReadOnly = True
+            TabOrder = 0
+            ExplicitWidth = 624
+            Width = 600
+          end
+          object lbl_Version: TcxLabel
+            AlignWithMargins = True
+            Left = 6
+            Top = 5
+            Margins.Top = 2
+            Margins.Right = 0
+            Margins.Bottom = 2
+            Align = alLeft
+            AutoSize = False
+            Caption = 'Version:'
+            TabOrder = 1
+            Transparent = True
+            Height = 19
+            Width = 90
+          end
         end
       end
-      object dxBarDockControl1: TdxBarDockControl
-        Left = 2
-        Top = 60
-        Width = 725
-        Height = 58
-        Align = dalTop
-        BarManager = brmgr_SQL
-      end
-      object cxGroupBox2: TcxGroupBox
-        AlignWithMargins = True
-        Left = 2
-        Top = 118
-        Margins.Left = 0
-        Margins.Top = 0
-        Margins.Right = 0
-        Margins.Bottom = 0
+      object grpbx_3Beschreibung: TcxGroupBox
+        Left = 0
+        Top = 70
         Align = alTop
         PanelStyle.Active = True
-        Style.BorderStyle = ebsNone
-        TabOrder = 3
-        Visible = False
-        Height = 29
-        Width = 725
-        object cxLabel3: TcxLabel
+        TabOrder = 2
+        ExplicitWidth = 729
+        Height = 35
+        Width = 705
+        object grpbx_4Beschreibung_Detail: TcxGroupBox
           AlignWithMargins = True
-          Left = 2
-          Top = 4
-          Margins.Left = 0
-          Margins.Top = 2
-          Margins.Right = 0
-          Margins.Bottom = 2
-          Align = alLeft
-          AutoSize = False
-          Caption = 'Column:'
-          Transparent = True
-          Height = 21
-          Width = 90
-        end
-        object cxTextEdit1: TcxTextEdit
-          AlignWithMargins = True
-          Left = 92
-          Top = 2
+          Left = 3
+          Top = 3
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
           Margins.Bottom = 0
           Align = alClient
-          StyleDisabled.TextColor = clBtnHighlight
-          TabOrder = 1
-          Text = 'cxTextEdit1'
-          Width = 631
-        end
-      end
-      object cxGroupBox1: TcxGroupBox
-        AlignWithMargins = True
-        Left = 2
-        Top = 147
-        Margins.Left = 0
-        Margins.Top = 0
-        Margins.Right = 0
-        Margins.Bottom = 0
-        Align = alTop
-        PanelStyle.Active = True
-        Style.BorderStyle = ebsNone
-        TabOrder = 4
-        Height = 29
-        Width = 725
-        object cmbbx_Datatype: TcxComboBox
-          AlignWithMargins = True
-          Left = 92
-          Top = 2
-          Hint = 'Bitte SQL-Statement w'#228'hlen'
-          Margins.Left = 0
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alLeft
-          Properties.Items.Strings = (
-            'int'
-            'double'
-            'char'
-            'varchar'
-            'date'
-            'datetime'
-            'time'
-            'set'
-            'enum')
-          Properties.OnChange = cmbbx_SQLStatementPropertiesChange
-          Style.TextColor = clWindow
-          Style.TransparentBorder = True
-          StyleDisabled.TextColor = clBtnHighlight
+          PanelStyle.Active = True
+          Style.BorderStyle = ebsNone
           TabOrder = 0
-          Width = 100
-        end
-        object lbl_Datatype: TcxLabel
-          AlignWithMargins = True
-          Left = 2
-          Top = 4
-          Margins.Left = 0
-          Margins.Top = 2
-          Margins.Right = 0
-          Margins.Bottom = 2
-          Align = alLeft
-          AutoSize = False
-          Caption = 'Datentyp:'
-          Transparent = True
-          Height = 21
-          Width = 90
-        end
-        object cxLabel5: TcxLabel
-          AlignWithMargins = True
-          Left = 196
-          Top = 4
-          Margins.Left = 4
-          Margins.Top = 2
-          Margins.Right = 0
-          Margins.Bottom = 2
-          Align = alLeft
-          AutoSize = False
-          Caption = 'Gr'#246#223'e:'
-          Transparent = True
-          Height = 21
-          Width = 45
-        end
-        object cxLabel6: TcxLabel
-          AlignWithMargins = True
-          Left = 275
-          Top = 4
-          Margins.Left = 4
-          Margins.Top = 2
-          Margins.Right = 0
-          Margins.Bottom = 2
-          Align = alLeft
-          AutoSize = False
-          Caption = 'VK:'
-          Transparent = True
-          Height = 21
-          Width = 25
-        end
-        object lbl_Nachkomma: TcxLabel
-          AlignWithMargins = True
-          Left = 334
-          Top = 4
-          Hint = 'Anzahl Nachkommastellen'
-          Margins.Left = 4
-          Margins.Top = 2
-          Margins.Right = 0
-          Margins.Bottom = 2
-          Align = alLeft
-          AutoSize = False
-          Caption = 'NK:'
-          Transparent = True
-          Height = 21
-          Width = 25
-        end
-        object cxCheckBox1: TcxCheckBox
-          AlignWithMargins = True
-          Left = 459
-          Top = 2
-          Margins.Left = 4
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alLeft
-          Caption = 'Default NULL'
-          Style.TransparentBorder = False
-          TabOrder = 8
-          Transparent = True
-        end
-        object cxCheckBox2: TcxCheckBox
-          AlignWithMargins = True
-          Left = 393
-          Top = 2
-          Margins.Left = 4
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alLeft
-          Caption = 'Autoinc'
-          Style.TransparentBorder = False
-          TabOrder = 9
-          Transparent = True
-        end
-        object edt_Nachkomma: TcxDBTextEdit
-          AlignWithMargins = True
-          Left = 359
-          Top = 2
-          Hint = 'Anzahl Nachkommastellen'
-          Margins.Left = 0
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alLeft
-          StyleDisabled.TextColor = clBtnHighlight
-          TabOrder = 7
-          Width = 30
-        end
-        object cxTextEdit3: TcxDBTextEdit
-          AlignWithMargins = True
-          Left = 300
-          Top = 2
-          Margins.Left = 0
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alLeft
-          StyleDisabled.TextColor = clBtnHighlight
-          TabOrder = 5
-          Width = 30
-        end
-        object cxTextEdit2: TcxDBTextEdit
-          AlignWithMargins = True
-          Left = 241
-          Top = 2
-          Margins.Left = 0
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alLeft
-          StyleDisabled.TextColor = clBtnHighlight
-          TabOrder = 3
-          Width = 30
+          ExplicitWidth = 723
+          Height = 29
+          Width = 699
+          object edt_Beschreibung: TcxTextEdit
+            AlignWithMargins = True
+            Left = 96
+            Top = 3
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alClient
+            TabOrder = 0
+            ExplicitWidth = 624
+            Width = 600
+          end
+          object lbl_Beschreibung: TcxLabel
+            AlignWithMargins = True
+            Left = 6
+            Top = 5
+            Margins.Top = 2
+            Margins.Right = 0
+            Margins.Bottom = 2
+            Align = alLeft
+            AutoSize = False
+            Caption = 'Beschreibung:'
+            TabOrder = 1
+            Transparent = True
+            Height = 19
+            Width = 90
+          end
         end
       end
-      object grd_Columns: TcxGrid
-        Left = 2
-        Top = 176
-        Width = 725
-        Height = 366
+      object grpbx_4SQL: TcxGroupBox
+        Left = 0
+        Top = 105
         Align = alClient
-        TabOrder = 5
-        object grd_ColumnsDBTableView1: TcxGridDBTableView
-          Navigator.Buttons.CustomButtons = <>
-          ScrollbarAnnotations.CustomAnnotations = <>
-          DataController.Summary.DefaultGroupSummaryItems = <>
-          DataController.Summary.FooterSummaryItems = <>
-          DataController.Summary.SummaryGroups = <>
+        PanelStyle.Active = True
+        TabOrder = 3
+        ExplicitWidth = 729
+        Height = 544
+        Width = 705
+        object grpbx_4SQL_Detail_1: TcxGroupBox
+          AlignWithMargins = True
+          Left = 3
+          Top = 3
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 0
+          Align = alTop
+          PanelStyle.Active = True
+          Style.BorderStyle = ebsNone
+          TabOrder = 0
+          ExplicitWidth = 723
+          Height = 29
+          Width = 699
+          object cmbbx_SQLStatement: TcxComboBox
+            AlignWithMargins = True
+            Left = 96
+            Top = 3
+            Hint = 'Bitte SQL-Statement w'#228'hlen'
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alClient
+            Properties.Items.Strings = (
+              'CREATE TABLE IF NOT EXISTS'
+              'ALTER TABLE'
+              'INSERT INTO'
+              'UPDATE'
+              'DELETE FROM')
+            Properties.OnChange = cmbbx_SQLStatementPropertiesChange
+            Style.TextColor = clWindow
+            Style.TransparentBorder = True
+            StyleDisabled.TextColor = clBtnHighlight
+            TabOrder = 0
+            ExplicitWidth = 624
+            Width = 600
+          end
+          object cxLabel2: TcxLabel
+            AlignWithMargins = True
+            Left = 6
+            Top = 5
+            Margins.Top = 2
+            Margins.Right = 0
+            Margins.Bottom = 2
+            Align = alLeft
+            AutoSize = False
+            Caption = 'SQL:'
+            TabOrder = 1
+            Transparent = True
+            Height = 19
+            Width = 90
+          end
         end
-        object grd_ColumnsLevel1: TcxGridLevel
-          GridView = grd_ColumnsDBTableView1
+        object grpbx_4SQL_Detail_2: TcxGroupBox
+          AlignWithMargins = True
+          Left = 3
+          Top = 32
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 0
+          Align = alTop
+          PanelStyle.Active = True
+          Style.BorderStyle = ebsNone
+          TabOrder = 1
+          Visible = False
+          ExplicitWidth = 723
+          Height = 29
+          Width = 699
+          object cxLabel1: TcxLabel
+            AlignWithMargins = True
+            Left = 6
+            Top = 5
+            Margins.Top = 2
+            Margins.Right = 0
+            Margins.Bottom = 2
+            Align = alLeft
+            AutoSize = False
+            Caption = 'Tabelle:'
+            TabOrder = 1
+            Transparent = True
+            Height = 19
+            Width = 90
+          end
+          object edt_Tablename: TcxTextEdit
+            AlignWithMargins = True
+            Left = 96
+            Top = 3
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alClient
+            Properties.OnEditValueChanged = edt_TablenamePropertiesEditValueChanged
+            Style.TextColor = clWindow
+            Style.TransparentBorder = True
+            StyleDisabled.TextColor = clBtnHighlight
+            TabOrder = 0
+            ExplicitWidth = 624
+            Width = 600
+          end
+        end
+        object dxBarDockControl1: TdxBarDockControl
+          Left = 3
+          Top = 61
+          Width = 699
+          Height = 63
+          Align = dalTop
+          BarManager = brmgr_SQL
+          ExplicitWidth = 723
+        end
+        object cxGroupBox2: TcxGroupBox
+          AlignWithMargins = True
+          Left = 3
+          Top = 124
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 0
+          Align = alTop
+          PanelStyle.Active = True
+          Style.BorderStyle = ebsNone
+          TabOrder = 3
+          Visible = False
+          ExplicitWidth = 723
+          Height = 29
+          Width = 699
+          object cxLabel3: TcxLabel
+            AlignWithMargins = True
+            Left = 3
+            Top = 5
+            Margins.Left = 0
+            Margins.Top = 2
+            Margins.Right = 0
+            Margins.Bottom = 2
+            Align = alLeft
+            AutoSize = False
+            Caption = 'Column:'
+            TabOrder = 0
+            Transparent = True
+            Height = 19
+            Width = 90
+          end
+          object cxTextEdit1: TcxTextEdit
+            AlignWithMargins = True
+            Left = 93
+            Top = 3
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alClient
+            StyleDisabled.TextColor = clBtnHighlight
+            TabOrder = 1
+            Text = 'cxTextEdit1'
+            ExplicitWidth = 627
+            Width = 603
+          end
+        end
+        object cxGroupBox1: TcxGroupBox
+          AlignWithMargins = True
+          Left = 3
+          Top = 153
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 0
+          Align = alTop
+          PanelStyle.Active = True
+          Style.BorderStyle = ebsNone
+          TabOrder = 4
+          ExplicitWidth = 723
+          Height = 29
+          Width = 699
+          object cmbbx_Datatype: TcxComboBox
+            AlignWithMargins = True
+            Left = 93
+            Top = 3
+            Hint = 'Bitte SQL-Statement w'#228'hlen'
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alLeft
+            Properties.Items.Strings = (
+              'int'
+              'double'
+              'char'
+              'varchar'
+              'date'
+              'datetime'
+              'time'
+              'set'
+              'enum')
+            Properties.OnChange = cmbbx_SQLStatementPropertiesChange
+            Style.TextColor = clWindow
+            Style.TransparentBorder = True
+            StyleDisabled.TextColor = clBtnHighlight
+            TabOrder = 0
+            Width = 100
+          end
+          object lbl_Datatype: TcxLabel
+            AlignWithMargins = True
+            Left = 3
+            Top = 5
+            Margins.Left = 0
+            Margins.Top = 2
+            Margins.Right = 0
+            Margins.Bottom = 2
+            Align = alLeft
+            AutoSize = False
+            Caption = 'Datentyp:'
+            TabOrder = 1
+            Transparent = True
+            Height = 19
+            Width = 90
+          end
+          object cxLabel5: TcxLabel
+            AlignWithMargins = True
+            Left = 197
+            Top = 5
+            Margins.Left = 4
+            Margins.Top = 2
+            Margins.Right = 0
+            Margins.Bottom = 2
+            Align = alLeft
+            AutoSize = False
+            Caption = 'Gr'#246#223'e:'
+            TabOrder = 2
+            Transparent = True
+            Height = 19
+            Width = 45
+          end
+          object cxLabel6: TcxLabel
+            AlignWithMargins = True
+            Left = 276
+            Top = 5
+            Margins.Left = 4
+            Margins.Top = 2
+            Margins.Right = 0
+            Margins.Bottom = 2
+            Align = alLeft
+            AutoSize = False
+            Caption = 'VK:'
+            TabOrder = 4
+            Transparent = True
+            Height = 19
+            Width = 25
+          end
+          object lbl_Nachkomma: TcxLabel
+            AlignWithMargins = True
+            Left = 335
+            Top = 5
+            Hint = 'Anzahl Nachkommastellen'
+            Margins.Left = 4
+            Margins.Top = 2
+            Margins.Right = 0
+            Margins.Bottom = 2
+            Align = alLeft
+            AutoSize = False
+            Caption = 'NK:'
+            TabOrder = 6
+            Transparent = True
+            Height = 19
+            Width = 25
+          end
+          object cxCheckBox1: TcxCheckBox
+            AlignWithMargins = True
+            Left = 462
+            Top = 3
+            Margins.Left = 4
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alLeft
+            Caption = 'Default NULL'
+            Style.TransparentBorder = False
+            TabOrder = 8
+            Transparent = True
+          end
+          object cxCheckBox2: TcxCheckBox
+            AlignWithMargins = True
+            Left = 394
+            Top = 3
+            Margins.Left = 4
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alLeft
+            Caption = 'Autoinc'
+            Style.TransparentBorder = False
+            TabOrder = 9
+            Transparent = True
+          end
+          object edt_Nachkomma: TcxDBTextEdit
+            AlignWithMargins = True
+            Left = 360
+            Top = 3
+            Hint = 'Anzahl Nachkommastellen'
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alLeft
+            StyleDisabled.TextColor = clBtnHighlight
+            TabOrder = 7
+            Width = 30
+          end
+          object cxTextEdit3: TcxDBTextEdit
+            AlignWithMargins = True
+            Left = 301
+            Top = 3
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alLeft
+            StyleDisabled.TextColor = clBtnHighlight
+            TabOrder = 5
+            Width = 30
+          end
+          object cxTextEdit2: TcxDBTextEdit
+            AlignWithMargins = True
+            Left = 242
+            Top = 3
+            Margins.Left = 0
+            Margins.Top = 0
+            Margins.Right = 0
+            Margins.Bottom = 0
+            Align = alLeft
+            StyleDisabled.TextColor = clBtnHighlight
+            TabOrder = 3
+            Width = 30
+          end
+        end
+        object grd_Columns: TcxGrid
+          Left = 3
+          Top = 182
+          Width = 699
+          Height = 359
+          Align = alClient
+          TabOrder = 5
+          ExplicitWidth = 723
+          object grd_ColumnsDBTableView1: TcxGridDBTableView
+            Navigator.Buttons.CustomButtons = <>
+            ScrollbarAnnotations.CustomAnnotations = <>
+            DataController.Summary.DefaultGroupSummaryItems = <>
+            DataController.Summary.FooterSummaryItems = <>
+            DataController.Summary.SummaryGroups = <>
+          end
+          object grd_ColumnsLevel1: TcxGridLevel
+            GridView = grd_ColumnsDBTableView1
+          end
+        end
+      end
+      object grpbx_5Statement: TcxGroupBox
+        Left = 0
+        Top = 649
+        Align = alBottom
+        PanelStyle.Active = True
+        TabOrder = 4
+        ExplicitWidth = 729
+        Height = 151
+        Width = 705
+        object lbl_Statement: TcxLabel
+          AlignWithMargins = True
+          Left = 8
+          Top = 5
+          Margins.Left = 5
+          Margins.Top = 2
+          Margins.Right = 0
+          Margins.Bottom = 2
+          Align = alLeft
+          AutoSize = False
+          Caption = 'Statement:'
+          TabOrder = 1
+          Transparent = True
+          Height = 141
+          Width = 90
+        end
+        object mem_Statement: TcxMemo
+          AlignWithMargins = True
+          Left = 98
+          Top = 3
+          Margins.Left = 0
+          Margins.Top = 0
+          Margins.Right = 0
+          Margins.Bottom = 0
+          Align = alClient
+          Properties.ScrollBars = ssVertical
+          TabOrder = 0
+          ExplicitWidth = 628
+          Height = 145
+          Width = 604
         end
       end
     end
-    object grpbx_5Statement: TcxGroupBox
-      Left = 0
-      Top = 649
-      Align = alBottom
-      PanelStyle.Active = True
-      TabOrder = 4
-      Height = 151
-      Width = 729
-      object lbl_Statement: TcxLabel
-        AlignWithMargins = True
-        Left = 7
-        Top = 4
-        Margins.Left = 5
-        Margins.Top = 2
-        Margins.Right = 0
-        Margins.Bottom = 2
-        Align = alLeft
-        AutoSize = False
-        Caption = 'Statement:'
-        Transparent = True
-        Height = 143
-        Width = 90
-      end
-      object mem_Statement: TcxMemo
-        AlignWithMargins = True
-        Left = 97
-        Top = 2
-        Margins.Left = 0
-        Margins.Top = 0
-        Margins.Right = 0
-        Margins.Bottom = 0
-        Align = alClient
-        Properties.ScrollBars = ssVertical
-        TabOrder = 0
-        Height = 147
-        Width = 630
-      end
+    object dxLayoutControl1Group_Root: TdxLayoutGroup
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Hidden = True
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = -1
+    end
+    object dxLayoutItem1: TdxLayoutItem
+      Parent = dxLayoutControl1Group_Root
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'sclbx_SQL'
+      CaptionOptions.Visible = False
+      Control = sclbx_SQL
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 596
+      ControlOptions.OriginalWidth = 746
+      ControlOptions.ShowBorder = False
+      Index = 0
     end
   end
   object qry_Allg: TFDQuery
@@ -585,7 +653,6 @@ object frm_PCM_Version: Tfrm_PCM_Version
     ImageOptions.LargeImages = dm_PCM.imglst_32x32
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
-    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 384
@@ -594,7 +661,7 @@ object frm_PCM_Version: Tfrm_PCM_Version
     DockControlHeights = (
       0
       0
-      58
+      63
       0)
     object tb_Main: TdxBar
       AllowClose = False

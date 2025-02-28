@@ -28,7 +28,8 @@ uses
   cxEdit, cxClasses, System.ImageList, cxContainer, dxBarBuiltInMenu,
   Vcl.ExtCtrls, cxPC, dxNavBarCollns, dxNavBarBase, dxNavBar, dxSkinsCore,
   dxBar, cxLocalization, cxLabel, cxGroupBox, dxNavBarStyles,inifiles, Data.DB,PCM.Modul.B_Config,
-  dxShellDialogs;
+  dxShellDialogs, dxUIAClasses, dxChartPalette, dxLayoutContainer,
+  dxLayoutControl;
   {$EndRegion Uses}
 type
   {$Region Type}
@@ -108,6 +109,10 @@ type
     iDokumentation: TdxNavBarItem;
     navbrgrp_Rest: TdxNavBarGroup;
     iRestAPI: TdxNavBarItem;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    dxLayoutGroup1: TdxLayoutGroup;
+    dxLayoutItem1: TdxLayoutItem;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormResize(Sender: TObject);
@@ -156,12 +161,12 @@ uses  PCM.Benutzerverwaltung,
 			PCM.Strings,
       PCM.SQL,
       PCM.Ticket,
-      PCM.Entwicklung, PCM.splash, PCM.Swagger,PCM.Modul.C_Update,PCM.Modul.D_Doku;
+      PCM.Modul.C_Entwicklung, PCM.splash, PCM.Swagger,PCM.Modul.C_Update,PCM.Modul.D_Doku;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //
 ////////////////////////////////////////////////////////////////////////////////
-{$Region Hilfsfunktionen }
+{$Region Hilfsfunktionen}
 function Tfrm_PCM_Main.CurrentModule: TForm;
 begin
   if pc_Main.ControlCount > 0 then

@@ -15,340 +15,377 @@ object frm_Doku: Tfrm_Doku
   OnActivate = FormActivate
   OnShow = FormShow
   TextHeight = 15
-  object grpbx_Design: TcxGroupBox
+  object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Align = alClient
-    PanelStyle.Active = True
-    Style.BorderStyle = ebsNone
-    TabOrder = 0
-    Height = 614
     Width = 1254
-    object pc_main: TcxPageControl
-      Left = 3
-      Top = 3
-      Width = 1248
-      Height = 608
-      Align = alClient
-      Color = clBtnFace
-      ParentBackground = False
-      ParentColor = False
-      TabOrder = 0
-      Properties.ActivePage = ts_Dokumentation
-      Properties.CustomButtons.Buttons = <>
-      Properties.Images = dm_PCM.imglst_16x16
-      Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea]
-      Properties.TabSlants.Kind = skCutCorner
-      Properties.TabWidth = 150
-      ExplicitLeft = 2
-      ExplicitTop = 2
-      ExplicitWidth = 1250
-      ExplicitHeight = 610
-      ClientRectBottom = 602
-      ClientRectLeft = 2
-      ClientRectRight = 1242
-      ClientRectTop = 29
-      object ts_Dokumentation: TcxTabSheet
-        Caption = 'Dokumentation'
-        ImageIndex = 80
-        ExplicitLeft = 0
-        ExplicitTop = 26
-        ExplicitWidth = 1250
-        ExplicitHeight = 584
-        object pc_Kontakte_Kontakte: TcxPageControl
-          AlignWithMargins = True
-          Left = 0
-          Top = 0
-          Width = 1240
-          Height = 573
-          Margins.Left = 0
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alClient
-          Color = clBtnFace
-          ParentBackground = False
-          ParentColor = False
-          TabOrder = 0
-          Properties.ActivePage = ts_Dokumente
-          Properties.CustomButtons.Buttons = <>
-          Properties.Images = dm_PCM.imglst_16x16
-          Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea]
-          Properties.TabSlants.Kind = skCutCorner
-          Properties.TabWidth = 100
-          ExplicitWidth = 1250
-          ExplicitHeight = 584
-          ClientRectBottom = 567
-          ClientRectLeft = 2
-          ClientRectRight = 1234
-          ClientRectTop = 29
-          object ts_Dokumente: TcxTabSheet
-            Caption = 'Dokumente'
-            ExplicitLeft = 0
-            ExplicitTop = 26
-            ExplicitWidth = 1250
-            ExplicitHeight = 558
-            object grpbx_Browser: TcxGroupBox
-              Left = 0
-              Top = 0
-              Align = alClient
-              PanelStyle.Active = True
-              Style.BorderStyle = ebsNone
-              TabOrder = 0
-              ExplicitWidth = 1250
-              ExplicitHeight = 558
-              Height = 538
-              Width = 1232
-            end
-          end
-          object ts_Uebersicht: TcxTabSheet
-            Caption = #220'bersicht'
-            ExplicitLeft = 0
-            ExplicitTop = 26
-            ExplicitWidth = 1250
-            ExplicitHeight = 558
-            object grd_Version: TcxGrid
-              Left = 0
-              Top = 63
-              Width = 1206
-              Height = 475
-              Align = alClient
-              TabOrder = 0
-              LookAndFeel.NativeStyle = False
-              ExplicitTop = 58
-              ExplicitWidth = 1224
-              ExplicitHeight = 500
-              object tv_Version: TcxGridDBTableView
-                Navigator.Buttons.CustomButtons = <>
-                ScrollbarAnnotations.CustomAnnotations = <>
-                OnCellDblClick = tv_VersionCellDblClick
-                DataController.DataSource = dm_PCM.ds_doku
-                DataController.Summary.DefaultGroupSummaryItems = <>
-                DataController.Summary.FooterSummaryItems = <>
-                DataController.Summary.SummaryGroups = <>
-                OptionsData.Deleting = False
-                OptionsData.Editing = False
-                OptionsData.Inserting = False
-                OptionsView.HeaderFilterButtonShowMode = fbmButton
-                OptionsView.IndicatorWidth = 10
-                object tv_VersionBeschreibung: TcxGridDBColumn
-                  DataBinding.FieldName = 'Beschreibung'
-                  DataBinding.IsNullValueType = True
-                  Width = 300
-                end
-                object tv_VersionSortierung: TcxGridDBColumn
-                  DataBinding.FieldName = 'Sortierung'
-                  DataBinding.IsNullValueType = True
-                  SortIndex = 1
-                  SortOrder = soAscending
-                end
-                object tv_VersionProgram: TcxGridDBColumn
-                  DataBinding.FieldName = 'Program'
-                  DataBinding.IsNullValueType = True
-                  Visible = False
-                  GroupIndex = 0
-                  SortIndex = 0
-                  SortOrder = soAscending
-                  Width = 200
-                end
-                object tv_Versionheader: TcxGridDBColumn
-                  Caption = #220'berschrift'
-                  DataBinding.FieldName = 'header'
-                  DataBinding.IsNullValueType = True
-                  Width = 200
-                end
-                object tv_Versionheadertype: TcxGridDBColumn
-                  Caption = #220'berschrift-Typ'
-                  DataBinding.FieldName = 'headertype'
-                  DataBinding.IsNullValueType = True
-                  Width = 100
-                end
-                object tv_VersionBild: TcxGridDBColumn
-                  DataBinding.FieldName = 'Bild'
-                  DataBinding.IsNullValueType = True
-                  Width = 600
-                end
-                object tv_VersionBreite: TcxGridDBColumn
-                  DataBinding.FieldName = 'Breite'
-                  DataBinding.IsNullValueType = True
-                  Width = 51
-                end
-                object tv_VersionNewPage: TcxGridDBColumn
-                  Caption = 'Neue Seite'
-                  DataBinding.FieldName = 'NewPage'
-                  DataBinding.IsNullValueType = True
-                  PropertiesClassName = 'TcxCheckBoxProperties'
-                  Width = 80
-                end
-                object tv_VersionColumn1: TcxGridDBColumn
-                  DataBinding.FieldName = 'Leerzeile'
-                  DataBinding.IsNullValueType = True
-                  PropertiesClassName = 'TcxCheckBoxProperties'
-                  Width = 80
-                end
-              end
-              object grdLvl_Version: TcxGridLevel
-                GridView = tv_Version
-              end
-            end
-            object dxBarDockControl1: TdxBarDockControl
-              Left = 0
-              Top = 0
-              Width = 1232
-              Height = 63
-              Align = dalTop
-              BarManager = brmgr_Main
-            end
-            object grpbx_PostfachMainSort: TcxGroupBox
-              Left = 1206
-              Top = 63
-              Align = alRight
-              PanelStyle.Active = True
-              TabOrder = 2
-              ExplicitLeft = 1224
-              ExplicitTop = 58
-              ExplicitHeight = 500
-              Height = 475
-              Width = 26
-              object btn_DokuMainbottom: TcxButton
-                Left = 3
-                Top = 63
-                Width = 20
-                Height = 20
-                Align = alTop
-                OptionsImage.Glyph.SourceDPI = 96
-                OptionsImage.Glyph.Data = {
-                  89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
-                  610000000774494D4507D8040F0D0D3173F26F50000000097048597300000B12
-                  00000B1201D2DD7EFC0000000467414D410000B18F0BFC610500000242494441
-                  5478DAB593CB6B135114C6BF998CB149AA99A2CDD384A238538D6834A6582A5A
-                  1F548C74ED46BA69232222F47FD14AEDC68A6BB108428BB8F0D9451656C53023
-                  5AA9B5369126934E924E4C33E3BDB72418D32E5C7808CC90B9BF73BE7BBE7338
-                  90F0274625CB32155816F9997266FA968A4D6257FFB06499A6424E813C65EDE5
-                  7D95F35F1A9508A5446331F0660DA9548A25C9CE8CA9CDF0082B72BC278EBC56
-                  C4A7F47B768E27DF94484F1FA2C19D88EC11211F3A0A5240E93C7F4D6AC06746
-                  C8BBA5C47BFB10703BA1174BB07BE95F96C2D5E587A3A7203A04AC1B65648B15
-                  643ECE329916B916854FF40F40B071D0AB36E86503EAEB2784B7648E56F05DBC
-                  4992900A8343A818BF90CD6928AD19D0DE4E5399E84D5C86512347B76D87C071
-                  987D38CEE0C2AB072A5797E9BD708325393C9884BDAD1DD97C01657D151EB71D
-                  35DE05A7CB0143D730F7E836BB3B8529C7D75DE0789BE2F0EEC3DCD4387402FA
-                  036174F8C2A8B6F9E0F604A01734BC9BBA83F6E001F03641114F0EB11EB5B8F0
-                  616105A525155DE7861194E34CDD62FA0DBECC4CC0159070302436B920345CF0
-                  11A9A461BA51C357733FE69F4E60BDBA46EF8A6FCF26092C23D2D5097FBB8085
-                  C50C73A1F223BDB50B85959F287F5758139DA4F291EEBDFFEE4265F9334B103D
-                  16FB7F2E707F8EAB67E03A99754BE94E24217A42C81556E954A243DC81DCD23C
-                  D28FC75865BA0375A629010D3AC25449AB0B7737E017934D3BD29280C6EEB357
-                  25B26F4AE8F495860B5476FE2F78CB041B0B9464F3419BC8E0E7F7365DF1DF3F
-                  EB7C93A1EABC6E0000000049454E44AE426082}
-                TabOrder = 3
-                OnClick = btn_DokuMainbottomClick
-                ExplicitLeft = 2
-                ExplicitTop = 62
-                ExplicitWidth = 22
-              end
-              object btn_DokuMaindown: TcxButton
-                Left = 3
-                Top = 43
-                Width = 20
-                Height = 20
-                Align = alTop
-                OptionsImage.Glyph.SourceDPI = 96
-                OptionsImage.Glyph.Data = {
-                  89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
-                  610000000774494D4507D8040F0D0D3173F26F50000000097048597300000B12
-                  00000B1201D2DD7EFC0000000467414D410000B18F0BFC6105000001AB494441
-                  5478DADD92CB2F035114C6BF69ABDE54506FB19A9110A9502112EF10156B1BB1
-                  D18A8848FC2F4858A9588B44226161E1BDE882483477242C884417EDD4548D47
-                  E7BAF74A453DFE004E6E666EEE9CDF39DFFDCE007F3E24FE28F3CCCA949A0494
-                  B2652A775B73EA4FC9855DE332354DC2B2C0DE8AB6BFA24A6543B332A388ABA9
-                  091633814020208A84B617D454D82B9A34B7B811D162B8089E893C0BFB46EA5A
-                  DAE1AAC8435DA5034A7D23580352DC37297FC0DD5EB6A7C4DDD68EF2FC2CE8B1
-                  07D84BF8112552527EB5AB038E4C1B5E8D3842B127DC9D1F0B99945D8BC3AD5D
-                  FDB05925E82F56E87103EAE126E3A9223C281D9C61455887E1313C19CF088535
-                  3C3C1AD04EB6B84CB479466024586A5A3A6C9284E3B54501470F56552929B364
-                  605A146918F6C19E918350248AB87E0F67BE1D094B36B2B23361E81A4ED7E7C5
-                  DD39FC31856438FBA798CB94D47A7C7038AB108EDE733F50E0C845F8F60AC18D
-                  05D199BB9F32C6CFC1CDE34A6A7AC751A1B8C5D94DF00897DB4BEFF09E3F653A
-                  DF0AF028EA9990D9A44955E7288770BDE317B2235FE05F0BBC8FCE27FE0F6EA2
-                  80779755FCCF7803E8D0E0915AAA27200000000049454E44AE426082}
-                TabOrder = 2
-                OnClick = btn_DokuMaindownClick
-                ExplicitLeft = 2
-                ExplicitTop = 42
-                ExplicitWidth = 22
-              end
-              object btn_DokuMainUp: TcxButton
-                Left = 3
-                Top = 23
-                Width = 20
-                Height = 20
-                Align = alTop
-                OptionsImage.Glyph.SourceDPI = 96
-                OptionsImage.Glyph.Data = {
-                  89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
-                  610000000774494D4507D8040F0D0D3173F26F50000000097048597300000B12
-                  00000B1201D2DD7EFC0000000467414D410000B18F0BFC6105000001B6494441
-                  5478DA636018F280119784985B96DAFFFFFF6E82D8FFFFFD537FB377D62D6CEA
-                  98B06BCE046BB6B2306330363464F8FFFFFF4D61C71435A20C8068FE7FD3DCC2
-                  9241579C974184F91F8388B41203C84041FB440C4350BC20EA9AA1065479D3C4
-                  CA81418C8399E1D6F34F0CAF3F7E61F8FAF52B03031B1BC38FA7574106A97F38
-                  BCE816860120CD40BFDE3474F061F8F7F71FC3A75F8C0CDF7FFE063B9183839D
-                  E1E3A74F0C3F7EFF61F870650FD8904F4797DE821B20EA920E76B6BA5B1C0323
-                  231303370F37C3FB0F1F196EEF9807365CCD239141584488E1D5DBCF0C9F81AE
-                  79B61728FEFFBFFAE7132B6E318A38A781FC7553D93B97819B939D4152848FE1
-                  DE83870C37364F67F8CFF05F1DA8101C88DAFE590CCA4ACA0C4FDE7E64F8F4F1
-                  2BC3CDD5AD207175664E45A337528EF10C2A6A1A0CF252220CD7AFDD60B8B165
-                  3ADCAF3F1E5D7CCB2EA3B3FCD5F593B92CC2CA0C067AFA0C6C3CFC0CDFD98419
-                  3EDE3993CB088A1E5008AB7B24036D6462B8B16D06D879C80105023CE6E1C000
-                  FE7753D32B1DE8712686AB9BA6802D018781A05D02D81B4001101743330C709B
-                  8680039A01E43960E2FA7E7E235675430C00005416CE3539D1B3B10000000049
-                  454E44AE426082}
-                TabOrder = 1
-                OnClick = btn_DokuMainUpClick
-                ExplicitLeft = 2
-                ExplicitTop = 22
-                ExplicitWidth = 22
-              end
-              object btn_DokuMainTop: TcxButton
-                Left = 3
-                Top = 3
-                Width = 20
-                Height = 20
-                Align = alTop
-                OptionsImage.Glyph.SourceDPI = 96
-                OptionsImage.Glyph.Data = {
-                  89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
-                  610000000774494D4507D8040F0D0D3173F26F50000000097048597300000B12
-                  00000B1201D2DD7EFC0000000467414D410000B18F0BFC610500000234494441
-                  5478DAB5534D6B1351143D93D4496262A5CD24A135626D6A46F1A3468DF9026D
-                  A896A2821BC19D5A2A560BF919FE03A1D245168228B8F20311316E5450889452
-                  633353D166682AC48C261343D2B49DF1BD572D8544A80BEFEABDE19E33F7DC73
-                  1E87BF947B68DC6F18BA44CF86AE8BC5D4A4DCAACFD41A7C8381A3E1E3381A08
-                  C0300CC919BFEADF14C11AD89042E1080E7AB64130EB1076F48212769C1C6922
-                  E1365E5CA7AFFB49A7742C3A00B7D50CF9AB866FE59FA856AB00CFA39ECF5022
-                  B1F4EA8EDC4440C144AB141838077D5587D6E0505B5A66235AAD1694350DF5E5
-                  15943EBC6024DA9BBBF23A81EBD4181B5B1CBA048E33C1EEB0E347A98CFCF46B
-                  46EEED8FC12974A2A0565021D32CA69264B38658797B5FE684C16B5497E43B9B
-                  80DD664197D08ECFF33928E91496D41C23E03B77A22738085FAF0F0B6A195AB9
-                  0AE9C14DBA5CD16CDB7DA4D81DBF8C3EFF5EECEA1630FB310BE5FD1A381609C1
-                  E3F620379741E5BB0A9D6FC7E143FDE01DDB51E39D287F4A27DAE828F9545272
-                  6C198542142B532FD15015842351E2C256CCE78B7079FB5050247C49AF62A551
-                  27C249DFF349B60BB6838E1357980C5BD71E348A390463F1962ED4166660117A
-                  50516658B86A530FE5FFEBC2DCB32423F70F8FFCBB0BD9C713306088A4914579
-                  FFF9F1CDBB907D32B19EB8BA32AD5ABC07EE1566DF25DA9CBE261738FA4868CE
-                  C5E151F24713B24F6FB3F136C69596237491C45C97F69D19632E641EDD6A7681
-                  7CA0D726F09FB2072FB045838AFBEDC22F58E6680A1520C2DE0000000049454E
-                  44AE426082}
-                TabOrder = 0
-                OnClick = btn_DokuMainTopClick
-                ExplicitLeft = 2
-                ExplicitTop = 2
-                ExplicitWidth = 22
-              end
-            end
-          end
+    Height = 614
+    Align = alClient
+    TabOrder = 0
+    AutoSize = True
+    LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    ExplicitLeft = 488
+    ExplicitTop = 200
+    ExplicitWidth = 300
+    ExplicitHeight = 250
+    object grd_Version: TcxGrid
+      Left = 10000
+      Top = 10000
+      Width = 1145
+      Height = 461
+      TabOrder = 2
+      Visible = False
+      LookAndFeel.NativeStyle = False
+      object tv_Version: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        ScrollbarAnnotations.CustomAnnotations = <>
+        OnCellDblClick = tv_VersionCellDblClick
+        DataController.DataSource = dm_PCM.ds_doku
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsData.Deleting = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsView.HeaderFilterButtonShowMode = fbmButton
+        OptionsView.IndicatorWidth = 10
+        object tv_VersionBeschreibung: TcxGridDBColumn
+          DataBinding.FieldName = 'Beschreibung'
+          DataBinding.IsNullValueType = True
+          Width = 300
+        end
+        object tv_VersionSortierung: TcxGridDBColumn
+          DataBinding.FieldName = 'Sortierung'
+          DataBinding.IsNullValueType = True
+          SortIndex = 1
+          SortOrder = soAscending
+        end
+        object tv_VersionProgram: TcxGridDBColumn
+          DataBinding.FieldName = 'Program'
+          DataBinding.IsNullValueType = True
+          Visible = False
+          GroupIndex = 0
+          SortIndex = 0
+          SortOrder = soAscending
+          Width = 200
+        end
+        object tv_Versionheader: TcxGridDBColumn
+          Caption = #220'berschrift'
+          DataBinding.FieldName = 'header'
+          DataBinding.IsNullValueType = True
+          Width = 200
+        end
+        object tv_Versionheadertype: TcxGridDBColumn
+          Caption = #220'berschrift-Typ'
+          DataBinding.FieldName = 'headertype'
+          DataBinding.IsNullValueType = True
+          Width = 100
+        end
+        object tv_VersionBild: TcxGridDBColumn
+          DataBinding.FieldName = 'Bild'
+          DataBinding.IsNullValueType = True
+          Width = 600
+        end
+        object tv_VersionBreite: TcxGridDBColumn
+          DataBinding.FieldName = 'Breite'
+          DataBinding.IsNullValueType = True
+          Width = 51
+        end
+        object tv_VersionNewPage: TcxGridDBColumn
+          Caption = 'Neue Seite'
+          DataBinding.FieldName = 'NewPage'
+          DataBinding.IsNullValueType = True
+          PropertiesClassName = 'TcxCheckBoxProperties'
+          Width = 80
+        end
+        object tv_VersionColumn1: TcxGridDBColumn
+          DataBinding.FieldName = 'Leerzeile'
+          DataBinding.IsNullValueType = True
+          PropertiesClassName = 'TcxCheckBoxProperties'
+          Width = 80
         end
       end
+      object grdLvl_Version: TcxGridLevel
+        GridView = tv_Version
+      end
+    end
+    object dxBarDockControl1: TdxBarDockControl
+      Left = 10000
+      Top = 10000
+      Width = 1198
+      Height = 63
+      Align = dalNone
+      BarManager = brmgr_Main
+      Visible = False
+    end
+    object btn_DokuMainbottom: TcxButton
+      Left = 10000
+      Top = 10000
+      Width = 20
+      Height = 20
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+        610000000774494D4507D8040F0D0D3173F26F50000000097048597300000B12
+        00000B1201D2DD7EFC0000000467414D410000B18F0BFC610500000242494441
+        5478DAB593CB6B135114C6BF998CB149AA99A2CDD384A238538D6834A6582A5A
+        1F548C74ED46BA69232222F47FD14AEDC68A6BB108428BB8F0D9451656C53023
+        5AA9B5369126934E924E4C33E3BDB72418D32E5C7808CC90B9BF73BE7BBE7338
+        90F0274625CB32155816F9997266FA968A4D6257FFB06499A6424E813C65EDE5
+        7D95F35F1A9508A5446331F0660DA9548A25C9CE8CA9CDF0082B72BC278EBC56
+        C4A7F47B768E27DF94484F1FA2C19D88EC11211F3A0A5240E93C7F4D6AC06746
+        C8BBA5C47BFB10703BA1174BB07BE95F96C2D5E587A3A7203A04AC1B65648B15
+        643ECE329916B916854FF40F40B071D0AB36E86503EAEB2784B7648E56F05DBC
+        4992900A8343A818BF90CD6928AD19D0DE4E5399E84D5C86512347B76D87C071
+        987D38CEE0C2AB072A5797E9BD708325393C9884BDAD1DD97C01657D151EB71D
+        35DE05A7CB0143D730F7E836BB3B8529C7D75DE0789BE2F0EEC3DCD4387402FA
+        036174F8C2A8B6F9E0F604A01734BC9BBA83F6E001F03641114F0EB11EB5B8F0
+        616105A525155DE7861194E34CDD62FA0DBECC4CC0159070302436B920345CF0
+        11A9A461BA51C357733FE69F4E60BDBA46EF8A6FCF26092C23D2D5097FBB8085
+        C50C73A1F223BDB50B85959F287F5758139DA4F291EEBDFFEE4265F9334B103D
+        16FB7F2E707F8EAB67E03A99754BE94E24217A42C81556E954A243DC81DCD23C
+        D28FC75865BA0375A629010D3AC25449AB0B7737E017934D3BD29280C6EEB357
+        25B26F4AE8F495860B5476FE2F78CB041B0B9464F3419BC8E0E7F7365DF1DF3F
+        EB7C93A1EABC6E0000000049454E44AE426082}
+      TabOrder = 6
+      Visible = False
+      OnClick = btn_DokuMainbottomClick
+    end
+    object btn_DokuMaindown: TcxButton
+      Left = 10000
+      Top = 10000
+      Width = 20
+      Height = 20
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+        610000000774494D4507D8040F0D0D3173F26F50000000097048597300000B12
+        00000B1201D2DD7EFC0000000467414D410000B18F0BFC6105000001AB494441
+        5478DADD92CB2F035114C6BF69ABDE54506FB19A9110A9502112EF10156B1BB1
+        D18A8848FC2F4858A9588B44226161E1BDE882483477242C884417EDD4548D47
+        E7BAF74A453DFE004E6E666EEE9CDF39DFFDCE007F3E24FE28F3CCCA949A0494
+        B2652A775B73EA4FC9855DE332354DC2B2C0DE8AB6BFA24A6543B332A388ABA9
+        091633814020208A84B617D454D82B9A34B7B811D162B8089E893C0BFB46EA5A
+        DAE1AAC8435DA5034A7D23580352DC37297FC0DD5EB6A7C4DDD68EF2FC2CE8B1
+        07D84BF8112552527EB5AB038E4C1B5E8D3842B127DC9D1F0B99945D8BC3AD5D
+        FDB05925E82F56E87103EAE126E3A9223C281D9C61455887E1313C19CF088535
+        3C3C1AD04EB6B84CB479466024586A5A3A6C9284E3B54501470F56552929B364
+        605A146918F6C19E918350248AB87E0F67BE1D094B36B2B23361E81A4ED7E7C5
+        DD39FC31856438FBA798CB94D47A7C7038AB108EDE733F50E0C845F8F60AC18D
+        05D199BB9F32C6CFC1CDE34A6A7AC751A1B8C5D94DF00897DB4BEFF09E3F653A
+        DF0AF028EA9990D9A44955E7288770BDE317B2235FE05F0BBC8FCE27FE0F6EA2
+        80779755FCCF7803E8D0E0915AAA27200000000049454E44AE426082}
+      TabOrder = 5
+      Visible = False
+      OnClick = btn_DokuMaindownClick
+    end
+    object btn_DokuMainUp: TcxButton
+      Left = 10000
+      Top = 10000
+      Width = 20
+      Height = 20
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+        610000000774494D4507D8040F0D0D3173F26F50000000097048597300000B12
+        00000B1201D2DD7EFC0000000467414D410000B18F0BFC6105000001B6494441
+        5478DA636018F280119784985B96DAFFFFFF6E82D8FFFFFD537FB377D62D6CEA
+        98B06BCE046BB6B2306330363464F8FFFFFF4D61C71435A20C8068FE7FD3DCC2
+        9241579C974184F91F8388B41203C84041FB440C4350BC20EA9AA1065479D3C4
+        CA81418C8399E1D6F34F0CAF3F7E61F8FAF52B03031B1BC38FA7574106A97F38
+        BCE816860120CD40BFDE3474F061F8F7F71FC3A75F8C0CDF7FFE063B9183839D
+        E1E3A74F0C3F7EFF61F870650FD8904F4797DE821B20EA920E76B6BA5B1C0323
+        231303370F37C3FB0F1F196EEF9807365CCD239141584488E1D5DBCF0C9F81AE
+        79B61728FEFFBFFAE7132B6E318A38A781FC7553D93B97819B939D4152848FE1
+        DE83870C37364F67F8CFF05F1DA8101C88DAFE590CCA4ACA0C4FDE7E64F8F4F1
+        2BC3CDD5AD207175664E45A337528EF10C2A6A1A0CF252220CD7AFDD60B8B165
+        3ADCAF3F1E5D7CCB2EA3B3FCD5F593B92CC2CA0C067AFA0C6C3CFC0CDFD98419
+        3EDE3993CB088A1E5008AB7B24036D6462B8B16D06D879C80105023CE6E1C000
+        FE7753D32B1DE8712686AB9BA6802D018781A05D02D81B4001101743330C709B
+        8680039A01E43960E2FA7E7E235675430C00005416CE3539D1B3B10000000049
+        454E44AE426082}
+      TabOrder = 4
+      Visible = False
+      OnClick = btn_DokuMainUpClick
+    end
+    object btn_DokuMainTop: TcxButton
+      Left = 10000
+      Top = 10000
+      Width = 20
+      Height = 20
+      OptionsImage.Glyph.SourceDPI = 96
+      OptionsImage.Glyph.Data = {
+        89504E470D0A1A0A0000000D49484452000000100000001008060000001FF3FF
+        610000000774494D4507D8040F0D0D3173F26F50000000097048597300000B12
+        00000B1201D2DD7EFC0000000467414D410000B18F0BFC610500000234494441
+        5478DAB5534D6B1351143D93D4496262A5CD24A135626D6A46F1A3468DF9026D
+        A896A2821BC19D5A2A560BF919FE03A1D245168228B8F20311316E5450889452
+        633353D166682AC48C261343D2B49DF1BD572D8544A80BEFEABDE19E33F7DC73
+        1E87BF947B68DC6F18BA44CF86AE8BC5D4A4DCAACFD41A7C8381A3E1E3381A08
+        C0300CC919BFEADF14C11AD89042E1080E7AB64130EB1076F48212769C1C6922
+        E1365E5CA7AFFB49A7742C3A00B7D50CF9AB866FE59FA856AB00CFA39ECF5022
+        B1F4EA8EDC4440C144AB141838077D5587D6E0505B5A66235AAD1694350DF5E5
+        15943EBC6024DA9BBBF23A81EBD4181B5B1CBA048E33C1EEB0E347A98CFCF46B
+        46EEED8FC12974A2A0565021D32CA69264B38658797B5FE684C16B5497E43B9B
+        80DD664197D08ECFF33928E91496D41C23E03B77A22738085FAF0F0B6A195AB9
+        0AE9C14DBA5CD16CDB7DA4D81DBF8C3EFF5EECEA1630FB310BE5FD1A381609C1
+        E3F620379741E5BB0A9D6FC7E143FDE01DDB51E39D287F4A27DAE828F9545272
+        6C198542142B532FD15015842351E2C256CCE78B7079FB5050247C49AF62A551
+        27C249DFF349B60BB6838E1357980C5BD71E348A390463F1962ED4166660117A
+        50516658B86A530FE5FFEBC2DCB32423F70F8FFCBB0BD9C713306088A4914579
+        FFF9F1CDBB907D32B19EB8BA32AD5ABC07EE1566DF25DA9CBE261738FA4868CE
+        C5E151F24713B24F6FB3F136C69596237491C45C97F69D19632E641EDD6A7681
+        7CA0D726F09FB2072FB045838AFBEDC22F58E6680A1520C2DE0000000049454E
+        44AE426082}
+      TabOrder = 3
+      Visible = False
+      OnClick = btn_DokuMainTopClick
+    end
+    object grpbx_Browser: TcxGroupBox
+      Left = 26
+      Top = 53
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 0
+      Height = 531
+      Width = 1198
+    end
+    object dxLayoutControl1Group_Root: TdxLayoutGroup
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Hidden = True
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = -1
+    end
+    object dxLayoutGroup4: TdxLayoutGroup
+      Parent = dxLayoutControl1Group_Root
+      AlignHorz = ahClient
+      AlignVert = avClient
+      LayoutDirection = ldTabbed
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup5: TdxLayoutGroup
+      Parent = dxLayoutGroup4
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Dokumente'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup7: TdxLayoutGroup
+      Parent = dxLayoutGroup4
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = #220'bersicht'
+      ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem1: TdxLayoutItem
+      Parent = dxLayoutGroup7
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'dxBarDockControl1'
+      CaptionOptions.Visible = False
+      Control = dxBarDockControl1
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1232
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem2: TdxLayoutItem
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'grd_Version'
+      CaptionOptions.Visible = False
+      Control = grd_Version
+      ControlOptions.OriginalHeight = 475
+      ControlOptions.OriginalWidth = 1206
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup10: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahRight
+      AlignVert = avTop
+      Index = 1
+    end
+    object dxLayoutItem3: TdxLayoutItem
+      Parent = dxLayoutGroup10
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'btn_DokuMainTop'
+      CaptionOptions.Visible = False
+      Control = btn_DokuMainTop
+      ControlOptions.OriginalHeight = 20
+      ControlOptions.OriginalWidth = 20
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem4: TdxLayoutItem
+      Parent = dxLayoutGroup10
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'btn_DokuMainUp'
+      CaptionOptions.Visible = False
+      Control = btn_DokuMainUp
+      ControlOptions.OriginalHeight = 20
+      ControlOptions.OriginalWidth = 20
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem5: TdxLayoutItem
+      Parent = dxLayoutGroup10
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'btn_DokuMaindown'
+      CaptionOptions.Visible = False
+      Control = btn_DokuMaindown
+      ControlOptions.OriginalHeight = 20
+      ControlOptions.OriginalWidth = 20
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
+    object dxLayoutItem6: TdxLayoutItem
+      Parent = dxLayoutGroup10
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'btn_DokuMainbottom'
+      CaptionOptions.Visible = False
+      Control = btn_DokuMainbottom
+      ControlOptions.OriginalHeight = 20
+      ControlOptions.OriginalWidth = 20
+      ControlOptions.ShowBorder = False
+      Index = 3
+    end
+    object dxLayoutItem7: TdxLayoutItem
+      Parent = dxLayoutGroup5
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = grpbx_Browser
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 105
+      ControlOptions.OriginalWidth = 185
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup1: TdxLayoutGroup
+      Parent = dxLayoutGroup7
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 1
     end
   end
   object brmgr_Main: TdxBarManager
@@ -369,7 +406,6 @@ object frm_Doku: Tfrm_Doku
     ImageOptions.LargeImages = dm_PCM.imglst_32x32
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
-    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 304

@@ -18,12 +18,12 @@ uses
   FireDAC.DApt, FireDAC.Comp.DataSet, cxLocalization,
   cxDBLookupComboBox, cxMemo, cxDBEdit, cxPC, cxSplitter,
   dxDockControl, cxImageList, cxDropDownEdit, dxSparkline,
-  cxBarEditItem, XMLIntf, XMLDoc, dxBarBuiltInMenu;
+  cxBarEditItem, XMLIntf, XMLDoc, dxBarBuiltInMenu, dxUIAClasses,
+  dxLayoutContainer, dxLayoutcxEditAdapters, dxLayoutControl;
 
 
 type
   Tfrm_Update = class(TForm)
-    pnl_Design: TcxGroupBox;
     brmgr_Main: TdxBarManager;
     tb_main: TdxBar;
     tv_Version: TcxGridDBTableView;
@@ -39,11 +39,16 @@ type
     tv_VersionVERSIONDate: TcxGridDBColumn;
     tv_VersionVersion: TcxGridDBColumn;
     mem_Statement: TcxDBMemo;
-    spl_Statement: TcxSplitter;
     imglst_16x16: TcxImageList;
-    pc_main: TcxPageControl;
-    ts_Dokumentation: TcxTabSheet;
     dxBarDockControl1: TdxBarDockControl;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    dxLayoutGroup3: TdxLayoutGroup;
+    dxLayoutItem1: TdxLayoutItem;
+    dxLayoutItem2: TdxLayoutItem;
+    dxLayoutSplitterItem1: TdxLayoutSplitterItem;
+    dxLayoutItem3: TdxLayoutItem;
+    dxLayoutGroup1: TdxLayoutGroup;
     procedure FormShow(Sender: TObject);
     procedure btn_VersionImportClick(Sender: TObject);
     procedure btn_VersionNewClick(Sender: TObject);

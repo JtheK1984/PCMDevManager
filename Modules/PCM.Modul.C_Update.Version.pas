@@ -15,7 +15,7 @@ uses
   cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, dxDateRanges,
   dxScrollbarAnnotations, cxDBData, cxGridLevel, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxBar,
-  cxClasses, cxDBEdit;
+  cxClasses, cxDBEdit, dxUIAClasses, dxLayoutContainer, dxLayoutControl;
 
 type
   Tfrm_PCM_Version = class(TForm)
@@ -70,6 +70,9 @@ type
     edt_Nachkomma: TcxDBTextEdit;
     cxTextEdit3: TcxDBTextEdit;
     cxTextEdit2: TcxDBTextEdit;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    dxLayoutItem1: TdxLayoutItem;
     procedure cmbbx_SQLStatementPropertiesChange(Sender: TObject);
     procedure edt_TablenamePropertiesEditValueChanged(Sender: TObject);
     procedure btn_SQLSaveClick(Sender: TObject);

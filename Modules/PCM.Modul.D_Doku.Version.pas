@@ -17,7 +17,9 @@ uses
   dxScrollbarAnnotations, cxDBData, cxGridLevel, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxBar,
   cxClasses, cxDBEdit, cxButtonEdit, dxShellDialogs, SynEditHighlighter,
-  SynHighlighterHtml, SynEdit, SynMemo, Vcl.ExtCtrls,system.UITypes;
+  SynHighlighterHtml, SynEdit, SynMemo, Vcl.ExtCtrls,system.UITypes,
+  dxUIAClasses, dxCoreGraphics, dxLayoutcxEditAdapters, dxLayoutContainer,
+  dxLayoutControl;
   {$EndRegion uses}
 type
   {$Region Type}
@@ -36,36 +38,33 @@ type
     edt_bild: TcxButtonEdit;
     edt_Header: TcxTextEdit;
     edt_width: TcxMaskEdit;
-    grpbx_1Prog: TcxGroupBox;
-    grpbx_2Sort: TcxGroupBox;
-    grpbx_3Desc: TcxGroupBox;
-    grpbx_4Bild: TcxGroupBox;
-    grpbx_5Page: TcxGroupBox;
-    grpbx_6Statement: TcxGroupBox;
-    grpbx_7Content: TcxGroupBox;
-    grpbx_Bild: TcxGroupBox;
-    grpbx_Desc: TcxGroupBox;
-    grpbx_Design: TcxGroupBox;
-    grpbx_Header: TcxGroupBox;
-    grpbx_HeaderType: TcxGroupBox;
-    grpbx_Prog: TcxGroupBox;
-    grpbx_Sort: TcxGroupBox;
-    lbl_Bez: TcxLabel;
-    lbl_Bild: TcxLabel;
-    lbl_content: TcxLabel;
-    lbl_Header: TcxLabel;
-    lbl_HeaderType: TcxLabel;
-    lbl_pages: TcxLabel;
-    lbl_Prog: TcxLabel;
-    lbl_Sort: TcxLabel;
-    lbl_Statement: TcxLabel;
-    lbl_width: TcxLabel;
     mem_content: TSynMemo;
     mem_statement: TSynMemo;
     odlg_Doc: TdxOpenFileDialog;
     qry_Allg: TFDQuery;
     synhl_Html: TSynHTMLSyn;
     tb_Main: TdxBar;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    dxLayoutGroup2: TdxLayoutGroup;
+    dxLayoutItem1: TdxLayoutItem;
+    dxLayoutGroup4: TdxLayoutGroup;
+    dxLayoutItem2: TdxLayoutItem;
+    dxLayoutGroup6: TdxLayoutGroup;
+    dxLayoutItem3: TdxLayoutItem;
+    dxLayoutGroup8: TdxLayoutGroup;
+    dxLayoutItem4: TdxLayoutItem;
+    dxLayoutItem5: TdxLayoutItem;
+    dxLayoutGroup11: TdxLayoutGroup;
+    dxLayoutItem6: TdxLayoutItem;
+    dxLayoutItem7: TdxLayoutItem;
+    dxLayoutGroup14: TdxLayoutGroup;
+    dxLayoutItem8: TdxLayoutItem;
+    dxLayoutGroup15: TdxLayoutGroup;
+    dxLayoutItem9: TdxLayoutItem;
+    dxLayoutItem10: TdxLayoutItem;
+    dxLayoutItem11: TdxLayoutItem;
+    dxLayoutGroup19: TdxLayoutGroup;
     procedure btn_SQLSaveClick(Sender: TObject);
     procedure btn_SQLCancelClick(Sender: TObject);
     procedure cmbbx_ProgPropertiesChange(Sender: TObject);

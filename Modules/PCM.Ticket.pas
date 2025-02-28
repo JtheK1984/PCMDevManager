@@ -27,7 +27,8 @@ uses
   dxCoreGraphics, dxChartCore, dxChartData, dxChartLegend, dxChartSimpleDiagram,
   dxChartXYDiagram, dxChartXYSeriesLineView, dxChartXYSeriesAreaView,
   dxChartMarkers, dxChartXYSeriesBarView, dxChartDBData, dxCoreClasses,
-  PCM.Browser,dxChartControl,WebView2, uWVBrowserBase, uWVBrowser;
+  PCM.Browser,dxChartControl,WebView2, uWVBrowserBase, uWVBrowser, dxUIAClasses,
+  dxChartPalette;
   {$EndRegion Uses}
 type
   {$Region Types}
@@ -49,10 +50,7 @@ type
   TJBoards = array of TJBoard;
   Tfrm_Ticket = class(TForm)
     bmgr_main: TdxBarManager;
-    pc_Tickets: TcxPageControl;
-    ts_Azure: TcxTabSheet;
     brdckCtrl_Azure: TdxBarDockControl;
-    pnl_main: TcxGroupBox;
     tb_Azure: TdxBar;
     btn_AReadTickets: TdxBarLargeButton;
     imglst_32x32: TcxImageList;
@@ -64,31 +62,22 @@ type
     RESTClient_azure_detail: TRESTClient;
     btn_ABoard: TdxBarLargeButton;
     qry_Azure: TFDQuery;
-    layoutlaflst: TdxLayoutLookAndFeelList;
-    dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel;
     qry_Prio: TFDQuery;
     ds_Prio: TDataSource;
-    ts_jira: TcxTabSheet;
     brdckCtrl_Jira: TdxBarDockControl;
     tb_Jira: TdxBar;
     btn_JReadTickets: TdxBarLargeButton;
     btn_JBoard: TdxBarLargeButton;
     qry_Tickets_priv: TFDQuery;
     ds_Tickets_priv: TDataSource;
-    pc_Jira: TcxPageControl;
-    ts_J: TcxTabSheet;
-    pnl_BrowserJiraPriv: TcxGroupBox;
-    ts_JDesktop: TcxTabSheet;
     cmbbx_Desktop: TcxComboBox;
     Chatcrtl_Desktop: TdxChartControl;
     dxChartSimpleDiagram1: TdxChartSimpleDiagram;
     dxChartSimpleSeries1: TdxChartSimpleSeries;
-    ts_JApp: TcxTabSheet;
     cmbbx_App: TcxComboBox;
     Chatcrtl_APP: TdxChartControl;
     dxChartSimpleDiagram2: TdxChartSimpleDiagram;
     dxChartSimpleSeries2: TdxChartSimpleSeries;
-    ts_JDetails: TcxTabSheet;
     grd_Jira: TcxGrid;
     grdDBTblView_Jira: TcxGridDBTableView;
     grdDBTblView_JiraID: TcxGridDBColumn;
@@ -107,8 +96,6 @@ type
     grdDBTblView_JiraAssignee: TcxGridDBColumn;
     grdDBTblView_JiraBoard: TcxGridDBColumn;
     grdlvl_Jira: TcxGridLevel;
-    split_Jira: TcxSplitter;
-    dxLayoutControl2: TdxLayoutControl;
     cxDBImageComboBox2: TcxDBImageComboBox;
     cxDBTextEdit18: TcxDBTextEdit;
     cxDBTextEdit19: TcxDBTextEdit;
@@ -116,30 +103,12 @@ type
     cxRichEdit1: TcxRichEdit;
     cxDBTextEdit22: TcxDBTextEdit;
     cxDBTextEdit23: TcxDBTextEdit;
-    dxLayoutGroup5: TdxLayoutGroup;
-    dxLayoutGroup6: TdxLayoutGroup;
-    dxLayoutGroup7: TdxLayoutGroup;
-    grpbx_Ticketspriv: TdxLayoutGroup;
-    dxLayoutItem20: TdxLayoutItem;
-    dxLayoutItem21: TdxLayoutItem;
-    dxLayoutGroup9: TdxLayoutGroup;
-    dxLayoutItem22: TdxLayoutItem;
-    dxLayoutItem23: TdxLayoutItem;
-    dxLayoutItem24: TdxLayoutItem;
-    dxLayoutAutoCreatedGroup2: TdxLayoutAutoCreatedGroup;
-    dxLayoutItem27: TdxLayoutItem;
-    dxLayoutItem28: TdxLayoutItem;
-    dxLayoutItem30: TdxLayoutItem;
-    dxLayoutItem32: TdxLayoutItem;
     brdckCtrl_JiraBrowser: TdxBarDockControl;
     httpAuth_Jira: THTTPBasicAuthenticator;
     RESTClient_jira: TRESTClient;
     tb_JiraMax: TdxBar;
     btn_JMinMaxBrowserPriv: TdxBarLargeButton;
     btn_JFilter: TdxBarLargeButton;
-    pc_Azure: TcxPageControl;
-    ts_A: TcxTabSheet;
-    ts_ADetail: TcxTabSheet;
     grd_Azure: TcxGrid;
     grd_tblView_Azure: TcxGridDBTableView;
     cxGridDBColumn1: TcxGridDBColumn;
@@ -155,13 +124,9 @@ type
     cxGridDBColumn14: TcxGridDBColumn;
     cxGridDBColumn15: TcxGridDBColumn;
     grdlvl_Azure: TcxGridLevel;
-    pnl_BrowserAzurePriv: TcxGroupBox;
     brdckCtrl_AzureMax: TdxBarDockControl;
     tb_AzureMax: TdxBar;
     btn_AMinMaxBrowserPriv: TdxBarLargeButton;
-    ts_Confluence: TcxTabSheet;
-    ts_Swagger: TcxTabSheet;
-    ts_PCMAPPS: TcxTabSheet;
     brdckCtrl_Confluence: TdxBarDockControl;
     brdckCtrl_Swagger: TdxBarDockControl;
     brdckCtrl_PCMAPPS: TdxBarDockControl;
@@ -173,22 +138,8 @@ type
     tb_PCMApps: TdxBar;
     btn_PMinMaxBrowserPriv: TdxBarLargeButton;
     btn_PWebsiteEdit: TdxBarLargeButton;
-    pnl_BrowserConfluence: TcxGroupBox;
-    pnl_BrowserSwagger: TcxGroupBox;
-    pnl_BrowserPCMApps: TcxGroupBox;
     btn_PWebsiteConfig: TdxBarLargeButton;
     btn_JDevtools: TdxBarLargeButton;
-    pnl_JDevTools: TcxGroupBox;
-    splt_J: TcxSplitter;
-    Memo1: TMemo;
-    splt_P: TcxSplitter;
-    pnl_PDevtools: TcxGroupBox;
-    splt_A: TcxSplitter;
-    pnl_ADevTools: TcxGroupBox;
-    splt_C: TcxSplitter;
-    pnl_CDevTools: TcxGroupBox;
-    splt_S: TcxSplitter;
-    pnl_SDevtools: TcxGroupBox;
     btn_ADevTools: TdxBarLargeButton;
     btn_CDevTools: TdxBarLargeButton;
     btn_SDevTools: TdxBarLargeButton;
@@ -196,20 +147,105 @@ type
     btn_SSwaggerInit: TdxBarLargeButton;
     btn_PBoard: TdxBarLargeButton;
     btn_SReload: TdxBarLargeButton;
-    pnl_SNotepad: TcxGroupBox;
-    splt_sNp: TcxSplitter;
     btn_SCloseNotepad: TdxBarLargeButton;
     btn_SSwaggerUI: TdxBarLargeButton;
-    ts_AI: TcxTabSheet;
-    pnl_AI: TcxGroupBox;
-    ts_Github: TcxTabSheet;
-    pnl_Github: TcxGroupBox;
     brdckCtrl_AI: TdxBarDockControl;
     brdckCtrl_Github: TdxBarDockControl;
     tb_Github: TdxBar;
     tb_AI: TdxBar;
     btn_AIMinMaxBrowser: TdxBarLargeButton;
     btn_GitMinMaxBrowserPriv: TdxBarLargeButton;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    pc_tickets: TdxLayoutGroup;
+    ts_Jira: TdxLayoutGroup;
+    dxLayoutItem1: TdxLayoutItem;
+    pc_Jira: TdxLayoutGroup;
+    dxLayoutGroup11: TdxLayoutGroup;
+    dxLayoutItem2: TdxLayoutItem;
+    splt_J: TdxLayoutSplitterItem;
+    dxLayoutGroup16: TdxLayoutGroup;
+    dxLayoutItem3: TdxLayoutItem;
+    dxLayoutItem4: TdxLayoutItem;
+    dxLayoutGroup18: TdxLayoutGroup;
+    dxLayoutItem5: TdxLayoutItem;
+    dxLayoutItem6: TdxLayoutItem;
+    dxLayoutGroup20: TdxLayoutGroup;
+    dxLayoutItem7: TdxLayoutItem;
+    ts_Azure: TdxLayoutGroup;
+    itmbrdckCtrl_Azure: TdxLayoutItem;
+    lagrp_AzureTab: TdxLayoutGroup;
+    lagrp_AzureBrowser: TdxLayoutGroup;
+    itmbrdckCtrl_AzureMax: TdxLayoutItem;
+    splt_A: TdxLayoutSplitterItem;
+    lagrp_AzureGrid: TdxLayoutGroup;
+    itmgrd_Azure: TdxLayoutItem;
+    ts_Confluence: TdxLayoutGroup;
+    lagrp_Confluence: TdxLayoutGroup;
+    itmbrdckCtrl_Confluence: TdxLayoutItem;
+    ts_RESTAPI: TdxLayoutGroup;
+    itmbrdckCtrl_Swagger: TdxLayoutItem;
+    splt_sNp: TdxLayoutSplitterItem;
+    splt_S: TdxLayoutSplitterItem;
+    ts_PCMApps: TdxLayoutGroup;
+    itmbrdckCtrl_PCMAPPS: TdxLayoutItem;
+    splt_P: TdxLayoutSplitterItem;
+    ts_Perplexity: TdxLayoutGroup;
+    lagrp_Perplexity: TdxLayoutGroup;
+    itmbrdckCtrl_AI: TdxLayoutItem;
+    ts_Github: TdxLayoutGroup;
+    lagrp_Github: TdxLayoutGroup;
+    itmbrdckCtrl_Github: TdxLayoutItem;
+    itmstbr_main: TdxLayoutItem;
+    dxLayoutGroup54: TdxLayoutGroup;
+    itmpnl_Github: TdxLayoutItem;
+    pnl_Github: TcxGroupBox;
+    itmpnl_AI: TdxLayoutItem;
+    pnl_AI: TcxGroupBox;
+    itmpnl_BrowserPCMApps: TdxLayoutItem;
+    itmpnl_pDevTools: TdxLayoutItem;
+    pnl_BrowserPCMApps: TcxGroupBox;
+    pnl_pDevTools: TcxGroupBox;
+    lagrp_RestAPI: TdxLayoutGroup;
+    itmpnl_SNotepad: TdxLayoutItem;
+    itmpnl_BrowserSwagger: TdxLayoutItem;
+    itmpnl_SDevtools: TdxLayoutItem;
+    lagrp_PCMAPPS: TdxLayoutGroup;
+    pnl_ADevTools: TcxGroupBox;
+    pnl_BrowserAzurePriv: TcxGroupBox;
+    pnl_BrowserConfluence: TcxGroupBox;
+    pnl_CDevTools: TcxGroupBox;
+    pnl_SDevtools: TcxGroupBox;
+    pnl_SNotepad: TcxGroupBox;
+    pnl_BrowserSwagger: TcxGroupBox;
+    itmpnl_BrowserConfluence: TdxLayoutItem;
+    itmpnl_CDevTools: TdxLayoutItem;
+    splt_C: TdxLayoutSplitterItem;
+    lagrp_Azure: TdxLayoutGroup;
+    itmpnl_BrowserAzurePriv: TdxLayoutItem;
+    itmpnl_ADevTools: TdxLayoutItem;
+    lagrp_Jira: TdxLayoutGroup;
+    itmpnl_BrowserJiraPriv: TdxLayoutItem;
+    itmpnl_JDevTools: TdxLayoutItem;
+    dxLayoutGroup1: TdxLayoutGroup;
+    dxLayoutGroup2: TdxLayoutGroup;
+    grpbx_Ticketspriv: TdxLayoutGroup;
+    dxLayoutGroup8: TdxLayoutGroup;
+    dxLayoutGroup4: TdxLayoutGroup;
+    dxLayoutGroup13: TdxLayoutGroup;
+    dxLayoutGroup15: TdxLayoutGroup;
+    dxLayoutLabeledItem1: TdxLayoutLabeledItem;
+    dxLayoutItem8: TdxLayoutItem;
+    dxLayoutItem11: TdxLayoutItem;
+    dxLayoutItem12: TdxLayoutItem;
+    dxLayoutItem13: TdxLayoutItem;
+    dxLayoutLabeledItem2: TdxLayoutLabeledItem;
+    dxLayoutItem14: TdxLayoutItem;
+    dxLayoutItem15: TdxLayoutItem;
+    dxLayoutItem16: TdxLayoutItem;
+    pnl_BrowserJiraPriv: TcxGroupBox;
+    pnl_JDevTools: TcxGroupBox;
+    dxLayoutGroup3: TdxLayoutGroup;
     procedure FormShow(Sender: TObject);
     procedure btn_AReadTicketsClick(Sender: TObject);
     procedure grdDBTblView_JiraBeschreibungGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint;var AHintText: TCaption; var AIsHintMultiLine: Boolean;var AHintTextRect: TRect);
@@ -245,9 +281,6 @@ type
     procedure btn_SCloseNotepadClick(Sender: TObject);
     procedure pnl_SNotepadResize(Sender: TObject);
     procedure btn_SSwaggerUIClick(Sender: TObject);
-    procedure WVBrowser1FrameNavigationCompleted(Sender: TObject;
-      const aWebView: ICoreWebView2;
-      const aArgs: ICoreWebView2NavigationCompletedEventArgs);
     procedure btn_AIMinMaxBrowserClick(Sender: TObject);
     procedure btn_GitMinMaxBrowserPrivClick(Sender: TObject);
   private
@@ -259,8 +292,8 @@ type
     function GetNotepad: string;
     function RestRequest(ABaseUrl: String; ARestclient: TRestClient; ARequestBody: TJSONObject; AResource: String; AGETPOST: TRESTRequestMethod = rmPost): TJSONObject;
     procedure InitializeBrowser(AParent: TWinControl);
-    procedure ShowDevToolsonPanel(APanel: TcxGroupBox; ASplitter: TcxSplitter);
-    procedure ShowNotepadonPanel(APanel: TcxGroupBox; ASplitter: TcxSplitter);
+    procedure ShowDevToolsonPanel(AItem:TdxLayoutItem;APanel: TcxGroupBox; ASplitter: TdxLayoutSplitterItem);
+    procedure ShowNotepadonPanel(AItem:TdxLayoutItem;APanel: TcxGroupBox; ASplitter: TdxLayoutSplitterItem);
   public
     { Public-Deklarationen }
     arTickets: TJTickets;
@@ -398,7 +431,7 @@ begin
     dm_Pcm.qry_ChartApp.open;
   end;
 end;
-procedure Tfrm_Ticket.ShowDevToolsonPanel(APanel: TcxGroupBox; ASplitter: TcxSplitter);
+procedure Tfrm_Ticket.ShowDevToolsonPanel(AItem:TdxLayoutItem;APanel: TcxGroupBox; ASplitter: TdxLayoutSplitterItem);
 var
   WinHandle : HWND;
   Name: array[0..255] of Char;
@@ -407,7 +440,7 @@ var
   Style: DWORD;
 begin
   ASplitter.Visible:= true;
-  APanel.Visible:= true;
+  AItem.Visible:= true;
   FWebBrowser.ShowDevTools(true);
   WinHandle := GetTopWindow(GetDesktopWindow);
   while WinHandle <> 0 do // go thru the window list
@@ -416,7 +449,7 @@ begin
     GetWindowText(WindowHandle, Buffer, Length(Buffer));
     s:=string(Name);
     s1:=string(Buffer);
-    memo1.Lines.Add(s + ' - ' + s1 );
+//    memo1.Lines.Add(s + ' - ' + s1 );
     if (CompareText(string(Name), 'Chrome_WidgetWin_1') = 0) and (CompareText(string(Buffer), 'PCM - DEV - Workspace') = 0) then
     begin // IEFrame found
         DevToolsHWND := WinHandle;
@@ -434,7 +467,7 @@ begin
     WinHandle := GetNextWindow(WinHandle, GW_HWNDNEXT);
   end;
 end;
-procedure Tfrm_Ticket.ShowNotepadonPanel(APanel: TcxGroupBox; ASplitter: TcxSplitter);
+procedure Tfrm_Ticket.ShowNotepadonPanel(AItem:TdxLayoutItem;APanel: TcxGroupBox; ASplitter: TdxLayoutSplitterItem);
 var
   WinHandle : HWND;
   Name: array[0..255] of Char;
@@ -443,7 +476,7 @@ var
   Style: DWORD;
 begin
   ASplitter.Visible:= true;
-  APanel.Visible:= true;
+  AItem.Visible:= true;
   WinHandle := GetTopWindow(GetDesktopWindow);
   while WinHandle <> 0 do // go thru the window list
   begin
@@ -451,7 +484,7 @@ begin
     GetWindowText(WindowHandle, Buffer, Length(Buffer));
     s:=string(Name);
     s1:=string(Buffer);
-    memo1.Lines.Add(s + ' - ' + s1 );
+//    memo1.Lines.Add(s + ' - ' + s1 );
     if (CompareText(string(Name), 'Notepad++') = 0) and (CompareText(string(Buffer), 'PCM - DEV - Workspace') = 0) then
     begin // IEFrame found
         NotepadHWND := WinHandle;
@@ -469,10 +502,6 @@ begin
     WinHandle := GetNextWindow(WinHandle, GW_HWNDNEXT);
   end;
 end;
-procedure Tfrm_Ticket.WVBrowser1FrameNavigationCompleted(Sender: TObject; const aWebView: ICoreWebView2; const aArgs: ICoreWebView2NavigationCompletedEventArgs);
-begin
-
-end;
 {$EndRegion}
 ////////////////////////////////////////////////////////////////////////////////
 // Buttons                                                                    //
@@ -486,14 +515,14 @@ begin
 end;
 procedure Tfrm_Ticket.btn_JDevtoolsClick(Sender: TObject);
 begin
-  if not pnl_JDevTools.Visible then
+  if not itmpnl_JDevTools.Visible then
   begin
     btn_JDevtools.Caption:= 'Devtools ausblenden';
-    ShowDevToolsonPanel(pnl_JDevTools,splt_J);
+    ShowDevToolsonPanel(itmpnl_JDevTools,pnl_JDevTools,splt_J);
   end
   else begin
     btn_JDevtools.Caption:= 'Devtools einblenden';
-    pnl_JDevTools.Visible:= false;
+    itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
@@ -519,7 +548,7 @@ end;
 procedure Tfrm_Ticket.btn_JMinMaxBrowserPrivClick(Sender: TObject);
 begin
   Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
-  if pnl_JDevTools.Visible then
+  if itmpnl_JDevTools.Visible then
   begin
     if frm_Browser_FullScreen.Execute(True,'Jira - PCM',Aurl,true,DevToolsHWND) then
     begin
@@ -903,7 +932,7 @@ begin
     begin
       AURL:= 'https://pcm-software.atlassian.net/browse/' + qry_Tickets_priv.FieldByName('Ticket_Nr').AsString;
       FWebBrowser.Navigate('https://pcm-software.atlassian.net/browse/' + qry_Tickets_priv.FieldByName('Ticket_Nr').AsString);
-      pc_Jira.ActivePageIndex:= 0;
+      pc_Jira.ItemIndex:= 0;
     end;
   end;
 end;
@@ -913,7 +942,7 @@ var
   i: Integer;
 begin
   grpbx_Ticketspriv.CaptionOptions.Text:= 'Projekte / ' + qry_Tickets_priv.FieldByName('Epic').asString + ' / ' + qry_Tickets_priv.FieldByName('Ticket_nr').asString;
-  dxLayoutItem21.CaptionOptions.Text:=qry_Tickets_priv.FieldByName('Betreff').asString;
+  dxLayoutLabeledItem1.CaptionOptions.Text:=qry_Tickets_priv.FieldByName('Betreff').asString;
   dm_PCm.qry_work.SQL.Text:= 'SELECT Beschreibung FROM manager_tickets_priv Where Ticket_nr = :Ticket_nr';
   dm_PCm.qry_work.ParamByName('Ticket_nr').AsString:= qry_Tickets_priv.FieldByName('Ticket_nr').asString;
   dm_PCm.qry_work.OPen;
@@ -1263,14 +1292,14 @@ begin
 end;
 procedure Tfrm_Ticket.btn_ADevToolsClick(Sender: TObject);
 begin
-  if not pnl_ADevTools.Visible then
+  if not itmpnl_ADevTools.Visible then
   begin
     btn_ADevtools.Caption:= 'Devtools ausblenden';
-    ShowDevToolsonPanel(pnl_ADevTools,splt_A);
+    ShowDevToolsonPanel(itmpnl_ADevTools,pnl_ADevTools,splt_A);
   end
   else begin
     btn_ADevtools.Caption:= 'Devtools einblenden';
-    pnl_ADevTools.Visible:= false;
+    itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
@@ -1279,7 +1308,7 @@ end;
 procedure Tfrm_Ticket.btn_AIMinMaxBrowserClick(Sender: TObject);
 begin
   Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
-  if pnl_SDevTools.Visible then
+  if itmpnl_SDevTools.Visible then
   begin
     if frm_Browser_FullScreen.Execute(True,'Perplexity AI',Aurl,true,DevToolsHWND) then
     begin
@@ -1296,7 +1325,7 @@ end;
 procedure Tfrm_Ticket.btn_AMinMaxBrowserPrivClick(Sender: TObject);
 begin
   Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
-  if pnl_ADevTools.Visible then
+  if itmpnl_ADevTools.Visible then
   begin
     if frm_Browser_FullScreen.Execute(True,'Azure - PCM',Aurl,true,DevToolsHWND) then
     begin
@@ -1496,25 +1525,6 @@ begin
       joFields1.TryGetValue<String>('Description',sdesc);
       sDesc:= StringReplace(sDesc,'<div>','',[rfreplaceall]);
       sDesc:= StringReplace(sDesc,'</div>',slinebreak,[rfreplaceall]);
-//      if sType <> 'Epic' then
-//      begin
-//        try
-//          joResultDetail.TryGetValue<TJSonArray>('relations',jaCustom);
-//          if jaCustom <> nil then
-//          begin
-//          if jaCustom.Size >= 0 then
-//          begin
-//
-//            for i1 := 0 to jaCustom.Size - 1 do
-//              begin
-//                joFields2 := TJSONObject.ParseJSONValue(jaCustom.Get(i1).ToString) as TJSONObject;
-//                joFields2.TryGetValue<String>('url',sEpic);
-//              end;
-//            end;
-//          end;
-//        except
-//        end;
-//      end;
       WriteInDB(iTicket,sTicket,sStatus,sBetreff,sType,sEpic,sSprint,sPrio,sFixVersion,sApp,sName,sdesc,Sassi,'PCM','');
     end;
   end;
@@ -1529,14 +1539,14 @@ end;
 // Confluence
 procedure Tfrm_Ticket.btn_CDevToolsClick(Sender: TObject);
 begin
-  if not pnl_CDevTools.Visible then
+  if not itmpnl_CDevTools.Visible then
   begin
     btn_CDevtools.Caption:= 'Devtools ausblenden';
-    ShowDevToolsonPanel(pnl_CDevTools,splt_C);
+    ShowDevToolsonPanel(itmpnl_CDevTools,pnl_CDevTools,splt_C);
   end
   else begin
     btn_CDevtools.Caption:= 'Devtools einblenden';
-    pnl_CDevTools.Visible:= false;
+    itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
@@ -1545,7 +1555,7 @@ end;
 procedure Tfrm_Ticket.btn_CMinMaxBrowserPrivClick(Sender: TObject);
 begin
   Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
-  if pnl_CDevTools.Visible then
+  if itmpnl_CDevTools.Visible then
   begin
     if frm_Browser_FullScreen.Execute(True,'Confluence - PCM',Aurl,true,DevToolsHWND) then
     begin
@@ -1561,7 +1571,7 @@ end;
 procedure Tfrm_Ticket.btn_GitMinMaxBrowserPrivClick(Sender: TObject);
 begin
   Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
-  if pnl_CDevTools.Visible then
+  if itmpnl_CDevTools.Visible then
   begin
     if frm_Browser_FullScreen.Execute(True,'Github',Aurl,true,DevToolsHWND) then
     begin
@@ -1583,14 +1593,14 @@ end;
 // Swagger
 procedure Tfrm_Ticket.btn_SDevToolsClick(Sender: TObject);
 begin
-  if not pnl_SDevTools.Visible then
+  if not itmpnl_SDevTools.Visible then
   begin
     btn_SDevtools.Caption:= 'Devtools ausblenden';
-    ShowDevToolsonPanel(pnl_sDevTools,splt_s);
+    ShowDevToolsonPanel(itmpnl_sDevTools,pnl_sDevTools,splt_s);
   end
   else begin
     btn_SDevtools.Caption:= 'Devtools einblenden';
-    pnl_SDevTools.Visible:= false;
+    itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
@@ -1611,13 +1621,13 @@ begin
       SendMessage(NotepadHWND,WM_CLOSE,0,0);
     shellexecute(0,'open',Pchar(sPath),PChar('"' + spath1 + '"'),nil,SW_SHOWDEFAULT);
     sleep(2500);
-    ShowNotepadonPanel(pnl_SNotepad,splt_SNp);
+    ShowNotepadonPanel(itmpnl_SNotepad,pnl_SNotepad,splt_SNp);
   end
 end;
 procedure Tfrm_Ticket.btn_SMinMaxBrowserPrivClick(Sender: TObject);
 begin
   Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
-  if pnl_SDevTools.Visible then
+  if itmpnl_SDevTools.Visible then
   begin
     if frm_Browser_FullScreen.Execute(True,'Swagger - PCM',Aurl,true,DevToolsHWND) then
     begin
@@ -1635,9 +1645,9 @@ begin
   if NotepadHWND <> 0 then
   begin
     SendMessage(NotepadHWND,WM_Close,0,0);
-    pnl_SNotepad.Visible:= false;
-    splt_SNp.Visible:= false;
   end;
+  itmpnl_SNotepad.Visible:= false;
+  splt_SNp.Visible:= false;
 end;
 procedure Tfrm_Ticket.pnl_SDevtoolsResize(Sender: TObject);
 begin
@@ -1670,7 +1680,7 @@ begin
       SendMessage(NotepadHWND,WM_CLOSE,0,0);
     shellexecute(0,'open',Pchar(sPath),PChar('"' + spath1 + '"'),nil,SW_SHOWDEFAULT);
     sleep(2500);
-    ShowNotepadonPanel(pnl_SNotepad,splt_SNp);
+    ShowNotepadonPanel(itmpnl_SNotepad,pnl_SNotepad,splt_SNp);
   end
 end;
 procedure Tfrm_Ticket.btn_SSwaggerUIClick(Sender: TObject);
@@ -1688,7 +1698,7 @@ begin
       SendMessage(NotepadHWND,WM_CLOSE,0,0);
     shellexecute(0,'open',Pchar(sPath),PChar('"' + spath1 + '"'),nil,SW_SHOWDEFAULT);
     sleep(2500);
-    ShowNotepadonPanel(pnl_SNotepad,splt_SNp);
+    ShowNotepadonPanel(itmpnl_SNotepad,pnl_SNotepad,splt_SNp);
   end
 end;
 // PCMAPPS
@@ -1699,14 +1709,14 @@ begin
 end;
 procedure Tfrm_Ticket.btn_pDevtoolsClick(Sender: TObject);
 begin
-  if not pnl_pDevTools.Visible then
+  if not itmpnl_pDevTools.Visible then
   begin
     btn_pDevtools.Caption:= 'Devtools ausblenden';
-    ShowDevToolsonPanel(pnl_pDevTools,splt_p);
+    ShowDevToolsonPanel(itmpnl_pDevTools, pnl_pDevTools,splt_p);
   end
   else begin
     btn_pDevtools.Caption:= 'Devtools einblenden';
-    pnl_pDevTools.Visible:= false;
+    itmpnl_pDevTools.Visible:= false;
     splt_p.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
@@ -1715,7 +1725,7 @@ end;
 procedure Tfrm_Ticket.btn_PMinMaxBrowserPrivClick(Sender: TObject);
 begin
   Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
-  if pnl_SDevTools.Visible then
+  if itmpnl_SDevTools.Visible then
   begin
     if frm_Browser_FullScreen.Execute(True,'Homepage - PCM',Aurl,true,DevToolsHWND) then
     begin
@@ -1745,7 +1755,7 @@ begin
 end;
 procedure Tfrm_Ticket.pc_TicketsChange(Sender: TObject);
 begin
-  if pc_tickets.Properties.ActivePage = ts_azure then
+  if pc_tickets.itemindex = 1 then
   begin
     FreeAndNil(FWebBrowser);
     GlobalWebView2Loader.Destroy;
@@ -1757,16 +1767,16 @@ begin
     FWebBrowser.Navigate(AURL);
 
     btn_JDevtools.Caption:= 'Devtools einblenden';
-    pnl_JDevTools.Visible:= false;
+    itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
     btn_CDevtools.Caption:= 'Devtools einblenden';
-    pnl_CDevTools.Visible:= false;
+    itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
     btn_SDevtools.Caption:= 'Devtools einblenden';
-    pnl_SDevTools.Visible:= false;
+    itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     btn_PDevtools.Caption:= 'Devtools einblenden';
-    pnl_PDevTools.Visible:= false;
+    itmpnl_pDevTools.Visible:= false;
     splt_p.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
@@ -1774,10 +1784,10 @@ begin
     begin
       SendMessage(NotepadHWND,WM_Close,0,0);
     end;
-    pnl_SNotepad.Visible:= false;
+    itmpnl_SNotepad.Visible:= false;
     splt_SNp.Visible:= false;
   end;
-  if pc_tickets.Properties.ActivePage = ts_jira then
+  if pc_tickets.Itemindex = 0 then
   begin
     FreeAndNil(FWebBrowser);
     GlobalWebView2Loader.Destroy;
@@ -1788,16 +1798,16 @@ begin
     AURL:= 'https://pcm-software.atlassian.net/jira/software/projects/PCM/boards/1';
     FWebBrowser.Navigate(AURL);
     btn_ADevtools.Caption:= 'Devtools einblenden';
-    pnl_ADevTools.Visible:= false;
+    itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
     btn_CDevtools.Caption:= 'Devtools einblenden';
-    pnl_CDevTools.Visible:= false;
+    itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
     btn_SDevtools.Caption:= 'Devtools einblenden';
-    pnl_SDevTools.Visible:= false;
+    itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     btn_PDevtools.Caption:= 'Devtools einblenden';
-    pnl_PDevTools.Visible:= false;
+    itmpnl_pDevTools.Visible:= false;
     splt_p.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
@@ -1805,10 +1815,10 @@ begin
     begin
       SendMessage(NotepadHWND,WM_Close,0,0);
     end;
-    pnl_SNotepad.Visible:= false;
+    itmpnl_SNotepad.Visible:= false;
     splt_SNp.Visible:= false;
   end;
-  if pc_tickets.Properties.ActivePage = ts_Confluence  then
+  if pc_tickets.Itemindex = 2  then
   begin
     FreeAndNil(FWebBrowser);
     GlobalWebView2Loader.Destroy;
@@ -1819,16 +1829,16 @@ begin
     AURL:= 'https://pcm-software.atlassian.net/wiki';
     FWebBrowser.Navigate(AURL);
     btn_JDevtools.Caption:= 'Devtools einblenden';
-    pnl_JDevTools.Visible:= false;
+    itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
     btn_ADevtools.Caption:= 'Devtools einblenden';
-    pnl_ADevTools.Visible:= false;
+    itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
     btn_SDevtools.Caption:= 'Devtools einblenden';
-    pnl_SDevTools.Visible:= false;
+    itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     btn_PDevtools.Caption:= 'Devtools einblenden';
-    pnl_PDevTools.Visible:= false;
+    itmpnl_pDevTools.Visible:= false;
     splt_p.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
@@ -1836,10 +1846,10 @@ begin
     begin
       SendMessage(NotepadHWND,WM_Close,0,0);
     end;
-    pnl_SNotepad.Visible:= false;
+    itmpnl_SNotepad.Visible:= false;
     splt_SNp.Visible:= false;
   end;
-  if pc_tickets.Properties.ActivePage = ts_Swagger  then
+  if pc_tickets.Itemindex = 3  then
   begin
     FreeAndNil(FWebBrowser);
     GlobalWebView2Loader.Destroy;
@@ -1850,21 +1860,21 @@ begin
     AURL:= 'https://pcmapps.ddns.net:8443';
     FWebBrowser.Navigate(AURL);
     btn_JDevtools.Caption:= 'Devtools einblenden';
-    pnl_JDevTools.Visible:= false;
+    itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
     btn_ADevtools.Caption:= 'Devtools einblenden';
-    pnl_ADevTools.Visible:= false;
+    itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
     btn_CDevtools.Caption:= 'Devtools einblenden';
-    pnl_CDevTools.Visible:= false;
+    itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
     btn_PDevtools.Caption:= 'Devtools einblenden';
-    pnl_PDevTools.Visible:= false;
+    itmpnl_pDevTools.Visible:= false;
     splt_p.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
   end;
-  if pc_tickets.Properties.ActivePage = ts_PCMAPPS  then
+  if pc_tickets.ItemIndex = 4 then
   begin
     FreeAndNil(FWebBrowser);
     GlobalWebView2Loader.Destroy;
@@ -1875,16 +1885,16 @@ begin
     AURL:= 'https://pcm-apps.de/Home';
     FWebBrowser.Navigate(AURL);
     btn_JDevtools.Caption:= 'Devtools einblenden';
-    pnl_JDevTools.Visible:= false;
+    itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
     btn_ADevtools.Caption:= 'Devtools einblenden';
-    pnl_ADevTools.Visible:= false;
+    itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
     btn_CDevtools.Caption:= 'Devtools einblenden';
-    pnl_CDevTools.Visible:= false;
+    itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
     btn_SDevtools.Caption:= 'Devtools einblenden';
-    pnl_SDevTools.Visible:= false;
+    itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
@@ -1892,10 +1902,10 @@ begin
     begin
       SendMessage(NotepadHWND,WM_Close,0,0);
     end;
-    pnl_SNotepad.Visible:= false;
+    itmpnl_SNotepad.Visible:= false;
     splt_SNp.Visible:= false;
   end;
-  if pc_tickets.Properties.ActivePage = ts_AI  then
+  if pc_tickets.itemindex = 5 then
   begin
     FreeAndNil(FWebBrowser);
     GlobalWebView2Loader.Destroy;
@@ -1906,16 +1916,16 @@ begin
     AURL:= 'https://www.perplexity.ai/';
     FWebBrowser.Navigate(AURL);
     btn_JDevtools.Caption:= 'Devtools einblenden';
-    pnl_JDevTools.Visible:= false;
+    itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
     btn_ADevtools.Caption:= 'Devtools einblenden';
-    pnl_ADevTools.Visible:= false;
+    itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
     btn_CDevtools.Caption:= 'Devtools einblenden';
-    pnl_CDevTools.Visible:= false;
+    itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
     btn_SDevtools.Caption:= 'Devtools einblenden';
-    pnl_SDevTools.Visible:= false;
+    itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);
@@ -1923,11 +1933,11 @@ begin
     begin
       SendMessage(NotepadHWND,WM_Close,0,0);
     end;
-    pnl_SNotepad.Visible:= false;
+    itmpnl_SNotepad.Visible:= false;
     splt_SNp.Visible:= false;
   end;
 
-  if pc_tickets.Properties.ActivePage = ts_Github then
+  if pc_tickets.ItemIndex = 6 then
   begin
     FreeAndNil(FWebBrowser);
     GlobalWebView2Loader.Destroy;
@@ -1938,16 +1948,16 @@ begin
     AURL:= 'https://github.com/JtheK1984?tab=repositories&q=&type=&language=&sort=name';
     FWebBrowser.Navigate(AURL);
     btn_JDevtools.Caption:= 'Devtools einblenden';
-    pnl_JDevTools.Visible:= false;
+    itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
     btn_ADevtools.Caption:= 'Devtools einblenden';
-    pnl_ADevTools.Visible:= false;
+    itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
     btn_CDevtools.Caption:= 'Devtools einblenden';
-    pnl_CDevTools.Visible:= false;
+    itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
     btn_SDevtools.Caption:= 'Devtools einblenden';
-    pnl_SDevTools.Visible:= false;
+    itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     if DevToolsHWND <> 0 then
       SendMessage(DevToolsHWND,WM_Close,0,0);

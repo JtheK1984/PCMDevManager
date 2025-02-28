@@ -4,7 +4,7 @@ interface
 
 uses
   System.SysUtils, System.Classes, System.DateUtils, FireDAC.Phys.ADSDef,
-  FireDAC.Stan.Intf,//ZMI.Common.Types,
+  FireDAC.Stan.Intf,
   FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
   FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
   FireDAC.VCLUI.Wait, FireDAC.Comp.UI, Data.DB, FireDAC.Comp.Client,
@@ -13,7 +13,7 @@ uses
   FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt,
   FireDAC.Comp.DataSet,vcl.dialogs, VCL.Forms, System.ImageList, Vcl.ImgList,
   Vcl.Controls, cxImageList, cxGraphics, FireDAC.Phys.MySQLDef,
-  FireDAC.Phys.MySQL;
+  FireDAC.Phys.MySQL, cxClasses, dxLayoutLookAndFeels;
 
 type
   Tdm_PCM = class(TDataModule)
@@ -40,6 +40,8 @@ type
     qry_Doku: TFDQuery;
     ds_doku: TDataSource;
     qry_Work_sub: TFDQuery;
+    dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList;
+    dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel;
     procedure DataModuleCreate(Sender: TObject);
     procedure con_PCMBeforeConnect(Sender: TObject);
   private

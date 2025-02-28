@@ -25,10 +25,10 @@ object SplashScreen: TSplashScreen
     Height = 488
     Width = 1000
     object img_Splash: TImage
-      Left = 2
-      Top = 2
-      Width = 996
-      Height = 463
+      Left = 3
+      Top = 3
+      Width = 994
+      Height = 461
       Align = alClient
       Picture.Data = {
         0D546478536D617274496D61676589504E470D0A1A0A0000000D494844520000
@@ -2311,10 +2311,7 @@ object SplashScreen: TSplashScreen
         70381C0E87C3E1703C0238E1EE70381C0E87C3E1703C0238E1EE70381C0E87C3
         E1703C0238E1EE70381C0E87C3E1703C0238E1EE70381C0E87C3E1703C02FCEF
         12C994D5D0AFFDAD0000000049454E44AE426082}
-      ExplicitLeft = 3
       ExplicitTop = -3
-      ExplicitWidth = 994
-      ExplicitHeight = 461
     end
     object lbl_ProgVersion: TcxLabel
       Left = 464
@@ -2329,11 +2326,12 @@ object SplashScreen: TSplashScreen
       Style.Font.Name = 'Segoe UI'
       Style.Font.Style = [fsBold]
       Style.IsFontAssigned = True
+      TabOrder = 0
       Transparent = True
     end
     object prgbr_Splash: TcxProgressBar
-      Left = 2
-      Top = 465
+      Left = 3
+      Top = 464
       Align = alBottom
       ParentFont = False
       Position = 1.000000000000000000
@@ -2361,10 +2359,7 @@ object SplashScreen: TSplashScreen
       StyleHot.LookAndFeel.NativeStyle = False
       TabOrder = 1
       Transparent = True
-      ExplicitLeft = 3
-      ExplicitTop = 464
-      ExplicitWidth = 994
-      Width = 996
+      Width = 994
     end
     object ActivityIndicator: TdxActivityIndicator
       Left = 334
@@ -2395,47 +2390,48 @@ object SplashScreen: TSplashScreen
       Style.Font.Name = 'Segoe UI'
       Style.Font.Style = [fsBold]
       Style.IsFontAssigned = True
+      TabOrder = 3
       Transparent = True
     end
   end
   object Timer1: TTimer
     Enabled = False
-    Interval = 750
+    Interval = 250
     OnTimer = Timer1Timer
     Left = 152
     Top = 144
   end
   object Timer2: TTimer
     Enabled = False
-    Interval = 750
+    Interval = 250
     OnTimer = Timer2Timer
     Left = 152
     Top = 208
   end
   object Timer3: TTimer
     Enabled = False
-    Interval = 750
+    Interval = 250
     OnTimer = Timer3Timer
     Left = 152
     Top = 264
   end
   object Timer4: TTimer
     Enabled = False
-    Interval = 750
+    Interval = 250
     OnTimer = Timer4Timer
     Left = 152
     Top = 320
   end
   object Timer5: TTimer
     Enabled = False
-    Interval = 750
+    Interval = 250
     OnTimer = Timer5Timer
     Left = 152
     Top = 376
   end
   object Timer6: TTimer
     Enabled = False
-    Interval = 750
+    Interval = 250
     OnTimer = Timer6Timer
     Left = 152
     Top = 432

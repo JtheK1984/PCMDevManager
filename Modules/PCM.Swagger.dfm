@@ -15,19 +15,31 @@ object frm_Swagger: Tfrm_Swagger
   OnResize = FormResize
   OnShow = FormShow
   TextHeight = 15
-  object grpbx_Style: TcxGroupBox
+  object dxLayoutControl1: TdxLayoutControl
+    AlignWithMargins = True
     Left = 0
     Top = 0
-    Align = alClient
-    PanelStyle.Active = True
-    Style.BorderStyle = ebsNone
-    TabOrder = 0
-    Height = 743
     Width = 1200
+    Height = 743
+    Margins.Left = 0
+    Margins.Top = 0
+    Margins.Right = 0
+    Margins.Bottom = 0
+    Align = alClient
+    Font.Charset = ANSI_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 0
+    AutoSize = True
+    LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    OptionsImage.Images = imglst_28x80
     object stbr_Rest: TdxStatusBar
-      Left = 3
-      Top = 720
-      Width = 1194
+      Left = 12
+      Top = 1133
+      Width = 1159
       Height = 20
       Panels = <
         item
@@ -49,1068 +61,1003 @@ object frm_Swagger: Tfrm_Swagger
           Width = 400
         end>
       PaintStyle = stpsUseLookAndFeel
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
     end
-    object pc_Main: TcxPageControl
-      Left = 3
-      Top = 3
-      Width = 1194
-      Height = 717
-      Align = alClient
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -12
-      Font.Name = 'Segoe UI'
-      Font.Style = []
-      ParentFont = False
+    object btn_Checkserver: TcxButton
+      Left = 10000
+      Top = 10053
+      Width = 1101
+      Height = 25
+      Caption = 'Execute'
       TabOrder = 1
-      Properties.ActivePage = cxTabSheet2
-      Properties.CustomButtons.Buttons = <>
-      ClientRectBottom = 711
-      ClientRectLeft = 2
-      ClientRectRight = 1188
-      ClientRectTop = 29
-      object cxTabSheet2: TcxTabSheet
-        Caption = 'APP REST-API: PCM - APP'
-        ImageIndex = 2
-        object dxLayoutControl1: TdxLayoutControl
-          AlignWithMargins = True
-          Left = 0
-          Top = 0
-          Width = 1186
-          Height = 682
-          Margins.Left = 0
-          Margins.Top = 0
-          Margins.Right = 0
-          Margins.Bottom = 0
-          Align = alClient
-          Font.Charset = ANSI_CHARSET
-          Font.Color = clWindowText
-          Font.Height = -12
-          Font.Name = 'Consolas'
-          Font.Style = []
-          ParentFont = False
-          TabOrder = 0
-          AutoSize = True
-          LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-          OptionsImage.Images = imglst_28x80
-          object btn_Checkserver: TcxButton
-            Left = 10000
-            Top = 10382
-            Width = 1125
-            Height = 25
-            Caption = 'Execute'
-            TabOrder = 1
-            Visible = False
-            OnClick = btn_CheckserverClick
-          end
-          object mem_CheckServer_Example: TcxMemo
-            Left = 10000
-            Top = 10000
-            Lines.Strings = (
-              '{'
-              '  "HasError": false,'
-              '  "ErrorCode": 0,'
-              '  "Errormessage": ""'
-              '}')
-            ParentFont = False
-            Style.Font.Charset = ANSI_CHARSET
-            Style.Font.Color = clWindowText
-            Style.Font.Height = -12
-            Style.Font.Name = 'Consolas'
-            Style.Font.Style = []
-            Style.HotTrack = False
-            Style.TransparentBorder = False
-            Style.IsFontAssigned = True
-            TabOrder = 0
-            Visible = False
-            Height = 81
-            Width = 1070
-          end
-          object btn_CheckLogin: TcxButton
-            Left = 10000
-            Top = 10000
-            Width = 1125
-            Height = 25
-            Caption = 'Rest - Execute'
-            TabOrder = 3
-            Visible = False
-            OnClick = btn_CheckLoginClick
-          end
-          object btn_CheckLoginSQL: TcxButton
-            Left = 10000
-            Top = 10442
-            Width = 1125
-            Height = 25
-            Caption = 'SQL - Execute'
-            TabOrder = 4
-            Visible = False
-            OnClick = btn_CheckLoginSQLClick
-          end
-          object mem_GetLogin_Example: TcxMemo
-            Left = 10000
-            Top = 10000
-            Lines.Strings = (
-              '{'
-              '  "HasError": false,'
-              '  "ErrorCode": 0,'
-              '  "ErrorMessage": "",'
-              '  "ID_User": 1,'
-              '  "User": "pcm",'
-              '  "Password": "ec5c8103218f27aa6ecfd3f11e1a6b45",'
-              '  "Login": ['
-              '    {'
-              '      "Allowed": true,'
-              '      "ID_User": 1'
-              '    }'
-              '  ]'
-              '}')
-            ParentFont = False
-            Style.Font.Charset = ANSI_CHARSET
-            Style.Font.Color = clWindowText
-            Style.Font.Height = -12
-            Style.Font.Name = 'Consolas'
-            Style.Font.Style = []
-            Style.HotTrack = False
-            Style.TransparentBorder = False
-            Style.IsFontAssigned = True
-            TabOrder = 2
-            Visible = False
-            Height = 202
-            Width = 1070
-          end
-          object mem_SetDeviceID_Example: TcxMemo
-            Left = 10000
-            Top = 10172
-            Lines.Strings = (
-              '{'
-              '  "Device": ['
-              '    {'
-              '      "DeviceToken": "AbCdEfGhIjKlMnOpQrStUvWxY",'
-              '      "DeviceID": "E56HGPERV4E1",'
-              '      "DeviceType": 0,'
-              '      "ID_Benutzer": 1'
-              '    }'
-              '  ]'
-              '}')
-            ParentFont = False
-            Style.Font.Charset = ANSI_CHARSET
-            Style.Font.Color = clWindowText
-            Style.Font.Height = -12
-            Style.Font.Name = 'Consolas'
-            Style.Font.Style = []
-            Style.HotTrack = False
-            Style.TransparentBorder = False
-            Style.IsFontAssigned = True
-            TabOrder = 5
-            Visible = False
-            Height = 149
-            Width = 1070
-          end
-          object btn_SetDeviceID: TcxButton
-            Left = 10000
-            Top = 10382
-            Width = 1125
-            Height = 25
-            Caption = 'Rest - Execute'
-            TabOrder = 6
-            Visible = False
-            OnClick = btn_SetDeviceIDClick
-          end
-          object edt_GetContacts_Parameter: TcxTextEdit
-            Left = 10000
-            Top = 10000
-            Style.HotTrack = False
-            Style.TransparentBorder = False
-            TabOrder = 7
-            Text = '2'
-            Visible = False
-            Width = 1070
-          end
-          object btn_GetContacts: TcxButton
-            Left = 10000
-            Top = 10000
-            Width = 1125
-            Height = 25
-            Caption = 'Rest - Execute'
-            TabOrder = 9
-            Visible = False
-            OnClick = btn_GetContactsClick
-          end
-          object btn_GetContactsSQL: TcxButton
-            Left = 10000
-            Top = 10000
-            Width = 1125
-            Height = 25
-            Caption = 'SQL - Execute'
-            TabOrder = 10
-            Visible = False
-            OnClick = btn_GetContactsSQLClick
-          end
-          object mem_GetContacts_Example: TcxMemo
-            Left = 10000
-            Top = 10000
-            Lines.Strings = (
-              '{'
-              '  "HasError": false,'
-              '  "ErrorCode": 0,'
-              '  "ErrorMessage": "",'
-              '  "Contacts": ['
-              '    {'
-              '      "ID": 1,'
-              '      "Salutation": "Herr",'
-              '      "Name": "Max",'
-              '      "Surname": "Mustermann",'
-              '      "Street_private": "Musterstra'#223'e 1",'
-              '      "Postalcode_private": "12345",'
-              '      "Place_private": "Musterstadt",'
-              '      "Phone_private": "01234/56789",'
-              '      "Mobile_private": "01234/78901",'
-              '      "Mail_private": "max.mustermann@muster.de",'
-              '      "Web_private": "https://maxmustermann.de",'
-              '      "Birthday": "01.01.1980",'
-              '      "Gender": "m'#228'nnlich",'
-              '      "Maritalstatus": "ledig",'
-              '      "Nationality": "deutsch",'
-              '      "Denomination": "Evangelisch",'
-              '      "Company": "Musterfirma",'
-              '      "Street_business": "Musterweg 1",'
-              '      "Postalcode_business": "23456",'
-              '      "Place_business": "Musterhausen",'
-              '      "Phone_business": "09876/543210",'
-              '      "Mobile_business": "09876/43210",'
-              '      "Mail_business": "max.mustermann@musterfirma.com",'
-              '      "Web_business": " https://musterfirma.de"'
-              '    }'
-              '  ]'
-              '}')
-            ParentFont = False
-            Properties.ScrollBars = ssVertical
-            Style.Font.Charset = ANSI_CHARSET
-            Style.Font.Color = clWindowText
-            Style.Font.Height = -12
-            Style.Font.Name = 'Consolas'
-            Style.Font.Style = []
-            Style.HotTrack = False
-            Style.TransparentBorder = False
-            Style.IsFontAssigned = True
-            TabOrder = 8
-            Visible = False
-            Height = 160
-            Width = 1070
-          end
-          object lagrp_Rest: TdxLayoutGroup
-            AlignHorz = ahClient
-            AlignVert = avClient
-            LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-            SizeOptions.Height = 600
-            Hidden = True
-            ItemIndex = 3
-            ShowBorder = False
-            Index = -1
-          end
-          object lagrp_PCMAPPCheckLogin: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 0
-            CaptionOptions.Text = 'GetLogin: Userdaten ermitteln anhand Basic Auth'
-            LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-            SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
-            SizeOptions.SizableHorz = False
-            SizeOptions.SizableVert = False
-            SizeOptions.Width = 1200
-            AllowRemove = False
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            ItemIndex = 9
-            Index = 1
-          end
-          object lbl_CheckServer_Parameter: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = '[B]Parameter[/B]'
-            Index = 0
-          end
-          object sepitm_CheckServer_Parameter: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = 'Separator'
-            Index = 1
-          end
-          object lbl_CheckServer_ParameterDesc: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = 'Keine Parameter'
-            Index = 2
-          end
-          object lbl_CheckServer_Responses: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = '[B]Responses[/B]'
-            Index = 4
-          end
-          object sepitm_CheckServer_Response: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = 'Separator'
-            Index = 5
-          end
-          object lbl_CheckServer_Code200: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = 
-              '[B]200     Ok(ErrorCode beachten)[/B]'#13#10'                 '#13#10'      ' +
-              '  - 0: keine Fehler vorhanden'#13#10'        - 1: ung'#252'ltige REST-API-F' +
-              'unktion'#13#10'        - 2: Benutzer nicht gefunden oder falsches Pass' +
-              'wort'#13#10'        - 3: Keine Verbindung zur Datenbank'#13#10'        - 4: ' +
-              'Benutzer nicht berechtigt'
-            Index = 6
-          end
-          object lbl_CheckServer_Code400_500: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = 
-              '[B]400     ung'#252'ltiger oder fehlender Parameter'#13#10#13#10'401     nicht ' +
-              'berechtigt'#13#10#13#10'403     verboten'#13#10#13#10'500     interner Serverfehler[' +
-              '/B]'
-            Index = 9
-          end
-          object lbl_CheckServer_ExampleHeader: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = '[B]        Beispiel:[/B]'
-            Index = 7
-          end
-          object lbl_GetLogin_ExampleHeader: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = '[B]        Beispiel:[/B]'
-            Index = 7
-          end
-          object lbl_SetDeviceID_ParameterDesc: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            CaptionOptions.Text = 'Keine Parameter'
-            Index = 2
-          end
-          object lbl_GetContacts_Parameter: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = '[B]Parameter[/B]'
-            Index = 0
-          end
-          object itm_CheckServer_Execute: TdxLayoutItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = 'New Item'
-            CaptionOptions.Visible = False
-            Control = btn_Checkserver
-            ControlOptions.OriginalHeight = 25
-            ControlOptions.OriginalWidth = 75
-            ControlOptions.ShowBorder = False
-            Index = 10
-          end
-          object sepitm_CheckServer_ParameterResponse: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = 'Separator'
-            Index = 3
-          end
-          object itm_CheckServer_Example: TdxLayoutItem
-            Parent = lagrp_PCMAPP_Checkserver
-            CaptionOptions.Text = '       '
-            Control = mem_CheckServer_Example
-            ControlOptions.OriginalHeight = 81
-            ControlOptions.OriginalWidth = 185
-            ControlOptions.ShowBorder = False
-            Index = 8
-          end
-          object lagrp_PCMAPPGetContacts: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 1
-            CaptionOptions.Text = 'GetContacts: Kontakte ermitteln anhand Basic Auth'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            ItemIndex = 13
-            Index = 3
-          end
-          object lagrp_PCMAPPSetContacts: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 2
-            CaptionOptions.Text = 'SetContacts: Kontakte f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            Index = 4
-          end
-          object lagrp_PCMAPPSetDeviceID: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 2
-            CaptionOptions.Text = 'SetDeviceID: Token und DeviceID an Server schicken'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            ItemIndex = 10
-            Index = 2
-          end
-          object lagrp_PCMAPP_Checkserver: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 0
-            CaptionOptions.Text = 'CheckServer: Serververbindung pr'#252'fen'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            Index = 0
-          end
-          object lagrp_PCMAPPGetCalendar: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 1
-            CaptionOptions.Text = 'GetCalendar: Kalender ermitteln anhand Basic Auth'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            Index = 5
-          end
-          object lagrp_PCMAPPSetCalendar: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 2
-            CaptionOptions.Text = 'SetCalendar: Kalender f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            Index = 6
-          end
-          object lagrp_PCMAPPGetPasswords: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 1
-            CaptionOptions.Text = 'GetPasswords: Passw'#246'rter ermitteln anhand Basic Auth'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            Index = 7
-          end
-          object lagrp_PCMAPPSetPasswords: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 2
-            CaptionOptions.Text = 'SetPasswords: Passw'#246'rter f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            Index = 8
-          end
-          object lagrp_PCMAPPGetSerials: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 1
-            CaptionOptions.Text = 'GetSerials: Serials ermitteln anhand Basic Auth'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            Index = 9
-          end
-          object lagrp_PCMAPPSetSerials: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 2
-            CaptionOptions.Text = 'SetSerials: Serials f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            Index = 10
-          end
-          object lagrp_PCMAPPGetReceipts: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 1
-            CaptionOptions.Text = 'GetReceipts: Einnahmen ermitteln anhand Basic Auth'
-            ButtonOptions.ShowExpandButton = True
-            Expanded = False
-            Index = 11
-          end
-          object lagrp_PCMAPPSetReceipts: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 2
-            CaptionOptions.Text = 'SetReceipts: Einnahmen f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
-            ButtonOptions.ShowExpandButton = True
-            Index = 12
-          end
-          object lagrp_PCMAPPGetExpenditure: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 1
-            CaptionOptions.Text = 'GetExpenditure: Ausgaben ermitteln anhand Basic Auth'
-            ButtonOptions.ShowExpandButton = True
-            Index = 13
-          end
-          object lbl_GetLogin_Parameter: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = '[B]Parameter[/B]'
-            Index = 0
-          end
-          object lbl_GetLogin_Code400_500: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = 
-              '[B]400     ung'#252'ltiger oder fehlender Parameter'#13#10#13#10'401     nicht ' +
-              'berechtigt'#13#10#13#10'403     verboten'#13#10#13#10'500     interner Serverfehler[' +
-              '/B]'
-            Index = 9
-          end
-          object lbl_GetLogin_ParameterDesc: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = 'Keine Parameter'
-            Index = 2
-          end
-          object lbl_GetLogin_Responses: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = '[B]Responses[/B]'
-            Index = 4
-          end
-          object lbl_GetLogin_Code200: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = 
-              '[B]200     Ok(ErrorCode beachten)[/B]'#13#10'                 '#13#10'      ' +
-              '  - 0: keine Fehler vorhanden'#13#10'        - 1: ung'#252'ltige REST-API-F' +
-              'unktion'#13#10'        - 2: Benutzer nicht gefunden oder falsches Pass' +
-              'wort'#13#10'        - 3: Keine Verbindung zur Datenbank'#13#10'        - 4: ' +
-              'Benutzer nicht berechtigt'
-            Index = 6
-          end
-          object lbl_SetDeviceID_Parameter: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            CaptionOptions.Text = '[B]Parameter[/B]'
-            Index = 0
-          end
-          object lbl_SetDeviceID_Responses: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            CaptionOptions.Text = '[B]Responses[/B]'
-            Index = 4
-          end
-          object lbl_SetDeviceID_Code200: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            CaptionOptions.Text = 
-              '[B]200     Ok(ErrorCode beachten)[/B]'#13#10'                 '#13#10'      ' +
-              '  - 0: keine Fehler vorhanden'#13#10'        - 1: ung'#252'ltige REST-API-F' +
-              'unktion'#13#10'        - 2: Benutzer nicht gefunden oder falsches Pass' +
-              'wort'#13#10'        - 3: Keine Verbindung zur Datenbank'#13#10'        - 4: ' +
-              'Benutzer nicht berechtigt'
-            Index = 6
-          end
-          object lbl_SetDeviceID_Code400_500: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            AlignHorz = ahClient
-            AlignVert = avTop
-            CaptionOptions.Text = 
-              '[B]400     ung'#252'ltiger oder fehlender Parameter'#13#10#13#10'401     nicht ' +
-              'berechtigt'#13#10#13#10'403     verboten'#13#10#13#10'500     interner Serverfehler[' +
-              '/B]'
-            Index = 9
-          end
-          object lbl_GetContacts_ParameterDesc: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = '[B]Name    Description[/B]'
-            Index = 2
-          end
-          object lbl_GetContacts_Params: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = '[B]ID_User Description[/B]'
-            Index = 4
-          end
-          object lbl_GetContacts_Code200: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = 
-              '[B]200     Ok(ErrorCode beachten)[/B]'#13#10'                 '#13#10'      ' +
-              '  - 0: keine Fehler vorhanden'#13#10'        - 1: ung'#252'ltige REST-API-F' +
-              'unktion'#13#10'        - 2: Benutzer nicht gefunden oder falsches Pass' +
-              'wort'#13#10'        - 3: Keine Verbindung zur Datenbank'#13#10'        - 4: ' +
-              'Benutzer nicht berechtigt'#13#10
-            Index = 9
-          end
-          object lbl_GetContacts_Responses: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = '[B]Responses[/B]'
-            Index = 7
-          end
-          object lbl_GetContacts_ExampleHeader: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = '[B]        Beispiel:[/B]'
-            Index = 10
-          end
-          object lbl_SetDeviceID_ExampleHeader: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            CaptionOptions.Text = '[B]        Beispiel:[/B]'
-            Index = 7
-          end
-          object sepitm_GetLogin_Parameter: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = 'Separator'
-            Index = 1
-          end
-          object sepitm_GetLogin_Response: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = 'Separator'
-            Index = 5
-          end
-          object dxLayoutSeparatorItem3: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = 'Separator'
-            Index = 1
-          end
-          object sepitm_GetLogin_ParameterResponse: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = 'Separator'
-            Index = 3
-          end
-          object sepitm_GetContacts_Response: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = 'Separator'
-            Index = 8
-          end
-          object dxLayoutItem1: TdxLayoutItem
-            CaptionOptions.Text = 'New Item'
-            Index = -1
-          end
-          object itm_GetContcts_ExecuteDB: TdxLayoutItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = 'New Item'
-            CaptionOptions.Visible = False
-            Control = btn_GetContactsSQL
-            ControlOptions.OriginalHeight = 25
-            ControlOptions.OriginalWidth = 1125
-            ControlOptions.ShowBorder = False
-            Index = 14
-          end
-          object itm_GetContacts_Example: TdxLayoutItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = '       '
-            Control = mem_GetContacts_Example
-            ControlOptions.OriginalHeight = 160
-            ControlOptions.OriginalWidth = 1070
-            ControlOptions.ShowBorder = False
-            Index = 11
-          end
-          object itm_GetContacts_Params: TdxLayoutItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = 'integer'
-            Control = edt_GetContacts_Parameter
-            ControlOptions.OriginalHeight = 20
-            ControlOptions.OriginalWidth = 121
-            ControlOptions.ShowBorder = False
-            Index = 5
-          end
-          object itm_SetDeviceID_Execute: TdxLayoutItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            CaptionOptions.Text = 'New Item'
-            CaptionOptions.Visible = False
-            Control = btn_SetDeviceID
-            ControlOptions.OriginalHeight = 25
-            ControlOptions.OriginalWidth = 1145
-            ControlOptions.ShowBorder = False
-            Index = 10
-          end
-          object itm_SetDeviceID_Example: TdxLayoutItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            CaptionOptions.Text = '       '
-            Control = mem_SetDeviceID_Example
-            ControlOptions.OriginalHeight = 149
-            ControlOptions.OriginalWidth = 1145
-            ControlOptions.ShowBorder = False
-            Index = 8
-          end
-          object itm_Getlogin_Execute: TdxLayoutItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = 'New Item'
-            CaptionOptions.Visible = False
-            Control = btn_CheckLogin
-            ControlOptions.OriginalHeight = 25
-            ControlOptions.OriginalWidth = 1145
-            ControlOptions.ShowBorder = False
-            Index = 10
-          end
-          object itm_GetLogin_Example: TdxLayoutItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = '       '
-            Control = mem_GetLogin_Example
-            ControlOptions.OriginalHeight = 202
-            ControlOptions.OriginalWidth = 1077
-            ControlOptions.ShowBorder = False
-            Index = 8
-          end
-          object itm_Getlogin_ExecuteDB: TdxLayoutItem
-            Parent = lagrp_PCMAPPCheckLogin
-            CaptionOptions.Text = 'New Item'
-            CaptionOptions.Visible = False
-            Control = btn_CheckLoginSQL
-            ControlOptions.OriginalHeight = 25
-            ControlOptions.OriginalWidth = 1145
-            ControlOptions.ShowBorder = False
-            Index = 11
-          end
-          object lagrp_PCMAPPSetExpenditure: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 2
-            CaptionOptions.Text = 'SetExpenditure: Ausgaben f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
-            Index = 14
-          end
-          object itm_GetContcts_Execute: TdxLayoutItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = 'New Item'
-            CaptionOptions.Visible = False
-            Control = btn_GetContacts
-            ControlOptions.OriginalHeight = 25
-            ControlOptions.OriginalWidth = 1125
-            ControlOptions.ShowBorder = False
-            Index = 13
-          end
-          object sepitm_SetDeviceID_Parameter: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            CaptionOptions.Text = 'Separator'
-            Index = 1
-          end
-          object sepitm_SetDeviceID_ParameterResponse: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            CaptionOptions.Text = 'Separator'
-            Index = 3
-          end
-          object sepitm_SetDeviceID_Response: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPPSetDeviceID
-            CaptionOptions.Text = 'Separator'
-            Index = 5
-          end
-          object sepitm_GetContacts_Params: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = 'Separator'
-            Index = 6
-          end
-          object sepitm_GetContacts_ParameterResponse: TdxLayoutSeparatorItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = 'Separator'
-            Index = 3
-          end
-          object lbl_GetContacts_Code400_500: TdxLayoutLabeledItem
-            Parent = lagrp_PCMAPPGetContacts
-            CaptionOptions.Text = 
-              '[B]400     ung'#252'ltiger oder fehlender Parameter'#13#10#13#10'401     nicht ' +
-              'berechtigt'#13#10#13#10'403     verboten'#13#10#13#10'500     interner Serverfehler[' +
-              '/B]'
-            Index = 12
-          end
-          object lagrp_PCMAPPGetVouchers: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 1
-            CaptionOptions.Text = 'GetVouchers: Belege ermitteln anhand Basic Auth'
-            Index = 15
-          end
-          object lagrp_PCMAPPSetVouchers: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 2
-            CaptionOptions.Text = 'SetVouchers: elege f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
-            Index = 16
-          end
-          object lagrp_PCMAPPGetGiftCards: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 1
-            CaptionOptions.Text = 'GetGiftCards: Gutscheine ermitteln anhand Basic Auth'
-            Index = 17
-          end
-          object lagrp_PCMAPPSetGiftCards: TdxLayoutGroup
-            Parent = lagrp_Rest
-            CaptionOptions.ImageIndex = 2
-            CaptionOptions.Text = 'SetGiftCards: Gutscheine f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
-            Index = 18
-          end
-          object dxLayoutGroup11: TdxLayoutGroup
-            CaptionOptions.Text = 'New Group'
-            Index = -1
-          end
-          object dxLayoutGroup13: TdxLayoutGroup
-            CaptionOptions.Text = 'New Group'
-            Index = -1
-          end
-          object dxLayoutGroup14: TdxLayoutGroup
-            CaptionOptions.Text = 'New Group'
-            Index = -1
-          end
-          object dxLayoutGroup15: TdxLayoutGroup
-            CaptionOptions.Text = 'New Group'
-            Index = -1
-          end
-          object dxLayoutGroup16: TdxLayoutGroup
-            CaptionOptions.Text = 'New Group'
-            Index = -1
-          end
-          object dxLayoutGroup17: TdxLayoutGroup
-            CaptionOptions.Text = 'New Group'
-            Index = -1
-          end
-        end
-      end
-      object cxTabSheet1: TcxTabSheet
-        Caption = 'APP REST-API: PCM - Time'
-        ImageIndex = 1
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 679
-      end
-      object sdsds: TcxTabSheet
-        Caption = 'DESKTOP REST-API PCM - Archiv'
-        ImageIndex = 2
-        ExplicitLeft = 0
-        ExplicitTop = 0
-        ExplicitWidth = 0
-        ExplicitHeight = 679
-      end
+      Visible = False
+      OnClick = btn_CheckserverClick
+    end
+    object mem_CheckServer_Example: TcxMemo
+      Left = 10000
+      Top = 10053
+      Lines.Strings = (
+        '{'
+        '  "HasError": false,'
+        '  "ErrorCode": 0,'
+        '  "Errormessage": ""'
+        '}')
+      ParentFont = False
+      Style.Font.Charset = ANSI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -12
+      Style.Font.Name = 'Consolas'
+      Style.Font.Style = []
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      Style.IsFontAssigned = True
+      TabOrder = 0
+      Visible = False
+      Height = 81
+      Width = 1046
+    end
+    object btn_CheckLogin: TcxButton
+      Left = 10000
+      Top = 10000
+      Width = 1101
+      Height = 25
+      Caption = 'Rest - Execute'
+      TabOrder = 3
+      Visible = False
+      OnClick = btn_CheckLoginClick
+    end
+    object btn_CheckLoginSQL: TcxButton
+      Left = 10000
+      Top = 10053
+      Width = 1101
+      Height = 25
+      Caption = 'SQL - Execute'
+      TabOrder = 4
+      Visible = False
+      OnClick = btn_CheckLoginSQLClick
+    end
+    object mem_GetLogin_Example: TcxMemo
+      Left = 10000
+      Top = 10053
+      Lines.Strings = (
+        '{'
+        '  "HasError": false,'
+        '  "ErrorCode": 0,'
+        '  "ErrorMessage": "",'
+        '  "ID_User": 1,'
+        '  "User": "pcm",'
+        '  "Password": "ec5c8103218f27aa6ecfd3f11e1a6b45",'
+        '  "Login": ['
+        '    {'
+        '      "Allowed": true,'
+        '      "ID_User": 1'
+        '    }'
+        '  ]'
+        '}')
+      ParentFont = False
+      Style.Font.Charset = ANSI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -12
+      Style.Font.Name = 'Consolas'
+      Style.Font.Style = []
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      Style.IsFontAssigned = True
+      TabOrder = 2
+      Visible = False
+      Height = 202
+      Width = 1046
+    end
+    object mem_SetDeviceID_Example: TcxMemo
+      Left = 10000
+      Top = 10053
+      Lines.Strings = (
+        '{'
+        '  "Device": ['
+        '    {'
+        '      "DeviceToken": "AbCdEfGhIjKlMnOpQrStUvWxY",'
+        '      "DeviceID": "E56HGPERV4E1",'
+        '      "DeviceType": 0,'
+        '      "ID_Benutzer": 1'
+        '    }'
+        '  ]'
+        '}')
+      ParentFont = False
+      Style.Font.Charset = ANSI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -12
+      Style.Font.Name = 'Consolas'
+      Style.Font.Style = []
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      Style.IsFontAssigned = True
+      TabOrder = 5
+      Visible = False
+      Height = 149
+      Width = 1046
+    end
+    object btn_SetDeviceID: TcxButton
+      Left = 10000
+      Top = 10053
+      Width = 1101
+      Height = 25
+      Caption = 'Rest - Execute'
+      TabOrder = 6
+      Visible = False
+      OnClick = btn_SetDeviceIDClick
+    end
+    object edt_GetContacts_Parameter: TcxTextEdit
+      Left = 10000
+      Top = 10160
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 7
+      Text = '2'
+      Visible = False
+      Width = 1046
+    end
+    object btn_GetContacts: TcxButton
+      Left = 10000
+      Top = 10160
+      Width = 1101
+      Height = 25
+      Caption = 'Rest - Execute'
+      TabOrder = 9
+      Visible = False
+      OnClick = btn_GetContactsClick
+    end
+    object btn_GetContactsSQL: TcxButton
+      Left = 10000
+      Top = 10160
+      Width = 1101
+      Height = 25
+      Caption = 'SQL - Execute'
+      TabOrder = 10
+      Visible = False
+      OnClick = btn_GetContactsSQLClick
+    end
+    object mem_GetContacts_Example: TcxMemo
+      Left = 10000
+      Top = 10160
+      Lines.Strings = (
+        '{'
+        '  "HasError": false,'
+        '  "ErrorCode": 0,'
+        '  "ErrorMessage": "",'
+        '  "Contacts": ['
+        '    {'
+        '      "ID": 1,'
+        '      "Salutation": "Herr",'
+        '      "Name": "Max",'
+        '      "Surname": "Mustermann",'
+        '      "Street_private": "Musterstra'#223'e 1",'
+        '      "Postalcode_private": "12345",'
+        '      "Place_private": "Musterstadt",'
+        '      "Phone_private": "01234/56789",'
+        '      "Mobile_private": "01234/78901",'
+        '      "Mail_private": "max.mustermann@muster.de",'
+        '      "Web_private": "https://maxmustermann.de",'
+        '      "Birthday": "01.01.1980",'
+        '      "Gender": "m'#228'nnlich",'
+        '      "Maritalstatus": "ledig",'
+        '      "Nationality": "deutsch",'
+        '      "Denomination": "Evangelisch",'
+        '      "Company": "Musterfirma",'
+        '      "Street_business": "Musterweg 1",'
+        '      "Postalcode_business": "23456",'
+        '      "Place_business": "Musterhausen",'
+        '      "Phone_business": "09876/543210",'
+        '      "Mobile_business": "09876/43210",'
+        '      "Mail_business": "max.mustermann@musterfirma.com",'
+        '      "Web_business": " https://musterfirma.de"'
+        '    }'
+        '  ]'
+        '}')
+      ParentFont = False
+      Properties.ScrollBars = ssVertical
+      Style.Font.Charset = ANSI_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -12
+      Style.Font.Name = 'Consolas'
+      Style.Font.Style = []
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      Style.IsFontAssigned = True
+      TabOrder = 8
+      Visible = False
+      Height = 160
+      Width = 1046
+    end
+    object lagrp_Rest: TdxLayoutGroup
+      AlignHorz = ahClient
+      AlignVert = avClient
+      SizeOptions.Height = 600
+      Hidden = True
+      ShowBorder = False
+      Index = -1
+    end
+    object lagrp_PCMAPPCheckLogin: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 0
+      CaptionOptions.Text = 'GetLogin: Userdaten ermitteln anhand Basic Auth'
+      SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+      SizeOptions.SizableHorz = False
+      SizeOptions.SizableVert = False
+      SizeOptions.Width = 1200
+      AllowRemove = False
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      ItemIndex = 10
+      Index = 1
+    end
+    object lbl_CheckServer_Parameter: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = '[FONT=Consolas][B]Parameter[/B][/FONT]'
+      Index = 0
+    end
+    object sepitm_CheckServer_Parameter: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = 'Separator'
+      Index = 1
+    end
+    object lbl_CheckServer_ParameterDesc: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = '[FONT=Consolas]Keine Parameter[/Font]'
+      Index = 2
+    end
+    object lbl_CheckServer_Responses: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = '[FONT=Consolas][B]Responses[/B][/Font]'
+      Index = 4
+    end
+    object sepitm_CheckServer_Response: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = 'Separator'
+      Index = 5
+    end
+    object lbl_CheckServer_Code200: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = 
+        '[FONT=Consolas][B]200     Ok(ErrorCode beachten)[/B]'#13#10'          ' +
+        '       '#13#10'        - 0: keine Fehler vorhanden'#13#10'        - 1: ung'#252'l' +
+        'tige REST-API-Funktion'#13#10'        - 2: Benutzer nicht gefunden ode' +
+        'r falsches Passwort'#13#10'        - 3: Keine Verbindung zur Datenbank' +
+        #13#10'        - 4: Benutzer nicht berechtigt[/Font]'
+      Index = 6
+    end
+    object lbl_CheckServer_Code400_500: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = 
+        '[FONT=Consolas][B]400     ung'#252'ltiger oder fehlender Parameter'#13#10#13 +
+        #10'401     nicht berechtigt'#13#10#13#10'403     verboten'#13#10#13#10'500     interne' +
+        'r Serverfehler[/B][/FONT]'
+      Index = 9
+    end
+    object lbl_CheckServer_ExampleHeader: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = '[FONT=Consolas][B]        Beispiel:[/B][/Font]'
+      Index = 7
+    end
+    object lbl_GetLogin_ExampleHeader: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = '[FONT=Consolas][B]        Beispiel:[/B][/FONT]'
+      Index = 7
+    end
+    object lbl_SetDeviceID_ParameterDesc: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      CaptionOptions.Text = '[FONT=Consolas]Keine Parameter[/FONT]'
+      Index = 2
+    end
+    object lbl_GetContacts_Parameter: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = '[FONT=Consolas][B]Parameter[/B][/FONT]'
+      Index = 0
+    end
+    object itm_CheckServer_Execute: TdxLayoutItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = btn_Checkserver
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 75
+      ControlOptions.ShowBorder = False
+      Index = 10
+    end
+    object sepitm_CheckServer_ParameterResponse: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = 'Separator'
+      Index = 3
+    end
+    object itm_CheckServer_Example: TdxLayoutItem
+      Parent = lagrp_PCMAPP_Checkserver
+      CaptionOptions.Text = '[FONT=Consolas]       [/FONT]'
+      Control = mem_CheckServer_Example
+      ControlOptions.OriginalHeight = 81
+      ControlOptions.OriginalWidth = 185
+      ControlOptions.ShowBorder = False
+      Index = 8
+    end
+    object lagrp_PCMAPPGetContacts: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      CaptionOptions.ImageIndex = 1
+      CaptionOptions.Text = 'GetContacts: Kontakte ermitteln anhand Basic Auth'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      ItemIndex = 5
+      Index = 3
+    end
+    object lagrp_PCMAPPSetContacts: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 2
+      CaptionOptions.Text = 'SetContacts: Kontakte f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      Index = 4
+    end
+    object lagrp_PCMAPPSetDeviceID: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 2
+      CaptionOptions.Text = 'SetDeviceID: Token und DeviceID an Server schicken'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      ItemIndex = 10
+      Index = 2
+    end
+    object lagrp_PCMAPP_Checkserver: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 0
+      CaptionOptions.Text = 'CheckServer: Serververbindung pr'#252'fen'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      ItemIndex = 10
+      Index = 0
+    end
+    object lagrp_PCMAPPGetCalendar: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 1
+      CaptionOptions.Text = 'GetCalendar: Kalender ermitteln anhand Basic Auth'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      Index = 5
+    end
+    object lagrp_PCMAPPSetCalendar: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 2
+      CaptionOptions.Text = 'SetCalendar: Kalender f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      Index = 6
+    end
+    object lagrp_PCMAPPGetPasswords: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 1
+      CaptionOptions.Text = 'GetPasswords: Passw'#246'rter ermitteln anhand Basic Auth'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      Index = 7
+    end
+    object lagrp_PCMAPPSetPasswords: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 2
+      CaptionOptions.Text = 'SetPasswords: Passw'#246'rter f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      Index = 8
+    end
+    object lagrp_PCMAPPGetSerials: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 1
+      CaptionOptions.Text = 'GetSerials: Serials ermitteln anhand Basic Auth'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      Index = 9
+    end
+    object lagrp_PCMAPPSetSerials: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 2
+      CaptionOptions.Text = 'SetSerials: Serials f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      Index = 10
+    end
+    object lagrp_PCMAPPGetReceipts: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 1
+      CaptionOptions.Text = 'GetReceipts: Einnahmen ermitteln anhand Basic Auth'
+      ButtonOptions.ShowExpandButton = True
+      Expanded = False
+      Index = 11
+    end
+    object lagrp_PCMAPPSetReceipts: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 2
+      CaptionOptions.Text = 'SetReceipts: Einnahmen f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
+      ButtonOptions.ShowExpandButton = True
+      Index = 12
+    end
+    object lagrp_PCMAPPGetExpenditure: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 1
+      CaptionOptions.Text = 'GetExpenditure: Ausgaben ermitteln anhand Basic Auth'
+      ButtonOptions.ShowExpandButton = True
+      Index = 13
+    end
+    object lbl_GetLogin_Parameter: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = '[FONT=Consolas][B]Parameter[/B][/FONT]'
+      Index = 0
+    end
+    object lbl_GetLogin_Code400_500: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = 
+        '[FONT=Consolas][B]400     ung'#252'ltiger oder fehlender Parameter'#13#10#13 +
+        #10'401     nicht berechtigt'#13#10#13#10'403     verboten'#13#10#13#10'500     interne' +
+        'r Serverfehler[/B][/FONT]'
+      Index = 9
+    end
+    object lbl_GetLogin_ParameterDesc: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = '[FONT=Consolas]Keine Parameter[/FONT]'
+      Index = 2
+    end
+    object lbl_GetLogin_Responses: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = '[FONT=Consolas][B]Responses[/B][/FONT]'
+      Index = 4
+    end
+    object lbl_GetLogin_Code200: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = 
+        '[FONT=Consolas][B]200     Ok(ErrorCode beachten)[/B]'#13#10'          ' +
+        '       '#13#10'        - 0: keine Fehler vorhanden'#13#10'        - 1: ung'#252'l' +
+        'tige REST-API-Funktion'#13#10'        - 2: Benutzer nicht gefunden ode' +
+        'r falsches Passwort'#13#10'        - 3: Keine Verbindung zur Datenbank' +
+        #13#10'        - 4: Benutzer nicht berechtigt[/FONT]'
+      Index = 6
+    end
+    object lbl_SetDeviceID_Parameter: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      CaptionOptions.Text = '[FONT=Consolas][B]Parameter[/B][/FONT]'
+      Index = 0
+    end
+    object lbl_SetDeviceID_Responses: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      CaptionOptions.Text = '[FONT=Consolas][B]Responses[/B][/FONT]'
+      Index = 4
+    end
+    object lbl_SetDeviceID_Code200: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      CaptionOptions.Text = 
+        '[FONT=Consolas][B]200     Ok(ErrorCode beachten)[/B]'#13#10'          ' +
+        '       '#13#10'        - 0: keine Fehler vorhanden'#13#10'        - 1: ung'#252'l' +
+        'tige REST-API-Funktion'#13#10'        - 2: Benutzer nicht gefunden ode' +
+        'r falsches Passwort'#13#10'        - 3: Keine Verbindung zur Datenbank' +
+        #13#10'        - 4: Benutzer nicht berechtigt[/FONT]'
+      Index = 6
+    end
+    object lbl_SetDeviceID_Code400_500: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 
+        '[FONT=Consolas][B]400     ung'#252'ltiger oder fehlender Parameter'#13#10#13 +
+        #10'401     nicht berechtigt'#13#10#13#10'403     verboten'#13#10#13#10'500     interne' +
+        'r Serverfehler[/B][/FONT]'
+      Index = 9
+    end
+    object lbl_GetContacts_ParameterDesc: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = '[FONT=Consolas][B]Name    Description[/B][/FONT]'
+      Index = 2
+    end
+    object lbl_GetContacts_Params: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = '[FONT=Consolas][B]ID_User Description[/B][/FONT]'
+      Index = 4
+    end
+    object lbl_GetContacts_Code200: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = 
+        '[FONT=Consolas][B]200     Ok(ErrorCode beachten)[/B]'#13#10'          ' +
+        '       '#13#10'        - 0: keine Fehler vorhanden'#13#10'        - 1: ung'#252'l' +
+        'tige REST-API-Funktion'#13#10'        - 2: Benutzer nicht gefunden ode' +
+        'r falsches Passwort'#13#10'        - 3: Keine Verbindung zur Datenbank' +
+        #13#10'        - 4: Benutzer nicht berechtigt'#13#10'[/FONT]'
+      Index = 9
+    end
+    object lbl_GetContacts_Responses: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = '[FONT=Consolas][B]Responses[/B][/FONT]'
+      Index = 7
+    end
+    object lbl_GetContacts_ExampleHeader: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = '[FONT=Consolas][B]        Beispiel:[/B][/FONT]'
+      Index = 10
+    end
+    object lbl_SetDeviceID_ExampleHeader: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      CaptionOptions.Text = '[FONT=Consolas][B]        Beispiel:[/B][/FONT]'
+      Index = 7
+    end
+    object sepitm_GetLogin_Parameter: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = 'Separator'
+      Index = 1
+    end
+    object sepitm_GetLogin_Response: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = 'Separator'
+      Index = 5
+    end
+    object dxLayoutSeparatorItem3: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = 'Separator'
+      Index = 1
+    end
+    object sepitm_GetLogin_ParameterResponse: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = 'Separator'
+      Index = 3
+    end
+    object sepitm_GetContacts_Response: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = 'Separator'
+      Index = 8
+    end
+    object dxLayoutItem1: TdxLayoutItem
+      Parent = dxLayoutGroup15
+      AlignHorz = ahClient
+      AlignVert = avBottom
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = stbr_Rest
+      ControlOptions.OriginalHeight = 20
+      ControlOptions.OriginalWidth = 1194
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object itm_GetContcts_ExecuteDB: TdxLayoutItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = btn_GetContactsSQL
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 1125
+      ControlOptions.ShowBorder = False
+      Index = 14
+    end
+    object itm_GetContacts_Example: TdxLayoutItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = '[FONT=Consolas]       [/FONT]'
+      Control = mem_GetContacts_Example
+      ControlOptions.OriginalHeight = 160
+      ControlOptions.OriginalWidth = 1070
+      ControlOptions.ShowBorder = False
+      Index = 11
+    end
+    object itm_GetContacts_Params: TdxLayoutItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = '[FONT=Consolas][/FONT]integer'
+      Control = edt_GetContacts_Parameter
+      ControlOptions.OriginalHeight = 21
+      ControlOptions.OriginalWidth = 121
+      ControlOptions.ShowBorder = False
+      Index = 5
+    end
+    object itm_SetDeviceID_Execute: TdxLayoutItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = btn_SetDeviceID
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 1145
+      ControlOptions.ShowBorder = False
+      Index = 10
+    end
+    object itm_SetDeviceID_Example: TdxLayoutItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      CaptionOptions.Text = '[FONT=Consolas]       [/FONT]'
+      Control = mem_SetDeviceID_Example
+      ControlOptions.OriginalHeight = 149
+      ControlOptions.OriginalWidth = 1145
+      ControlOptions.ShowBorder = False
+      Index = 8
+    end
+    object itm_Getlogin_Execute: TdxLayoutItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = btn_CheckLogin
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 1145
+      ControlOptions.ShowBorder = False
+      Index = 10
+    end
+    object itm_GetLogin_Example: TdxLayoutItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = '[FONT=Consolas]       [/FONT]'
+      Control = mem_GetLogin_Example
+      ControlOptions.OriginalHeight = 202
+      ControlOptions.OriginalWidth = 1077
+      ControlOptions.ShowBorder = False
+      Index = 8
+    end
+    object itm_Getlogin_ExecuteDB: TdxLayoutItem
+      Parent = lagrp_PCMAPPCheckLogin
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = btn_CheckLoginSQL
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 1145
+      ControlOptions.ShowBorder = False
+      Index = 11
+    end
+    object lagrp_PCMAPPSetExpenditure: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 2
+      CaptionOptions.Text = 'SetExpenditure: Ausgaben f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
+      Index = 14
+    end
+    object itm_GetContcts_Execute: TdxLayoutItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = btn_GetContacts
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 1125
+      ControlOptions.ShowBorder = False
+      Index = 13
+    end
+    object sepitm_SetDeviceID_Parameter: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      CaptionOptions.Text = 'Separator'
+      Index = 1
+    end
+    object sepitm_SetDeviceID_ParameterResponse: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      CaptionOptions.Text = 'Separator'
+      Index = 3
+    end
+    object sepitm_SetDeviceID_Response: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPPSetDeviceID
+      CaptionOptions.Text = 'Separator'
+      Index = 5
+    end
+    object sepitm_GetContacts_Params: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = 'Separator'
+      Index = 6
+    end
+    object sepitm_GetContacts_ParameterResponse: TdxLayoutSeparatorItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = 'Separator'
+      Index = 3
+    end
+    object lbl_GetContacts_Code400_500: TdxLayoutLabeledItem
+      Parent = lagrp_PCMAPPGetContacts
+      CaptionOptions.Text = 
+        '[FONT=Consolas][B]400     ung'#252'ltiger oder fehlender Parameter'#13#10#13 +
+        #10'401     nicht berechtigt'#13#10#13#10'403     verboten'#13#10#13#10'500     interne' +
+        'r Serverfehler[/B][/FONT]'
+      Index = 12
+    end
+    object lagrp_PCMAPPGetVouchers: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 1
+      CaptionOptions.Text = 'GetVouchers: Belege ermitteln anhand Basic Auth'
+      Index = 15
+    end
+    object lagrp_PCMAPPSetVouchers: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 2
+      CaptionOptions.Text = 'SetVouchers: elege f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
+      Index = 16
+    end
+    object lagrp_PCMAPPGetGiftCards: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 1
+      CaptionOptions.Text = 'GetGiftCards: Gutscheine ermitteln anhand Basic Auth'
+      Index = 17
+    end
+    object lagrp_PCMAPPSetGiftCards: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.ImageIndex = 2
+      CaptionOptions.Text = 'SetGiftCards: Gutscheine f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
+      Index = 18
+    end
+    object dxLayoutGroup11: TdxLayoutGroup
+      Parent = dxLayoutGroup15
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      LayoutDirection = ldTabbed
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup13: TdxLayoutGroup
+      Parent = dxLayoutGroup11
+      AlignHorz = ahCenter
+      AlignVert = avClient
+      CaptionOptions.Text = 'APP REST-API: PCM - Time'
+      Index = 1
+    end
+    object dxLayoutGroup15: TdxLayoutGroup
+      Parent = lagrp_Rest
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup1: TdxLayoutGroup
+      Parent = dxLayoutGroup11
+      AlignHorz = ahCenter
+      AlignVert = avClient
+      CaptionOptions.Text = 'APP REST-API: PCM - APP'
+      ItemIndex = 3
+      Index = 0
     end
   end
-  object grpbx_Responsepanel: TPanel
-    Left = -2000
-    Top = 217
-    Width = 1021
-    Height = 344
+  object grpbx_Responsepanel: TdxLayoutControl
+    Left = 152
+    Top = 96
+    Width = 644
+    Height = 453
     TabOrder = 1
     Visible = False
-    object grpbx_ResponseHeader: TPanel
-      Left = 1
-      Top = 1
-      Width = 1019
-      Height = 25
-      Align = alTop
-      BevelOuter = bvNone
-      Caption = 'Response:'
-      ParentBackground = False
-      TabOrder = 0
-      object btn_ClosePanel: TcxButton
-        Left = 994
-        Top = 0
-        Width = 25
-        Height = 25
-        Align = alRight
-        Caption = 'sdsdsdsd'
-        OptionsImage.Glyph.SourceDPI = 96
-        OptionsImage.Glyph.Data = {
-          89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
-          F400000011744558745469746C6500436C6F73653B457869743B0519FF850000
-          00CC49444154785EEDD6410AC2301484E1ACBC8FA2548A4B6FE2F90A9A45CEE2
-          2114BD401A675102F29A11798975F116FF2A85F91669A94B292DDA1BC000D7D3
-          31FDA2D600031820B6023CD1010502F0A8470F3D408EEF9043AB02C24F670E6D
-          05420188A89FC69D4088F15C8F46252037E40189F085B373BD3BC0117C5C0FE0
-          0832AE0570041B6F0DF004109A00F8B844B402F82F2E61A80BE0AFDAC0117AC0
-          88F63303970F17B3ABF921BAA3CDDC7801B14637FD1D90884E8C4B4447C6D56F
-          41543CF3BF3F240630C0A219E005D2B236AEE0A7E8530000000049454E44AE42
-          6082}
-        PaintStyle = bpsGlyph
-        TabOrder = 0
-        OnClick = btn_ClosePanelClick
-      end
-    end
-    object scrlbx_Responsepanel: TcxScrollBox
+    AutoSize = True
+    LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
+    OnMouseLeave = grpbx_ResponsepanelMouseLeave
+    object rchedt_RequestURL: TcxRichEdit
       AlignWithMargins = True
-      Left = 3
-      Top = 26
-      Width = 1015
-      Height = 315
-      Margins.Left = 2
-      Margins.Top = 0
-      Margins.Right = 2
-      Margins.Bottom = 2
-      Align = alClient
-      BorderStyle = cxcbsNone
-      Color = 7566195
-      HorzScrollBar.Tracking = True
-      LookAndFeel.ScrollbarMode = sbmClassic
-      LookAndFeel.ScrollMode = scmClassic
-      ParentColor = False
-      ParentShowHint = False
-      ShowHint = False
+      Left = 0
+      Top = 66
+      ParentFont = False
+      Lines.Strings = (
+        'cxRichEdit2')
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -12
+      Style.Font.Name = 'Consolas'
+      Style.Font.Style = []
+      Style.HotTrack = False
+      Style.TextStyle = [fsBold]
+      Style.TransparentBorder = False
+      Style.IsFontAssigned = True
+      TabOrder = 0
+      Height = 20
+      Width = 986
+    end
+    object rchedt_ResponseHeaders: TcxRichEdit
+      AlignWithMargins = True
+      Left = 48
+      Top = 688
+      Margins.Left = 54
+      ParentFont = False
+      Lines.Strings = (
+        
+          'access-control-allow-headers: append,delete,entries,foreach,get,' +
+          'has,keys,set,values,Authorization '
+        ' access-control-allow-methods: POST,GET,OPTIONS,DELETE,PUT '
+        ' access-control-allow-origin: * '
+        ' access-control-expose-headers: * '
+        ' connection: close '
+        ' content-length: 310486 '
+        ' content-type: application/json; charset=utf-8 '
+        ' date: Fri,24 Jan 2025 10:57:56 GMT '
+        
+          ' pragma: dssession=674681.563051.308762,dssessionexpires=1200000' +
+          ' ')
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -12
+      Style.Font.Name = 'Consolas'
+      Style.Font.Style = []
+      Style.HotTrack = False
+      Style.TextStyle = [fsBold]
+      Style.TransparentBorder = False
+      Style.IsFontAssigned = True
+      TabOrder = 2
+      Height = 135
+      Width = 938
+    end
+    object rchedt_ResponseBody: TcxRichEdit
+      AlignWithMargins = True
+      Left = 48
+      Top = 159
+      Margins.Left = 54
+      ParentFont = False
+      Lines.Strings = (
+        '1'
+        '2'
+        '3'
+        '4'
+        '5'
+        '6'
+        '23'
+        '2'
+        '22'
+        '2'
+        '2'
+        '3'
+        '2'
+        '3'
+        '23'
+        '23'
+        '23'
+        '23'
+        '2'
+        '32'
+        '32'
+        '32'
+        '323'
+        '23'
+        '213'
+        '232323'
+        '2'
+        '32'
+        '3'
+        '23'
+        '23'
+        '2'
+        '32'
+        '32'
+        '3'
+        '2323'
+        '23'
+        '2'
+        '32'
+        '3'
+        '23'
+        '23'
+        '23'
+        '2'
+        '32'
+        '323'
+        '32'
+        '32'
+        '3'
+        '99999')
+      Style.Font.Charset = DEFAULT_CHARSET
+      Style.Font.Color = clWindowText
+      Style.Font.Height = -12
+      Style.Font.Name = 'Consolas'
+      Style.Font.Style = []
+      Style.HotTrack = False
+      Style.TextStyle = [fsBold]
+      Style.TransparentBorder = False
+      Style.IsFontAssigned = True
       TabOrder = 1
-      object grpbx_ResponseDetail: TcxGroupBox
-        Left = 0
-        Top = 0
-        Margins.Left = 0
-        Margins.Top = 0
-        Margins.Right = 0
-        Margins.Bottom = 0
-        Align = alTop
-        PanelStyle.Active = True
-        TabOrder = 0
-        Height = 425
-        Width = 998
-        object lbl_RequestURL: TcxLabel
-          AlignWithMargins = True
-          Left = 6
-          Top = 6
-          Align = alTop
-          Caption = 'Request URL'
-          ParentFont = False
-          Style.Font.Charset = DEFAULT_CHARSET
-          Style.Font.Color = clWindowText
-          Style.Font.Height = -12
-          Style.Font.Name = 'Consolas'
-          Style.Font.Style = []
-          Style.IsFontAssigned = True
-          Transparent = True
-        end
-        object rchedt_RequestURL: TcxRichEdit
-          AlignWithMargins = True
-          Left = 6
-          Top = 30
-          Align = alTop
-          ParentFont = False
-          Lines.Strings = (
-            'cxRichEdit2')
-          Style.BorderStyle = ebsNone
-          Style.Font.Charset = DEFAULT_CHARSET
-          Style.Font.Color = clWindowText
-          Style.Font.Height = -12
-          Style.Font.Name = 'Consolas'
-          Style.Font.Style = []
-          Style.TextStyle = [fsBold]
-          Style.IsFontAssigned = True
-          TabOrder = 1
-          Height = 20
-          Width = 986
-        end
-        object rchedt_ResponseHeaders: TcxRichEdit
-          AlignWithMargins = True
-          Left = 57
-          Top = 658
-          Margins.Left = 54
-          Align = alTop
-          ParentFont = False
-          Lines.Strings = (
-            
-              'access-control-allow-headers: append,delete,entries,foreach,get,' +
-              'has,keys,set,values,Authorization '
-            ' access-control-allow-methods: POST,GET,OPTIONS,DELETE,PUT '
-            ' access-control-allow-origin: * '
-            ' access-control-expose-headers: * '
-            ' connection: close '
-            ' content-length: 310486 '
-            ' content-type: application/json; charset=utf-8 '
-            ' date: Fri,24 Jan 2025 10:57:56 GMT '
-            
-              ' pragma: dssession=674681.563051.308762,dssessionexpires=1200000' +
-              ' ')
-          Style.BorderStyle = ebsNone
-          Style.Font.Charset = DEFAULT_CHARSET
-          Style.Font.Color = clWindowText
-          Style.Font.Height = -12
-          Style.Font.Name = 'Consolas'
-          Style.Font.Style = []
-          Style.TextStyle = [fsBold]
-          Style.IsFontAssigned = True
-          TabOrder = 2
-          Height = 135
-          Width = 935
-        end
-        object rchedt_ResponseBody: TcxRichEdit
-          AlignWithMargins = True
-          Left = 57
-          Top = 128
-          Margins.Left = 54
-          Align = alTop
-          ParentFont = False
-          Lines.Strings = (
-            '1'
-            '2'
-            '3'
-            '4'
-            '5'
-            '6'
-            '23'
-            '2'
-            '22'
-            '2'
-            '2'
-            '3'
-            '2'
-            '3'
-            '23'
-            '23'
-            '23'
-            '23'
-            '2'
-            '32'
-            '32'
-            '32'
-            '323'
-            '23'
-            '213'
-            '232323'
-            '2'
-            '32'
-            '3'
-            '23'
-            '23'
-            '2'
-            '32'
-            '32'
-            '3'
-            '2323'
-            '23'
-            '2'
-            '32'
-            '3'
-            '23'
-            '23'
-            '23'
-            '2'
-            '32'
-            '323'
-            '32'
-            '32'
-            '3'
-            '99999')
-          Style.BorderStyle = ebsNone
-          Style.Font.Charset = DEFAULT_CHARSET
-          Style.Font.Color = clWindowText
-          Style.Font.Height = -12
-          Style.Font.Name = 'Consolas'
-          Style.Font.Style = []
-          Style.TextStyle = [fsBold]
-          Style.IsFontAssigned = True
-          TabOrder = 3
-          Height = 500
-          Width = 935
-        end
-        object lbl_Serverresponse: TcxLabel
-          AlignWithMargins = True
-          Left = 6
-          Top = 56
-          Align = alTop
-          Caption = 'Server response'
-          ParentFont = False
-          Style.Font.Charset = DEFAULT_CHARSET
-          Style.Font.Color = clWindowText
-          Style.Font.Height = -12
-          Style.Font.Name = 'Consolas'
-          Style.Font.Style = []
-          Style.IsFontAssigned = True
-          Transparent = True
-        end
-        object lbl_Code_Detail: TcxLabel
-          AlignWithMargins = True
-          Left = 6
-          Top = 80
-          Align = alTop
-          Caption = 'Code   Details'
-          ParentFont = False
-          Style.Font.Charset = DEFAULT_CHARSET
-          Style.Font.Color = clWindowText
-          Style.Font.Height = -12
-          Style.Font.Name = 'Consolas'
-          Style.Font.Style = [fsBold]
-          Style.IsFontAssigned = True
-          Transparent = True
-        end
-        object lbl_Code: TcxLabel
-          AlignWithMargins = True
-          Left = 6
-          Top = 104
-          Align = alTop
-          Caption = '200    Response body'
-          ParentFont = False
-          Style.Font.Charset = ANSI_CHARSET
-          Style.Font.Color = clWindowText
-          Style.Font.Height = -12
-          Style.Font.Name = 'Consolas'
-          Style.Font.Style = []
-          Style.IsFontAssigned = True
-          Transparent = True
-        end
-        object lbl_ResponseHeaders: TcxLabel
-          AlignWithMargins = True
-          Left = 6
-          Top = 634
-          Align = alTop
-          Caption = '       Response headers'
-          ParentFont = False
-          Style.Font.Charset = ANSI_CHARSET
-          Style.Font.Color = clWindowText
-          Style.Font.Height = -12
-          Style.Font.Name = 'Consolas'
-          Style.Font.Style = []
-          Style.IsFontAssigned = True
-          Transparent = True
-        end
-      end
+      Height = 500
+      Width = 938
+    end
+    object grpbx_ResponsepanelGroup_Root: TdxLayoutGroup
+      AlignHorz = ahLeft
+      AlignVert = avTop
+      Hidden = True
+      ShowBorder = False
+      Index = -1
+    end
+    object dxLayoutGroup2: TdxLayoutGroup
+      Parent = grpbx_ResponsepanelGroup_Root
+      AlignHorz = ahClient
+      CaptionOptions.AlignHorz = taCenter
+      CaptionOptions.Text = 'Response'
+      ItemIndex = 1
+      Index = 0
+      Buttons = <
+        item
+          Glyph.SourceDPI = 96
+          Glyph.Data = {
+            3C3F786D6C2076657273696F6E3D22312E302220656E636F64696E673D225554
+            462D38223F3E0D0A3C7376672076657273696F6E3D22312E31222069643D2243
+            6C656172486561646572416E64466F6F7465722220786D6C6E733D2268747470
+            3A2F2F7777772E77332E6F72672F323030302F7376672220786D6C6E733A786C
+            696E6B3D22687474703A2F2F7777772E77332E6F72672F313939392F786C696E
+            6B2220783D223070782220793D22307078222076696577426F783D2230203020
+            333220333222207374796C653D22656E61626C652D6261636B67726F756E643A
+            6E6577203020302033322033323B2220786D6C3A73706163653D227072657365
+            727665223E262331333B262331303B3C7374796C6520747970653D2274657874
+            2F637373223E2E5265647B66696C6C3A234431314331433B7D3C2F7374796C65
+            3E0D0A3C7061746820636C6173733D225265642220643D224D32372C34483543
+            342E352C342C342C342E352C342C3576323263302C302E352C302E352C312C31
+            2C3168323263302E352C302C312D302E352C312D3156354332382C342E352C32
+            372E352C342C32372C347A204D32322C32306C2D322C326C2D342D346C2D342C
+            3420202623393B6C2D322D326C342D346C2D342D346C322D326C342C346C342D
+            346C322C326C2D342C344C32322C32307A222F3E0D0A3C2F7376673E0D0A}
+          Height = 32
+          Width = 32
+          OnClick = dxLayoutGroup2Button0Click
+        end>
+    end
+    object dxLayoutItem2: TdxLayoutItem
+      Parent = dxLayoutGroup2
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = rchedt_RequestURL
+      ControlOptions.OriginalHeight = 20
+      ControlOptions.OriginalWidth = 986
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutLabeledItem1: TdxLayoutLabeledItem
+      Parent = dxLayoutGroup2
+      CaptionOptions.Text = '[FONT=Consolas]Request URL[/FONT]'
+      Index = 0
+    end
+    object dxLayoutItem3: TdxLayoutItem
+      Parent = dxLayoutGroup2
+      CaptionOptions.Text = '[FONT=Consolas]      [/FONT]'
+      Control = rchedt_ResponseBody
+      ControlOptions.OriginalHeight = 500
+      ControlOptions.OriginalWidth = 935
+      ControlOptions.ShowBorder = False
+      Index = 5
+    end
+    object dxLayoutLabeledItem2: TdxLayoutLabeledItem
+      Parent = dxLayoutGroup2
+      CaptionOptions.Text = '[FONT=Consolas]Server response[/FONT]'
+      Index = 2
+    end
+    object dxLayoutLabeledItem3: TdxLayoutLabeledItem
+      Parent = dxLayoutGroup2
+      CaptionOptions.Text = '[FONT=Consolas][B]Code   Details[/B][/FONT]'
+      Index = 3
+    end
+    object dxLayoutLabeledItem4: TdxLayoutLabeledItem
+      Parent = dxLayoutGroup2
+      CaptionOptions.Text = '[FONT=Consolas]200    Response body[/FONT]'
+      Index = 4
+    end
+    object dxLayoutLabeledItem5: TdxLayoutLabeledItem
+      Parent = dxLayoutGroup2
+      CaptionOptions.Text = '[FONT=Consolas]       Response headers[/FONT]'
+      Index = 6
+    end
+    object dxLayoutItem4: TdxLayoutItem
+      Parent = dxLayoutGroup2
+      CaptionOptions.Text = '[FONT=Consolas]      [/FONT]'
+      Control = rchedt_ResponseHeaders
+      ControlOptions.OriginalHeight = 135
+      ControlOptions.OriginalWidth = 935
+      ControlOptions.ShowBorder = False
+      Index = 7
     end
   end
   object imglst_32x32: TcxImageList
@@ -1694,13 +1641,6 @@ object frm_Swagger: Tfrm_Swagger
     Left = 392
     Top = 264
   end
-  object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
-    Left = 352
-    Top = 40
-    object dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel
-      PixelsPerInch = 96
-    end
-  end
   object imglst_28x80: TcxImageList
     SourceDPI = 96
     Height = 28
@@ -1857,5 +1797,18 @@ object frm_Swagger: Tfrm_Swagger
     SynchronizedEvents = False
     Left = 256
     Top = 176
+  end
+  object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
+    object dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel
+      ItemOptions.CaptionOptions.Font.Charset = ANSI_CHARSET
+      ItemOptions.CaptionOptions.Font.Color = clWindowText
+      ItemOptions.CaptionOptions.Font.Height = -12
+      ItemOptions.CaptionOptions.Font.Name = 'Segoe UI'
+      ItemOptions.CaptionOptions.Font.Style = []
+      ItemOptions.CaptionOptions.UseDefaultFont = False
+      Offsets.RootItemsAreaOffsetHorz = 0
+      Offsets.RootItemsAreaOffsetVert = 0
+      PixelsPerInch = 96
+    end
   end
 end

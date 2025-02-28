@@ -14,1054 +14,609 @@ object frm_Ticket: Tfrm_Ticket
   OnActivate = FormActivate
   OnShow = FormShow
   TextHeight = 13
-  object pnl_main: TcxGroupBox
+  object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Align = alClient
-    PanelStyle.Active = True
-    Style.BorderStyle = ebsNone
-    TabOrder = 0
-    Height = 768
     Width = 1140
-    object pc_Tickets: TcxPageControl
-      Left = 3
-      Top = 3
-      Width = 1134
-      Height = 742
-      Align = alClient
-      TabOrder = 0
-      Properties.ActivePage = ts_jira
-      Properties.CustomButtons.Buttons = <>
-      Properties.Images = imglst_16x16
-      Properties.Style = 11
-      OnChange = pc_TicketsChange
-      ExplicitTop = 1
-      ClientRectBottom = 736
-      ClientRectLeft = 2
-      ClientRectRight = 1128
-      ClientRectTop = 28
-      object ts_jira: TcxTabSheet
-        Caption = 'Jira - Tickets'
-        ImageIndex = 19
-        object brdckCtrl_Jira: TdxBarDockControl
-          Left = 0
-          Top = 0
-          Width = 1126
-          Height = 63
-          Align = dalTop
-          BarManager = bmgr_main
-        end
-        object pc_Jira: TcxPageControl
-          Left = 0
-          Top = 63
-          Width = 1126
-          Height = 645
-          Align = alClient
-          TabOrder = 1
-          Properties.ActivePage = ts_J
-          Properties.CustomButtons.Buttons = <>
-          ClientRectBottom = 639
-          ClientRectLeft = 2
-          ClientRectRight = 1120
-          ClientRectTop = 27
-          object ts_J: TcxTabSheet
-            Caption = 'Jira-Browser'
-            ImageIndex = 2
-            object pnl_BrowserJiraPriv: TcxGroupBox
-              Left = 0
-              Top = 0
-              Align = alClient
-              PanelStyle.Active = True
-              TabOrder = 0
-              Height = 357
-              Width = 1118
-              object brdckCtrl_JiraBrowser: TdxBarDockControl
-                Left = 3
-                Top = 3
-                Width = 1112
-                Height = 63
-                Align = dalTop
-                BarManager = bmgr_main
-              end
-            end
-            object pnl_JDevTools: TcxGroupBox
-              Left = 0
-              Top = 362
-              Align = alBottom
-              PanelStyle.Active = True
-              TabOrder = 1
-              Visible = False
-              OnResize = pnl_JDevToolsResize
-              Height = 250
-              Width = 1118
-            end
-            object splt_J: TcxSplitter
-              Left = 0
-              Top = 357
-              Width = 1118
-              Height = 5
-              AlignSplitter = salTop
-              Control = pnl_JDevTools
-              Visible = False
-            end
-          end
-          object ts_JDesktop: TcxTabSheet
-            Caption = #220'bersicht Desktop Board'
-            ImageIndex = 0
-            object cmbbx_Desktop: TcxComboBox
-              AlignWithMargins = True
-              Left = 6
-              Top = 6
-              Margins.Left = 6
-              Margins.Top = 6
-              Margins.Right = 6
-              Margins.Bottom = 6
-              Align = alTop
-              TabOrder = 0
-              Width = 1106
-            end
-            object Chatcrtl_Desktop: TdxChartControl
-              Left = 0
-              Top = 33
-              Width = 1118
-              Height = 579
-              Align = alClient
-              BorderStyle = cxcbsNone
-              Legend.Title.Visible = False
-              Titles = <>
-              object dxChartSimpleDiagram1: TdxChartSimpleDiagram
-                Title.Visible = False
-                Layout = Horizontal
-                object dxChartSimpleSeries1: TdxChartSimpleSeries
-                  Caption = 'Wert'
-                  DataBindingType = 'DB'
-                  DataBinding.DataSource = dm_PCM.ds_ChartDesktop
-                  DataBinding.ArgumentField.FieldName = 'offen'
-                  DataBinding.ValueField.FieldName = 'Wert'
-                  ViewType = 'Pie'
-                  View.SweepDirection = Counterclockwise
-                  View.ValueLabels.LineLength = 10.000000000000000000
-                  View.ValueLabels.Visible = True
-                  View.ValueLabels.Position = Outside
-                  SortBy = Value
-                  ColorSchemeIndex = 0
-                end
-              end
-            end
-          end
-          object ts_JApp: TcxTabSheet
-            Caption = #220'bersicht Mobile Board'
-            ImageIndex = 3
-            object cmbbx_App: TcxComboBox
-              AlignWithMargins = True
-              Left = 6
-              Top = 6
-              Margins.Left = 6
-              Margins.Top = 6
-              Margins.Right = 6
-              Margins.Bottom = 6
-              Align = alTop
-              TabOrder = 0
-              Width = 1106
-            end
-            object Chatcrtl_APP: TdxChartControl
-              Left = 0
-              Top = 33
-              Width = 1118
-              Height = 579
-              Align = alClient
-              BorderStyle = cxcbsNone
-              Legend.Title.Visible = False
-              Titles = <>
-              object dxChartSimpleDiagram2: TdxChartSimpleDiagram
-                Title.Visible = False
-                Layout = Horizontal
-                object dxChartSimpleSeries2: TdxChartSimpleSeries
-                  Caption = 'Wert'
-                  DataBindingType = 'DB'
-                  DataBinding.DataSource = dm_PCM.ds_ChartApp
-                  DataBinding.ArgumentField.FieldName = 'offen'
-                  DataBinding.ValueField.FieldName = 'Wert'
-                  ViewType = 'Pie'
-                  View.SweepDirection = Counterclockwise
-                  View.ValueLabels.LineLength = 10.000000000000000000
-                  View.ValueLabels.Visible = True
-                  View.ValueLabels.Position = Outside
-                  SortBy = Value
-                  ColorSchemeIndex = 0
-                end
-              end
-            end
-          end
-          object ts_JDetails: TcxTabSheet
-            Caption = 'Details'
-            ImageIndex = 1
-            object grd_Jira: TcxGrid
-              Left = 0
-              Top = 0
-              Width = 1118
-              Height = 200
-              Align = alTop
-              TabOrder = 0
-              object grdDBTblView_Jira: TcxGridDBTableView
-                Navigator.Buttons.CustomButtons = <>
-                ScrollbarAnnotations.CustomAnnotations = <>
-                OnCellDblClick = grdDBTblView_JiraCellDblClick
-                DataController.DataSource = ds_Tickets_priv
-                DataController.Summary.DefaultGroupSummaryItems = <>
-                DataController.Summary.FooterSummaryItems = <>
-                DataController.Summary.SummaryGroups = <>
-                OptionsData.CancelOnExit = False
-                OptionsData.Deleting = False
-                OptionsData.DeletingConfirmation = False
-                OptionsData.Editing = False
-                OptionsData.Inserting = False
-                OptionsSelection.CellSelect = False
-                object grdDBTblView_JiraID: TcxGridDBColumn
-                  DataBinding.FieldName = 'ID'
-                  DataBinding.IsNullValueType = True
-                  Visible = False
-                  VisibleForCustomization = False
-                end
-                object grdDBTblView_JiraEpic: TcxGridDBColumn
-                  DataBinding.FieldName = 'Epic'
-                  DataBinding.IsNullValueType = True
-                  Width = 70
-                end
-                object grdDBTblView_JiraTicketNr: TcxGridDBColumn
-                  Caption = 'Ticket-Nr.'
-                  DataBinding.FieldName = 'Ticket_Nr'
-                  DataBinding.IsNullValueType = True
-                  Width = 70
-                end
-                object grdDBTblView_JiraBetreff: TcxGridDBColumn
-                  DataBinding.FieldName = 'Betreff'
-                  DataBinding.IsNullValueType = True
-                  Width = 400
-                end
-                object grdDBTblView_JiraNr: TcxGridDBColumn
-                  DataBinding.FieldName = 'Nr'
-                  DataBinding.IsNullValueType = True
-                  Visible = False
-                  SortIndex = 0
-                  SortOrder = soAscending
-                  VisibleForCustomization = False
-                end
-                object grdDBTblView_JiraApplikation: TcxGridDBColumn
-                  Caption = 'Applikation'
-                  DataBinding.FieldName = 'Land'
-                  DataBinding.IsNullValueType = True
-                  Width = 150
-                end
-                object grdDBTblView_JiraPrio: TcxGridDBColumn
-                  Caption = 'Priorit'#228't'
-                  DataBinding.FieldName = 'ID_tickets_priority'
-                  DataBinding.IsNullValueType = True
-                  PropertiesClassName = 'TcxImageComboBoxProperties'
-                  Properties.Alignment.Horz = taLeftJustify
-                  Properties.Items = <
-                    item
-                      Description = 'Blocker'
-                      ImageIndex = 0
-                      Value = 1
-                    end
-                    item
-                      Description = 'Kritisch'
-                      ImageIndex = 1
-                      Value = 2
-                    end
-                    item
-                      Description = 'Schwerwiegend'
-                      ImageIndex = 2
-                      Value = 3
-                    end
-                    item
-                      Description = 'Geringf'#252'gig'
-                      ImageIndex = 3
-                      Value = 4
-                    end
-                    item
-                      Description = 'Unwesentlich'
-                      ImageIndex = 4
-                      Value = 5
-                    end
-                    item
-                      Description = 'Low'
-                      ImageIndex = 5
-                      Value = 9
-                    end
-                    item
-                      Description = 'Medium'
-                      ImageIndex = 6
-                      Value = 10
-                    end
-                    item
-                      Description = 'High'
-                      ImageIndex = 7
-                      Value = 11
-                    end>
-                  Width = 120
-                end
-                object grdDBTblView_JiraStichwort: TcxGridDBColumn
-                  DataBinding.FieldName = 'Stichwort'
-                  DataBinding.IsNullValueType = True
-                  Width = 80
-                end
-                object grdDBTblView_JiraStatus: TcxGridDBColumn
-                  DataBinding.FieldName = 'Status'
-                  DataBinding.IsNullValueType = True
-                  Width = 70
-                end
-                object grdDBTblView_JiraType: TcxGridDBColumn
-                  DataBinding.FieldName = 'Type'
-                  DataBinding.IsNullValueType = True
-                  Width = 80
-                end
-                object grdDBTblView_JiraFixVersion: TcxGridDBColumn
-                  DataBinding.FieldName = 'FixVersion'
-                  DataBinding.IsNullValueType = True
-                  Width = 80
-                end
-                object grdDBTblView_JiraBeschreibung: TcxGridDBColumn
-                  DataBinding.FieldName = 'Beschreibung'
-                  DataBinding.IsNullValueType = True
-                  OnGetCellHint = grdDBTblView_JiraBeschreibungGetCellHint
-                  Width = 100
-                end
-                object grdDBTblView_JiraSprint: TcxGridDBColumn
-                  DataBinding.FieldName = 'Sprint'
-                  DataBinding.IsNullValueType = True
-                  Width = 100
-                end
-                object grdDBTblView_JiraAssignee: TcxGridDBColumn
-                  DataBinding.FieldName = 'Assignee'
-                  DataBinding.IsNullValueType = True
-                  Width = 100
-                end
-                object grdDBTblView_JiraBoard: TcxGridDBColumn
-                  Caption = 'Board'
-                  DataBinding.FieldName = 'KDNR'
-                  DataBinding.IsNullValueType = True
-                  Width = 100
-                end
-              end
-              object grdlvl_Jira: TcxGridLevel
-                GridView = grdDBTblView_Jira
-              end
-            end
-            object split_Jira: TcxSplitter
-              Left = 0
-              Top = 200
-              Width = 1118
-              Height = 5
-              AlignSplitter = salTop
-              Control = grd_Jira
-            end
-            object dxLayoutControl2: TdxLayoutControl
-              AlignWithMargins = True
-              Left = 0
-              Top = 205
-              Width = 1118
-              Height = 407
-              Margins.Left = 0
-              Margins.Top = 0
-              Margins.Right = 0
-              Margins.Bottom = 0
-              Align = alClient
-              TabOrder = 2
-              AutoSize = True
-              LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-              object cxDBImageComboBox2: TcxDBImageComboBox
-                AlignWithMargins = True
-                Left = 76
-                Top = 76
-                Margins.Left = 8
-                Margins.Top = 1
-                Margins.Right = 8
-                Margins.Bottom = 1
-                AutoSize = False
-                DataBinding.DataField = 'ID_tickets_priority'
-                DataBinding.DataSource = ds_Tickets_priv
-                Properties.Alignment.Horz = taLeftJustify
-                Properties.Items = <
-                  item
-                    Description = 'Blocker'
-                    ImageIndex = 0
-                    Value = 1
-                  end
-                  item
-                    Description = 'Kritisch'
-                    ImageIndex = 1
-                    Value = 2
-                  end
-                  item
-                    Description = 'Schwerwiegend'
-                    ImageIndex = 2
-                    Value = 3
-                  end
-                  item
-                    Description = 'Geringf'#252'gig'
-                    ImageIndex = 3
-                    Value = 4
-                  end
-                  item
-                    Description = 'Unwesentlich'
-                    ImageIndex = 4
-                    Value = 5
-                  end
-                  item
-                    Description = 'Low'
-                    ImageIndex = 5
-                    Value = 9
-                  end
-                  item
-                    Description = 'Medium'
-                    ImageIndex = 6
-                    Value = 10
-                  end
-                  item
-                    Description = 'High'
-                    ImageIndex = 7
-                    Value = 11
-                  end>
-                Properties.ReadOnly = True
-                Style.HotTrack = False
-                Style.TransparentBorder = False
-                TabOrder = 0
-                Height = 19
-                Width = 617
-              end
-              object cxDBTextEdit18: TcxDBTextEdit
-                AlignWithMargins = True
-                Left = 76
-                Top = 111
-                Margins.Left = 8
-                Margins.Top = 1
-                Margins.Right = 8
-                Margins.Bottom = 1
-                DataBinding.DataField = 'Land'
-                DataBinding.DataSource = ds_Tickets_priv
-                Properties.ReadOnly = True
-                Style.HotTrack = False
-                Style.TransparentBorder = False
-                TabOrder = 1
-                Width = 617
-              end
-              object cxDBTextEdit19: TcxDBTextEdit
-                AlignWithMargins = True
-                Left = 76
-                Top = 171
-                Margins.Left = 8
-                Margins.Top = 1
-                Margins.Right = 8
-                Margins.Bottom = 1
-                DataBinding.DataField = 'Sprint'
-                DataBinding.DataSource = ds_Tickets_priv
-                Properties.ReadOnly = True
-                Style.HotTrack = False
-                Style.TransparentBorder = False
-                TabOrder = 3
-                Width = 617
-              end
-              object cxDBTextEdit21: TcxDBTextEdit
-                AlignWithMargins = True
-                Left = 76
-                Top = 141
-                Margins.Left = 8
-                Margins.Top = 1
-                Margins.Right = 8
-                Margins.Bottom = 1
-                DataBinding.DataField = 'Stichwort'
-                DataBinding.DataSource = ds_Tickets_priv
-                Properties.ReadOnly = True
-                Style.HotTrack = False
-                Style.TransparentBorder = False
-                TabOrder = 2
-                Width = 617
-              end
-              object cxRichEdit1: TcxRichEdit
-                Left = 19
-                Top = 231
-                Properties.AutoURLDetect = True
-                Properties.ReadOnly = True
-                Lines.Strings = (
-                  '1'
-                  '2'
-                  '3'
-                  '4'
-                  '5'
-                  '6'
-                  '7'
-                  '8'
-                  '1'
-                  '2'
-                  '3'
-                  '4'
-                  '5'
-                  '6'
-                  '7'
-                  '8')
-                Style.HotTrack = False
-                Style.Shadow = False
-                Style.TransparentBorder = False
-                StyleDisabled.BorderStyle = ebsNone
-                StyleFocused.BorderStyle = ebsNone
-                StyleHot.BorderStyle = ebsNone
-                TabOrder = 4
-                Height = 14
-                Width = 674
-              end
-              object cxDBTextEdit22: TcxDBTextEdit
-                AlignWithMargins = True
-                Left = 796
-                Top = 46
-                Margins.Left = 8
-                Margins.Top = 1
-                Margins.Right = 8
-                Margins.Bottom = 1
-                DataBinding.DataField = 'FixVersion'
-                DataBinding.DataSource = ds_Tickets_priv
-                Properties.ReadOnly = True
-                Style.HotTrack = False
-                Style.TransparentBorder = False
-                TabOrder = 5
-                Width = 303
-              end
-              object cxDBTextEdit23: TcxDBTextEdit
-                AlignWithMargins = True
-                Left = 796
-                Top = 81
-                Margins.Left = 8
-                Margins.Top = 1
-                Margins.Right = 8
-                Margins.Bottom = 1
-                DataBinding.DataField = 'Assignee'
-                DataBinding.DataSource = ds_Tickets_priv
-                Properties.ReadOnly = True
-                Style.HotTrack = False
-                Style.TransparentBorder = False
-                TabOrder = 6
-                Width = 303
-              end
-              object dxLayoutGroup5: TdxLayoutGroup
-                AlignHorz = ahClient
-                AlignVert = avClient
-                LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-                SizeOptions.Height = 600
-                Hidden = True
-                LayoutDirection = ldHorizontal
-                ShowBorder = False
-                Index = -1
-              end
-              object dxLayoutGroup6: TdxLayoutGroup
-                Parent = dxLayoutGroup5
-                CaptionOptions.Text = 'New Group'
-                SizeOptions.Height = 300
-                SizeOptions.Width = 300
-                ShowBorder = False
-                Index = 1
-              end
-              object dxLayoutGroup7: TdxLayoutGroup
-                Parent = dxLayoutGroup6
-                AlignHorz = ahRight
-                AlignVert = avTop
-                CaptionOptions.Text = 'Details'
-                SizeOptions.Height = 100
-                SizeOptions.Width = 400
-                ButtonOptions.ShowExpandButton = True
-                ItemIndex = 1
-                Index = 0
-              end
-              object grpbx_Ticketspriv: TdxLayoutGroup
-                Parent = dxLayoutAutoCreatedGroup2
-                AlignVert = avClient
-                CaptionOptions.Text = 'Ticketdetails'
-                LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-                SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
-                SizeOptions.SizableHorz = False
-                SizeOptions.SizableVert = False
-                SizeOptions.Width = 1200
-                AllowRemove = False
-                ButtonOptions.ShowExpandButton = True
-                ItemIndex = 6
-                Index = 1
-              end
-              object dxLayoutItem20: TdxLayoutItem
-                Parent = grpbx_Ticketspriv
-                AlignHorz = ahClient
-                AlignVert = avTop
-                LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-                Padding.Bottom = 5
-                Padding.Top = 5
-                Padding.AssignedValues = [lpavBottom, lpavLeft, lpavTop]
-                CaptionOptions.Text = 'Applikation'
-                Control = cxDBTextEdit18
-                ControlOptions.OriginalHeight = 19
-                ControlOptions.OriginalWidth = 1231
-                ControlOptions.ShowBorder = False
-                Index = 2
-              end
-              object dxLayoutItem21: TdxLayoutItem
-                Parent = grpbx_Ticketspriv
-                AlignHorz = ahClient
-                AlignVert = avTop
-                Padding.Bottom = 5
-                Padding.Top = 5
-                Padding.AssignedValues = [lpavBottom, lpavTop]
-                CaptionOptions.Text = 'dsfsdfsdfsdfds'
-                ControlOptions.OriginalWidth = 1000
-                Index = 0
-              end
-              object dxLayoutGroup9: TdxLayoutGroup
-                Parent = dxLayoutAutoCreatedGroup2
-                AlignHorz = ahClient
-                AlignVert = avBottom
-                CaptionOptions.Text = 'New Group'
-                Visible = False
-                Index = 0
-              end
-              object dxLayoutItem22: TdxLayoutItem
-                Parent = grpbx_Ticketspriv
-                AlignVert = avTop
-                LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-                Padding.Bottom = 5
-                Padding.Top = 5
-                Padding.AssignedValues = [lpavBottom, lpavTop]
-                CaptionOptions.Text = 'Priorit'#228't'
-                Control = cxDBImageComboBox2
-                ControlOptions.OriginalHeight = 19
-                ControlOptions.OriginalWidth = 1131
-                ControlOptions.ShowBorder = False
-                Index = 1
-              end
-              object dxLayoutItem23: TdxLayoutItem
-                Parent = dxLayoutGroup7
-                LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-                Padding.Bottom = 5
-                Padding.Top = 5
-                Padding.AssignedValues = [lpavBottom, lpavTop]
-                CaptionOptions.Text = 'L'#246'sungsversion'
-                Control = cxDBTextEdit22
-                ControlOptions.OriginalHeight = 19
-                ControlOptions.OriginalWidth = 1131
-                ControlOptions.ShowBorder = False
-                Index = 0
-              end
-              object dxLayoutItem24: TdxLayoutItem
-                Parent = dxLayoutGroup7
-                Padding.Bottom = 5
-                Padding.Top = 5
-                Padding.AssignedValues = [lpavBottom, lpavTop]
-                CaptionOptions.Text = 'Autor'
-                Control = cxDBTextEdit23
-                ControlOptions.OriginalHeight = 19
-                ControlOptions.OriginalWidth = 278
-                ControlOptions.ShowBorder = False
-                Index = 1
-              end
-              object dxLayoutAutoCreatedGroup2: TdxLayoutAutoCreatedGroup
-                Parent = dxLayoutGroup5
-                AlignHorz = ahClient
-                AlignVert = avClient
-                Index = 0
-              end
-              object dxLayoutItem27: TdxLayoutItem
-                Parent = grpbx_Ticketspriv
-                LayoutLookAndFeel = dxLayoutSkinLookAndFeel1
-                CaptionOptions.Text = 'Stichwort'
-                Control = cxDBTextEdit21
-                ControlOptions.OriginalHeight = 19
-                ControlOptions.OriginalWidth = 1250
-                ControlOptions.ShowBorder = False
-                Index = 3
-              end
-              object dxLayoutItem28: TdxLayoutItem
-                Parent = grpbx_Ticketspriv
-                Padding.Bottom = 5
-                Padding.Top = 5
-                Padding.AssignedValues = [lpavBottom, lpavTop]
-                CaptionOptions.Text = 'Sprint'
-                Control = cxDBTextEdit19
-                ControlOptions.OriginalHeight = 19
-                ControlOptions.OriginalWidth = 1332
-                ControlOptions.ShowBorder = False
-                Index = 4
-              end
-              object dxLayoutItem30: TdxLayoutItem
-                Parent = grpbx_Ticketspriv
-                Padding.Bottom = 5
-                Padding.Top = 5
-                Padding.AssignedValues = [lpavBottom, lpavTop]
-                CaptionOptions.Text = 'Beschreibung'
-                Index = 5
-              end
-              object dxLayoutItem32: TdxLayoutItem
-                Parent = grpbx_Ticketspriv
-                Control = cxRichEdit1
-                ControlOptions.OriginalHeight = 14
-                ControlOptions.OriginalWidth = 1231
-                ControlOptions.ShowBorder = False
-                Index = 6
-              end
-            end
-          end
-        end
-      end
-      object ts_Azure: TcxTabSheet
-        Caption = 'Azure - Tickets'
-        ImageIndex = 20
-        object brdckCtrl_Azure: TdxBarDockControl
-          Left = 0
-          Top = 0
-          Width = 1126
-          Height = 63
-          Align = dalTop
-          BarManager = bmgr_main
-        end
-        object pc_Azure: TcxPageControl
-          Left = 0
-          Top = 63
-          Width = 1126
-          Height = 645
-          Align = alClient
-          TabOrder = 1
-          Properties.ActivePage = ts_A
-          Properties.CustomButtons.Buttons = <>
-          ClientRectBottom = 639
-          ClientRectLeft = 2
-          ClientRectRight = 1120
-          ClientRectTop = 27
-          object ts_A: TcxTabSheet
-            Caption = 'Azure-Browser'
-            ImageIndex = 2
-            object pnl_BrowserAzurePriv: TcxGroupBox
-              Left = 0
-              Top = 0
-              Align = alClient
-              PanelStyle.Active = True
-              TabOrder = 0
-              Height = 357
-              Width = 1118
-              object brdckCtrl_AzureMax: TdxBarDockControl
-                Left = 3
-                Top = 3
-                Width = 1112
-                Height = 63
-                Align = dalTop
-                BarManager = bmgr_main
-              end
-            end
-            object splt_A: TcxSplitter
-              Left = 0
-              Top = 357
-              Width = 1118
-              Height = 5
-              AlignSplitter = salTop
-              Control = pnl_ADevTools
-              Visible = False
-            end
-            object pnl_ADevTools: TcxGroupBox
-              Left = 0
-              Top = 362
-              Align = alBottom
-              PanelStyle.Active = True
-              TabOrder = 2
-              Visible = False
-              OnResize = pnl_ADevToolsResize
-              Height = 250
-              Width = 1118
-            end
-          end
-          object ts_ADetail: TcxTabSheet
-            Caption = 'Details'
-            ImageIndex = 1
-            object grd_Azure: TcxGrid
-              Left = 0
-              Top = 0
-              Width = 1118
-              Height = 612
-              Align = alClient
-              TabOrder = 0
-              object grd_tblView_Azure: TcxGridDBTableView
-                Navigator.Buttons.CustomButtons = <>
-                ScrollbarAnnotations.CustomAnnotations = <>
-                DataController.DataSource = ds_Azure
-                DataController.Summary.DefaultGroupSummaryItems = <>
-                DataController.Summary.FooterSummaryItems = <>
-                DataController.Summary.SummaryGroups = <>
-                OptionsData.CancelOnExit = False
-                OptionsData.Deleting = False
-                OptionsData.DeletingConfirmation = False
-                OptionsData.Editing = False
-                OptionsData.Inserting = False
-                OptionsSelection.CellSelect = False
-                OptionsView.GroupByBox = False
-                OptionsView.HeaderFilterButtonShowMode = fbmButton
-                object cxGridDBColumn1: TcxGridDBColumn
-                  DataBinding.FieldName = 'ID'
-                  DataBinding.IsNullValueType = True
-                  Visible = False
-                  VisibleForCustomization = False
-                end
-                object cxGridDBColumn3: TcxGridDBColumn
-                  Caption = 'Ticket-Nr.'
-                  DataBinding.FieldName = 'Nr'
-                  DataBinding.IsNullValueType = True
-                  SortIndex = 1
-                  SortOrder = soAscending
-                  Width = 70
-                end
-                object cxGridDBColumn2: TcxGridDBColumn
-                  Caption = 'Ticket Jira'
-                  DataBinding.FieldName = 'Ticket_Nr'
-                  DataBinding.IsNullValueType = True
-                  Width = 70
-                end
-                object cxGridDBColumn4: TcxGridDBColumn
-                  DataBinding.FieldName = 'Status'
-                  DataBinding.IsNullValueType = True
-                  Width = 80
-                end
-                object cxGridDBColumn5: TcxGridDBColumn
-                  DataBinding.FieldName = 'Betreff'
-                  DataBinding.IsNullValueType = True
-                  Width = 350
-                end
-                object cxGridDBColumn6: TcxGridDBColumn
-                  DataBinding.FieldName = 'Type'
-                  DataBinding.IsNullValueType = True
-                  Width = 60
-                end
-                object cxGridDBColumn7: TcxGridDBColumn
-                  DataBinding.FieldName = 'Epic'
-                  DataBinding.IsNullValueType = True
-                  Width = 60
-                end
-                object cxGridDBColumn9: TcxGridDBColumn
-                  DataBinding.FieldName = 'Prio'
-                  DataBinding.IsNullValueType = True
-                end
-                object cxGridDBColumn12: TcxGridDBColumn
-                  DataBinding.FieldName = 'Stichwort'
-                  DataBinding.IsNullValueType = True
-                  Width = 70
-                end
-                object cxGridDBColumn13: TcxGridDBColumn
-                  DataBinding.FieldName = 'Beschreibung'
-                  DataBinding.IsNullValueType = True
-                  PropertiesClassName = 'TcxMemoProperties'
-                  Width = 90
-                end
-                object cxGridDBColumn14: TcxGridDBColumn
-                  DataBinding.FieldName = 'Zugewiesen'
-                  DataBinding.IsNullValueType = True
-                  Width = 80
-                end
-                object cxGridDBColumn15: TcxGridDBColumn
-                  DataBinding.FieldName = 'Board'
-                  DataBinding.IsNullValueType = True
-                  SortIndex = 0
-                  SortOrder = soAscending
-                  Width = 100
-                end
-              end
-              object grdlvl_Azure: TcxGridLevel
-                GridView = grd_tblView_Azure
-              end
-            end
-          end
-        end
-      end
-      object ts_Confluence: TcxTabSheet
-        Caption = 'Confluence'
-        ImageIndex = 22
-        object pnl_BrowserConfluence: TcxGroupBox
-          Left = 0
-          Top = 0
-          Align = alClient
-          PanelStyle.Active = True
-          TabOrder = 0
-          Height = 453
-          Width = 1126
-          object brdckCtrl_Confluence: TdxBarDockControl
-            Left = 3
-            Top = 3
-            Width = 1120
-            Height = 63
-            Align = dalTop
-            BarManager = bmgr_main
-          end
-        end
-        object splt_C: TcxSplitter
-          Left = 0
-          Top = 453
-          Width = 1126
-          Height = 5
-          AlignSplitter = salTop
-          Control = pnl_CDevTools
-          Visible = False
-        end
-        object pnl_CDevTools: TcxGroupBox
-          Left = 0
-          Top = 458
-          Align = alBottom
-          PanelStyle.Active = True
-          TabOrder = 2
-          Visible = False
-          OnResize = pnl_CDevToolsResize
-          Height = 250
-          Width = 1126
-        end
-      end
-      object ts_Swagger: TcxTabSheet
-        Caption = 'PCM - RestAPI'
-        ImageIndex = 23
-        object pnl_BrowserSwagger: TcxGroupBox
-          Left = 0
-          Top = 0
-          Align = alClient
-          PanelStyle.Active = True
-          TabOrder = 0
-          Height = 198
-          Width = 1126
-          object brdckCtrl_Swagger: TdxBarDockControl
-            Left = 3
-            Top = 3
-            Width = 1120
-            Height = 63
-            Align = dalTop
-            BarManager = bmgr_main
-          end
-        end
-        object splt_S: TcxSplitter
-          Left = 0
-          Top = 453
-          Width = 1126
-          Height = 5
-          AlignSplitter = salTop
-          Control = pnl_SDevtools
-          Visible = False
-        end
-        object pnl_SDevtools: TcxGroupBox
-          Left = 0
-          Top = 458
-          Align = alBottom
-          PanelStyle.Active = True
-          TabOrder = 2
-          Visible = False
-          OnResize = pnl_SDevtoolsResize
-          Height = 250
-          Width = 1126
-        end
-        object pnl_SNotepad: TcxGroupBox
-          Left = 0
-          Top = 203
-          Align = alBottom
-          PanelStyle.Active = True
-          TabOrder = 3
-          Visible = False
-          OnResize = pnl_SNotepadResize
-          Height = 250
-          Width = 1126
-        end
-        object splt_sNp: TcxSplitter
-          Left = 0
-          Top = 198
-          Width = 1126
-          Height = 5
-          AlignSplitter = salTop
-          Control = pnl_SNotepad
-          Visible = False
-        end
-      end
-      object ts_PCMAPPS: TcxTabSheet
-        Caption = 'PCM-APPS'
-        ImageIndex = 2
-        object pnl_BrowserPCMApps: TcxGroupBox
-          Left = 0
-          Top = 0
-          Align = alClient
-          PanelStyle.Active = True
-          TabOrder = 0
-          Height = 453
-          Width = 1126
-          object brdckCtrl_PCMAPPS: TdxBarDockControl
-            Left = 3
-            Top = 3
-            Width = 1120
-            Height = 63
-            Align = dalTop
-            BarManager = bmgr_main
-          end
-        end
-        object splt_P: TcxSplitter
-          Left = 0
-          Top = 453
-          Width = 1126
-          Height = 5
-          AlignSplitter = salTop
-          Control = pnl_PDevtools
-          Visible = False
-        end
-        object pnl_PDevtools: TcxGroupBox
-          Left = 0
-          Top = 458
-          Align = alBottom
-          PanelStyle.Active = True
-          TabOrder = 2
-          Visible = False
-          OnResize = pnl_PDevtoolsResize
-          Height = 250
-          Width = 1126
-        end
-      end
-      object ts_AI: TcxTabSheet
-        Caption = 'Perplexity AI'
-        ImageIndex = 24
-        object pnl_AI: TcxGroupBox
-          Left = 0
-          Top = 0
-          Align = alClient
-          PanelStyle.Active = True
-          TabOrder = 0
-          Height = 708
-          Width = 1126
-          object brdckCtrl_AI: TdxBarDockControl
-            Left = 3
-            Top = 3
-            Width = 1120
-            Height = 63
-            Align = dalTop
-            BarManager = bmgr_main
-          end
-        end
-      end
-      object ts_Github: TcxTabSheet
-        Caption = 'Github'
-        ImageIndex = 25
-        object pnl_Github: TcxGroupBox
-          Left = 0
-          Top = 0
-          Align = alClient
-          PanelStyle.Active = True
-          TabOrder = 0
-          Height = 708
-          Width = 1126
-          object brdckCtrl_Github: TdxBarDockControl
-            Left = 3
-            Top = 3
-            Width = 1120
-            Height = 63
-            Align = dalTop
-            BarManager = bmgr_main
-          end
+    Height = 768
+    Align = alClient
+    TabOrder = 0
+    AutoSize = True
+    LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    OptionsImage.Images = imglst_16x16
+    object brdckCtrl_Jira: TdxBarDockControl
+      Left = 22
+      Top = 48
+      Width = 1092
+      Height = 63
+      Align = dalNone
+      BarManager = bmgr_main
+    end
+    object brdckCtrl_JiraBrowser: TdxBarDockControl
+      Left = 34
+      Top = 154
+      Width = 1064
+      Height = 63
+      Align = dalNone
+      BarManager = bmgr_main
+    end
+    object cmbbx_Desktop: TcxComboBox
+      AlignWithMargins = True
+      Left = 10000
+      Top = 10000
+      Margins.Left = 6
+      Margins.Top = 6
+      Margins.Right = 6
+      Margins.Bottom = 6
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 5
+      Visible = False
+      Width = 1064
+    end
+    object Chatcrtl_Desktop: TdxChartControl
+      Left = 10000
+      Top = 10000
+      Width = 1064
+      Height = 547
+      BorderStyle = cxcbsNone
+      Legend.Title.Visible = False
+      Titles = <>
+      Visible = False
+      object dxChartSimpleDiagram1: TdxChartSimpleDiagram
+        Title.Visible = False
+        Layout = Horizontal
+        object dxChartSimpleSeries1: TdxChartSimpleSeries
+          Caption = 'Wert'
+          DataBindingType = 'DB'
+          DataBinding.DataSource = dm_PCM.ds_ChartDesktop
+          DataBinding.ArgumentField.FieldName = 'offen'
+          DataBinding.ValueField.FieldName = 'Wert'
+          ViewType = 'Pie'
+          View.SweepDirection = Counterclockwise
+          View.ValueLabels.LineLength = 10.000000000000000000
+          View.ValueLabels.Visible = True
+          View.ValueLabels.Position = Outside
+          SortBy = Value
+          ColorSchemeIndex = 0
         end
       end
     end
+    object cmbbx_App: TcxComboBox
+      AlignWithMargins = True
+      Left = 10000
+      Top = 10000
+      Margins.Left = 6
+      Margins.Top = 6
+      Margins.Right = 6
+      Margins.Bottom = 6
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 7
+      Visible = False
+      Width = 1064
+    end
+    object Chatcrtl_APP: TdxChartControl
+      Left = 10000
+      Top = 10000
+      Width = 1064
+      Height = 547
+      BorderStyle = cxcbsNone
+      Legend.Title.Visible = False
+      Titles = <>
+      Visible = False
+      object dxChartSimpleDiagram2: TdxChartSimpleDiagram
+        Title.Visible = False
+        Layout = Horizontal
+        object dxChartSimpleSeries2: TdxChartSimpleSeries
+          Caption = 'Wert'
+          DataBindingType = 'DB'
+          DataBinding.DataSource = dm_PCM.ds_ChartApp
+          DataBinding.ArgumentField.FieldName = 'offen'
+          DataBinding.ValueField.FieldName = 'Wert'
+          ViewType = 'Pie'
+          View.SweepDirection = Counterclockwise
+          View.ValueLabels.LineLength = 10.000000000000000000
+          View.ValueLabels.Visible = True
+          View.ValueLabels.Position = Outside
+          SortBy = Value
+          ColorSchemeIndex = 0
+        end
+      end
+    end
+    object grd_Jira: TcxGrid
+      Left = 10000
+      Top = 10000
+      Width = 1064
+      Height = 200
+      TabOrder = 9
+      Visible = False
+      object grdDBTblView_Jira: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        ScrollbarAnnotations.CustomAnnotations = <>
+        OnCellDblClick = grdDBTblView_JiraCellDblClick
+        DataController.DataSource = ds_Tickets_priv
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsData.CancelOnExit = False
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsSelection.CellSelect = False
+        object grdDBTblView_JiraID: TcxGridDBColumn
+          DataBinding.FieldName = 'ID'
+          DataBinding.IsNullValueType = True
+          Visible = False
+          VisibleForCustomization = False
+        end
+        object grdDBTblView_JiraEpic: TcxGridDBColumn
+          DataBinding.FieldName = 'Epic'
+          DataBinding.IsNullValueType = True
+          Width = 70
+        end
+        object grdDBTblView_JiraTicketNr: TcxGridDBColumn
+          Caption = 'Ticket-Nr.'
+          DataBinding.FieldName = 'Ticket_Nr'
+          DataBinding.IsNullValueType = True
+          Width = 70
+        end
+        object grdDBTblView_JiraBetreff: TcxGridDBColumn
+          DataBinding.FieldName = 'Betreff'
+          DataBinding.IsNullValueType = True
+          Width = 400
+        end
+        object grdDBTblView_JiraNr: TcxGridDBColumn
+          DataBinding.FieldName = 'Nr'
+          DataBinding.IsNullValueType = True
+          Visible = False
+          SortIndex = 0
+          SortOrder = soAscending
+          VisibleForCustomization = False
+        end
+        object grdDBTblView_JiraApplikation: TcxGridDBColumn
+          Caption = 'Applikation'
+          DataBinding.FieldName = 'Land'
+          DataBinding.IsNullValueType = True
+          Width = 150
+        end
+        object grdDBTblView_JiraPrio: TcxGridDBColumn
+          Caption = 'Priorit'#228't'
+          DataBinding.FieldName = 'ID_tickets_priority'
+          DataBinding.IsNullValueType = True
+          PropertiesClassName = 'TcxImageComboBoxProperties'
+          Properties.Alignment.Horz = taLeftJustify
+          Properties.Items = <
+            item
+              Description = 'Blocker'
+              ImageIndex = 0
+              Value = 1
+            end
+            item
+              Description = 'Kritisch'
+              ImageIndex = 1
+              Value = 2
+            end
+            item
+              Description = 'Schwerwiegend'
+              ImageIndex = 2
+              Value = 3
+            end
+            item
+              Description = 'Geringf'#252'gig'
+              ImageIndex = 3
+              Value = 4
+            end
+            item
+              Description = 'Unwesentlich'
+              ImageIndex = 4
+              Value = 5
+            end
+            item
+              Description = 'Low'
+              ImageIndex = 5
+              Value = 9
+            end
+            item
+              Description = 'Medium'
+              ImageIndex = 6
+              Value = 10
+            end
+            item
+              Description = 'High'
+              ImageIndex = 7
+              Value = 11
+            end>
+          Width = 120
+        end
+        object grdDBTblView_JiraStichwort: TcxGridDBColumn
+          DataBinding.FieldName = 'Stichwort'
+          DataBinding.IsNullValueType = True
+          Width = 80
+        end
+        object grdDBTblView_JiraStatus: TcxGridDBColumn
+          DataBinding.FieldName = 'Status'
+          DataBinding.IsNullValueType = True
+          Width = 70
+        end
+        object grdDBTblView_JiraType: TcxGridDBColumn
+          DataBinding.FieldName = 'Type'
+          DataBinding.IsNullValueType = True
+          Width = 80
+        end
+        object grdDBTblView_JiraFixVersion: TcxGridDBColumn
+          DataBinding.FieldName = 'FixVersion'
+          DataBinding.IsNullValueType = True
+          Width = 80
+        end
+        object grdDBTblView_JiraBeschreibung: TcxGridDBColumn
+          DataBinding.FieldName = 'Beschreibung'
+          DataBinding.IsNullValueType = True
+          OnGetCellHint = grdDBTblView_JiraBeschreibungGetCellHint
+          Width = 100
+        end
+        object grdDBTblView_JiraSprint: TcxGridDBColumn
+          DataBinding.FieldName = 'Sprint'
+          DataBinding.IsNullValueType = True
+          Width = 100
+        end
+        object grdDBTblView_JiraAssignee: TcxGridDBColumn
+          DataBinding.FieldName = 'Assignee'
+          DataBinding.IsNullValueType = True
+          Width = 100
+        end
+        object grdDBTblView_JiraBoard: TcxGridDBColumn
+          Caption = 'Board'
+          DataBinding.FieldName = 'KDNR'
+          DataBinding.IsNullValueType = True
+          Width = 100
+        end
+      end
+      object grdlvl_Jira: TcxGridLevel
+        GridView = grdDBTblView_Jira
+      end
+    end
+    object cxDBImageComboBox2: TcxDBImageComboBox
+      AlignWithMargins = True
+      Left = 10000
+      Top = 10000
+      Margins.Left = 8
+      Margins.Top = 1
+      Margins.Right = 8
+      Margins.Bottom = 1
+      AutoSize = False
+      DataBinding.DataField = 'ID_tickets_priority'
+      DataBinding.DataSource = ds_Tickets_priv
+      Properties.Alignment.Horz = taLeftJustify
+      Properties.Items = <
+        item
+          Description = 'Blocker'
+          ImageIndex = 0
+          Value = 1
+        end
+        item
+          Description = 'Kritisch'
+          ImageIndex = 1
+          Value = 2
+        end
+        item
+          Description = 'Schwerwiegend'
+          ImageIndex = 2
+          Value = 3
+        end
+        item
+          Description = 'Geringf'#252'gig'
+          ImageIndex = 3
+          Value = 4
+        end
+        item
+          Description = 'Unwesentlich'
+          ImageIndex = 4
+          Value = 5
+        end
+        item
+          Description = 'Low'
+          ImageIndex = 5
+          Value = 9
+        end
+        item
+          Description = 'Medium'
+          ImageIndex = 6
+          Value = 10
+        end
+        item
+          Description = 'High'
+          ImageIndex = 7
+          Value = 11
+        end>
+      Properties.ReadOnly = True
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 10
+      Visible = False
+      Height = 19
+      Width = 524
+    end
+    object cxDBTextEdit18: TcxDBTextEdit
+      AlignWithMargins = True
+      Left = 10000
+      Top = 10000
+      Margins.Left = 8
+      Margins.Top = 1
+      Margins.Right = 8
+      Margins.Bottom = 1
+      DataBinding.DataField = 'Land'
+      DataBinding.DataSource = ds_Tickets_priv
+      Properties.ReadOnly = True
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 11
+      Visible = False
+      Width = 524
+    end
+    object cxDBTextEdit19: TcxDBTextEdit
+      AlignWithMargins = True
+      Left = 10000
+      Top = 10000
+      Margins.Left = 8
+      Margins.Top = 1
+      Margins.Right = 8
+      Margins.Bottom = 1
+      DataBinding.DataField = 'Sprint'
+      DataBinding.DataSource = ds_Tickets_priv
+      Properties.ReadOnly = True
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 13
+      Visible = False
+      Width = 524
+    end
+    object cxDBTextEdit21: TcxDBTextEdit
+      AlignWithMargins = True
+      Left = 10000
+      Top = 10000
+      Margins.Left = 8
+      Margins.Top = 1
+      Margins.Right = 8
+      Margins.Bottom = 1
+      DataBinding.DataField = 'Stichwort'
+      DataBinding.DataSource = ds_Tickets_priv
+      Properties.ReadOnly = True
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 12
+      Visible = False
+      Width = 524
+    end
+    object cxRichEdit1: TcxRichEdit
+      Left = 10000
+      Top = 10000
+      Properties.AutoURLDetect = True
+      Properties.ReadOnly = True
+      Lines.Strings = (
+        '1'
+        '2'
+        '3'
+        '4'
+        '5'
+        '6'
+        '7'
+        '8'
+        '1'
+        '2'
+        '3'
+        '4'
+        '5'
+        '6'
+        '7'
+        '8')
+      Style.HotTrack = False
+      Style.Shadow = False
+      Style.TransparentBorder = False
+      StyleDisabled.BorderStyle = ebsNone
+      StyleFocused.BorderStyle = ebsNone
+      StyleHot.BorderStyle = ebsNone
+      TabOrder = 14
+      Visible = False
+      Height = 14
+      Width = 585
+    end
+    object cxDBTextEdit22: TcxDBTextEdit
+      AlignWithMargins = True
+      Left = 10000
+      Top = 10000
+      Margins.Left = 8
+      Margins.Top = 1
+      Margins.Right = 8
+      Margins.Bottom = 1
+      DataBinding.DataField = 'FixVersion'
+      DataBinding.DataSource = ds_Tickets_priv
+      Properties.ReadOnly = True
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 15
+      Visible = False
+      Width = 346
+    end
+    object cxDBTextEdit23: TcxDBTextEdit
+      AlignWithMargins = True
+      Left = 10000
+      Top = 10000
+      Margins.Left = 8
+      Margins.Top = 1
+      Margins.Right = 8
+      Margins.Bottom = 1
+      DataBinding.DataField = 'Assignee'
+      DataBinding.DataSource = ds_Tickets_priv
+      Properties.ReadOnly = True
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 16
+      Visible = False
+      Width = 346
+    end
+    object brdckCtrl_Azure: TdxBarDockControl
+      Left = 10000
+      Top = 10000
+      Width = 1092
+      Height = 63
+      Align = dalNone
+      BarManager = bmgr_main
+      Visible = False
+    end
+    object brdckCtrl_AzureMax: TdxBarDockControl
+      Left = 10000
+      Top = 10000
+      Width = 1064
+      Height = 63
+      Align = dalNone
+      BarManager = bmgr_main
+      Visible = False
+    end
+    object grd_Azure: TcxGrid
+      Left = 10000
+      Top = 10000
+      Width = 1064
+      Height = 572
+      TabOrder = 21
+      Visible = False
+      object grd_tblView_Azure: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        ScrollbarAnnotations.CustomAnnotations = <>
+        DataController.DataSource = ds_Azure
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsData.CancelOnExit = False
+        OptionsData.Deleting = False
+        OptionsData.DeletingConfirmation = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsSelection.CellSelect = False
+        OptionsView.GroupByBox = False
+        OptionsView.HeaderFilterButtonShowMode = fbmButton
+        object cxGridDBColumn1: TcxGridDBColumn
+          DataBinding.FieldName = 'ID'
+          DataBinding.IsNullValueType = True
+          Visible = False
+          VisibleForCustomization = False
+        end
+        object cxGridDBColumn3: TcxGridDBColumn
+          Caption = 'Ticket-Nr.'
+          DataBinding.FieldName = 'Nr'
+          DataBinding.IsNullValueType = True
+          SortIndex = 1
+          SortOrder = soAscending
+          Width = 70
+        end
+        object cxGridDBColumn2: TcxGridDBColumn
+          Caption = 'Ticket Jira'
+          DataBinding.FieldName = 'Ticket_Nr'
+          DataBinding.IsNullValueType = True
+          Width = 70
+        end
+        object cxGridDBColumn4: TcxGridDBColumn
+          DataBinding.FieldName = 'Status'
+          DataBinding.IsNullValueType = True
+          Width = 80
+        end
+        object cxGridDBColumn5: TcxGridDBColumn
+          DataBinding.FieldName = 'Betreff'
+          DataBinding.IsNullValueType = True
+          Width = 350
+        end
+        object cxGridDBColumn6: TcxGridDBColumn
+          DataBinding.FieldName = 'Type'
+          DataBinding.IsNullValueType = True
+          Width = 60
+        end
+        object cxGridDBColumn7: TcxGridDBColumn
+          DataBinding.FieldName = 'Epic'
+          DataBinding.IsNullValueType = True
+          Width = 60
+        end
+        object cxGridDBColumn9: TcxGridDBColumn
+          DataBinding.FieldName = 'Prio'
+          DataBinding.IsNullValueType = True
+        end
+        object cxGridDBColumn12: TcxGridDBColumn
+          DataBinding.FieldName = 'Stichwort'
+          DataBinding.IsNullValueType = True
+          Width = 70
+        end
+        object cxGridDBColumn13: TcxGridDBColumn
+          DataBinding.FieldName = 'Beschreibung'
+          DataBinding.IsNullValueType = True
+          PropertiesClassName = 'TcxMemoProperties'
+          Width = 90
+        end
+        object cxGridDBColumn14: TcxGridDBColumn
+          DataBinding.FieldName = 'Zugewiesen'
+          DataBinding.IsNullValueType = True
+          Width = 80
+        end
+        object cxGridDBColumn15: TcxGridDBColumn
+          DataBinding.FieldName = 'Board'
+          DataBinding.IsNullValueType = True
+          SortIndex = 0
+          SortOrder = soAscending
+          Width = 100
+        end
+      end
+      object grdlvl_Azure: TcxGridLevel
+        GridView = grd_tblView_Azure
+      end
+    end
+    object brdckCtrl_Confluence: TdxBarDockControl
+      Left = 10000
+      Top = 10000
+      Width = 1092
+      Height = 63
+      Align = dalNone
+      BarManager = bmgr_main
+      Visible = False
+    end
+    object brdckCtrl_Swagger: TdxBarDockControl
+      Left = 10000
+      Top = 10000
+      Width = 1092
+      Height = 63
+      Align = dalNone
+      BarManager = bmgr_main
+      Visible = False
+    end
+    object brdckCtrl_PCMAPPS: TdxBarDockControl
+      Left = 10000
+      Top = 10000
+      Width = 1092
+      Height = 63
+      Align = dalNone
+      BarManager = bmgr_main
+      Visible = False
+    end
+    object brdckCtrl_AI: TdxBarDockControl
+      Left = 10000
+      Top = 10000
+      Width = 1092
+      Height = 63
+      Align = dalNone
+      BarManager = bmgr_main
+      Visible = False
+    end
+    object brdckCtrl_Github: TdxBarDockControl
+      Left = 10000
+      Top = 10000
+      Width = 1092
+      Height = 63
+      Align = dalNone
+      BarManager = bmgr_main
+      Visible = False
+    end
     object stbr_main: TdxStatusBar
-      Left = 3
-      Top = 745
-      Width = 1134
+      Left = 34
+      Top = 706
+      Width = 1064
       Height = 20
       Panels = <
         item
@@ -1090,21 +645,1007 @@ object frm_Ticket: Tfrm_Ticket
       Font.Height = -12
       Font.Name = 'Segoe UI'
       Font.Style = []
+      ParentFont = False
     end
-  end
-  object Memo1: TMemo
-    Left = 328
-    Top = -10
-    Width = 185
-    Height = 5
-    Lines.Strings = (
-      'M'
-      'e'
-      'm'
-      'o'
-      '1')
-    TabOrder = 1
-    Visible = False
+    object pnl_Github: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 35
+      Visible = False
+      Height = 625
+      Width = 1092
+    end
+    object pnl_AI: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 33
+      Visible = False
+      Height = 625
+      Width = 1092
+    end
+    object pnl_BrowserPCMApps: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 30
+      Visible = False
+      Height = 304
+      Width = 1092
+    end
+    object pnl_pDevTools: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      Caption = 'PCMApps'
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 31
+      Visible = False
+      OnResize = pnl_PDevtoolsResize
+      Height = 304
+      Width = 1092
+    end
+    object pnl_ADevTools: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 20
+      Visible = False
+      OnResize = pnl_ADevToolsResize
+      Height = 243
+      Width = 1064
+    end
+    object pnl_BrowserAzurePriv: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 19
+      Visible = False
+      Height = 243
+      Width = 1064
+    end
+    object pnl_BrowserConfluence: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 23
+      Visible = False
+      Height = 304
+      Width = 1092
+    end
+    object pnl_CDevTools: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 24
+      Visible = False
+      OnResize = pnl_CDevToolsResize
+      Height = 304
+      Width = 1092
+    end
+    object pnl_SDevtools: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 28
+      Visible = False
+      OnResize = pnl_SDevtoolsResize
+      Height = 197
+      Width = 1092
+    end
+    object pnl_SNotepad: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 27
+      Visible = False
+      OnResize = pnl_SNotepadResize
+      Height = 197
+      Width = 1092
+    end
+    object pnl_BrowserSwagger: TcxGroupBox
+      Left = 10000
+      Top = 10000
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 26
+      Visible = False
+      Height = 197
+      Width = 1092
+    end
+    object pnl_BrowserJiraPriv: TcxGroupBox
+      Left = 34
+      Top = 223
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 2
+      Height = 230
+      Width = 1064
+    end
+    object pnl_JDevTools: TcxGroupBox
+      Left = 34
+      Top = 470
+      PanelStyle.Active = True
+      ParentBackground = False
+      ParentColor = False
+      Style.Color = 7566195
+      Style.TransparentBorder = False
+      TabOrder = 3
+      OnResize = pnl_JDevToolsResize
+      Height = 230
+      Width = 1064
+    end
+    object dxLayoutControl1Group_Root: TdxLayoutGroup
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Hidden = True
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = -1
+    end
+    object pc_tickets: TdxLayoutGroup
+      Parent = dxLayoutGroup54
+      AlignHorz = ahClient
+      AlignVert = avClient
+      LayoutDirection = ldTabbed
+      ShowBorder = False
+      OnTabChanged = pc_TicketsChange
+      Index = 0
+    end
+    object ts_Jira: TdxLayoutGroup
+      Parent = pc_tickets
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.ImageIndex = 19
+      CaptionOptions.Text = 'Jira - Tickets'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem1: TdxLayoutItem
+      Parent = dxLayoutGroup3
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'brdckCtrl_Jira'
+      CaptionOptions.Visible = False
+      Control = brdckCtrl_Jira
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1126
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object pc_Jira: TdxLayoutGroup
+      Parent = lagrp_Jira
+      AlignHorz = ahClient
+      AlignVert = avClient
+      LayoutDirection = ldTabbed
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup11: TdxLayoutGroup
+      Parent = pc_Jira
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Jira-Browser'
+      ItemIndex = 4
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem2: TdxLayoutItem
+      Parent = dxLayoutGroup11
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'brdckCtrl_JiraBrowser'
+      CaptionOptions.Visible = False
+      Control = brdckCtrl_JiraBrowser
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1112
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object splt_J: TdxLayoutSplitterItem
+      Parent = dxLayoutGroup11
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Visible = False
+      SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+      SizeOptions.SizableHorz = False
+      SizeOptions.SizableVert = False
+      Index = 2
+    end
+    object dxLayoutGroup16: TdxLayoutGroup
+      Parent = pc_Jira
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = #220'bersicht Desktop Board'
+      ItemIndex = 1
+      ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem3: TdxLayoutItem
+      Parent = dxLayoutGroup16
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'cmbbx_Desktop'
+      CaptionOptions.Visible = False
+      Control = cmbbx_Desktop
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 1106
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem4: TdxLayoutItem
+      Parent = dxLayoutGroup16
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Chatcrtl_Desktop'
+      CaptionOptions.Visible = False
+      Control = Chatcrtl_Desktop
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1118
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutGroup18: TdxLayoutGroup
+      Parent = pc_Jira
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = #220'bersicht Mobile Board'
+      ItemIndex = 1
+      ShowBorder = False
+      Index = 2
+    end
+    object dxLayoutItem5: TdxLayoutItem
+      Parent = dxLayoutGroup18
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'cmbbx_App'
+      CaptionOptions.Visible = False
+      Control = cmbbx_App
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 1106
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem6: TdxLayoutItem
+      Parent = dxLayoutGroup18
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Chatcrtl_APP'
+      CaptionOptions.Visible = False
+      Control = Chatcrtl_APP
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1118
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutGroup20: TdxLayoutGroup
+      Parent = pc_Jira
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Details'
+      ShowBorder = False
+      Index = 3
+    end
+    object dxLayoutItem7: TdxLayoutItem
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'grd_Jira'
+      CaptionOptions.Visible = False
+      Control = grd_Jira
+      ControlOptions.OriginalHeight = 200
+      ControlOptions.OriginalWidth = 1118
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object ts_Azure: TdxLayoutGroup
+      Parent = pc_tickets
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.ImageIndex = 20
+      CaptionOptions.Text = 'Azure - Tickets'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 1
+    end
+    object itmbrdckCtrl_Azure: TdxLayoutItem
+      Parent = lagrp_Azure
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'brdckCtrl_Azure'
+      CaptionOptions.Visible = False
+      Control = brdckCtrl_Azure
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1126
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object lagrp_AzureTab: TdxLayoutGroup
+      Parent = lagrp_Azure
+      AlignHorz = ahClient
+      AlignVert = avClient
+      LayoutDirection = ldTabbed
+      ShowBorder = False
+      Index = 1
+    end
+    object lagrp_AzureBrowser: TdxLayoutGroup
+      Parent = lagrp_AzureTab
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Azure-Browser'
+      ItemIndex = 3
+      ShowBorder = False
+      Index = 0
+    end
+    object itmbrdckCtrl_AzureMax: TdxLayoutItem
+      Parent = lagrp_AzureBrowser
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'brdckCtrl_AzureMax'
+      CaptionOptions.Visible = False
+      Control = brdckCtrl_AzureMax
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1112
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object splt_A: TdxLayoutSplitterItem
+      Parent = lagrp_AzureBrowser
+      Visible = False
+      SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+      SizeOptions.SizableHorz = False
+      SizeOptions.SizableVert = False
+      Index = 2
+    end
+    object lagrp_AzureGrid: TdxLayoutGroup
+      Parent = lagrp_AzureTab
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Details'
+      LayoutDirection = ldHorizontal
+      Index = 1
+    end
+    object itmgrd_Azure: TdxLayoutItem
+      Parent = lagrp_AzureGrid
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'grd_Azure'
+      CaptionOptions.Visible = False
+      Control = grd_Azure
+      ControlOptions.OriginalHeight = 200
+      ControlOptions.OriginalWidth = 1118
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object ts_Confluence: TdxLayoutGroup
+      Parent = pc_tickets
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.ImageIndex = 22
+      CaptionOptions.Text = 'Confluence'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 2
+    end
+    object lagrp_Confluence: TdxLayoutGroup
+      Parent = ts_Confluence
+      AlignHorz = ahClient
+      AlignVert = avClient
+      ItemIndex = 3
+      ShowBorder = False
+      Index = 0
+    end
+    object itmbrdckCtrl_Confluence: TdxLayoutItem
+      Parent = lagrp_Confluence
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'brdckCtrl_Confluence'
+      CaptionOptions.Visible = False
+      Control = brdckCtrl_Confluence
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1120
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object ts_RESTAPI: TdxLayoutGroup
+      Parent = pc_tickets
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.ImageIndex = 23
+      CaptionOptions.Text = 'PCM - RestAPI'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 3
+    end
+    object itmbrdckCtrl_Swagger: TdxLayoutItem
+      Parent = lagrp_RestAPI
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'brdckCtrl_Swagger'
+      CaptionOptions.Visible = False
+      Control = brdckCtrl_Swagger
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1120
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object splt_sNp: TdxLayoutSplitterItem
+      Parent = lagrp_RestAPI
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Visible = False
+      SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+      SizeOptions.SizableHorz = False
+      SizeOptions.SizableVert = False
+      Index = 2
+    end
+    object splt_S: TdxLayoutSplitterItem
+      Parent = lagrp_RestAPI
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Visible = False
+      SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+      SizeOptions.SizableHorz = False
+      SizeOptions.SizableVert = False
+      Index = 4
+    end
+    object ts_PCMApps: TdxLayoutGroup
+      Parent = pc_tickets
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.ImageIndex = 2
+      CaptionOptions.Text = 'PCM-APPS'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 4
+    end
+    object itmbrdckCtrl_PCMAPPS: TdxLayoutItem
+      Parent = lagrp_PCMAPPS
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'brdckCtrl_PCMAPPS'
+      CaptionOptions.Visible = False
+      Control = brdckCtrl_PCMAPPS
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1120
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object splt_P: TdxLayoutSplitterItem
+      Parent = lagrp_PCMAPPS
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Visible = False
+      SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+      SizeOptions.SizableHorz = False
+      SizeOptions.SizableVert = False
+      Index = 2
+    end
+    object ts_Perplexity: TdxLayoutGroup
+      Parent = pc_tickets
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.ImageIndex = 24
+      CaptionOptions.Text = 'Perplexity AI'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 5
+    end
+    object lagrp_Perplexity: TdxLayoutGroup
+      Parent = ts_Perplexity
+      AlignHorz = ahClient
+      AlignVert = avClient
+      ShowBorder = False
+      Index = 0
+    end
+    object itmbrdckCtrl_AI: TdxLayoutItem
+      Parent = lagrp_Perplexity
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'brdckCtrl_AI'
+      CaptionOptions.Visible = False
+      Control = brdckCtrl_AI
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1120
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object ts_Github: TdxLayoutGroup
+      Parent = pc_tickets
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.ImageIndex = 25
+      CaptionOptions.Text = 'Github'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 6
+    end
+    object lagrp_Github: TdxLayoutGroup
+      Parent = ts_Github
+      AlignHorz = ahClient
+      AlignVert = avClient
+      ItemIndex = 1
+      ShowBorder = False
+      Index = 0
+    end
+    object itmbrdckCtrl_Github: TdxLayoutItem
+      Parent = lagrp_Github
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'brdckCtrl_Github'
+      CaptionOptions.Visible = False
+      Control = brdckCtrl_Github
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1120
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object itmstbr_main: TdxLayoutItem
+      Parent = dxLayoutGroup11
+      AlignHorz = ahClient
+      AlignVert = avBottom
+      CaptionOptions.Text = 'stbr_main'
+      CaptionOptions.Visible = False
+      Control = stbr_main
+      ControlOptions.OriginalHeight = 20
+      ControlOptions.OriginalWidth = 1134
+      ControlOptions.ShowBorder = False
+      Index = 4
+    end
+    object dxLayoutGroup54: TdxLayoutGroup
+      Parent = dxLayoutControl1Group_Root
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ShowBorder = False
+      Index = 0
+    end
+    object itmpnl_Github: TdxLayoutItem
+      Parent = lagrp_Github
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_Github
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 105
+      ControlOptions.OriginalWidth = 185
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object itmpnl_AI: TdxLayoutItem
+      Parent = lagrp_Perplexity
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_AI
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1188
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object itmpnl_BrowserPCMApps: TdxLayoutItem
+      Parent = lagrp_PCMAPPS
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_BrowserPCMApps
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1188
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object itmpnl_pDevTools: TdxLayoutItem
+      Parent = lagrp_PCMAPPS
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Visible = False
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_pDevTools
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1188
+      ControlOptions.ShowBorder = False
+      Index = 3
+    end
+    object lagrp_RestAPI: TdxLayoutGroup
+      Parent = ts_RESTAPI
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      ShowBorder = False
+      Index = 0
+    end
+    object itmpnl_SNotepad: TdxLayoutItem
+      Parent = lagrp_RestAPI
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Visible = False
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_SNotepad
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1188
+      ControlOptions.ShowBorder = False
+      Index = 3
+    end
+    object itmpnl_BrowserSwagger: TdxLayoutItem
+      Parent = lagrp_RestAPI
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_BrowserSwagger
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1188
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object itmpnl_SDevtools: TdxLayoutItem
+      Parent = lagrp_RestAPI
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Visible = False
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_SDevtools
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1188
+      ControlOptions.ShowBorder = False
+      Index = 5
+    end
+    object lagrp_PCMAPPS: TdxLayoutGroup
+      Parent = ts_PCMApps
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 3
+      ShowBorder = False
+      Index = 0
+    end
+    object itmpnl_BrowserConfluence: TdxLayoutItem
+      Parent = lagrp_Confluence
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_BrowserConfluence
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1188
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object itmpnl_CDevTools: TdxLayoutItem
+      Parent = lagrp_Confluence
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Visible = False
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_CDevTools
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1188
+      ControlOptions.ShowBorder = False
+      Index = 3
+    end
+    object splt_C: TdxLayoutSplitterItem
+      Parent = lagrp_Confluence
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Visible = False
+      SizeOptions.AssignedValues = [sovSizableHorz, sovSizableVert]
+      SizeOptions.SizableHorz = False
+      SizeOptions.SizableVert = False
+      CaptionOptions.Text = 'Splitter'
+      Index = 2
+    end
+    object lagrp_Azure: TdxLayoutGroup
+      Parent = ts_Azure
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      ShowBorder = False
+      Index = 0
+    end
+    object itmpnl_BrowserAzurePriv: TdxLayoutItem
+      Parent = lagrp_AzureBrowser
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_BrowserAzurePriv
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1188
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object itmpnl_ADevTools: TdxLayoutItem
+      Parent = lagrp_AzureBrowser
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Visible = False
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_ADevTools
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1188
+      ControlOptions.ShowBorder = False
+      Index = 3
+    end
+    object lagrp_Jira: TdxLayoutGroup
+      Parent = dxLayoutGroup3
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ShowBorder = False
+      Index = 1
+    end
+    object itmpnl_BrowserJiraPriv: TdxLayoutItem
+      Parent = dxLayoutGroup11
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_BrowserJiraPriv
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1047
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object itmpnl_JDevTools: TdxLayoutItem
+      Parent = dxLayoutGroup11
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Visible = False
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = pnl_JDevTools
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 2294
+      ControlOptions.ShowBorder = False
+      Index = 3
+    end
+    object dxLayoutGroup1: TdxLayoutGroup
+      Parent = dxLayoutGroup20
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup2: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ShowBorder = False
+      Index = 1
+    end
+    object grpbx_Ticketspriv: TdxLayoutGroup
+      Parent = dxLayoutGroup15
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Ticketdetails'
+      ButtonOptions.ShowExpandButton = True
+      ItemIndex = 6
+      Index = 0
+    end
+    object dxLayoutGroup8: TdxLayoutGroup
+      Parent = dxLayoutGroup13
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Details'
+      ButtonOptions.ShowExpandButton = True
+      ItemIndex = 1
+      Index = 0
+    end
+    object dxLayoutGroup4: TdxLayoutGroup
+      Parent = dxLayoutGroup2
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup13: TdxLayoutGroup
+      Parent = dxLayoutGroup4
+      AlignHorz = ahRight
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutGroup15: TdxLayoutGroup
+      Parent = dxLayoutGroup4
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutLabeledItem1: TdxLayoutLabeledItem
+      Parent = grpbx_Ticketspriv
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Offsets.Bottom = 4
+      Offsets.Top = 4
+      CaptionOptions.Text = 'Label'
+      Index = 0
+    end
+    object dxLayoutItem8: TdxLayoutItem
+      Parent = grpbx_Ticketspriv
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Offsets.Bottom = 4
+      Offsets.Top = 4
+      CaptionOptions.Text = 'Prorit'#228't:'
+      Control = cxDBImageComboBox2
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 525
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem11: TdxLayoutItem
+      Parent = grpbx_Ticketspriv
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Offsets.Bottom = 4
+      Offsets.Top = 4
+      CaptionOptions.Text = 'Applikation:'
+      Control = cxDBTextEdit18
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 525
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
+    object dxLayoutItem12: TdxLayoutItem
+      Parent = grpbx_Ticketspriv
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Offsets.Bottom = 4
+      Offsets.Top = 4
+      CaptionOptions.Text = 'Stichwort'
+      Control = cxDBTextEdit21
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 532
+      ControlOptions.ShowBorder = False
+      Index = 3
+    end
+    object dxLayoutItem13: TdxLayoutItem
+      Parent = grpbx_Ticketspriv
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Offsets.Bottom = 4
+      Offsets.Top = 4
+      CaptionOptions.Text = 'Sprint:'
+      Control = cxDBTextEdit19
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 549
+      ControlOptions.ShowBorder = False
+      Index = 4
+    end
+    object dxLayoutLabeledItem2: TdxLayoutLabeledItem
+      Parent = grpbx_Ticketspriv
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Offsets.Bottom = 4
+      Offsets.Top = 4
+      CaptionOptions.Text = 'Beschreibung:'
+      Index = 5
+    end
+    object dxLayoutItem14: TdxLayoutItem
+      Parent = grpbx_Ticketspriv
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Offsets.Bottom = 4
+      Offsets.Top = 4
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = cxRichEdit1
+      ControlOptions.OriginalHeight = 14
+      ControlOptions.OriginalWidth = 582
+      ControlOptions.ShowBorder = False
+      Index = 6
+    end
+    object dxLayoutItem15: TdxLayoutItem
+      Parent = dxLayoutGroup8
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Offsets.Bottom = 4
+      Offsets.Top = 4
+      CaptionOptions.Text = 'L'#246'sungsversion:'
+      Control = cxDBTextEdit22
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 299
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem16: TdxLayoutItem
+      Parent = dxLayoutGroup8
+      AlignHorz = ahClient
+      AlignVert = avTop
+      Offsets.Bottom = 4
+      Offsets.Top = 4
+      CaptionOptions.Text = 'Autor:'
+      Control = cxDBTextEdit23
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 346
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutGroup3: TdxLayoutGroup
+      Parent = ts_Jira
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      ShowBorder = False
+      Index = 0
+    end
   end
   object bmgr_main: TdxBarManager
     AllowReset = False
@@ -1125,7 +1666,6 @@ object frm_Ticket: Tfrm_Ticket
     ImageOptions.LargeIcons = True
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
-    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 592
@@ -2706,15 +3246,8 @@ object frm_Ticket: Tfrm_Ticket
     SQL.Strings = (
       'SELECT * FROM manager_azure_priv'
       '')
-    Left = 256
-    Top = 136
-  end
-  object layoutlaflst: TdxLayoutLookAndFeelList
-    Left = 544
-    Top = 528
-    object dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel
-      PixelsPerInch = 96
-    end
+    Left = 320
+    Top = 96
   end
   object qry_Prio: TFDQuery
     Connection = dm_PCM.con_PCM

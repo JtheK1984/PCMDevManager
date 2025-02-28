@@ -6,7 +6,9 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, cxGraphics, cxControls, cxLookAndFeels,
   cxLookAndFeelPainters, cxContainer, cxEdit, cxLabel, cxTextEdit, cxMaskEdit, cxDropDownEdit,
-  cxGroupBox, dxBar, Vcl.Menus, Vcl.StdCtrls, cxButtons, System.UITypes;
+  cxGroupBox, dxBar, Vcl.Menus, Vcl.StdCtrls, cxButtons, System.UITypes,
+  dxUIAClasses, dxLayoutcxEditAdapters, dxLayoutControlAdapters,
+  dxLayoutContainer, cxClasses, dxLayoutControl;
   {$EndRegion Uses}
 type
   {$Region Type}
@@ -14,8 +16,13 @@ type
     cmbbx_Prog: TcxComboBox;
     btn_Cancel: TcxButton;
     btn_Save: TcxButton;
-    grpbx_Design: TcxGroupBox;
-    lbl_Programm: TcxLabel;
+    dxLayoutControl1Group_Root: TdxLayoutGroup;
+    dxLayoutControl1: TdxLayoutControl;
+    dxLayoutItem1: TdxLayoutItem;
+    dxLayoutItem2: TdxLayoutItem;
+    dxLayoutItem3: TdxLayoutItem;
+    dxLayoutGroup5: TdxLayoutGroup;
+    dxLayoutGroup4: TdxLayoutGroup;
     procedure btn_CancelClick(Sender: TObject);
     procedure btn_SaveClick(Sender: TObject);
   private

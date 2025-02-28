@@ -226,6 +226,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Align = alClient
     PanelStyle.Active = True
     Style.BorderStyle = ebsNone
+    Style.LookAndFeel.NativeStyle = False
+    StyleDisabled.LookAndFeel.NativeStyle = False
     TabOrder = 1
     Height = 726
     Width = 1064
@@ -276,34 +278,68 @@ object frm_PCM_Main: Tfrm_PCM_Main
             TabOrder = 0
             Height = 680
             Width = 1044
-            object chartctrl_Customer: TdxChartControl
-              Left = 3
-              Top = 15
-              Width = 1038
-              Height = 656
-              Align = alClient
-              BorderStyle = cxcbsNone
-              Legend.Title.Visible = False
-              Titles = <>
-              object chartctrl_CustomerChart: TdxChartSimpleDiagram
-                Title.Visible = False
-                Layout = Horizontal
-                object chartctrl_CustomerSeries: TdxChartSimpleSeries
-                  Caption = 'Wert'
-                  DataBindingType = 'DB'
-                  DataBinding.DataSource = dm_PCM.ds_Chart
-                  DataBinding.ArgumentField.FieldName = 'TO DO'
-                  DataBinding.ValueField.FieldName = 'Wert'
-                  ViewType = 'Pie'
-                  View.SweepDirection = Counterclockwise
-                  View.ValueLabels.LineLength = 10.000000000000000000
-                  View.ValueLabels.Visible = True
-                  View.ValueLabels.Position = Outside
-                  SortBy = Value
-                  ColorSchemeIndex = 0
-                end
+          end
+        end
+        object dxLayoutControl1: TdxLayoutControl
+          Left = 0
+          Top = 0
+          Width = 1050
+          Height = 686
+          Align = alClient
+          TabOrder = 1
+          LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+          object chartctrl_Customer: TdxChartControl
+            Left = 21
+            Top = 40
+            Width = 1008
+            Height = 625
+            BorderStyle = cxcbsNone
+            Legend.Title.Visible = False
+            Titles = <>
+            object chartctrl_CustomerChart: TdxChartSimpleDiagram
+              Title.Visible = False
+              Layout = Horizontal
+              object chartctrl_CustomerSeries: TdxChartSimpleSeries
+                Caption = 'Wert'
+                DataBindingType = 'DB'
+                DataBinding.DataSource = dm_PCM.ds_Chart
+                DataBinding.ArgumentField.FieldName = 'TO DO'
+                DataBinding.ValueField.FieldName = 'Wert'
+                ViewType = 'Pie'
+                View.SweepDirection = Counterclockwise
+                View.ValueLabels.LineLength = 10.000000000000000000
+                View.ValueLabels.Visible = True
+                View.ValueLabels.Position = Outside
+                SortBy = Value
+                ColorSchemeIndex = 0
               end
             end
+          end
+          object dxLayoutControl1Group_Root: TdxLayoutGroup
+            AlignHorz = ahClient
+            AlignVert = avClient
+            Hidden = True
+            ShowBorder = False
+            Index = -1
+          end
+          object dxLayoutGroup1: TdxLayoutGroup
+            Parent = dxLayoutControl1Group_Root
+            AlignHorz = ahClient
+            AlignVert = avClient
+            CaptionOptions.Text = 'Tickets'
+            Index = 0
+          end
+          object dxLayoutItem1: TdxLayoutItem
+            Parent = dxLayoutGroup1
+            AlignHorz = ahClient
+            AlignVert = avClient
+            CaptionOptions.Text = 'New Item'
+            CaptionOptions.Visible = False
+            Control = chartctrl_Customer
+            ControlOptions.OriginalHeight = 674
+            ControlOptions.OriginalWidth = 1044
+            ControlOptions.ShowBorder = False
+            Index = 0
           end
         end
       end
@@ -590,11 +626,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Top = 232
   end
   object lafCtrl_Main: TcxLookAndFeelController
-    Kind = lfStandard
-    ScrollbarMode = sbmClassic
-    ScrollMode = scmClassic
+    NativeStyle = False
     SkinName = 'DevExpressDarkStyle'
-    RenderMode = rmGDIPlus
     Left = 88
     Top = 104
   end
@@ -625,7 +658,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
     MenusShowRecentItemsFirst = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
-    Style = bmsUseLookAndFeel
     UseSystemFont = True
     Left = 472
     Top = 192

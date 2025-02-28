@@ -12,7 +12,7 @@ uses
   uWVLoader,
   Windows,
   PCM.Ticket in 'Modules\PCM.Ticket.pas' {frm_Ticket},
-  PCM.Entwicklung in 'Modules\PCM.Entwicklung.pas' {frm_Dev},
+  PCM.Modul.C_Entwicklung in 'Modules\PCM.Modul.C_Entwicklung.pas' {frm_Dev},
   PCM.Modul.B_Config in 'Modules\PCM.Modul.B_Config.pas' {frm_Config},
   PCM.Helper,
   PCM.splash in 'PCM.splash.pas' {SplashScreen},
@@ -22,7 +22,8 @@ uses
   PCM.Modul.C_Update.Version in 'Modules\PCM.Modul.C_Update.Version.pas',
   PCM.Modul.D_Doku in 'Modules\PCM.Modul.D_Doku.pas',
   PCM.Modul.D_Doku.Programm in 'Modules\PCM.Modul.D_Doku.Programm.pas',
-  PCM.Modul.D_Doku.Version in 'Modules\PCM.Modul.D_Doku.Version.pas';
+  PCM.Modul.D_Doku.Version in 'Modules\PCM.Modul.D_Doku.Version.pas',
+  PCMDEVManager.dxSettings in 'PCMDEVManager.dxSettings.pas';
 
 {$R *.res}
 

@@ -4,8 +4,8 @@ object frm_PCM_Import: Tfrm_PCM_Import
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = 'PCM - Updategenerator: Import'
-  ClientHeight = 138
-  ClientWidth = 420
+  ClientHeight = 130
+  ClientWidth = 433
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,123 +14,180 @@ object frm_PCM_Import: Tfrm_PCM_Import
   Font.Style = []
   Position = poScreenCenter
   TextHeight = 15
-  object cxGroupBox1: TcxGroupBox
+  object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
+    Width = 433
+    Height = 130
     Align = alClient
-    PanelStyle.Active = True
-    Style.BorderStyle = ebsNone
     TabOrder = 0
-    Height = 138
-    Width = 420
+    AutoSize = True
+    LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     object btn_import: TcxButton
       AlignWithMargins = True
-      Left = 8
-      Top = 57
-      Width = 198
-      Height = 27
+      Left = 12
+      Top = 42
+      Width = 201
+      Height = 25
       Margins.Left = 6
       Margins.Top = 0
       Margins.Right = 4
       Margins.Bottom = 1
-      Align = alLeft
       Caption = '&Importieren'
-      Enabled = False
       OptionsImage.ImageIndex = 1
-      TabOrder = 0
+      TabOrder = 2
       WordWrap = True
       OnClick = btn_importClick
-      ExplicitHeight = 25
     end
     object cxButton2: TcxButton
       AlignWithMargins = True
-      Left = 214
-      Top = 57
-      Width = 198
-      Height = 27
+      Left = 220
+      Top = 42
+      Width = 200
+      Height = 25
       Margins.Left = 4
       Margins.Top = 0
       Margins.Right = 6
       Margins.Bottom = 1
-      Align = alRight
       Caption = 'Abbre&chen'
       OptionsImage.ImageIndex = 0
-      TabOrder = 1
+      TabOrder = 3
       OnClick = cxButton2Click
-      ExplicitHeight = 25
-    end
-    object lbl_Importfile: TcxLabel
-      AlignWithMargins = True
-      Left = 7
-      Top = 7
-      Margins.Left = 5
-      Margins.Top = 5
-      Margins.Right = 5
-      Margins.Bottom = 0
-      Align = alTop
-      Caption = 'Pfad zur XML-Datei:'
-      Transparent = True
-    end
-    object lbl_Status: TcxLabel
-      AlignWithMargins = True
-      Left = 7
-      Top = 88
-      Margins.Left = 5
-      Margins.Right = 5
-      Align = alBottom
-      Caption = 'Status:'
-      Transparent = True
-      ExplicitTop = 86
     end
     object prgbr_Status: TcxProgressBar
       AlignWithMargins = True
-      Left = 7
-      Top = 110
+      Left = 12
+      Top = 95
       Margins.Left = 5
       Margins.Top = 0
       Margins.Right = 5
       Margins.Bottom = 5
-      Align = alBottom
+      Style.TransparentBorder = False
       TabOrder = 4
-      ExplicitTop = 108
-      Width = 406
+      Width = 408
     end
-    object cxGroupBox2: TcxGroupBox
-      Left = 2
-      Top = 26
-      Align = alTop
-      PanelStyle.Active = True
-      Style.BorderStyle = ebsNone
-      TabOrder = 5
-      Height = 31
-      Width = 416
-      object edt_Importfile: TcxTextEdit
-        AlignWithMargins = True
-        Left = 4
-        Top = 2
-        Margins.Left = 2
-        Margins.Top = 0
-        Margins.Right = 2
-        Margins.Bottom = 2
-        Align = alClient
-        Properties.OnEditValueChanged = cxTextEdit1PropertiesEditValueChanged
-        TabOrder = 0
-        ExplicitHeight = 21
-        Width = 382
-      end
-      object cxButton1: TcxButton
-        AlignWithMargins = True
-        Left = 388
-        Top = 3
-        Width = 23
-        Height = 23
-        Margins.Left = 0
-        Margins.Top = 1
-        Align = alRight
-        Caption = '&...'
-        TabOrder = 1
-        OnClick = cxButton1Click
-      end
+    object edt_Importfile: TcxTextEdit
+      AlignWithMargins = True
+      Left = 12
+      Top = 12
+      Margins.Left = 2
+      Margins.Top = 0
+      Margins.Right = 2
+      Margins.Bottom = 2
+      AutoSize = False
+      Properties.OnEditValueChanged = cxTextEdit1PropertiesEditValueChanged
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 0
+      Height = 23
+      Width = 378
+    end
+    object cxButton1: TcxButton
+      AlignWithMargins = True
+      Left = 397
+      Top = 12
+      Width = 23
+      Height = 21
+      Margins.Left = 0
+      Margins.Top = 1
+      Caption = '&...'
+      TabOrder = 1
+      OnClick = cxButton1Click
+    end
+    object dxLayoutControl1Group_Root: TdxLayoutGroup
+      AlignHorz = ahRight
+      AlignVert = avClient
+      Hidden = True
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = -1
+    end
+    object dxLayoutItem1: TdxLayoutItem
+      Parent = dxLayoutGroup3
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'edt_Importfile'
+      CaptionOptions.Visible = False
+      Control = edt_Importfile
+      ControlOptions.OriginalHeight = 23
+      ControlOptions.OriginalWidth = 378
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem2: TdxLayoutItem
+      Parent = dxLayoutGroup3
+      AlignHorz = ahRight
+      AlignVert = avTop
+      CaptionOptions.Text = 'cxButton1'
+      CaptionOptions.Visible = False
+      Control = cxButton1
+      ControlOptions.OriginalHeight = 21
+      ControlOptions.OriginalWidth = 23
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem3: TdxLayoutItem
+      Parent = dxLayoutGroup5
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'btn_import'
+      CaptionOptions.Visible = False
+      Control = btn_import
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 198
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem4: TdxLayoutItem
+      Parent = dxLayoutGroup5
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'cxButton2'
+      CaptionOptions.Visible = False
+      Control = cxButton2
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 198
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem5: TdxLayoutItem
+      Parent = dxLayoutGroup2
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Status:'
+      CaptionOptions.Layout = clTop
+      Control = prgbr_Status
+      ControlOptions.OriginalHeight = 21
+      ControlOptions.OriginalWidth = 404
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
+    object dxLayoutGroup3: TdxLayoutGroup
+      Parent = dxLayoutGroup2
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup2: TdxLayoutGroup
+      Parent = dxLayoutControl1Group_Root
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup5: TdxLayoutGroup
+      Parent = dxLayoutGroup2
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 1
     end
   end
   object dxOpenFileDialog1: TdxOpenFileDialog
