@@ -1593,8 +1593,10 @@ object frm_Config: Tfrm_Config
       True
       True)
     ImageOptions.LargeImages = dm_PCM.imglst_32x32
+    LookAndFeel.NativeStyle = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
+    Style = bmsUseLookAndFeel
     UseSystemFont = True
     Left = 640
     Top = 400

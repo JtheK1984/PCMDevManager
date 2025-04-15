@@ -24,10 +24,6 @@ object frm_Update: Tfrm_Update
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitLeft = 680
-    ExplicitTop = 312
-    ExplicitWidth = 300
-    ExplicitHeight = 250
     object grd_Version: TcxGrid
       Left = 12
       Top = 82
@@ -86,6 +82,7 @@ object frm_Update: Tfrm_Update
       Left = 266
       Top = 82
       DataBinding.DataField = 'Statement'
+      DataBinding.DataSource = dm_PCM.ds_Versions
       Properties.ReadOnly = True
       Properties.ScrollBars = ssVertical
       Style.HotTrack = False
@@ -188,8 +185,10 @@ object frm_Update: Tfrm_Update
     Categories.Visibles = (
       True)
     ImageOptions.LargeImages = dm_PCM.imglst_32x32
+    LookAndFeel.NativeStyle = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
+    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 304

@@ -23,10 +23,8 @@ object frm_PCM_Version: Tfrm_PCM_Version
     TabOrder = 4
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitLeft = 232
-    ExplicitTop = 224
-    ExplicitWidth = 300
-    ExplicitHeight = 250
+    ExplicitTop = 58
+    ExplicitHeight = 601
     object sclbx_SQL: TcxScrollBox
       Left = 12
       Top = 12
@@ -45,13 +43,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
         Align = alTop
         PanelStyle.Active = True
         TabOrder = 0
-        ExplicitWidth = 729
         Height = 35
         Width = 705
         object grpbx_2Date_Detail: TcxGroupBox
           AlignWithMargins = True
-          Left = 3
-          Top = 3
+          Left = 2
+          Top = 2
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
@@ -60,13 +57,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
           PanelStyle.Active = True
           Style.BorderStyle = ebsNone
           TabOrder = 0
-          ExplicitWidth = 723
-          Height = 29
-          Width = 699
+          Height = 31
+          Width = 701
           object lbl_Date: TcxLabel
             AlignWithMargins = True
-            Left = 6
-            Top = 5
+            Left = 5
+            Top = 4
             Margins.Top = 2
             Margins.Right = 0
             Margins.Bottom = 2
@@ -75,13 +71,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Caption = 'Datum:'
             TabOrder = 0
             Transparent = True
-            Height = 19
+            Height = 23
             Width = 90
           end
           object dtedt_Date: TcxDateEdit
             AlignWithMargins = True
-            Left = 96
-            Top = 3
+            Left = 95
+            Top = 2
             Margins.Left = 0
             Margins.Top = 0
             Margins.Right = 0
@@ -89,8 +85,7 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Align = alClient
             Properties.ReadOnly = True
             TabOrder = 1
-            ExplicitWidth = 624
-            Width = 600
+            Width = 604
           end
         end
       end
@@ -100,13 +95,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
         Align = alTop
         PanelStyle.Active = True
         TabOrder = 1
-        ExplicitWidth = 729
         Height = 35
         Width = 705
         object grpbx_3Version_Detail: TcxGroupBox
           AlignWithMargins = True
-          Left = 3
-          Top = 3
+          Left = 2
+          Top = 2
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
@@ -115,13 +109,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
           PanelStyle.Active = True
           Style.BorderStyle = ebsNone
           TabOrder = 0
-          ExplicitWidth = 723
-          Height = 29
-          Width = 699
+          Height = 31
+          Width = 701
           object edt_Version: TcxTextEdit
             AlignWithMargins = True
-            Left = 96
-            Top = 3
+            Left = 95
+            Top = 2
             Margins.Left = 0
             Margins.Top = 0
             Margins.Right = 0
@@ -129,13 +122,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Align = alClient
             Properties.ReadOnly = True
             TabOrder = 0
-            ExplicitWidth = 624
-            Width = 600
+            Width = 604
           end
           object lbl_Version: TcxLabel
             AlignWithMargins = True
-            Left = 6
-            Top = 5
+            Left = 5
+            Top = 4
             Margins.Top = 2
             Margins.Right = 0
             Margins.Bottom = 2
@@ -144,7 +136,7 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Caption = 'Version:'
             TabOrder = 1
             Transparent = True
-            Height = 19
+            Height = 23
             Width = 90
           end
         end
@@ -155,13 +147,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
         Align = alTop
         PanelStyle.Active = True
         TabOrder = 2
-        ExplicitWidth = 729
         Height = 35
         Width = 705
         object grpbx_4Beschreibung_Detail: TcxGroupBox
           AlignWithMargins = True
-          Left = 3
-          Top = 3
+          Left = 2
+          Top = 2
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
@@ -170,26 +161,24 @@ object frm_PCM_Version: Tfrm_PCM_Version
           PanelStyle.Active = True
           Style.BorderStyle = ebsNone
           TabOrder = 0
-          ExplicitWidth = 723
-          Height = 29
-          Width = 699
+          Height = 31
+          Width = 701
           object edt_Beschreibung: TcxTextEdit
             AlignWithMargins = True
-            Left = 96
-            Top = 3
+            Left = 95
+            Top = 2
             Margins.Left = 0
             Margins.Top = 0
             Margins.Right = 0
             Margins.Bottom = 0
             Align = alClient
             TabOrder = 0
-            ExplicitWidth = 624
-            Width = 600
+            Width = 604
           end
           object lbl_Beschreibung: TcxLabel
             AlignWithMargins = True
-            Left = 6
-            Top = 5
+            Left = 5
+            Top = 4
             Margins.Top = 2
             Margins.Right = 0
             Margins.Bottom = 2
@@ -198,7 +187,7 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Caption = 'Beschreibung:'
             TabOrder = 1
             Transparent = True
-            Height = 19
+            Height = 23
             Width = 90
           end
         end
@@ -209,13 +198,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
         Align = alClient
         PanelStyle.Active = True
         TabOrder = 3
-        ExplicitWidth = 729
         Height = 544
         Width = 705
         object grpbx_4SQL_Detail_1: TcxGroupBox
           AlignWithMargins = True
-          Left = 3
-          Top = 3
+          Left = 2
+          Top = 2
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
@@ -224,13 +212,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
           PanelStyle.Active = True
           Style.BorderStyle = ebsNone
           TabOrder = 0
-          ExplicitWidth = 723
           Height = 29
-          Width = 699
+          Width = 701
           object cmbbx_SQLStatement: TcxComboBox
             AlignWithMargins = True
-            Left = 96
-            Top = 3
+            Left = 95
+            Top = 2
             Hint = 'Bitte SQL-Statement w'#228'hlen'
             Margins.Left = 0
             Margins.Top = 0
@@ -248,13 +235,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Style.TransparentBorder = True
             StyleDisabled.TextColor = clBtnHighlight
             TabOrder = 0
-            ExplicitWidth = 624
-            Width = 600
+            Width = 604
           end
           object cxLabel2: TcxLabel
             AlignWithMargins = True
-            Left = 6
-            Top = 5
+            Left = 5
+            Top = 4
             Margins.Top = 2
             Margins.Right = 0
             Margins.Bottom = 2
@@ -263,14 +249,14 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Caption = 'SQL:'
             TabOrder = 1
             Transparent = True
-            Height = 19
+            Height = 21
             Width = 90
           end
         end
         object grpbx_4SQL_Detail_2: TcxGroupBox
           AlignWithMargins = True
-          Left = 3
-          Top = 32
+          Left = 2
+          Top = 31
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
@@ -280,13 +266,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
           Style.BorderStyle = ebsNone
           TabOrder = 1
           Visible = False
-          ExplicitWidth = 723
           Height = 29
-          Width = 699
+          Width = 701
           object cxLabel1: TcxLabel
             AlignWithMargins = True
-            Left = 6
-            Top = 5
+            Left = 5
+            Top = 4
             Margins.Top = 2
             Margins.Right = 0
             Margins.Bottom = 2
@@ -295,13 +280,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Caption = 'Tabelle:'
             TabOrder = 1
             Transparent = True
-            Height = 19
+            Height = 21
             Width = 90
           end
           object edt_Tablename: TcxTextEdit
             AlignWithMargins = True
-            Left = 96
-            Top = 3
+            Left = 95
+            Top = 2
             Margins.Left = 0
             Margins.Top = 0
             Margins.Right = 0
@@ -312,23 +297,21 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Style.TransparentBorder = True
             StyleDisabled.TextColor = clBtnHighlight
             TabOrder = 0
-            ExplicitWidth = 624
-            Width = 600
+            Width = 604
           end
         end
         object dxBarDockControl1: TdxBarDockControl
-          Left = 3
-          Top = 61
-          Width = 699
+          Left = 2
+          Top = 60
+          Width = 701
           Height = 63
           Align = dalTop
           BarManager = brmgr_SQL
-          ExplicitWidth = 723
         end
         object cxGroupBox2: TcxGroupBox
           AlignWithMargins = True
-          Left = 3
-          Top = 124
+          Left = 2
+          Top = 123
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
@@ -338,13 +321,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
           Style.BorderStyle = ebsNone
           TabOrder = 3
           Visible = False
-          ExplicitWidth = 723
+          ExplicitTop = 118
           Height = 29
-          Width = 699
+          Width = 701
           object cxLabel3: TcxLabel
             AlignWithMargins = True
-            Left = 3
-            Top = 5
+            Left = 2
+            Top = 4
             Margins.Left = 0
             Margins.Top = 2
             Margins.Right = 0
@@ -354,13 +337,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Caption = 'Column:'
             TabOrder = 0
             Transparent = True
-            Height = 19
+            Height = 21
             Width = 90
           end
           object cxTextEdit1: TcxTextEdit
             AlignWithMargins = True
-            Left = 93
-            Top = 3
+            Left = 92
+            Top = 2
             Margins.Left = 0
             Margins.Top = 0
             Margins.Right = 0
@@ -369,14 +352,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
             StyleDisabled.TextColor = clBtnHighlight
             TabOrder = 1
             Text = 'cxTextEdit1'
-            ExplicitWidth = 627
-            Width = 603
+            Width = 607
           end
         end
         object cxGroupBox1: TcxGroupBox
           AlignWithMargins = True
-          Left = 3
-          Top = 153
+          Left = 2
+          Top = 152
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
@@ -385,13 +367,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
           PanelStyle.Active = True
           Style.BorderStyle = ebsNone
           TabOrder = 4
-          ExplicitWidth = 723
+          ExplicitTop = 147
           Height = 29
-          Width = 699
+          Width = 701
           object cmbbx_Datatype: TcxComboBox
             AlignWithMargins = True
-            Left = 93
-            Top = 3
+            Left = 92
+            Top = 2
             Hint = 'Bitte SQL-Statement w'#228'hlen'
             Margins.Left = 0
             Margins.Top = 0
@@ -417,8 +399,8 @@ object frm_PCM_Version: Tfrm_PCM_Version
           end
           object lbl_Datatype: TcxLabel
             AlignWithMargins = True
-            Left = 3
-            Top = 5
+            Left = 2
+            Top = 4
             Margins.Left = 0
             Margins.Top = 2
             Margins.Right = 0
@@ -428,13 +410,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Caption = 'Datentyp:'
             TabOrder = 1
             Transparent = True
-            Height = 19
+            Height = 21
             Width = 90
           end
           object cxLabel5: TcxLabel
             AlignWithMargins = True
-            Left = 197
-            Top = 5
+            Left = 196
+            Top = 4
             Margins.Left = 4
             Margins.Top = 2
             Margins.Right = 0
@@ -444,13 +426,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Caption = 'Gr'#246#223'e:'
             TabOrder = 2
             Transparent = True
-            Height = 19
+            Height = 21
             Width = 45
           end
           object cxLabel6: TcxLabel
             AlignWithMargins = True
-            Left = 276
-            Top = 5
+            Left = 275
+            Top = 4
             Margins.Left = 4
             Margins.Top = 2
             Margins.Right = 0
@@ -460,13 +442,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Caption = 'VK:'
             TabOrder = 4
             Transparent = True
-            Height = 19
+            Height = 21
             Width = 25
           end
           object lbl_Nachkomma: TcxLabel
             AlignWithMargins = True
-            Left = 335
-            Top = 5
+            Left = 334
+            Top = 4
             Hint = 'Anzahl Nachkommastellen'
             Margins.Left = 4
             Margins.Top = 2
@@ -477,13 +459,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
             Caption = 'NK:'
             TabOrder = 6
             Transparent = True
-            Height = 19
+            Height = 21
             Width = 25
           end
           object cxCheckBox1: TcxCheckBox
             AlignWithMargins = True
-            Left = 462
-            Top = 3
+            Left = 457
+            Top = 2
             Margins.Left = 4
             Margins.Top = 0
             Margins.Right = 0
@@ -496,8 +478,8 @@ object frm_PCM_Version: Tfrm_PCM_Version
           end
           object cxCheckBox2: TcxCheckBox
             AlignWithMargins = True
-            Left = 394
-            Top = 3
+            Left = 393
+            Top = 2
             Margins.Left = 4
             Margins.Top = 0
             Margins.Right = 0
@@ -510,8 +492,8 @@ object frm_PCM_Version: Tfrm_PCM_Version
           end
           object edt_Nachkomma: TcxDBTextEdit
             AlignWithMargins = True
-            Left = 360
-            Top = 3
+            Left = 359
+            Top = 2
             Hint = 'Anzahl Nachkommastellen'
             Margins.Left = 0
             Margins.Top = 0
@@ -524,8 +506,8 @@ object frm_PCM_Version: Tfrm_PCM_Version
           end
           object cxTextEdit3: TcxDBTextEdit
             AlignWithMargins = True
-            Left = 301
-            Top = 3
+            Left = 300
+            Top = 2
             Margins.Left = 0
             Margins.Top = 0
             Margins.Right = 0
@@ -537,8 +519,8 @@ object frm_PCM_Version: Tfrm_PCM_Version
           end
           object cxTextEdit2: TcxDBTextEdit
             AlignWithMargins = True
-            Left = 242
-            Top = 3
+            Left = 241
+            Top = 2
             Margins.Left = 0
             Margins.Top = 0
             Margins.Right = 0
@@ -550,13 +532,14 @@ object frm_PCM_Version: Tfrm_PCM_Version
           end
         end
         object grd_Columns: TcxGrid
-          Left = 3
-          Top = 182
-          Width = 699
-          Height = 359
+          Left = 2
+          Top = 181
+          Width = 701
+          Height = 361
           Align = alClient
           TabOrder = 5
-          ExplicitWidth = 723
+          ExplicitTop = 176
+          ExplicitHeight = 366
           object grd_ColumnsDBTableView1: TcxGridDBTableView
             Navigator.Buttons.CustomButtons = <>
             ScrollbarAnnotations.CustomAnnotations = <>
@@ -575,13 +558,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
         Align = alBottom
         PanelStyle.Active = True
         TabOrder = 4
-        ExplicitWidth = 729
         Height = 151
         Width = 705
         object lbl_Statement: TcxLabel
           AlignWithMargins = True
-          Left = 8
-          Top = 5
+          Left = 7
+          Top = 4
           Margins.Left = 5
           Margins.Top = 2
           Margins.Right = 0
@@ -591,13 +573,13 @@ object frm_PCM_Version: Tfrm_PCM_Version
           Caption = 'Statement:'
           TabOrder = 1
           Transparent = True
-          Height = 141
+          Height = 143
           Width = 90
         end
         object mem_Statement: TcxMemo
           AlignWithMargins = True
-          Left = 98
-          Top = 3
+          Left = 97
+          Top = 2
           Margins.Left = 0
           Margins.Top = 0
           Margins.Right = 0
@@ -605,9 +587,8 @@ object frm_PCM_Version: Tfrm_PCM_Version
           Align = alClient
           Properties.ScrollBars = ssVertical
           TabOrder = 0
-          ExplicitWidth = 628
-          Height = 145
-          Width = 604
+          Height = 147
+          Width = 606
         end
       end
     end
@@ -651,8 +632,10 @@ object frm_PCM_Version: Tfrm_PCM_Version
     Categories.Visibles = (
       True)
     ImageOptions.LargeImages = dm_PCM.imglst_32x32
+    LookAndFeel.NativeStyle = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
+    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 384

@@ -36,6 +36,8 @@ object frm_Swagger: Tfrm_Swagger
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     OptionsImage.Images = imglst_28x80
+    ExplicitWidth = 1194
+    ExplicitHeight = 726
     object stbr_Rest: TdxStatusBar
       Left = 12
       Top = 1133
@@ -846,8 +848,8 @@ object frm_Swagger: Tfrm_Swagger
     OnMouseLeave = grpbx_ResponsepanelMouseLeave
     object rchedt_RequestURL: TcxRichEdit
       AlignWithMargins = True
-      Left = 0
-      Top = 66
+      Left = 14
+      Top = 59
       ParentFont = False
       Lines.Strings = (
         'cxRichEdit2')
@@ -866,14 +868,15 @@ object frm_Swagger: Tfrm_Swagger
     end
     object rchedt_ResponseHeaders: TcxRichEdit
       AlignWithMargins = True
-      Left = 48
-      Top = 688
+      Left = 62
+      Top = 681
       Margins.Left = 54
       ParentFont = False
       Lines.Strings = (
+        'access-control-allow-headers: '
         
-          'access-control-allow-headers: append,delete,entries,foreach,get,' +
-          'has,keys,set,values,Authorization '
+          'append,delete,entries,foreach,get,has,keys,set,values,Authorizat' +
+          'ion '
         ' access-control-allow-methods: POST,GET,OPTIONS,DELETE,PUT '
         ' access-control-allow-origin: * '
         ' access-control-expose-headers: * '
@@ -899,8 +902,8 @@ object frm_Swagger: Tfrm_Swagger
     end
     object rchedt_ResponseBody: TcxRichEdit
       AlignWithMargins = True
-      Left = 48
-      Top = 159
+      Left = 62
+      Top = 152
       Margins.Left = 54
       ParentFont = False
       Lines.Strings = (

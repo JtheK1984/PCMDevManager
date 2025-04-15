@@ -23,10 +23,9 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     TabOrder = 4
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitLeft = 232
-    ExplicitTop = 224
-    ExplicitWidth = 300
-    ExplicitHeight = 250
+    ExplicitTop = 58
+    ExplicitWidth = 740
+    ExplicitHeight = 584
     object mem_statement: TSynMemo
       Left = 26
       Top = 344
@@ -712,8 +711,10 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     Categories.Visibles = (
       True)
     ImageOptions.LargeImages = dm_PCM.imglst_32x32
+    LookAndFeel.NativeStyle = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
+    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 384

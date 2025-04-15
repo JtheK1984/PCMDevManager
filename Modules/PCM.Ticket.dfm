@@ -1664,8 +1664,10 @@ object frm_Ticket: Tfrm_Ticket
     DockColor = clBtnFace
     ImageOptions.LargeImages = dm_PCM.imglst_32x32
     ImageOptions.LargeIcons = True
+    LookAndFeel.NativeStyle = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
+    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 592
