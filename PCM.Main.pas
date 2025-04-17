@@ -100,8 +100,6 @@ type
     chartctrl_CustomerChart: TdxChartSimpleDiagram;
     chartctrl_CustomerSeries: TdxChartSimpleSeries;
     iEntwicklung: TdxNavBarItem;
-    pnl_Tickets: TcxGroupBox;
-    pnl_Dashboard: TcxGroupBox;
     iKonfiguration: TdxNavBarItem;
     dxOpenFileDialog1: TdxOpenFileDialog;
     navbrgrp_XML_DOKU: TdxNavBarGroup;

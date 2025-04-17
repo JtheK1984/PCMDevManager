@@ -40,7 +40,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     OptionsStyle.CustomStyles.Background = navbrStyleIt_main
     OptionsView.HamburgerMenu.NavigationPaneMode = npmNone
     OptionsView.HamburgerMenu.SpaceBetweenGroups = 50
-    ExplicitHeight = 709
+    ExplicitHeight = 748
     object navbrgrp_Optionen: TdxNavBarGroup
       Caption = 'Optionen'
       SelectedLinkIndex = -1
@@ -230,8 +230,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Style.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.NativeStyle = False
     TabOrder = 1
-    ExplicitWidth = 1058
-    ExplicitHeight = 709
+    ExplicitWidth = 1074
+    ExplicitHeight = 748
     Height = 765
     Width = 1080
     object pc_main: TcxPageControl
@@ -253,59 +253,37 @@ object frm_PCM_Main: Tfrm_PCM_Main
       Properties.CustomButtons.Buttons = <>
       Properties.Images = dm_PCM.imglst_16x16
       Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea, pcoNoArrows, pcoRedrawOnResize, pcoSort, pcoUsePageColorForTab]
+      LookAndFeel.NativeStyle = False
       OnPageChanging = pc_mainPageChanging
-      ExplicitWidth = 1052
-      ExplicitHeight = 703
-      ClientRectBottom = 755
-      ClientRectLeft = 4
-      ClientRectRight = 1070
-      ClientRectTop = 25
+      ExplicitWidth = 1068
+      ExplicitHeight = 742
+      ClientRectBottom = 753
+      ClientRectLeft = 2
+      ClientRectRight = 1068
+      ClientRectTop = 28
       object ts_Dashboard: TcxTabSheet
         AllowCloseButton = False
         Caption = 'Dashboard'
         ImageIndex = 79
-        ExplicitWidth = 1044
-        ExplicitHeight = 674
-        object pnl_Dashboard: TcxGroupBox
-          Left = 0
-          Top = 0
-          Align = alClient
-          PanelStyle.Active = True
-          Style.BorderStyle = ebsNone
-          TabOrder = 0
-          ExplicitWidth = 1044
-          ExplicitHeight = 674
-          Height = 730
-          Width = 1066
-          object pnl_Tickets: TcxGroupBox
-            Left = 2
-            Top = 2
-            Align = alClient
-            Caption = 'Tickets'
-            Style.BorderStyle = ebsFlat
-            Style.Edges = [bLeft, bTop, bRight, bBottom]
-            TabOrder = 0
-            ExplicitWidth = 1040
-            ExplicitHeight = 670
-            Height = 726
-            Width = 1062
-          end
-        end
+        ExplicitLeft = 4
+        ExplicitTop = 25
+        ExplicitWidth = 1060
+        ExplicitHeight = 713
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
           Width = 1066
-          Height = 730
+          Height = 725
           Align = alClient
-          TabOrder = 1
+          TabOrder = 0
           LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-          ExplicitWidth = 1044
-          ExplicitHeight = 674
+          ExplicitWidth = 1060
+          ExplicitHeight = 713
           object chartctrl_Customer: TdxChartControl
             Left = 19
             Top = 42
             Width = 1028
-            Height = 669
+            Height = 664
             BorderStyle = cxcbsNone
             Legend.Title.Visible = False
             Titles = <>
