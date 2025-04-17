@@ -69,8 +69,7 @@ type
     grd_Columns: TcxGrid;
     grd_ColumnsDBTableView1: TcxGridDBTableView;
     grd_ColumnsLevel1: TcxGridLevel;
-    dxLayoutItem12: TdxLayoutItem;
-    procedure cmbbx_SQLStatementPropertiesChange(Sender: TObject);
+    grpbx_5Statement: TdxLayoutItem;
     procedure edt_TablenamePropertiesEditValueChanged(Sender: TObject);
     procedure btn_SQLSaveClick(Sender: TObject);
     procedure btn_SQLCancelClick(Sender: TObject);
@@ -99,34 +98,18 @@ uses PCM.Data;
 procedure Tfrm_PCM_Version.SetPanelsVisible(AVisible: boolean);
 begin
   grpbx_1date.visible:= AVisible;
-  grpbx_2Version.top:= grpbx_1Date.top + grpbx_1Date.Height;
+
   grpbx_2Version.visible:= AVisible;
-  grpbx_3Beschreibung.top:= grpbx_2Version.top + grpbx_2Version.Height;
+
   grpbx_3Beschreibung.visible:= AVisible;
-  grpbx_4SQL.Top:= grpbx_3Beschreibung.top + grpbx_3Beschreibung.Height;
   grpbx_4SQL.visible:= AVisible;
-  grpbx_5Statement.Top:= grpbx_4SQL.Top + grpbx_4SQL.Height;
   grpbx_5Statement.visible:= AVisible;
 end;
 ////////////////////////////////////////////////////////////////////////////////
 // MAIN                                                                     //
 ////////////////////////////////////////////////////////////////////////////////
-procedure Tfrm_PCM_Version.cmbbx_SQLStatementPropertiesChange(Sender: TObject);
-begin
-  if cmbbx_SQLStatement.ItemIndex > -1 then
-  begin
-    grpbx_4SQL_Detail_2.Visible:= true;
-    grpbx_4SQL.Height:= grpbx_4SQL_Detail_2.Top + grpbx_4SQL_Detail_2.Height + 4;
-  end
-  else begin
-    grpbx_4SQL_Detail_2.Visible:= false;
-    grpbx_4SQL.Height:= grpbx_4SQL_Detail_1.Top + grpbx_4SQL_Detail_1.Height + 4;
-  end;
-end;
-
 procedure Tfrm_PCM_Version.btn_SQLSaveClick(Sender: TObject);
 begin
-
     if bNew then
     begin
 //      iMain: integer;

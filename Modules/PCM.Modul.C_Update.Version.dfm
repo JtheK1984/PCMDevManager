@@ -82,7 +82,6 @@ object frm_PCM_Version: Tfrm_PCM_Version
         'INSERT INTO'
         'UPDATE'
         'DELETE FROM')
-      Properties.OnChange = cmbbx_SQLStatementPropertiesChange
       Style.HotTrack = False
       Style.TextColor = clWindow
       Style.TransparentBorder = False
@@ -170,7 +169,6 @@ object frm_PCM_Version: Tfrm_PCM_Version
         'time'
         'set'
         'enum')
-      Properties.OnChange = cmbbx_SQLStatementPropertiesChange
       Style.HotTrack = False
       Style.TextColor = clWindow
       Style.TransparentBorder = False
@@ -482,7 +480,7 @@ object frm_PCM_Version: Tfrm_PCM_Version
       ControlOptions.ShowBorder = False
       Index = 5
     end
-    object dxLayoutItem12: TdxLayoutItem
+    object grpbx_5Statement: TdxLayoutItem
       Parent = grpbx_4SQL
       AlignHorz = ahClient
       AlignVert = avTop
