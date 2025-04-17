@@ -2,8 +2,8 @@ object frm_Ticket: Tfrm_Ticket
   Left = 0
   Top = 0
   Caption = 'PCM - DEV - Workspace'
-  ClientHeight = 768
-  ClientWidth = 1140
+  ClientHeight = 700
+  ClientWidth = 900
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,25 +17,27 @@ object frm_Ticket: Tfrm_Ticket
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1140
-    Height = 768
+    Width = 900
+    Height = 700
     Align = alClient
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     OptionsImage.Images = imglst_16x16
+    ExplicitWidth = 1140
+    ExplicitHeight = 768
     object brdckCtrl_Jira: TdxBarDockControl
-      Left = 22
-      Top = 48
-      Width = 1092
+      Left = 19
+      Top = 45
+      Width = 858
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
     end
     object brdckCtrl_JiraBrowser: TdxBarDockControl
-      Left = 34
-      Top = 154
-      Width = 1064
+      Left = 28
+      Top = 148
+      Width = 836
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
@@ -614,9 +616,9 @@ object frm_Ticket: Tfrm_Ticket
       Visible = False
     end
     object stbr_main: TdxStatusBar
-      Left = 34
-      Top = 706
-      Width = 1064
+      Left = 28
+      Top = 644
+      Width = 836
       Height = 20
       Panels = <
         item
@@ -797,20 +799,20 @@ object frm_Ticket: Tfrm_Ticket
       Width = 1092
     end
     object pnl_BrowserJiraPriv: TcxGroupBox
-      Left = 34
-      Top = 223
+      Left = 28
+      Top = 217
       PanelStyle.Active = True
       ParentBackground = False
       ParentColor = False
       Style.Color = 7566195
       Style.TransparentBorder = False
       TabOrder = 2
-      Height = 230
-      Width = 1064
+      Height = 201
+      Width = 836
     end
     object pnl_JDevTools: TcxGroupBox
-      Left = 34
-      Top = 470
+      Left = 28
+      Top = 438
       PanelStyle.Active = True
       ParentBackground = False
       ParentColor = False
@@ -818,8 +820,8 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 3
       OnResize = pnl_JDevToolsResize
-      Height = 230
-      Width = 1064
+      Height = 200
+      Width = 836
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient

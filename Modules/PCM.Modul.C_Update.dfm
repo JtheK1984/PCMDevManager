@@ -2,8 +2,8 @@ object frm_Update: Tfrm_Update
   Left = 0
   Top = 0
   Caption = 'PCM - Updategenerator'
-  ClientHeight = 614
-  ClientWidth = 1254
+  ClientHeight = 800
+  ClientWidth = 1280
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,8 +18,8 @@ object frm_Update: Tfrm_Update
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1254
-    Height = 614
+    Width = 1280
+    Height = 800
     Align = alClient
     TabOrder = 0
     AutoSize = True
@@ -28,7 +28,7 @@ object frm_Update: Tfrm_Update
       Left = 12
       Top = 82
       Width = 235
-      Height = 520
+      Height = 706
       TabOrder = 1
       LookAndFeel.NativeStyle = False
       object tv_Version: TcxGridDBTableView
@@ -79,7 +79,7 @@ object frm_Update: Tfrm_Update
       end
     end
     object mem_Statement: TcxDBMemo
-      Left = 266
+      Left = 269
       Top = 82
       DataBinding.DataField = 'Statement'
       DataBinding.DataSource = dm_PCM.ds_Versions
@@ -88,13 +88,13 @@ object frm_Update: Tfrm_Update
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 2
-      Height = 520
-      Width = 976
+      Height = 706
+      Width = 999
     end
     object dxBarDockControl1: TdxBarDockControl
       Left = 12
       Top = 12
-      Width = 1230
+      Width = 1256
       Height = 63
       Align = dalNone
       BarManager = brmgr_Main

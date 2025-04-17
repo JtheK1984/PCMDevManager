@@ -4,8 +4,8 @@ object frm_DokuCreate: Tfrm_DokuCreate
   BorderIcons = []
   BorderStyle = bsSingle
   Caption = 'PCM-Update/Doku: Doku erstellen'
-  ClientHeight = 103
-  ClientWidth = 425
+  ClientHeight = 124
+  ClientWidth = 439
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,16 +17,14 @@ object frm_DokuCreate: Tfrm_DokuCreate
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 425
-    Height = 103
+    Width = 439
+    Height = 124
     Align = alClient
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitLeft = 72
-    ExplicitTop = -56
-    ExplicitWidth = 300
-    ExplicitHeight = 250
+    ExplicitWidth = 419
+    ExplicitHeight = 86
     object cmbbx_Prog: TcxComboBox
       AlignWithMargins = True
       Left = 12
@@ -39,12 +37,12 @@ object frm_DokuCreate: Tfrm_DokuCreate
       Style.TransparentBorder = False
       TabOrder = 0
       Text = 'cmbbx_Prog'
-      Width = 401
+      Width = 415
     end
     object btn_Save: TcxButton
       Left = 12
       Top = 61
-      Width = 197
+      Width = 204
       Height = 25
       Caption = #220'bernehmen'
       OptionsImage.ImageIndex = 56
@@ -53,9 +51,9 @@ object frm_DokuCreate: Tfrm_DokuCreate
       OnClick = btn_SaveClick
     end
     object btn_Cancel: TcxButton
-      Left = 216
+      Left = 223
       Top = 61
-      Width = 197
+      Width = 204
       Height = 25
       Caption = 'Abbrechen'
       OptionsImage.ImageIndex = 57

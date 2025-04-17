@@ -3,8 +3,8 @@ object frm_Config: Tfrm_Config
   Top = 0
   BorderStyle = bsNone
   Caption = 'frm_user'
-  ClientHeight = 922
-  ClientWidth = 1195
+  ClientHeight = 800
+  ClientWidth = 1280
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,25 +17,27 @@ object frm_Config: Tfrm_Config
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1195
-    Height = 922
+    Width = 1280
+    Height = 800
     Align = alClient
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    ExplicitWidth = 1195
+    ExplicitHeight = 922
     object dxBarDockControl1: TdxBarDockControl
-      Left = 22
-      Top = 47
-      Width = 1147
+      Left = 19
+      Top = 44
+      Width = 1238
       Height = 63
       Align = dalNone
       BarManager = brmgr_main
     end
     object btn_MSSQLtest: TcxButton
       AlignWithMargins = True
-      Left = 33
-      Top = 221
-      Width = 1125
+      Left = 28
+      Top = 220
+      Width = 1220
       Height = 25
       Margins.Left = 7
       Margins.Right = 7
@@ -45,8 +47,8 @@ object frm_Config: Tfrm_Config
     end
     object cmbbx_Type: TcxDBImageComboBox
       AlignWithMargins = True
-      Left = 117
-      Top = 146
+      Left = 112
+      Top = 145
       Margins.Left = 7
       Margins.Top = 0
       Margins.Right = 7
@@ -66,12 +68,12 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 1
-      Width = 1041
+      Width = 1136
     end
     object cmbbx_port: TcxDBImageComboBox
       AlignWithMargins = True
-      Left = 117
-      Top = 196
+      Left = 112
+      Top = 195
       Margins.Left = 7
       Margins.Top = 0
       Margins.Right = 7
@@ -91,12 +93,12 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 3
-      Width = 1041
+      Width = 1136
     end
     object edt_BaseUrl: TcxDBTextEdit
       AlignWithMargins = True
-      Left = 117
-      Top = 171
+      Left = 112
+      Top = 170
       Margins.Left = 7
       Margins.Top = 0
       Margins.Right = 7
@@ -105,12 +107,12 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 2
-      Width = 1041
+      Width = 1136
     end
     object edt_Benutzer: TcxDBTextEdit
       AlignWithMargins = True
-      Left = 117
-      Top = 293
+      Left = 112
+      Top = 292
       Margins.Left = 7
       Margins.Top = 0
       Margins.Right = 7
@@ -121,12 +123,12 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 5
       Height = 19
-      Width = 1041
+      Width = 1136
     end
     object edt_Passwort: TcxDBTextEdit
       AlignWithMargins = True
-      Left = 117
-      Top = 318
+      Left = 112
+      Top = 317
       Margins.Left = 7
       Margins.Top = 0
       Margins.Right = 7
@@ -138,7 +140,7 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 6
       Height = 19
-      Width = 1041
+      Width = 1136
     end
     object grd_Helper: TcxGrid
       Left = 10000

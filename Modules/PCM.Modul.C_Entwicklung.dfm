@@ -2,8 +2,8 @@ object frm_Dev: Tfrm_Dev
   Left = 0
   Top = 0
   Caption = 'PCM - DEV - Workspace'
-  ClientHeight = 768
-  ClientWidth = 1098
+  ClientHeight = 800
+  ClientWidth = 1280
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,15 +17,15 @@ object frm_Dev: Tfrm_Dev
   object lactrl_Main: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1098
-    Height = 768
+    Width = 1280
+    Height = 800
     Align = alClient
     TabOrder = 0
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     object grd_Helpprogs: TcxGrid
-      Left = 21
-      Top = 40
-      Width = 1056
+      Left = 19
+      Top = 42
+      Width = 1242
       Height = 140
       BevelInner = bvLowered
       BevelKind = bkFlat
@@ -101,10 +101,10 @@ object frm_Dev: Tfrm_Dev
       end
     end
     object grd_Projects: TcxGrid
-      Left = 21
-      Top = 296
-      Width = 1056
-      Height = 225
+      Left = 19
+      Top = 298
+      Width = 1242
+      Height = 244
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -218,18 +218,18 @@ object frm_Dev: Tfrm_Dev
       end
     end
     object brdckCtrl_Projects: TdxBarDockControl
-      Left = 21
-      Top = 227
-      Width = 1056
+      Left = 19
+      Top = 229
+      Width = 1242
       Height = 63
       Align = dalNone
       BarManager = brmgr_Main
     end
     object grd_Scripts: TcxGrid
-      Left = 21
-      Top = 568
-      Width = 1056
-      Height = 179
+      Left = 19
+      Top = 589
+      Width = 1242
+      Height = 192
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone

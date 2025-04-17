@@ -1,7 +1,8 @@
 object dm_PCM: Tdm_PCM
   OnCreate = DataModuleCreate
-  Height = 611
-  Width = 900
+  Height = 917
+  Width = 1350
+  PixelsPerInch = 144
   object con_PCM: TFDConnection
     Params.Strings = (
       'Port=3307'
@@ -11,27 +12,26 @@ object dm_PCM: Tdm_PCM
       'DriverID=MySQL')
     ResourceOptions.AssignedValues = [rvAutoReconnect]
     ResourceOptions.AutoReconnect = True
-    Connected = True
     LoginPrompt = False
     BeforeConnect = con_PCMBeforeConnect
-    Left = 16
-    Top = 288
+    Left = 24
+    Top = 432
   end
   object qry_Work: TFDQuery
     Connection = con_PCM
-    Left = 80
-    Top = 288
+    Left = 120
+    Top = 432
   end
   object FDGUIxWaitCursor: TFDGUIxWaitCursor
     Provider = 'Forms'
     ScreenCursor = gcrDefault
-    Left = 136
-    Top = 16
+    Left = 204
+    Top = 24
   end
   object imglst_16x16: TcxImageList
     SourceDPI = 96
     FormatVersion = 1
-    DesignInfo = 12059271
+    DesignInfo = 18088907
     ImageInfo = <
       item
         ImageClass = 'TBitmap'
@@ -3489,15 +3489,15 @@ object dm_PCM: Tdm_PCM
       end>
   end
   object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
-    Left = 208
-    Top = 16
+    Left = 312
+    Top = 24
   end
   object imglst_32x32: TcxImageList
     SourceDPI = 96
     Height = 32
     Width = 32
     FormatVersion = 1
-    DesignInfo = 15204711
+    DesignInfo = 22807067
     ImageInfo = <
       item
         ImageClass = 'TBitmap'
@@ -21010,50 +21010,50 @@ object dm_PCM: Tdm_PCM
       
         'SELECT '#39'DONE'#39',COUNT(*)  AS Wert FROM manager_tickets_priv WHERE ' +
         'STATUS = '#39'FERTIG'#39)
-    Left = 232
-    Top = 168
+    Left = 348
+    Top = 252
   end
   object ds_ChartApp: TDataSource
     DataSet = qry_ChartApp
-    Left = 152
-    Top = 352
+    Left = 228
+    Top = 528
   end
   object qry_Work1: TFDQuery
     Connection = con_PCM
-    Left = 144
-    Top = 288
+    Left = 216
+    Top = 432
   end
   object qry_Work2: TFDQuery
     Connection = con_PCM
-    Left = 208
-    Top = 288
+    Left = 312
+    Top = 432
   end
   object qry_ChartApp: TFDQuery
     Connection = con_PCM
-    Left = 80
-    Top = 352
+    Left = 120
+    Top = 528
   end
   object qry_ChartDesktop: TFDQuery
     Connection = con_PCM
-    Left = 80
-    Top = 416
+    Left = 120
+    Top = 624
   end
   object ds_ChartDesktop: TDataSource
     DataSet = qry_ChartDesktop
-    Left = 152
-    Top = 416
+    Left = 228
+    Top = 624
   end
   object ds_Chart: TDataSource
     DataSet = qry_Chart
-    Left = 296
-    Top = 168
+    Left = 444
+    Top = 252
   end
   object cxImageList1: TcxImageList
     SourceDPI = 96
     Height = 24
     Width = 24
     FormatVersion = 1
-    DesignInfo = 22020495
+    DesignInfo = 33030743
     ImageInfo = <
       item
         ImageClass = 'TdxPNGImage'
@@ -21404,14 +21404,14 @@ object dm_PCM: Tdm_PCM
     ConnectTimeout = 0
     ReadTimeout = 0
     SynchronizedEvents = False
-    Left = 240
-    Top = 88
+    Left = 360
+    Top = 132
   end
   object HTTPBasicAuthenticatorPCM: THTTPBasicAuthenticator
     Username = 'pcm'
     Password = 'pcm'
-    Left = 840
-    Top = 21
+    Left = 1260
+    Top = 32
   end
   object RESTRequest1: TRESTRequest
     AssignedValues = [rvConnectTimeout, rvReadTimeout]
@@ -21438,13 +21438,13 @@ object dm_PCM: Tdm_PCM
     ConnectTimeout = 0
     ReadTimeout = 0
     SynchronizedEvents = False
-    Left = 256
-    Top = 176
+    Left = 384
+    Top = 264
   end
   object ds_Versions: TDataSource
     DataSet = qry_Versions
-    Left = 104
-    Top = 88
+    Left = 156
+    Top = 132
   end
   object qry_Versions: TFDQuery
     Connection = con_PCM
@@ -21457,8 +21457,8 @@ object dm_PCM: Tdm_PCM
       'Description, Statement, `Table` as Table_Update'
       'FROM update_updateversion'
       'WHERE lower(Statement) NOT LIKE LOWER('#39'UPDATE Version_DB%'#39')')
-    Left = 24
-    Top = 88
+    Left = 36
+    Top = 132
   end
   object qry_Doku: TFDQuery
     Connection = con_PCM
@@ -21470,23 +21470,28 @@ object dm_PCM: Tdm_PCM
       'FROM Doku_body'
       'Order by Program, Sortierung'
       '')
-    Left = 16
-    Top = 144
+    Left = 24
+    Top = 216
   end
   object ds_doku: TDataSource
     DataSet = qry_Doku
-    Left = 96
-    Top = 152
+    Left = 144
+    Top = 228
   end
   object qry_Work_sub: TFDQuery
     Connection = con_PCM
-    Left = 80
-    Top = 240
+    Left = 120
+    Top = 360
   end
   object dxLayoutLookAndFeelList1: TdxLayoutLookAndFeelList
     object dxLayoutSkinLookAndFeel1: TdxLayoutSkinLookAndFeel
+      Offsets.ControlOffsetHorz = 5
+      Offsets.ControlOffsetVert = 5
+      Offsets.ItemOffset = 6
+      Offsets.RootItemsAreaOffsetHorz = 11
+      Offsets.RootItemsAreaOffsetVert = 11
       LookAndFeel.NativeStyle = False
-      PixelsPerInch = 96
+      PixelsPerInch = 144
     end
   end
 end

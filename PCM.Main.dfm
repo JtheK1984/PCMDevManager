@@ -3,8 +3,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
   Top = 0
   AlphaBlend = True
   Caption = 'PCM - Manager'
-  ClientHeight = 761
-  ClientWidth = 1264
+  ClientHeight = 800
+  ClientWidth = 1280
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -26,7 +26,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Left = 0
     Top = 35
     Width = 200
-    Height = 726
+    Height = 765
     Align = alLeft
     ActiveGroupIndex = 0
     TabOrder = 0
@@ -40,8 +40,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     OptionsStyle.CustomStyles.Background = navbrStyleIt_main
     OptionsView.HamburgerMenu.NavigationPaneMode = npmNone
     OptionsView.HamburgerMenu.SpaceBetweenGroups = 50
-    ExplicitTop = 30
-    ExplicitHeight = 714
+    ExplicitHeight = 709
     object navbrgrp_Optionen: TdxNavBarGroup
       Caption = 'Optionen'
       SelectedLinkIndex = -1
@@ -231,16 +230,15 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Style.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.NativeStyle = False
     TabOrder = 1
-    ExplicitTop = 30
     ExplicitWidth = 1058
-    ExplicitHeight = 714
-    Height = 726
-    Width = 1064
+    ExplicitHeight = 709
+    Height = 765
+    Width = 1080
     object pc_main: TcxPageControl
       Left = 3
       Top = 3
-      Width = 1058
-      Height = 720
+      Width = 1074
+      Height = 759
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
@@ -257,17 +255,17 @@ object frm_PCM_Main: Tfrm_PCM_Main
       Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea, pcoNoArrows, pcoRedrawOnResize, pcoSort, pcoUsePageColorForTab]
       OnPageChanging = pc_mainPageChanging
       ExplicitWidth = 1052
-      ExplicitHeight = 708
-      ClientRectBottom = 716
+      ExplicitHeight = 703
+      ClientRectBottom = 755
       ClientRectLeft = 4
-      ClientRectRight = 1054
+      ClientRectRight = 1070
       ClientRectTop = 25
       object ts_Dashboard: TcxTabSheet
         AllowCloseButton = False
         Caption = 'Dashboard'
         ImageIndex = 79
         ExplicitWidth = 1044
-        ExplicitHeight = 679
+        ExplicitHeight = 674
         object pnl_Dashboard: TcxGroupBox
           Left = 0
           Top = 0
@@ -276,9 +274,9 @@ object frm_PCM_Main: Tfrm_PCM_Main
           Style.BorderStyle = ebsNone
           TabOrder = 0
           ExplicitWidth = 1044
-          ExplicitHeight = 679
-          Height = 691
-          Width = 1050
+          ExplicitHeight = 674
+          Height = 730
+          Width = 1066
           object pnl_Tickets: TcxGroupBox
             Left = 2
             Top = 2
@@ -288,26 +286,26 @@ object frm_PCM_Main: Tfrm_PCM_Main
             Style.Edges = [bLeft, bTop, bRight, bBottom]
             TabOrder = 0
             ExplicitWidth = 1040
-            ExplicitHeight = 675
-            Height = 687
-            Width = 1046
+            ExplicitHeight = 670
+            Height = 726
+            Width = 1062
           end
         end
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
-          Width = 1050
-          Height = 691
+          Width = 1066
+          Height = 730
           Align = alClient
           TabOrder = 1
           LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
           ExplicitWidth = 1044
-          ExplicitHeight = 679
+          ExplicitHeight = 674
           object chartctrl_Customer: TdxChartControl
-            Left = 21
-            Top = 40
-            Width = 1008
-            Height = 630
+            Left = 19
+            Top = 42
+            Width = 1028
+            Height = 669
             BorderStyle = cxcbsNone
             Legend.Title.Visible = False
             Titles = <>

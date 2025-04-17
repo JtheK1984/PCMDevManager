@@ -15,43 +15,20 @@ uses
   cxCustomData, cxFilter, cxData, cxDataStorage, cxNavigator, dxDateRanges,
   dxScrollbarAnnotations, cxDBData, cxGridLevel, cxGridCustomView,
   cxGridCustomTableView, cxGridTableView, cxGridDBTableView, cxGrid, dxBar,
-  cxClasses, cxDBEdit, dxUIAClasses, dxLayoutContainer, dxLayoutControl;
+  cxClasses, cxDBEdit, dxUIAClasses, dxLayoutContainer, dxLayoutControl,
+  dxLayoutcxEditAdapters;
 
 type
   Tfrm_PCM_Version = class(TForm)
-    grpbx_1Date: TcxGroupBox;
-    lbl_Date: TcxLabel;
     dtedt_Date: TcxDateEdit;
-    grpbx_2Version: TcxGroupBox;
-    lbl_Version: TcxLabel;
     edt_Version: TcxTextEdit;
-    grpbx_3Beschreibung: TcxGroupBox;
-    lbl_Beschreibung: TcxLabel;
     edt_Beschreibung: TcxTextEdit;
-    grpbx_5Statement: TcxGroupBox;
-    lbl_Statement: TcxLabel;
     mem_Statement: TcxMemo;
     qry_Allg: TFDQuery;
-    grpbx_4SQL: TcxGroupBox;
-    sclbx_SQL: TcxScrollBox;
-    cxLabel2: TcxLabel;
     cmbbx_SQLStatement: TcxComboBox;
-    grpbx_2Date_Detail: TcxGroupBox;
-    grpbx_3Version_Detail: TcxGroupBox;
-    grpbx_4Beschreibung_Detail: TcxGroupBox;
-    grpbx_4SQL_Detail_1: TcxGroupBox;
-    grpbx_4SQL_Detail_2: TcxGroupBox;
-    cxLabel1: TcxLabel;
     edt_Tablename: TcxTextEdit;
-    cxLabel3: TcxLabel;
     cxTextEdit1: TcxTextEdit;
-    cxGroupBox1: TcxGroupBox;
     cmbbx_Datatype: TcxComboBox;
-    lbl_Datatype: TcxLabel;
-    cxGroupBox2: TcxGroupBox;
-    cxLabel5: TcxLabel;
-    cxLabel6: TcxLabel;
-    lbl_Nachkomma: TcxLabel;
     cxCheckBox1: TcxCheckBox;
     cxCheckBox2: TcxCheckBox;
     brmgr_SQL: TdxBarManager;
@@ -64,15 +41,35 @@ type
     btn_TableSave: TdxBarLargeButton;
     btn_TableCancel: TdxBarLargeButton;
     btn_TableDelete: TdxBarLargeButton;
-    grd_Columns: TcxGrid;
-    grd_ColumnsDBTableView1: TcxGridDBTableView;
-    grd_ColumnsLevel1: TcxGridLevel;
     edt_Nachkomma: TcxDBTextEdit;
     cxTextEdit3: TcxDBTextEdit;
     cxTextEdit2: TcxDBTextEdit;
     dxLayoutControl1Group_Root: TdxLayoutGroup;
     dxLayoutControl1: TdxLayoutControl;
+    dxLayoutGroup1: TdxLayoutGroup;
+    dxLayoutItem2: TdxLayoutItem;
+    dxBarDockControl2: TdxBarDockControl;
+    grpbx_1date: TdxLayoutItem;
+    dxLayoutGroup2: TdxLayoutGroup;
+    grpbx_2Version: TdxLayoutItem;
+    grpbx_3Beschreibung: TdxLayoutItem;
     dxLayoutItem1: TdxLayoutItem;
+    grpbx_4SQL: TdxLayoutGroup;
+    dxLayoutItem3: TdxLayoutItem;
+    dxLayoutItem4: TdxLayoutItem;
+    dxLayoutItem5: TdxLayoutItem;
+    dxLayoutGroup3: TdxLayoutGroup;
+    dxLayoutItem6: TdxLayoutItem;
+    dxLayoutItem7: TdxLayoutItem;
+    dxLayoutItem8: TdxLayoutItem;
+    dxLayoutItem9: TdxLayoutItem;
+    dxLayoutItem10: TdxLayoutItem;
+    dxLayoutItem11: TdxLayoutItem;
+    dxLayoutItem13: TdxLayoutItem;
+    grd_Columns: TcxGrid;
+    grd_ColumnsDBTableView1: TcxGridDBTableView;
+    grd_ColumnsLevel1: TcxGridLevel;
+    dxLayoutItem12: TdxLayoutItem;
     procedure cmbbx_SQLStatementPropertiesChange(Sender: TObject);
     procedure edt_TablenamePropertiesEditValueChanged(Sender: TObject);
     procedure btn_SQLSaveClick(Sender: TObject);
@@ -98,8 +95,6 @@ uses PCM.Data;
 ////////////////////////////////////////////////////////////////////////////////
 // HELPER                                                                     //
 ////////////////////////////////////////////////////////////////////////////////
-
-
 
 procedure Tfrm_PCM_Version.SetPanelsVisible(AVisible: boolean);
 begin

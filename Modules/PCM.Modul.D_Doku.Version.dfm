@@ -3,8 +3,8 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
   Top = 0
   BorderStyle = bsSingle
   Caption = 'PCM-Update/Doku: Version'
-  ClientHeight = 659
-  ClientWidth = 746
+  ClientHeight = 700
+  ClientWidth = 900
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,20 +17,19 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 63
-    Width = 746
-    Height = 596
+    Width = 900
+    Height = 637
     Align = alClient
     TabOrder = 4
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitTop = 58
     ExplicitWidth = 740
-    ExplicitHeight = 584
+    ExplicitHeight = 579
     object mem_statement: TSynMemo
-      Left = 26
-      Top = 344
-      Width = 694
-      Height = 54
+      Left = 23
+      Top = 315
+      Width = 854
+      Height = 87
       SingleLineMode = False
       Constraints.MinWidth = 20
       Color = clWindowFrame
@@ -88,8 +87,8 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     end
     object cmbbx_Sort: TcxComboBox
       AlignWithMargins = True
-      Left = 124
-      Top = 81
+      Left = 121
+      Top = 72
       Margins.Left = 8
       Margins.Top = 0
       Margins.Right = 0
@@ -300,12 +299,12 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Style.TransparentBorder = False
       TabOrder = 1
       Height = 23
-      Width = 597
+      Width = 757
     end
     object cmbbx_Prog: TcxComboBox
       AlignWithMargins = True
-      Left = 124
-      Top = 25
+      Left = 121
+      Top = 22
       Margins.Left = 8
       Margins.Top = 0
       Margins.Right = 0
@@ -316,12 +315,12 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Style.TransparentBorder = False
       TabOrder = 0
       Height = 23
-      Width = 597
+      Width = 757
     end
     object edt_Bez: TcxTextEdit
       AlignWithMargins = True
-      Left = 124
-      Top = 137
+      Left = 121
+      Top = 122
       Margins.Left = 8
       Margins.Top = 0
       Margins.Right = 0
@@ -331,12 +330,12 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Style.TransparentBorder = False
       TabOrder = 2
       Height = 23
-      Width = 597
+      Width = 757
     end
     object edt_Header: TcxTextEdit
       AlignWithMargins = True
-      Left = 124
-      Top = 453
+      Left = 121
+      Top = 455
       Margins.Left = 8
       Margins.Top = 0
       Margins.Right = 0
@@ -346,12 +345,12 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Style.TransparentBorder = False
       TabOrder = 8
       Height = 23
-      Width = 597
+      Width = 757
     end
     object cmbbx_HeaderType: TcxComboBox
       AlignWithMargins = True
-      Left = 124
-      Top = 483
+      Left = 121
+      Top = 485
       Margins.Left = 8
       Margins.Top = 0
       Margins.Right = 0
@@ -368,13 +367,13 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Style.TransparentBorder = False
       TabOrder = 9
       Height = 23
-      Width = 597
+      Width = 757
     end
     object mem_content: TSynMemo
-      Left = 26
-      Top = 535
-      Width = 694
-      Height = 35
+      Left = 23
+      Top = 537
+      Width = 854
+      Height = 77
       SingleLineMode = False
       Constraints.MinWidth = 20
       Color = clWindowFrame
@@ -432,8 +431,8 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     end
     object edt_bild: TcxButtonEdit
       AlignWithMargins = True
-      Left = 124
-      Top = 193
+      Left = 121
+      Top = 172
       Margins.Left = 8
       Margins.Top = 0
       Margins.Right = 0
@@ -449,11 +448,11 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Style.TransparentBorder = False
       TabOrder = 3
       Height = 23
-      Width = 397
+      Width = 557
     end
     object edt_width: TcxMaskEdit
-      Left = 600
-      Top = 193
+      Left = 757
+      Top = 172
       AutoSize = False
       Properties.MaskKind = emkRegExpr
       Properties.EditMask = '\d+,\d\d'
@@ -466,8 +465,8 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     end
     object chkbx_leer: TcxCheckBox
       AlignWithMargins = True
-      Left = 209
-      Top = 249
+      Left = 206
+      Top = 222
       Margins.Left = 10
       Margins.Top = 0
       Margins.Right = 0
@@ -485,8 +484,8 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     end
     object chkbx_Newpage: TcxCheckBox
       AlignWithMargins = True
-      Left = 124
-      Top = 249
+      Left = 121
+      Top = 222
       Margins.Left = 10
       Margins.Top = 0
       Margins.Right = 0

@@ -2,8 +2,8 @@ object frm_Doku: Tfrm_Doku
   Left = 0
   Top = 0
   Caption = 'PCM - Updategenerator'
-  ClientHeight = 614
-  ClientWidth = 1254
+  ClientHeight = 600
+  ClientWidth = 1000
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,17 +18,19 @@ object frm_Doku: Tfrm_Doku
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1254
-    Height = 614
+    Width = 1000
+    Height = 600
     Align = alClient
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    ExplicitWidth = 1254
+    ExplicitHeight = 614
     object grd_Version: TcxGrid
-      Left = 26
-      Top = 123
-      Width = 1145
-      Height = 461
+      Left = 22
+      Top = 119
+      Width = 905
+      Height = 455
       TabOrder = 2
       LookAndFeel.NativeStyle = False
       object tv_Version: TcxGridDBTableView
@@ -105,16 +107,16 @@ object frm_Doku: Tfrm_Doku
       end
     end
     object dxBarDockControl1: TdxBarDockControl
-      Left = 26
-      Top = 53
-      Width = 1198
+      Left = 22
+      Top = 49
+      Width = 952
       Height = 63
       Align = dalNone
       BarManager = brmgr_Main
     end
     object btn_DokuMainbottom: TcxButton
-      Left = 1191
-      Top = 217
+      Left = 944
+      Top = 210
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -145,8 +147,8 @@ object frm_Doku: Tfrm_Doku
       OnClick = btn_DokuMainbottomClick
     end
     object btn_DokuMaindown: TcxButton
-      Left = 1191
-      Top = 190
+      Left = 944
+      Top = 183
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -172,8 +174,8 @@ object frm_Doku: Tfrm_Doku
       OnClick = btn_DokuMaindownClick
     end
     object btn_DokuMainUp: TcxButton
-      Left = 1191
-      Top = 163
+      Left = 944
+      Top = 156
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -200,8 +202,8 @@ object frm_Doku: Tfrm_Doku
       OnClick = btn_DokuMainUpClick
     end
     object btn_DokuMainTop: TcxButton
-      Left = 1191
-      Top = 136
+      Left = 944
+      Top = 129
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
