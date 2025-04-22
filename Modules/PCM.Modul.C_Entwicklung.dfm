@@ -2,7 +2,7 @@ object frm_Dev: Tfrm_Dev
   Left = 0
   Top = 0
   Caption = 'PCM - DEV - Workspace'
-  ClientHeight = 800
+  ClientHeight = 600
   ClientWidth = 1280
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -18,14 +18,15 @@ object frm_Dev: Tfrm_Dev
     Left = 0
     Top = 0
     Width = 1280
-    Height = 800
+    Height = 600
     Align = alClient
     TabOrder = 0
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    ExplicitHeight = 800
     object grd_Helpprogs: TcxGrid
-      Left = 19
-      Top = 42
-      Width = 1242
+      Left = 28
+      Top = 76
+      Width = 1220
       Height = 140
       BevelInner = bvLowered
       BevelKind = bkFlat
@@ -101,10 +102,10 @@ object frm_Dev: Tfrm_Dev
       end
     end
     object grd_Projects: TcxGrid
-      Left = 19
-      Top = 298
-      Width = 1242
-      Height = 244
+      Left = 28
+      Top = 332
+      Width = 1220
+      Height = 95
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -218,18 +219,18 @@ object frm_Dev: Tfrm_Dev
       end
     end
     object brdckCtrl_Projects: TdxBarDockControl
-      Left = 19
-      Top = 229
-      Width = 1242
+      Left = 28
+      Top = 263
+      Width = 1220
       Height = 63
       Align = dalNone
       BarManager = brmgr_Main
     end
     object grd_Scripts: TcxGrid
-      Left = 19
-      Top = 589
-      Width = 1242
-      Height = 192
+      Left = 28
+      Top = 474
+      Width = 1220
+      Height = 94
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -297,6 +298,408 @@ object frm_Dev: Tfrm_Dev
         GridView = grdDBTblView_Scripts
       end
     end
+    object dxBarDockControl1: TdxBarDockControl
+      Left = 10000
+      Top = 10000
+      Width = 1238
+      Height = 63
+      Align = dalNone
+      BarManager = brmgr_Main
+      Visible = False
+    end
+    object grd_Versions: TcxGrid
+      Left = 10000
+      Top = 10000
+      Width = 1220
+      Height = 119
+      TabOrder = 5
+      Visible = False
+      object grdDBTblView_Versions: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        ScrollbarAnnotations.CustomAnnotations = <>
+        OnFocusedRecordChanged = grdDBTblView_VersionsFocusedRecordChanged
+        DataController.DataSource = ds_SourceAPP
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsBehavior.IncSearch = True
+        OptionsData.Deleting = False
+        OptionsData.Editing = False
+        OptionsData.Inserting = False
+        OptionsSelection.CellSelect = False
+        OptionsView.GroupByBox = False
+        OptionsView.Indicator = True
+        object grdDBTblView_VersionsName: TcxGridDBColumn
+          DataBinding.FieldName = 'Name'
+          Width = 800
+        end
+        object grdDBTblView_VersionsVersion: TcxGridDBColumn
+          DataBinding.FieldName = 'Version'
+          Width = 100
+        end
+        object grdDBTblView_VersionsArchitektur: TcxGridDBColumn
+          DataBinding.FieldName = 'Architektur'
+          PropertiesClassName = 'TcxImageComboBoxProperties'
+          Properties.Items = <
+            item
+              Description = '64 Bit'
+              ImageIndex = 0
+              Value = 0
+            end
+            item
+              Description = '32 Bit'
+              Value = 1
+            end
+            item
+              Description = 'keine'
+              Value = -1
+            end>
+          Width = 120
+        end
+        object grdDBTblView_VersionsArchitektur1: TcxGridDBColumn
+          Caption = 'Architektur 2'
+          DataBinding.FieldName = 'Architektur1'
+          PropertiesClassName = 'TcxImageComboBoxProperties'
+          Properties.Items = <
+            item
+              Description = 'keine'
+              ImageIndex = 0
+              Value = -1
+            end
+            item
+              Description = '64 Bit'
+              Value = 0
+            end
+            item
+              Description = '32 Bit'
+              Value = 1
+            end>
+          Width = 120
+        end
+      end
+      object grdLvl_Versions: TcxGridLevel
+        GridView = grdDBTblView_Versions
+      end
+    end
+    object grd_Progs: TcxGrid
+      Left = 10000
+      Top = 10000
+      Width = 1216
+      Height = 251
+      TabOrder = 20
+      Visible = False
+      object grdDBTblView_Progs: TcxGridDBTableView
+        Navigator.Buttons.CustomButtons = <>
+        ScrollbarAnnotations.CustomAnnotations = <>
+        OnCellClick = grdDBTblView_ProgsCellClick
+        DataController.DataSource = ds_SourceDir
+        DataController.Summary.DefaultGroupSummaryItems = <>
+        DataController.Summary.FooterSummaryItems = <>
+        DataController.Summary.SummaryGroups = <>
+        OptionsBehavior.IncSearch = True
+        OptionsData.Deleting = False
+        OptionsData.Inserting = False
+        OptionsSelection.CellSelect = False
+        OptionsView.GroupByBox = False
+        OptionsView.Indicator = True
+        object grdDBTblView_ProgsRecId: TcxGridDBColumn
+          DataBinding.FieldName = 'RecId'
+          DataBinding.IsNullValueType = True
+          Visible = False
+        end
+        object grdDBTblView_ProgsBackup: TcxGridDBColumn
+          DataBinding.FieldName = 'Backup'
+          DataBinding.IsNullValueType = True
+          PropertiesClassName = 'TcxCheckBoxProperties'
+          Properties.Alignment = taRightJustify
+          Properties.ValueChecked = '1'
+          Properties.ValueUnchecked = '0'
+          Width = 100
+        end
+        object grdDBTblView_ProgsProgram: TcxGridDBColumn
+          Caption = 'Programm'
+          DataBinding.FieldName = 'Program'
+          DataBinding.IsNullValueType = True
+          Options.Editing = False
+          SortIndex = 0
+          SortOrder = soAscending
+          Width = 860
+        end
+      end
+      object grdLVL_Progs: TcxGridLevel
+        GridView = grdDBTblView_Progs
+      end
+    end
+    object chkbx_Aktiv: TcxDBCheckBox
+      Left = 10000
+      Top = 10000
+      AutoSize = False
+      DataBinding.DataField = 'Aktiv'
+      DataBinding.DataSource = ds_SourceAPP
+      ParentBackground = False
+      ParentColor = False
+      Properties.Alignment = taRightJustify
+      Properties.NullStyle = nssUnchecked
+      Properties.ValueChecked = '1'
+      Properties.ValueUnchecked = '0'
+      Style.Color = clWindowFrame
+      Style.HotTrack = False
+      Style.LookAndFeel.Kind = lfUltraFlat
+      Style.Shadow = False
+      Style.TransparentBorder = False
+      StyleDisabled.LookAndFeel.Kind = lfUltraFlat
+      StyleFocused.LookAndFeel.Kind = lfUltraFlat
+      StyleHot.LookAndFeel.Kind = lfUltraFlat
+      StyleReadOnly.LookAndFeel.Kind = lfUltraFlat
+      TabOrder = 11
+      Transparent = True
+      Visible = False
+      OnClick = chkbx_AktivClick
+      Height = 19
+      Width = 15
+    end
+    object edt_Destination: TcxDBButtonEdit
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'Destination'
+      DataBinding.DataSource = ds_SourceAPP
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = edt_DestinationPropertiesButtonClick
+      Properties.OnEditValueChanged = edt_DestinationPropertiesEditValueChanged
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 9
+      Visible = False
+      Width = 534
+    end
+    object edt_Files: TcxDBButtonEdit
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'FileExt'
+      DataBinding.DataSource = ds_SourceAPP
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = edt_FilesPropertiesButtonClick
+      Properties.OnEditValueChanged = edt_FilesPropertiesEditValueChanged
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 10
+      Visible = False
+      Width = 1053
+    end
+    object edt_Name: TcxDBTextEdit
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'Name'
+      DataBinding.DataSource = ds_SourceAPP
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 6
+      Visible = False
+      Width = 1017
+    end
+    object edt_Source: TcxDBButtonEdit
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'Source'
+      DataBinding.DataSource = ds_SourceAPP
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = edt_SourcePropertiesButtonClick
+      Properties.OnEditValueChanged = edt_SourcePropertiesEditValueChanged
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 8
+      Visible = False
+      Width = 530
+    end
+    object edt_Version: TcxDBMaskEdit
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'Version'
+      DataBinding.DataSource = ds_SourceAPP
+      Properties.EditMask = '!0.0;1;_'
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 7
+      Visible = False
+      Width = 50
+    end
+    object imgCmbbx_Architektur: TcxDBImageComboBox
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'Architektur'
+      DataBinding.DataSource = ds_SourceAPP
+      Properties.Items = <
+        item
+          Description = '64 Bit'
+          ImageIndex = 0
+          Value = 0
+        end
+        item
+          Description = '32 Bit'
+          Value = 1
+        end
+        item
+          Description = 'keine'
+          Value = -1
+        end>
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 12
+      Visible = False
+      Width = 518
+    end
+    object cxDBImageComboBox1: TcxDBImageComboBox
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'Architektur1'
+      DataBinding.DataSource = ds_SourceAPP
+      Properties.Items = <
+        item
+          Description = 'keine'
+          ImageIndex = 0
+          Value = -1
+        end
+        item
+          Description = '64 Bit'
+          Value = 0
+        end
+        item
+          Description = '32 Bit'
+          Value = 1
+        end>
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 13
+      Visible = False
+      Width = 518
+    end
+    object edt_PathSetup: TcxDBButtonEdit
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'PfadInno'
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = edt_PathSetupPropertiesButtonClick
+      Properties.OnEditValueChanged = edt_PathSetupPropertiesEditValueChanged
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 16
+      Visible = False
+      Width = 1117
+    end
+    object edt_PathExe: TcxDBButtonEdit
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'DateiInno'
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = edt_PathExePropertiesButtonClick
+      Properties.OnEditValueChanged = edt_PathExePropertiesEditValueChanged
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 17
+      Visible = False
+      Width = 906
+    end
+    object chkbx_PathExeApk: TcxDBCheckBox
+      Left = 10000
+      Top = 10000
+      BiDiMode = bdRightToLeft
+      Caption = 'EXE / APK komprimieren'
+      DataBinding.DataField = 'Komprimieren'
+      ParentBackground = False
+      ParentBiDiMode = False
+      ParentColor = False
+      Properties.Alignment = taRightJustify
+      Properties.NullStyle = nssUnchecked
+      Properties.ValueChecked = '1'
+      Properties.ValueUnchecked = '0'
+      Properties.OnEditValueChanged = chkbx_PathExeApkPropertiesEditValueChanged
+      Style.Color = clWindowFrame
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 18
+      Transparent = True
+      Visible = False
+    end
+    object edt_MSBuild: TcxDBButtonEdit
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'MSBuild'
+      Properties.Buttons = <
+        item
+          Default = True
+          Kind = bkEllipsis
+        end>
+      Properties.OnButtonClick = edt_MSBuildPropertiesButtonClick
+      Properties.OnEditValueChanged = edt_MSBuildPropertiesEditValueChanged
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 14
+      Visible = False
+      Width = 930
+    end
+    object cxDBCheckBox1: TcxDBCheckBox
+      Left = 10000
+      Top = 10000
+      BiDiMode = bdRightToLeft
+      Caption = 'EXE / APK '#252'ber MSBuild erzeugen'
+      DataBinding.DataField = 'CreateMSBUILD'
+      ParentBackground = False
+      ParentBiDiMode = False
+      ParentColor = False
+      Properties.Alignment = taRightJustify
+      Properties.NullStyle = nssUnchecked
+      Properties.ValueChecked = '1'
+      Properties.ValueUnchecked = '0'
+      Style.Color = clWindowFrame
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 15
+      Transparent = True
+      Visible = False
+      OnClick = cxDBCheckBox1Click
+    end
+    object chkbx_Copy: TcxDBCheckBox
+      Left = 10000
+      Top = 10000
+      BiDiMode = bdRightToLeft
+      Caption = 'Kopieren'
+      DataBinding.DataField = 'Kopieren'
+      ParentBackground = False
+      ParentBiDiMode = False
+      ParentColor = False
+      Properties.Alignment = taRightJustify
+      Properties.NullStyle = nssUnchecked
+      Properties.ValueChecked = '1'
+      Properties.ValueUnchecked = '0'
+      Properties.OnEditValueChanged = chkbx_CopyPropertiesEditValueChanged
+      Style.Color = clWindowFrame
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 19
+      Transparent = True
+      Visible = False
+      OnClick = chkbx_CopyClick
+    end
     object lagrp_Root: TdxLayoutGroup
       AlignHorz = ahClient
       AlignVert = avClient
@@ -305,10 +708,8 @@ object frm_Dev: Tfrm_Dev
       Index = -1
     end
     object lagrp_Main: TdxLayoutGroup
-      Parent = lagrp_Root
-      AlignHorz = ahClient
-      AlignVert = avClient
-      CaptionOptions.Text = 'Hilfsprogramme'
+      Parent = dxLayoutGroup1
+      CaptionOptions.Text = 'Entwicklung'
       ShowBorder = False
       Index = 0
     end
@@ -380,6 +781,417 @@ object frm_Dev: Tfrm_Dev
       CaptionOptions.Text = 'Hilfsprogramme'
       ButtonOptions.ShowExpandButton = True
       Index = 0
+    end
+    object dxLayoutGroup1: TdxLayoutGroup
+      Parent = lagrp_Root
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      LayoutDirection = ldTabbed
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup2: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Quellcodesicherung'
+      ItemIndex = 2
+      Index = 1
+    end
+    object dxLayoutItem1: TdxLayoutItem
+      Parent = dxLayoutGroup2
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = dxBarDockControl1
+      ControlOptions.AutoColor = True
+      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalWidth = 1280
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup3: TdxLayoutGroup
+      Parent = dxLayoutGroup2
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Allgemein'
+      Index = 1
+    end
+    object dxLayoutItem2: TdxLayoutItem
+      Parent = dxLayoutGroup3
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = grd_Versions
+      ControlOptions.OriginalHeight = 200
+      ControlOptions.OriginalWidth = 1171
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object pc_SourceCode: TdxLayoutGroup
+      Parent = dxLayoutGroup2
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      LayoutDirection = ldTabbed
+      ShowBorder = False
+      OnTabChanged = pc_SourceCodeTabChanged
+      Index = 2
+    end
+    object dxLayoutGroup5: TdxLayoutGroup
+      Parent = pc_SourceCode
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Verzeichnis Konfiguration'
+      Index = 1
+    end
+    object dxLayoutGroup6: TdxLayoutGroup
+      Parent = pc_SourceCode
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'Grundkonfiguration'
+      Index = 0
+    end
+    object dxLayoutGroup7: TdxLayoutGroup
+      Parent = dxLayoutGroup6
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Backup Quellcode'
+      ItemIndex = 3
+      Index = 0
+    end
+    object dxLayoutItem3: TdxLayoutItem
+      Parent = dxLayoutGroup5
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = grd_Progs
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 1167
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem4: TdxLayoutItem
+      Parent = dxLayoutGroup4
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Bezeichnung:'
+      Control = edt_Name
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 600
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem5: TdxLayoutItem
+      Parent = dxLayoutGroup4
+      AlignHorz = ahLeft
+      AlignVert = avTop
+      CaptionOptions.Text = 'Version:'
+      Control = edt_Version
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 50
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem6: TdxLayoutItem
+      Parent = dxLayoutGroup12
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Pfad MSBuild:'
+      Control = edt_MSBuild
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 600
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem7: TdxLayoutItem
+      Parent = dxLayoutGroup8
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = '2. Architektur:'
+      Control = cxDBImageComboBox1
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 600
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem8: TdxLayoutItem
+      Parent = dxLayoutGroup8
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Architektur:'
+      Control = imgCmbbx_Architektur
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 600
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem9: TdxLayoutItem
+      Parent = dxLayoutGroup10
+      AlignHorz = ahLeft
+      AlignVert = avTop
+      CaptionOptions.Text = 'Backup:'
+      Control = chkbx_Aktiv
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 15
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem10: TdxLayoutItem
+      Parent = dxLayoutGroup10
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Dateien:'
+      Control = edt_Files
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 600
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem11: TdxLayoutItem
+      Parent = dxLayoutGroup9
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Zielpfad:'
+      Control = edt_Destination
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 600
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem12: TdxLayoutItem
+      Parent = dxLayoutGroup9
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Quellpfad:'
+      Control = edt_Source
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 600
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup4: TdxLayoutGroup
+      Parent = dxLayoutGroup7
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup8: TdxLayoutGroup
+      Parent = dxLayoutGroup7
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 3
+    end
+    object dxLayoutGroup9: TdxLayoutGroup
+      Parent = dxLayoutGroup7
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutGroup10: TdxLayoutGroup
+      Parent = dxLayoutGroup7
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 2
+    end
+    object dxLayoutGroup11: TdxLayoutGroup
+      Parent = dxLayoutGroup6
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = ' Komprimieren / Erzeugen / INNO-Setup'
+      Index = 1
+    end
+    object dxLayoutItem13: TdxLayoutItem
+      Parent = dxLayoutGroup13
+      AlignHorz = ahLeft
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = chkbx_Copy
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 64
+      ControlOptions.ShowBorder = False
+      Index = 2
+    end
+    object dxLayoutItem14: TdxLayoutItem
+      Parent = dxLayoutGroup13
+      AlignHorz = ahLeft
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = chkbx_PathExeApk
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 135
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem15: TdxLayoutItem
+      Parent = dxLayoutGroup13
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Pfad EXE / APK:'
+      Control = edt_PathExe
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 600
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem16: TdxLayoutItem
+      Parent = dxLayoutGroup11
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Pfad Setup:'
+      Control = edt_PathSetup
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 600
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem17: TdxLayoutItem
+      Parent = dxLayoutGroup12
+      AlignHorz = ahLeft
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = cxDBCheckBox1
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 181
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutGroup12: TdxLayoutGroup
+      Parent = dxLayoutGroup11
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup13: TdxLayoutGroup
+      Parent = dxLayoutGroup11
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 2
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 2
+    end
+  end
+  object grpbx_Progress: TcxGroupBox
+    Left = 437
+    Top = 172
+    BiDiMode = bdLeftToRight
+    Caption = 'Status'
+    ParentBiDiMode = False
+    TabOrder = 5
+    Visible = False
+    Height = 124
+    Width = 550
+    object prgbr_CopyConfig: TcxProgressBar
+      AlignWithMargins = True
+      Left = 2
+      Top = 55
+      Margins.Left = 0
+      Margins.Top = 9
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Align = alTop
+      AutoSize = False
+      TabOrder = 0
+      Height = 19
+      Width = 546
+    end
+    object prgbr_CopyFile: TcxProgressBar
+      AlignWithMargins = True
+      Left = 2
+      Top = 27
+      Margins.Left = 0
+      Margins.Top = 9
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Align = alTop
+      AutoSize = False
+      TabOrder = 1
+      Height = 19
+      Width = 546
+    end
+    object prgbr_CopyProjekt: TcxProgressBar
+      Left = 3
+      Top = 118
+      AutoSize = False
+      TabOrder = 2
+      Visible = False
+      Height = 19
+      Width = 546
+    end
+    object lbl_Config: TcxLabel
+      AlignWithMargins = True
+      Left = 2
+      Top = 99
+      Margins.Left = 0
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Align = alTop
+      AutoSize = False
+      BiDiMode = bdLeftToRight
+      Caption = 'lbl_Config'
+      ParentBiDiMode = False
+      TabOrder = 3
+      Transparent = True
+      Height = 17
+      Width = 546
+    end
+    object lbl_File: TcxLabel
+      AlignWithMargins = True
+      Left = 2
+      Top = 79
+      Margins.Left = 0
+      Margins.Top = 5
+      Margins.Right = 0
+      Margins.Bottom = 0
+      Align = alTop
+      AutoSize = False
+      BiDiMode = bdLeftToRight
+      Caption = 'lbl_File'
+      ParentBiDiMode = False
+      TabOrder = 4
+      Transparent = True
+      Height = 17
+      Width = 546
+    end
+    object lbl_Projekt: TcxLabel
+      Left = 2
+      Top = 124
+      AutoSize = False
+      BiDiMode = bdLeftToRight
+      Caption = 'lbl_Projekt'
+      ParentBiDiMode = False
+      TabOrder = 5
+      Transparent = True
+      Height = 17
+      Width = 546
     end
   end
   object imglst_16x16: TcxImageList
@@ -1201,6 +2013,46 @@ object frm_Dev: Tfrm_Dev
       Visible = True
       WholeRow = False
     end
+    object brmgr_MainBar1: TdxBar
+      Caption = 'Custom 2'
+      CaptionButtons = <>
+      DockControl = dxBarDockControl1
+      DockedDockControl = dxBarDockControl1
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1309
+      FloatTop = 3
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btn_ConfigNew'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_ConfigCopy'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_ConfigSave'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_ConfigDelete'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_ConfigCreate'
+        end>
+      OneOnRow = True
+      RotateWhenVertical = False
+      Row = 0
+      UseOwnFont = False
+      UseRestSpace = True
+      Visible = True
+      WholeRow = False
+    end
     object btn_CreateHelpScripts: TdxBarLargeButton
       Caption = 'Scripte erstellen'
       Category = 0
@@ -1288,5 +2140,108 @@ object frm_Dev: Tfrm_Dev
       Enabled = False
       Visible = ivAlways
     end
+    object btn_ConfigNew: TdxBarLargeButton
+      Caption = 'Neue Konfig.'
+      Category = 0
+      Hint = 'Neue Konfig.'
+      Visible = ivAlways
+      OnClick = btn_ConfigNewClick
+      AutoGrayScale = False
+      LargeImageIndex = 132
+      Width = 125
+    end
+    object btn_ConfigCopy: TdxBarLargeButton
+      Caption = 'Konfig kopieren'
+      Category = 0
+      Hint = 'Konfig kopieren'
+      Visible = ivAlways
+      OnClick = btn_ConfigCopyClick
+      AutoGrayScale = False
+      LargeImageIndex = 132
+      Width = 125
+    end
+    object btn_ConfigSave: TdxBarLargeButton
+      Caption = 'Konfig speichern'
+      Category = 0
+      Hint = 'Konfig speichern'
+      Visible = ivAlways
+      OnClick = btn_ConfigSaveClick
+      AutoGrayScale = False
+      LargeImageIndex = 133
+      Width = 125
+    end
+    object btn_ConfigDelete: TdxBarLargeButton
+      Caption = 'L'#246'schen'
+      Category = 0
+      Hint = 'L'#246'schen'
+      Visible = ivAlways
+      OnClick = btn_ConfigDeleteClick
+      AutoGrayScale = False
+      LargeImageIndex = 134
+      Width = 125
+    end
+    object btn_ConfigCreate: TdxBarLargeButton
+      Caption = 'Backup erstellen'
+      Category = 0
+      Hint = 'Backup erstellen'
+      Visible = ivAlways
+      OnClick = btn_ConfigCreateClick
+      AutoGrayScale = False
+      LargeImageIndex = 122
+      Width = 125
+    end
+  end
+  object qry_SourceAPP: TFDQuery
+    Active = True
+    Connection = dm_PCM.con_PCM
+    SQL.Strings = (
+      'SELECT * FROM service_config_quellcode_apps'
+      'Order by Name')
+    Left = 971
+    Top = 264
+  end
+  object ds_SourceAPP: TDataSource
+    DataSet = qry_SourceAPP
+    Left = 923
+    Top = 328
+  end
+  object qry_SourceDir: TFDQuery
+    Connection = dm_PCM.con_PCM
+    SQL.Strings = (
+      'SELECT * FROM service_config_quellcode_dir')
+    Left = 995
+    Top = 368
+  end
+  object ds_SourceDir: TDataSource
+    DataSet = qry_SourceDir
+    Left = 923
+    Top = 376
+  end
+  object tpgb_Copy: TdxTaskbarProgress
+    Position = 0
+    Left = 155
+    Top = 568
+  end
+  object md_FileExt: TdxMemData
+    Indexes = <>
+    SortOptions = []
+    Left = 683
+    Top = 248
+    object md_FileExtFileExt: TStringField
+      FieldName = 'FileExt'
+      Size = 50
+    end
+  end
+  object odlg_Script: TdxOpenFileDialog
+    Filter = 'MSBUILD Scriptfile (*.bat)|*.bat'
+    FilterIndex = 2
+    Left = 275
+    Top = 320
+  end
+  object odlg_Files: TdxOpenFileDialog
+    Filter = 'Android Package (*.apk)|*.apk|Anwendung (*.exe)|*.exe'
+    FilterIndex = 2
+    Left = 275
+    Top = 232
   end
 end

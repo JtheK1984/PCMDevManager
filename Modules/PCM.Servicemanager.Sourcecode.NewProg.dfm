@@ -1,0 +1,207 @@
+object fSourceBackup_NewConfig: TfSourceBackup_NewConfig
+  Left = 0
+  Top = 0
+  BorderStyle = bsDialog
+  Caption = 'Neue Konfiguration erstellen'
+  ClientHeight = 110
+  ClientWidth = 446
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  Position = poScreenCenter
+  TextHeight = 13
+  object dxLayoutControl1: TdxLayoutControl
+    Left = 0
+    Top = 0
+    Width = 446
+    Height = 110
+    Align = alClient
+    TabOrder = 0
+    AutoSize = True
+    LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    ExplicitLeft = 48
+    ExplicitTop = -56
+    ExplicitWidth = 300
+    ExplicitHeight = 250
+    object edt_ConfigName: TcxTextEdit
+      Left = 66
+      Top = 28
+      AutoSize = False
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 1
+      OnKeyUp = edt_ConfigNameKeyUp
+      Height = 19
+      Width = 370
+    end
+    object btn_Abort: TcxButton
+      Left = 116
+      Top = 66
+      Width = 100
+      Height = 25
+      Caption = 'Abbrechen'
+      TabOrder = 3
+      OnClick = btn_AbortClick
+    end
+    object btn_Ok: TcxButton
+      Left = 10
+      Top = 66
+      Width = 100
+      Height = 25
+      Caption = 'OK'
+      TabOrder = 2
+      OnClick = btn_OkClick
+    end
+    object img_Config: TcxImage
+      Left = 10
+      Top = 10
+      AutoSize = True
+      Picture.Data = {
+        0B546478504E47496D61676589504E470D0A1A0A0000000D4948445200000030
+        0000003008060000005702F9870000000467414D410000AFC837058AE9000000
+        1974455874536F6674776172650041646F626520496D616765526561647971C9
+        653C00000682494441546843D5997D6C536514C66F42829A2C2A4943666288FE
+        D13F1433718099125121626544124CB171807C04488080438421B0F13164489C
+        0E348A1FD32D9A18C4C190183E06886890F0B50D08C301FB601BD075EB282D74
+        DDCAF139F7BDB7BDBD2DB56BEF65E1244FD6DEDB7BFB7BDE7BCE79CF368988EE
+        6BC53C783F29E6C1FB49B10F7264CEFEF4D1B179F4847D53BF8A19984540C588
+        98063267170C9B5B4A5B8E1195D798A7325675A47ED069331898457A76FA7A05
+        3932EE62C0BD628F8F6EF7E09D8171E78E5010EA857A824201A8BB97C8CFC277
+        F2F7B26E05883A6F11318B9431ED04701F17D49AC07D63199057C8C84806DE07
+        79A1C2C3801206864303647035706FD30DA4027FB33BCA409A0CAE06EE6FAA81
+        54E1FBD58011F01E7F3F19300AFE467F183012FE9E1B301ABEEBF63D346006BC
+        FB5E19300BBE135AB21750661A301A9EC19D5EA2360FD1952EA2CCAF00659601
+        23E1796CB80EF05680B7DC10F04D661A300ADECDE037C58AEBE11BDD26193002
+        9E57DDE523BA1A07BEC10C0346C1739EFF1FFCE54E830D1801CF1D86733D11F8
+        4B1D061AE80FF87AA30C1801CFEDF11AC023E0AFB9A975F56872AD4AA7EB0BD2
+        A8E9F7D208F87F5D06183002BE039D260A1E2BDF52514C9EF291B8B00885914F
+        CE2516AAAD6B0EC15F48D540AAF0DC26B9D3C482E7B469F9299FFCC71DF82650
+        FA37916B653A9DA9AA0CC1D7B5A760205578CE77EE34D7CE9FA6ABCBACE45C66
+        91D385D346CDF92B310CD4EEAF0CC1D71FA8A09A79B836D742E7EDD289E22CE9
+        31055D841E9EA535902C3CEFAA323CAF3CE07BDA66E34645E4DB6FA3D6A519D4
+        DCE6960BB6F9C768033530C0F01777979273B185821717E2511691B76C141D9B
+        281528E822F4F02CD54032F0EAE61482879C7916DCA810B706E49DCFC9B74F98
+        686875C73450BDAF320CDF982BCE41FE430EAA7D4B3AA4A08B6060BD54037D81
+        5757BD5D072FE73CD2C677C026C3874CECB5510B3F89AF174619A8DB6027E7FB
+        806F0AC393BB90DC1BACB4E33569A5822E8281F56203FC47A744E0D55CE7558F
+        09CF05CBAD12B0BE2A8D89A030D19623451990E19B35F05D802FB252D578E930
+        908708722518582FD940F5DDE1B5E0DC1EE3C22BDD86735E36811A8830B1C716
+        61A0EB8BA114BCA283DF68A5F237063502770C9458172AF9270CAE427B01CD6D
+        91C1395D12850FEDB0C8794E1BAE01AD09F2AC10AF61803AF2C46BD60DC07F6C
+        A5D239D9243D6DEF5B1B9DB5538156565B9DD9138647DAF026C57D9E5B2517AB
+        2CE43CA70DA78F0CAFC2B2B4EF3D80DF64A5A6E96954B46821E5BFFE54EBC16C
+        696BFD64693DAE2F805E8E6B60260C240D8F95E7C2F56C1F49FEB30EF29F816A
+        A11AA81A3A0D9D42DAF89495D7ABBB988297E793FF083EF7277418FA034217F2
+        1F840E38A8237F085D7A5B9A14D740B2F09C36AE75E948138C07B1000D50B02E
+        57DED8E21A48169E73FEFAA23418C88790D74145BD8A7A1405207D1AB17A4A90
+        BF38C7F229F22ABA29E4DF6B177B0203EBC50666EC481E9E0B96A74AE7728BFC
+        245C6BA1358A560B757D3314209A82D50AA602C773C8B5029FFD105AAE284FD1
+        B2746A9931D083B162425C03C9C2ABF3FCB9DA73F260C6B30D8F07BCC3CA9BD4
+        52F4F9764DAB0C148B9FBCF2EA13E9458BADB4C9453C775519BD9AF552FD9AE1
+        D27BDBC64A7614F30494EF6068405C03A9C06BE779753093C7030C74C10E0DFC
+        ED420AB6CE17AFD14603A772224DECB4D191391934287372DFDAE874183005BE
+        5303EF47ABFCCC1AB513FB7ED3B45836B1C346A7ED0FB4660D965B67E2068C82
+        E7919807BAA05B075F22FABCDE001FF3ED8209C0874C54D8087B405DC2E3341B
+        3002FEBC13D72CB552B00B23B10ADF0DF8CD563AB92A9B4E96440F737F6F2FA3
+        C625D8B151035A133C4EA3756E55D04530B05E30D09051E293A152853F078971
+        5AD9130280DF22E0ABCEB6D385EFA3C7E923BB2BE9E8053735B009D4806AA22F
+        E37481C5514A2F7EE9A3772B48D6348DA6FE1AD6149D72B687F58EA23DF34693
+        77D728792766789E6D267EDB4E8E5F884AD7451BF8E0934A9ABC8DC851E6960B
+        D85B8E6BB113F338FDF3186981822E420FCF9263D8CCB5D273B33C9C4EA9EAE1
+        11D368D62B99F45D763AD9470DC7EFB75343E7168FCB8C3290F5C2B8D0F94746
+        4CF1EC1CFFE0BEBFDE944E6C7C5E2A045902451C0EFEBF2CB72ED3C4039AFF98
+        1D5F1B36C0FD3EC6679F811E8222430FCFD2C540885D9BA29A49D2B88E8F8650
+        F06A2EF98FDAA965E6400F8E3FA9FF1C143B1230607AF054C9831917A83C1EE8
+        FF997DD790A4FF005CCEB3508514557F0000000049454E44AE426082}
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 0
+    end
+    object dxLayoutControl1Group_Root: TdxLayoutGroup
+      AlignHorz = ahClient
+      AlignVert = avClient
+      Hidden = True
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = -1
+    end
+    object dxLayoutItem1: TdxLayoutItem
+      Parent = dxLayoutGroup5
+      AlignHorz = ahLeft
+      AlignVert = avTop
+      CaptionOptions.Text = 'img_Config'
+      CaptionOptions.Visible = False
+      Control = img_Config
+      ControlOptions.OriginalHeight = 50
+      ControlOptions.OriginalWidth = 50
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem2: TdxLayoutItem
+      Parent = dxLayoutGroup5
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'Bitte gegeben Sie eine Bezeichnung f'#252'r die Konfiguration an:'
+      CaptionOptions.Layout = clTop
+      Control = edt_ConfigName
+      ControlOptions.OriginalHeight = 19
+      ControlOptions.OriginalWidth = 296
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem3: TdxLayoutItem
+      Parent = dxLayoutGroup6
+      AlignHorz = ahLeft
+      AlignVert = avClient
+      CaptionOptions.Text = 'btn_Ok'
+      CaptionOptions.Visible = False
+      Control = btn_Ok
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 100
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem4: TdxLayoutItem
+      Parent = dxLayoutGroup6
+      AlignHorz = ahLeft
+      AlignVert = avClient
+      CaptionOptions.Text = 'btn_Abort'
+      CaptionOptions.Visible = False
+      Control = btn_Abort
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 100
+      ControlOptions.ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutGroup4: TdxLayoutGroup
+      Parent = dxLayoutControl1Group_Root
+      AlignHorz = ahClient
+      AlignVert = avClient
+      CaptionOptions.Text = 'New Group'
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup5: TdxLayoutGroup
+      Parent = dxLayoutGroup4
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup6: TdxLayoutGroup
+      Parent = dxLayoutGroup4
+      AlignHorz = ahClient
+      AlignVert = avTop
+      CaptionOptions.Text = 'New Group'
+      LayoutDirection = ldHorizontal
+      ShowBorder = False
+      Index = 1
+    end
+  end
+end

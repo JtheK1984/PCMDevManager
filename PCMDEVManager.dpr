@@ -23,7 +23,9 @@ uses
   PCM.Modul.D_Doku in 'Modules\PCM.Modul.D_Doku.pas',
   PCM.Modul.D_Doku.Programm in 'Modules\PCM.Modul.D_Doku.Programm.pas',
   PCM.Modul.D_Doku.Version in 'Modules\PCM.Modul.D_Doku.Version.pas',
-  PCMDEVManager.dxSettings in 'PCMDEVManager.dxSettings.pas';
+  PCMDEVManager.dxSettings in 'PCMDEVManager.dxSettings.pas',
+  PCM.Servicemanager.Sourcecode.NewProg in 'Modules\PCM.Servicemanager.Sourcecode.NewProg.pas' {fSourceBackup_NewConfig},
+  PCM.Servicemanager.Sourcecode.Extension in 'Modules\PCM.Servicemanager.Sourcecode.Extension.pas' {fSourceBackup_FileExt};
 
 {$R *.res}
 
