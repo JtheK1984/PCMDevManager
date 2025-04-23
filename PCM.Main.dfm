@@ -40,7 +40,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
     OptionsStyle.CustomStyles.Background = navbrStyleIt_main
     OptionsView.HamburgerMenu.NavigationPaneMode = npmNone
     OptionsView.HamburgerMenu.SpaceBetweenGroups = 50
-    ExplicitHeight = 748
+    ExplicitLeft = -1
+    ExplicitTop = 66
     object navbrgrp_Optionen: TdxNavBarGroup
       Caption = 'Optionen'
       SelectedLinkIndex = -1
@@ -176,7 +177,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
     object iSprache: TdxNavBarItem
       Caption = 'Sprache'
       SmallImageIndex = 88
-      Visible = False
       OnClick = iSpracheClick
     end
     object iTickets: TdxNavBarItem
@@ -209,6 +209,9 @@ object frm_PCM_Main: Tfrm_PCM_Main
       LargeImageIndex = 0
       SmallImageIndex = 92
       OnClick = NavBarClick
+    end
+    object navbr_mainItem1: TdxNavBarItem
+      Caption = 'navbr_mainItem1'
     end
     object navbrStyleIt_main: TdxNavBarStyleItem
       Style.BackColor = clGray
@@ -265,10 +268,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
         AllowCloseButton = False
         Caption = 'Dashboard'
         ImageIndex = 79
-        ExplicitLeft = 4
-        ExplicitTop = 25
         ExplicitWidth = 1060
-        ExplicitHeight = 713
+        ExplicitHeight = 708
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
@@ -278,7 +279,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
           TabOrder = 0
           LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
           ExplicitWidth = 1060
-          ExplicitHeight = 713
+          ExplicitHeight = 708
           object chartctrl_Customer: TdxChartControl
             Left = 19
             Top = 42
@@ -777,5 +778,97 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Filter = 'Applikationen|*.exe'
     Left = 640
     Top = 573
+  end
+  object trayic_Main: TTrayIcon
+    Icons = dm_PCM.imglst_16x16
+    IconIndex = 93
+    Visible = True
+    Left = 504
+    Top = 376
+  end
+  object ppm_Main: TPopupMenu
+    Images = dm_PCM.imglst_16x16
+    Left = 448
+    Top = 416
+    object ppmbtn_Benutzer: TMenuItem
+      Caption = 'Benutzerverwaltung'
+      ImageIndex = 1
+      OnClick = ppmbtn_BenutzerClick
+    end
+    object ppmbtn_Konfiguration: TMenuItem
+      Caption = 'Konfiguration'
+      ImageIndex = 2
+      OnClick = ppmbtn_KonfigurationClick
+    end
+    object ppmbtn_Design: TMenuItem
+      Caption = 'Design'
+      ImageIndex = 82
+      OnClick = ppmbtn_DesignClick
+    end
+    object ppmbtn_Trenn1: TMenuItem
+      Caption = '-'
+    end
+    object ppmbtn_Dev: TMenuItem
+      Caption = 'Entwicklung Projekte'
+      ImageIndex = 91
+      OnClick = ppmbtn_DevClick
+    end
+    object ppmbtn_Web: TMenuItem
+      Caption = 'Entwicklung Web'
+      ImageIndex = 90
+      OnClick = ppmbtn_WebClick
+    end
+    object ppmbtn_Trenn2: TMenuItem
+      Caption = '-'
+    end
+    object ppmbtn_Dokumentation: TMenuItem
+      Caption = 'Dokumentation'
+      ImageIndex = 80
+      OnClick = ppmbtn_DokumentationClick
+    end
+    object ppmbtn_UpdateXML: TMenuItem
+      Caption = 'Update XML'
+      ImageIndex = 82
+      OnClick = ppmbtn_UpdateXMLClick
+    end
+    object N1: TMenuItem
+      Caption = '-'
+    end
+    object ppmbtn_RestAPI: TMenuItem
+      Caption = 'Rest-API'
+      ImageIndex = 92
+      OnClick = ppmbtn_RestAPIClick
+    end
+    object N2: TMenuItem
+      Caption = '-'
+    end
+    object ppmbtn_Systeminfo: TMenuItem
+      Caption = 'Systeminfo'
+      ImageIndex = 21
+      OnClick = ppmbtn_SysteminfoClick
+    end
+    object ppmbtn_Info: TMenuItem
+      Caption = 'Info'
+      ImageIndex = 7
+      OnClick = ppmbtn_InfoClick
+    end
+    object ppmbtn_Trenn6: TMenuItem
+      Caption = '-'
+    end
+    object ppmbtn_Sprache: TMenuItem
+      Caption = 'Sprache'
+      ImageIndex = 81
+      OnClick = ppmbtn_SpracheClick
+    end
+    object ppmbtn_Abmelden: TMenuItem
+      Caption = 'Abmelden'
+      ImageIndex = 23
+      OnClick = ppmbtn_AbmeldenClick
+    end
+    object ppmbtn_Beenden: TMenuItem
+      Caption = 'Beenden'
+      ImageIndex = 0
+      OnClick = ppmbtn_BeendenClick
+    end
   end
 end

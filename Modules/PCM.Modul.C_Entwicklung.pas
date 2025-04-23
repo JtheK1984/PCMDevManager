@@ -732,8 +732,6 @@ procedure Tfrm_Dev.btn_CreateRESFilesClick(Sender: TObject);
 Var
   sPath: String;
   sFile: String;
-  sFileWithoutExt: String;
-  slVersionH: TStringList;
 begin
   if qry_Projects.FieldByName('ID').AsInteger > 0 then
   begin
@@ -755,8 +753,6 @@ procedure Tfrm_Dev.btn_CreateRESFilesAllClick(Sender: TObject);
 Var
   sPath: String;
   sFile: String;
-  sFileWithoutExt: String;
-  slVersionH: TStringList;
 begin
   qry_Projects.First;
   ShowWaitForm(TForm(Self), PWideChar('Script werden erstellt'), qry_projects.Recordcount,417, 65);

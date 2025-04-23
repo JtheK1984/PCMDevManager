@@ -22,11 +22,10 @@ object frm_Dev: Tfrm_Dev
     Align = alClient
     TabOrder = 0
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitHeight = 800
     object grd_Helpprogs: TcxGrid
-      Left = 28
-      Top = 76
-      Width = 1220
+      Left = 26
+      Top = 58
+      Width = 1228
       Height = 140
       BevelInner = bvLowered
       BevelKind = bkFlat
@@ -102,10 +101,10 @@ object frm_Dev: Tfrm_Dev
       end
     end
     object grd_Projects: TcxGrid
-      Left = 28
-      Top = 332
-      Width = 1220
-      Height = 95
+      Left = 26
+      Top = 294
+      Width = 1228
+      Height = 130
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -219,18 +218,18 @@ object frm_Dev: Tfrm_Dev
       end
     end
     object brdckCtrl_Projects: TdxBarDockControl
-      Left = 28
-      Top = 263
-      Width = 1220
-      Height = 63
+      Left = 26
+      Top = 230
+      Width = 1228
+      Height = 58
       Align = dalNone
       BarManager = brmgr_Main
     end
     object grd_Scripts: TcxGrid
-      Left = 28
-      Top = 474
-      Width = 1220
-      Height = 94
+      Left = 26
+      Top = 456
+      Width = 1228
+      Height = 118
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -302,7 +301,7 @@ object frm_Dev: Tfrm_Dev
       Left = 10000
       Top = 10000
       Width = 1238
-      Height = 63
+      Height = 58
       Align = dalNone
       BarManager = brmgr_Main
       Visible = False
@@ -739,7 +738,7 @@ object frm_Dev: Tfrm_Dev
       CaptionOptions.Visible = False
       Control = brdckCtrl_Projects
       ControlOptions.AutoColor = True
-      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalHeight = 58
       ControlOptions.OriginalWidth = 823
       ControlOptions.ShowBorder = False
       Index = 0
@@ -807,7 +806,7 @@ object frm_Dev: Tfrm_Dev
       CaptionOptions.Visible = False
       Control = dxBarDockControl1
       ControlOptions.AutoColor = True
-      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalHeight = 58
       ControlOptions.OriginalWidth = 1280
       ControlOptions.ShowBorder = False
       Index = 0
@@ -1028,8 +1027,8 @@ object frm_Dev: Tfrm_Dev
       CaptionOptions.Text = 'New Item'
       CaptionOptions.Visible = False
       Control = chkbx_Copy
-      ControlOptions.OriginalHeight = 19
-      ControlOptions.OriginalWidth = 64
+      ControlOptions.OriginalHeight = 17
+      ControlOptions.OriginalWidth = 62
       ControlOptions.ShowBorder = False
       Index = 2
     end
@@ -1040,8 +1039,8 @@ object frm_Dev: Tfrm_Dev
       CaptionOptions.Text = 'New Item'
       CaptionOptions.Visible = False
       Control = chkbx_PathExeApk
-      ControlOptions.OriginalHeight = 19
-      ControlOptions.OriginalWidth = 135
+      ControlOptions.OriginalHeight = 17
+      ControlOptions.OriginalWidth = 133
       ControlOptions.ShowBorder = False
       Index = 1
     end
@@ -1074,8 +1073,8 @@ object frm_Dev: Tfrm_Dev
       CaptionOptions.Text = 'New Item'
       CaptionOptions.Visible = False
       Control = cxDBCheckBox1
-      ControlOptions.OriginalHeight = 19
-      ControlOptions.OriginalWidth = 181
+      ControlOptions.OriginalHeight = 17
+      ControlOptions.OriginalWidth = 179
       ControlOptions.ShowBorder = False
       Index = 1
     end
@@ -1105,7 +1104,7 @@ object frm_Dev: Tfrm_Dev
     BiDiMode = bdLeftToRight
     Caption = 'Status'
     ParentBiDiMode = False
-    TabOrder = 5
+    TabOrder = 1
     Visible = False
     Height = 124
     Width = 550

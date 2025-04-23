@@ -111,6 +111,27 @@ type
     dxLayoutControl1: TdxLayoutControl;
     dxLayoutGroup1: TdxLayoutGroup;
     dxLayoutItem1: TdxLayoutItem;
+    trayic_Main: TTrayIcon;
+    ppm_Main: TPopupMenu;
+    ppmbtn_Benutzer: TMenuItem;
+    ppmbtn_Konfiguration: TMenuItem;
+    ppmbtn_Design: TMenuItem;
+    ppmbtn_Trenn1: TMenuItem;
+    ppmbtn_Web: TMenuItem;
+    ppmbtn_Trenn2: TMenuItem;
+    ppmbtn_Systeminfo: TMenuItem;
+    ppmbtn_Info: TMenuItem;
+    ppmbtn_Trenn6: TMenuItem;
+    ppmbtn_Sprache: TMenuItem;
+    ppmbtn_Abmelden: TMenuItem;
+    ppmbtn_Beenden: TMenuItem;
+    navbr_mainItem1: TdxNavBarItem;
+    ppmbtn_Dev: TMenuItem;
+    N1: TMenuItem;
+    ppmbtn_Dokumentation: TMenuItem;
+    ppmbtn_UpdateXML: TMenuItem;
+    N2: TMenuItem;
+    ppmbtn_RestAPI: TMenuItem;
     procedure FormShow(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure FormResize(Sender: TObject);
@@ -125,6 +146,19 @@ type
     procedure btn_RefreshRightsClick(Sender: TObject);
     procedure btn_CloseModulClick(Sender: TObject);
     procedure iSpracheClick(Sender: TObject);
+    procedure ppmbtn_BenutzerClick(Sender: TObject);
+    procedure ppmbtn_KonfigurationClick(Sender: TObject);
+    procedure ppmbtn_DesignClick(Sender: TObject);
+    procedure ppmbtn_DevClick(Sender: TObject);
+    procedure ppmbtn_WebClick(Sender: TObject);
+    procedure ppmbtn_DokumentationClick(Sender: TObject);
+    procedure ppmbtn_UpdateXMLClick(Sender: TObject);
+    procedure ppmbtn_RestAPIClick(Sender: TObject);
+    procedure ppmbtn_SysteminfoClick(Sender: TObject);
+    procedure ppmbtn_InfoClick(Sender: TObject);
+    procedure ppmbtn_SpracheClick(Sender: TObject);
+    procedure ppmbtn_AbmeldenClick(Sender: TObject);
+    procedure ppmbtn_BeendenClick(Sender: TObject);
   private
     { Private-Deklarationen }
   public
@@ -142,9 +176,7 @@ var
   frm_PCM_Main: Tfrm_PCM_Main;
 
 implementation
-
 {$R *.dfm}
-
 uses  PCM.Benutzerverwaltung,
       PCM.Data,
       PCM.Design,
@@ -335,20 +367,13 @@ var
 begin
   Application.CreateForm(Tfrm_Language,frm_Language);
   frm_Language.Position:= poScreenCenter;
-  frm_Language.ClientHeight:= 135;
   frm_Language.ShowModal;
-  TNtTranslator.SetNew(dm_PCM.slocale,[],'de');
-  TNtTranslator.TranslateForms;
   ifINI := TIniFile.Create(GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\PCM.ini');
   try
     ifINI.WriteString(PCM_Logname, 'Language', dm_PCm.sLocale);
   finally
     ifINI.Free;
   end;
-  Caption:= PCM_Programmname;
-  LoadData;
-  btn_RefreshRightsClick(Self);
-	lafCtrl_Main.SkinName:= dm_PCM.sDesign;
 end;
 procedure Tfrm_PCM_Main.NavBarClick(Sender: TObject);
 var
@@ -591,8 +616,10 @@ procedure Tfrm_PCM_Main.FormShow(Sender: TObject);
 begin
   {$ifdef WIn32}
   iSprache.Visible:= false;
+  ppmbtn_Sprache.Visible:= false;
   {$endif}
   lafCtrl_Main.NativeStyle:= false;
+  trayIC_Main.Hint:= PCM_Programmname;
   dm_PCM.iDBType:= 0;
   if not ReadServerAdress then
   begin
@@ -611,6 +638,87 @@ begin
   end;
 end;
 {$EndRegion Formfunktionen}
+////////////////////////////////////////////////////////////////////////////////
+// Traymenü                                                                   //
+////////////////////////////////////////////////////////////////////////////////
+{$Region Traymenu}
+procedure Tfrm_PCM_Main.ppmbtn_BenutzerClick(Sender: TObject);
+begin
+  navbarclick(iBenutzerverwaltung);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_KonfigurationClick(Sender: TObject);
+begin
+  navbarclick(iKonfiguration);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_DesignClick(Sender: TObject);
+begin
+  navbarclick(iDesign);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_DevClick(Sender: TObject);
+begin
+  navbarclick(iEntwicklung);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_WebClick(Sender: TObject);
+begin
+  navbarclick(iTickets);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_DokumentationClick(Sender: TObject);
+begin
+  navbarclick(iDokumentation);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_UpdateXMLClick(Sender: TObject);
+begin
+  navbarclick(iUpdateXML);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_RestAPIClick(Sender: TObject);
+begin
+  navbarclick(iRestAPI);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_SysteminfoClick(Sender: TObject);
+begin
+  navbarclick(iSysteminfo);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_InfoClick(Sender: TObject);
+begin
+  navbarclick(iInfo);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_SpracheClick(Sender: TObject);
+begin
+  iSpracheClick(Self);
+  WindowState:= TWindowState.wsMaximized;
+  SetForegroundWindow(frm_PCM_main.Handle);
+end;
+procedure Tfrm_PCM_Main.ppmbtn_AbmeldenClick(Sender: TObject);
+begin
+  Abmelden;
+end;
+procedure Tfrm_PCM_Main.ppmbtn_BeendenClick(Sender: TObject);
+begin
+  Close;
+end;
+
+
+{$EndRegion Traymenu}
 end.
 
 

@@ -4,9 +4,10 @@
         <ProjectVersion>20.3</ProjectVersion>
         <FrameworkType>VCL</FrameworkType>
         <Program_Compress>E:\Inno\Setupfiles\Programme\PCMService\UPX\UPX.exe</Program_Compress>
+		<Program_Soluling>E:\Solu\SoluMake.exe</Program_Soluling>		
         <MainSource>PCMDEVManager.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Debug</Config>
+        <Config Condition="'$(Config)'==''">Release</Config>
         <Platform Condition="'$(Platform)'==''">Win64</Platform>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -151,8 +152,9 @@ $(PreBuildEvent)]]></PreBuildEvent>
         <VerInfo_Locale>1033</VerInfo_Locale>
         <Icon_MainIcon>PCM_icon.ico</Icon_MainIcon>
         <VerInfo_AutoIncVersion>true</VerInfo_AutoIncVersion>
-        <VerInfo_Build>11</VerInfo_Build>
-        <VerInfo_Keys>CompanyName=;FileDescription=PCMDEVManager;FileVersion=1.0.0.11;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.PCMDEVManager;ProductName=PCMDEVManager;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <VerInfo_Build>12</VerInfo_Build>
+        <VerInfo_Keys>CompanyName=;FileDescription=PCMDEVManager;FileVersion=1.0.0.12;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProgramID=com.embarcadero.PCMDEVManager;ProductName=PCMDEVManager;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+        <DCC_OutputDRCFile>true</DCC_OutputDRCFile>
     </PropertyGroup>
     <ItemGroup>
         <DelphiCompile Include="$(MainSource)">
@@ -218,7 +220,6 @@ $(PreBuildEvent)]]></PreBuildEvent>
                     <Source Name="MainSource">PCMDEVManager.dpr</Source>
                 </Source>
                 <Excluded_Packages>
-                    <Excluded_Packages Name="$(BDSBIN)\dclofficexp290.bpl">Microsoft Office XP Beispiele für gekapselte Komponenten für Automation Server</Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\dcloffice2k290.bpl">Microsoft Office 2000 Beispiele für gekapselte Komponenten für Automatisierungsserver</Excluded_Packages>
                 </Excluded_Packages>
             </Delphi.Personality>
@@ -1205,6 +1206,10 @@ $(PreBuildEvent)]]></PreBuildEvent>
     <Target Name="CompressWin64">
         <Exec Command="$(Program_Compress) $(DCC_ExeOutput)\$(SanitizedProjectName).exe"/>
     </Target>
+	<Target Name="Localize">
+        <Exec Command="$(Program_Soluling) -lang:de build $(DCC_ExeOutput)\$(SanitizedProjectName).ntp"/>
+        <Exec Command="$(Program_Soluling) -lang:en build $(DCC_ExeOutput)\$(SanitizedProjectName).ntp"/>
+    </Target>	
     <Import Project="$(BDS)\Bin\CodeGear.Delphi.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Delphi.Targets')"/>
     <Import Project="$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj" Condition="Exists('$(APPDATA)\Embarcadero\$(BDSAPPDATABASEDIR)\$(PRODUCTVERSION)\UserTools.proj')"/>
     <Import Project="$(MSBuildProjectName).deployproj" Condition="Exists('$(MSBuildProjectName).deployproj')"/>
