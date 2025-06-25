@@ -233,8 +233,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Style.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.NativeStyle = False
     TabOrder = 1
-    ExplicitWidth = 1074
-    ExplicitHeight = 748
     Height = 765
     Width = 1080
     object pc_main: TcxPageControl
@@ -268,6 +266,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
         AllowCloseButton = False
         Caption = 'Dashboard'
         ImageIndex = 79
+        ExplicitLeft = 0
+        ExplicitTop = 0
         ExplicitWidth = 1060
         ExplicitHeight = 708
         object dxLayoutControl1: TdxLayoutControl

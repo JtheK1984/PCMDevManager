@@ -547,10 +547,10 @@ begin
 end;
 procedure Tfrm_Ticket.btn_JMinMaxBrowserPrivClick(Sender: TObject);
 begin
-  Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
+  Application.CreateForm(Tfrm_PCM_Browser_FullScreen, frm_PCM_Browser_FullScreen);
   if itmpnl_JDevTools.Visible then
   begin
-    if frm_Browser_FullScreen.Execute(True,'Jira - PCM',Aurl,true,DevToolsHWND) then
+    if frm_PCM_Browser_FullScreen.Execute(True,'Jira - PCM',Aurl,true,DevToolsHWND) then
     begin
       GetWindowRect(pnl_JDevtools.Handle, DevToolsRect);
       Winapi.Windows.SetParent(DevToolsHWND, pnl_JDevtools.Handle);
@@ -558,7 +558,7 @@ begin
     end;
   end
   else begin
-    frm_Browser_FullScreen.Execute(True,'Jira - PCM',Aurl);
+    frm_PCM_Browser_FullScreen.Execute(True,'Jira - PCM',Aurl);
   end;
 end;
 procedure Tfrm_Ticket.btn_JReadTicketsClick(Sender: TObject);
@@ -1307,10 +1307,10 @@ begin
 end;
 procedure Tfrm_Ticket.btn_AIMinMaxBrowserClick(Sender: TObject);
 begin
-  Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
+  Application.CreateForm(Tfrm_PCM_Browser_FullScreen, frm_PCM_Browser_FullScreen);
   if itmpnl_SDevTools.Visible then
   begin
-    if frm_Browser_FullScreen.Execute(True,'Perplexity AI',Aurl,true,DevToolsHWND) then
+    if frm_PCM_Browser_FullScreen.Execute(True,'Perplexity AI',Aurl,true,DevToolsHWND) then
     begin
       GetWindowRect(pnl_PDevtools.Handle, DevToolsRect);
       Winapi.Windows.SetParent(DevToolsHWND, pnl_PDevtools.Handle);
@@ -1318,16 +1318,16 @@ begin
     end;
   end
   else begin
-    frm_Browser_FullScreen.Execute(True,'Perplexity AI',Aurl);
+    frm_PCM_Browser_FullScreen.Execute(True,'Perplexity AI',Aurl);
   end;
 end;
 
 procedure Tfrm_Ticket.btn_AMinMaxBrowserPrivClick(Sender: TObject);
 begin
-  Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
+  Application.CreateForm(Tfrm_PCM_Browser_FullScreen, frm_PCM_Browser_FullScreen);
   if itmpnl_ADevTools.Visible then
   begin
-    if frm_Browser_FullScreen.Execute(True,'Azure - PCM',Aurl,true,DevToolsHWND) then
+    if frm_PCM_Browser_FullScreen.Execute(True,'Azure - PCM',Aurl,true,DevToolsHWND) then
     begin
       GetWindowRect(pnl_ADevtools.Handle, DevToolsRect);
       Winapi.Windows.SetParent(DevToolsHWND, pnl_ADevtools.Handle);
@@ -1335,7 +1335,7 @@ begin
     end;
   end
   else begin
-    frm_Browser_FullScreen.Execute(True,'Azure - PCM',Aurl);
+    frm_PCM_Browser_FullScreen.Execute(True,'Azure - PCM',Aurl);
   end;
 
 
@@ -1554,10 +1554,10 @@ begin
 end;
 procedure Tfrm_Ticket.btn_CMinMaxBrowserPrivClick(Sender: TObject);
 begin
-  Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
+  Application.CreateForm(Tfrm_PCM_Browser_FullScreen, frm_PCM_Browser_FullScreen);
   if itmpnl_CDevTools.Visible then
   begin
-    if frm_Browser_FullScreen.Execute(True,'Confluence - PCM',Aurl,true,DevToolsHWND) then
+    if frm_PCM_Browser_FullScreen.Execute(True,'Confluence - PCM',Aurl,true,DevToolsHWND) then
     begin
       GetWindowRect(pnl_CDevtools.Handle, DevToolsRect);
       Winapi.Windows.SetParent(DevToolsHWND, pnl_CDevtools.Handle);
@@ -1565,15 +1565,15 @@ begin
     end;
   end
   else begin
-    frm_Browser_FullScreen.Execute(True,'Confluence - PCM',Aurl);
+    frm_PCM_Browser_FullScreen.Execute(True,'Confluence - PCM',Aurl);
   end;
 end;
 procedure Tfrm_Ticket.btn_GitMinMaxBrowserPrivClick(Sender: TObject);
 begin
-  Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
+  Application.CreateForm(Tfrm_PCM_Browser_FullScreen, frm_PCM_Browser_FullScreen);
   if itmpnl_CDevTools.Visible then
   begin
-    if frm_Browser_FullScreen.Execute(True,'Github',Aurl,true,DevToolsHWND) then
+    if frm_PCM_Browser_FullScreen.Execute(True,'Github',Aurl,true,DevToolsHWND) then
     begin
       GetWindowRect(pnl_CDevtools.Handle, DevToolsRect);
       Winapi.Windows.SetParent(DevToolsHWND, pnl_CDevtools.Handle);
@@ -1581,7 +1581,7 @@ begin
     end;
   end
   else begin
-    frm_Browser_FullScreen.Execute(True,'Github',Aurl);
+    frm_PCM_Browser_FullScreen.Execute(True,'Github',Aurl);
   end;
 end;
 
@@ -1626,10 +1626,10 @@ begin
 end;
 procedure Tfrm_Ticket.btn_SMinMaxBrowserPrivClick(Sender: TObject);
 begin
-  Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
+  Application.CreateForm(Tfrm_PCM_Browser_FullScreen, frm_PCM_Browser_FullScreen);
   if itmpnl_SDevTools.Visible then
   begin
-    if frm_Browser_FullScreen.Execute(True,'Swagger - PCM',Aurl,true,DevToolsHWND) then
+    if frm_PCM_Browser_FullScreen.Execute(True,'Swagger - PCM',Aurl,true,DevToolsHWND) then
     begin
       GetWindowRect(pnl_sDevtools.Handle, DevToolsRect);
       Winapi.Windows.SetParent(DevToolsHWND, pnl_sDevtools.Handle);
@@ -1637,7 +1637,7 @@ begin
     end;
   end
   else begin
-    frm_Browser_FullScreen.Execute(True,'Swagger - PCM',Aurl);
+    frm_PCM_Browser_FullScreen.Execute(True,'Swagger - PCM',Aurl);
   end;
 end;
 procedure Tfrm_Ticket.btn_SCloseNotepadClick(Sender: TObject);
@@ -1724,10 +1724,10 @@ begin
 end;
 procedure Tfrm_Ticket.btn_PMinMaxBrowserPrivClick(Sender: TObject);
 begin
-  Application.CreateForm(Tfrm_Browser_FullScreen, frm_Browser_FullScreen);
+  Application.CreateForm(Tfrm_PCM_Browser_FullScreen, frm_PCM_Browser_FullScreen);
   if itmpnl_SDevTools.Visible then
   begin
-    if frm_Browser_FullScreen.Execute(True,'Homepage - PCM',Aurl,true,DevToolsHWND) then
+    if frm_PCM_Browser_FullScreen.Execute(True,'Homepage - PCM',Aurl,true,DevToolsHWND) then
     begin
       GetWindowRect(pnl_PDevtools.Handle, DevToolsRect);
       Winapi.Windows.SetParent(DevToolsHWND, pnl_PDevtools.Handle);
@@ -1735,7 +1735,7 @@ begin
     end;
   end
   else begin
-    frm_Browser_FullScreen.Execute(True,'Homepage - PCM',Aurl);
+    frm_PCM_Browser_FullScreen.Execute(True,'Homepage - PCM',Aurl);
   end;
 end;
 procedure Tfrm_Ticket.pnl_PDevtoolsResize(Sender: TObject);
