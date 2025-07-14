@@ -67,3 +67,8 @@ __recovery/
 
 # Boss dependency manager vendor folder https://github.com/HashLoad/boss
 modules/
+/Win64/Release/PCMDEVManager.nds
+/Win64/Release/PCMDEVManager.ntr
+/delete.png
+/new.png
+/save.png
