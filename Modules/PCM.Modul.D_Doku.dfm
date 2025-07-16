@@ -3,7 +3,7 @@ object frm_Doku: Tfrm_Doku
   Top = 0
   Caption = 'PCM - Updategenerator'
   ClientHeight = 600
-  ClientWidth = 1453
+  ClientWidth = 1000
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,17 +18,16 @@ object frm_Doku: Tfrm_Doku
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1453
+    Width = 1000
     Height = 600
     Align = alClient
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitWidth = 1000
     object grd_Version: TcxGrid
       Left = 10000
       Top = 10000
-      Width = 1358
+      Width = 905
       Height = 455
       TabOrder = 2
       Visible = False
@@ -109,7 +108,7 @@ object frm_Doku: Tfrm_Doku
     object dxBarDockControl1: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1405
+      Width = 952
       Height = 63
       Align = dalNone
       BarManager = brmgr_Main
@@ -248,7 +247,7 @@ object frm_Doku: Tfrm_Doku
       Style.TransparentBorder = False
       TabOrder = 0
       Height = 525
-      Width = 1405
+      Width = 952
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient
@@ -404,7 +403,6 @@ object frm_Doku: Tfrm_Doku
     LookAndFeel.NativeStyle = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
-    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 304
@@ -540,7 +538,7 @@ object frm_Doku: Tfrm_Doku
       Caption = 'Alle Dokus erzeugen'
       Category = 0
       Hint = 'Alle Dokus erzeugen'
-      Visible = ivNever
+      Visible = ivAlways
       OnClick = btn_VersionExportHTMLPDFClick
       AutoGrayScale = False
       LargeImageIndex = 111
