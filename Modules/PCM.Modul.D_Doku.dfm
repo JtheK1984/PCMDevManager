@@ -3,7 +3,7 @@ object frm_Doku: Tfrm_Doku
   Top = 0
   Caption = 'PCM - Updategenerator'
   ClientHeight = 600
-  ClientWidth = 1000
+  ClientWidth = 1453
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,20 +18,20 @@ object frm_Doku: Tfrm_Doku
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1000
+    Width = 1453
     Height = 600
     Align = alClient
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitWidth = 1254
-    ExplicitHeight = 614
+    ExplicitWidth = 1000
     object grd_Version: TcxGrid
-      Left = 22
-      Top = 119
-      Width = 905
+      Left = 10000
+      Top = 10000
+      Width = 1358
       Height = 455
       TabOrder = 2
+      Visible = False
       LookAndFeel.NativeStyle = False
       object tv_Version: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
@@ -107,16 +107,17 @@ object frm_Doku: Tfrm_Doku
       end
     end
     object dxBarDockControl1: TdxBarDockControl
-      Left = 22
-      Top = 49
-      Width = 952
+      Left = 10000
+      Top = 10000
+      Width = 1405
       Height = 63
       Align = dalNone
       BarManager = brmgr_Main
+      Visible = False
     end
     object btn_DokuMainbottom: TcxButton
-      Left = 944
-      Top = 210
+      Left = 10000
+      Top = 10000
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -144,11 +145,12 @@ object frm_Doku: Tfrm_Doku
         25B26F4AE8F495860B5476FE2F78CB041B0B9464F3419BC8E0E7F7365DF1DF3F
         EB7C93A1EABC6E0000000049454E44AE426082}
       TabOrder = 6
+      Visible = False
       OnClick = btn_DokuMainbottomClick
     end
     object btn_DokuMaindown: TcxButton
-      Left = 944
-      Top = 183
+      Left = 10000
+      Top = 10000
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -171,11 +173,12 @@ object frm_Doku: Tfrm_Doku
         DF0AF028EA9990D9A44955E7288770BDE317B2235FE05F0BBC8FCE27FE0F6EA2
         80779755FCCF7803E8D0E0915AAA27200000000049454E44AE426082}
       TabOrder = 5
+      Visible = False
       OnClick = btn_DokuMaindownClick
     end
     object btn_DokuMainUp: TcxButton
-      Left = 944
-      Top = 156
+      Left = 10000
+      Top = 10000
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -199,11 +202,12 @@ object frm_Doku: Tfrm_Doku
         8680039A01E43960E2FA7E7E235675430C00005416CE3539D1B3B10000000049
         454E44AE426082}
       TabOrder = 4
+      Visible = False
       OnClick = btn_DokuMainUpClick
     end
     object btn_DokuMainTop: TcxButton
-      Left = 944
-      Top = 129
+      Left = 10000
+      Top = 10000
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -231,20 +235,20 @@ object frm_Doku: Tfrm_Doku
         7CA0D726F09FB2072FB045838AFBEDC22F58E6680A1520C2DE0000000049454E
         44AE426082}
       TabOrder = 3
+      Visible = False
       OnClick = btn_DokuMainTopClick
     end
     object grpbx_Browser: TcxGroupBox
-      Left = 10000
-      Top = 10000
+      Left = 22
+      Top = 49
       PanelStyle.Active = True
       ParentBackground = False
       ParentColor = False
       Style.Color = 7566195
       Style.TransparentBorder = False
       TabOrder = 0
-      Visible = False
-      Height = 531
-      Width = 1198
+      Height = 525
+      Width = 1405
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient
@@ -258,7 +262,6 @@ object frm_Doku: Tfrm_Doku
       Parent = dxLayoutControl1Group_Root
       AlignHorz = ahClient
       AlignVert = avClient
-      ItemIndex = 1
       LayoutDirection = ldTabbed
       ShowBorder = False
       Index = 0
@@ -537,7 +540,7 @@ object frm_Doku: Tfrm_Doku
       Caption = 'Alle Dokus erzeugen'
       Category = 0
       Hint = 'Alle Dokus erzeugen'
-      Visible = ivAlways
+      Visible = ivNever
       OnClick = btn_VersionExportHTMLPDFClick
       AutoGrayScale = False
       LargeImageIndex = 111

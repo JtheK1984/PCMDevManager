@@ -41,7 +41,7 @@ uses
 
 var
   ifini: TIniFile;
-  sStyle: String;
+  
   slocale: String;
 
 begin
@@ -54,7 +54,7 @@ begin
   GlobalWebView2Loader.UserDataFolder := GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\CustomCache';
   GlobalWebView2Loader.StartWebView2;
   Application.Initialize;
-  TStyleManager.TrySetStyle(sStyle);
+  
   {$IFDEF WIN64}
   Application.Title:= 'PCM - Devmanager 64-Bit';
   TNtTranslator.SetNew(slocale,[],'de');
