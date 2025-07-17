@@ -23,9 +23,6 @@ object frm_PCM_Version: Tfrm_PCM_Version
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitLeft = 728
-    ExplicitWidth = 1021
-    ExplicitHeight = 1478
     object dtedt_Date: TcxDateEdit
       AlignWithMargins = True
       Left = 103
@@ -159,6 +156,7 @@ object frm_PCM_Version: Tfrm_PCM_Version
       Margins.Top = 0
       Margins.Right = 0
       Margins.Bottom = 0
+      AutoSize = False
       Properties.Items.Strings = (
         'int'
         'double'
@@ -174,6 +172,7 @@ object frm_PCM_Version: Tfrm_PCM_Version
       Style.TransparentBorder = False
       StyleDisabled.TextColor = clBtnHighlight
       TabOrder = 8
+      Height = 21
       Width = 375
     end
     object cxCheckBox2: TcxCheckBox
@@ -199,10 +198,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
       Margins.Top = 0
       Margins.Right = 0
       Margins.Bottom = 0
+      AutoSize = False
       Style.HotTrack = False
       Style.TransparentBorder = False
       StyleDisabled.TextColor = clBtnHighlight
       TabOrder = 11
+      Height = 21
       Width = 40
     end
     object cxTextEdit3: TcxDBTextEdit
@@ -213,10 +214,12 @@ object frm_PCM_Version: Tfrm_PCM_Version
       Margins.Top = 0
       Margins.Right = 0
       Margins.Bottom = 0
+      AutoSize = False
       Style.HotTrack = False
       Style.TransparentBorder = False
       StyleDisabled.TextColor = clBtnHighlight
       TabOrder = 10
+      Height = 21
       Width = 40
     end
     object cxTextEdit2: TcxDBTextEdit

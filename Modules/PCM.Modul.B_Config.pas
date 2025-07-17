@@ -227,7 +227,10 @@ implementation
 
 {$R *.dfm}
 
-uses PCM.Main, PCM.Data;
+uses
+  PCM.Main,
+  PCM.Data,
+  PCM.Strings;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Buttons                                                                    //
@@ -274,13 +277,13 @@ begin
     bHasError:= StrToBool(JSONResult.GetValue<TJSONBool>('HasError').ToString);
     if not bHasError then
     begin
-      MessageDlg('Verbindungstest erfolgreich.',mtInformation,[mbOk],0);
+      MessageDlg(rs_PCMDevManager_MSGCheckSQLCONSuc,mtInformation,[mbOk],0);
     end
     else begin
-      MessageDlg('Verbindungstest nicht erfolgreich.',mtInformation,[mbOk],0);
+      MessageDlg(rs_PCMDevManager_MSGCheckSQLCONErr,mtInformation,[mbOk],0);
     end;
   except
-    MessageDlg('Verbindungstest nicht erfolgreich.',mtInformation,[mbOk],0);
+    MessageDlg(rs_PCMDevManager_MSGCheckSQLCONErr,mtInformation,[mbOk],0);
   end;
 end;
 procedure Tfrm_Config.edt_otherPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);

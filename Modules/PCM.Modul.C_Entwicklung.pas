@@ -970,7 +970,7 @@ begin
     shellexecute(0,'open',Pchar(sPath),PChar('"' + sPathSub + '"'),nil,SW_SHOWDEFAULT);
   end
   else begin
-    MessageDlg('Kein Mainscript vorhanden', mtWarning, [mbOk], 0);
+    MessageDlg(rs_PCMDevManager_MSGNoMainScript, mtWarning, [mbOk], 0);
   end;
 
 end;
@@ -985,7 +985,7 @@ begin
     shellexecute(0,'open',Pchar(sPath),PChar('"' + sPathSub + '"'),nil,SW_SHOWDEFAULT);
   end
   else begin
-    MessageDlg('Kein Mainscript vorhanden', mtWarning, [mbOk], 0);
+    MessageDlg(rs_PCMDevManager_MSGNoMainScript, mtWarning, [mbOk], 0);
   end;
 end;
 procedure Tfrm_Dev.grdDBTblView_HelpprogsCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
@@ -1009,7 +1009,7 @@ begin
         ShellExecute(Application.Handle,'open',PChar(qry_Projects.FieldByName('Script').asString),nil, nil, SW_NORMAL);
       end
       else begin
-        MessageDlg('Kein Mainscript vorhanden', mtWarning, [mbOk], 0);
+        MessageDlg(rs_PCMDevManager_MSGNoMainScript, mtWarning, [mbOk], 0);
       end;
     end;
   end;
@@ -1345,7 +1345,7 @@ var
       begin
         if FileExists(sPackerPath) then
         begin
-          lbl_File.caption := ExtractFileName(sfile) + ' wird komprimiert';
+          lbl_File.caption := ExtractFileName(sfile) + rs_PCMDevManager_CAPCompress;
           lbl_Config.Caption:= '';
           lbl_Projekt.Caption:= '';
           RunAndWaitShell(sPackerPath, '"' + sfile + '"', ExtractFilePath(sPackerPath), SW_HIDE);
@@ -1355,7 +1355,7 @@ var
     bCancelCopy := False;
     if (bCopy = 1) and (sPath <> '') and (sfile <> '') then
     begin
-      lbl_File.caption := ExtractFileName(sfile) + ' wird kopiert';
+      lbl_File.caption := ExtractFileName(sfile) + rs_PCMDevManager_CAPCopy;
       CopyFileEx(PChar(sfile), PChar(sPath + '\' +  ExtractFileName(sfile)), @CopyFileProgress, Pointer(Handle), nil, 0);
     end;
   end;
@@ -1489,7 +1489,7 @@ begin
   // Backup erstellen
   ShowProgress(qry_SourceAPP.RecordCount + 1);
   try
-    lbl_Config.Caption := 'Speichere Konfigurationen';
+    lbl_Config.Caption := rs_PCMDevManager_CAPSave;
     btn_ConfigSaveClick(nil);
     prgbr_CopyFile.Properties.Min:= 0;
     prgbr_CopyFile.Properties.Max:= 2;
@@ -1498,7 +1498,7 @@ begin
     prgbr_CopyConfig.Properties.Max:= qry_SourceAPP.RecordCount;
     prgbr_CopyConfig.Position:= 0;
     EnableControls(False);
-    Lbl_file.Caption:= 'QuellCode-Sicherung:';
+    Lbl_file.Caption:= rs_PCMDevManager_CAPCodeSave;
     try
       dm_PCM.qry_work_Sub.SQL.Text:= 'SELECT * FROM service_config_quellcode_apps Order by Name';
       dm_PCM.qry_work_Sub.open;
@@ -1559,7 +1559,7 @@ begin
     end;
     Application.Processmessages;
     prgbr_CopyFile.Position:= 1;
-    Lbl_file.Caption:= 'Komprimieren und ins Setupverzeichniss kopieren:';
+    Lbl_file.Caption:= rs_PCMDevManager_CAPCompressCopy;
     EnableControls(False);
     try
       dm_PCM.qry_work_Sub.SQL.Text:= 'SELECT * FROM service_config_quellcode_apps Order by Name';

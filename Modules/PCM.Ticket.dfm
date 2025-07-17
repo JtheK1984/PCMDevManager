@@ -24,8 +24,6 @@ object frm_Ticket: Tfrm_Ticket
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     OptionsImage.Images = imglst_16x16
-    ExplicitWidth = 1140
-    ExplicitHeight = 768
     object brdckCtrl_Jira: TdxBarDockControl
       Left = 19
       Top = 45

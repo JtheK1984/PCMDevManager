@@ -110,7 +110,6 @@ object frm_DokuCreate: Tfrm_DokuCreate
       AlignHorz = ahClient
       AlignVert = avTop
       CaptionOptions.Text = 'New Group'
-      ItemIndex = 1
       LayoutDirection = ldHorizontal
       ShowBorder = False
       Index = 1
@@ -120,7 +119,6 @@ object frm_DokuCreate: Tfrm_DokuCreate
       AlignHorz = ahClient
       AlignVert = avClient
       CaptionOptions.Text = 'New Group'
-      ItemIndex = 1
       ShowBorder = False
       Index = 0
     end

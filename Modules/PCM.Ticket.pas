@@ -320,6 +320,7 @@ uses
   PCM.Browser.FullScreen,
   PCM.Data,
   PCM.Helper,
+  PCM.Strings,
   uwvLoader;
   {$EndRegion Uses}
 ////////////////////////////////////////////////////////////////////////////////
@@ -517,11 +518,11 @@ procedure Tfrm_Ticket.btn_JDevtoolsClick(Sender: TObject);
 begin
   if not itmpnl_JDevTools.Visible then
   begin
-    btn_JDevtools.Caption:= 'Devtools ausblenden';
+    btn_JDevtools.Caption:= rs_PCMDevManager_BTNDevToolsDisable;
     ShowDevToolsonPanel(itmpnl_JDevTools,pnl_JDevTools,splt_J);
   end
   else begin
-    btn_JDevtools.Caption:= 'Devtools einblenden';
+    btn_JDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -534,14 +535,14 @@ begin
   begin
     btn_JFilter.Tag := 1;
     btn_JFilter.LargeImageIndex:= 46;
-    btn_JFilter.Caption:= 'erledigte Tickets einblenden';
+    btn_JFilter.Caption:= rs_PCMDevManager_BTNShowDoneTicketsEnable;
     qry_Tickets_priv.Filter:=   'Status <> ''Fertig''';
     qry_Tickets_priv.Filtered:= true;
   end
   else begin
     btn_JFilter.Tag := 0;
     btn_JFilter.LargeImageIndex:= 38;
-    btn_JFilter.Caption:= 'erledigte Tickets ausblenden';
+    btn_JFilter.Caption:= rs_PCMDevManager_BTNShowDoneTicketsDisable;
     qry_Tickets_priv.Filtered:= false;
   end;
 end;
@@ -941,7 +942,7 @@ var
   slBeschreibung: TStringlist;
   i: Integer;
 begin
-  grpbx_Ticketspriv.CaptionOptions.Text:= 'Projekte / ' + qry_Tickets_priv.FieldByName('Epic').asString + ' / ' + qry_Tickets_priv.FieldByName('Ticket_nr').asString;
+  grpbx_Ticketspriv.CaptionOptions.Text:= rs_PCMDevManager_CAPProjekte + qry_Tickets_priv.FieldByName('Epic').asString + ' / ' + qry_Tickets_priv.FieldByName('Ticket_nr').asString;
   dxLayoutLabeledItem1.CaptionOptions.Text:=qry_Tickets_priv.FieldByName('Betreff').asString;
   dm_PCm.qry_work.SQL.Text:= 'SELECT Beschreibung FROM manager_tickets_priv Where Ticket_nr = :Ticket_nr';
   dm_PCm.qry_work.ParamByName('Ticket_nr').AsString:= qry_Tickets_priv.FieldByName('Ticket_nr').asString;
@@ -1294,11 +1295,11 @@ procedure Tfrm_Ticket.btn_ADevToolsClick(Sender: TObject);
 begin
   if not itmpnl_ADevTools.Visible then
   begin
-    btn_ADevtools.Caption:= 'Devtools ausblenden';
+    btn_ADevtools.Caption:= rs_PCMDevManager_BTNDevToolsDisable;
     ShowDevToolsonPanel(itmpnl_ADevTools,pnl_ADevTools,splt_A);
   end
   else begin
-    btn_ADevtools.Caption:= 'Devtools einblenden';
+    btn_ADevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -1541,11 +1542,11 @@ procedure Tfrm_Ticket.btn_CDevToolsClick(Sender: TObject);
 begin
   if not itmpnl_CDevTools.Visible then
   begin
-    btn_CDevtools.Caption:= 'Devtools ausblenden';
+    btn_CDevtools.Caption:= rs_PCMDevManager_BTNDevToolsDisable;
     ShowDevToolsonPanel(itmpnl_CDevTools,pnl_CDevTools,splt_C);
   end
   else begin
-    btn_CDevtools.Caption:= 'Devtools einblenden';
+    btn_CDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -1595,11 +1596,11 @@ procedure Tfrm_Ticket.btn_SDevToolsClick(Sender: TObject);
 begin
   if not itmpnl_SDevTools.Visible then
   begin
-    btn_SDevtools.Caption:= 'Devtools ausblenden';
+    btn_SDevtools.Caption:= rs_PCMDevManager_BTNDevToolsDisable;
     ShowDevToolsonPanel(itmpnl_sDevTools,pnl_sDevTools,splt_s);
   end
   else begin
-    btn_SDevtools.Caption:= 'Devtools einblenden';
+    btn_SDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -1711,11 +1712,11 @@ procedure Tfrm_Ticket.btn_pDevtoolsClick(Sender: TObject);
 begin
   if not itmpnl_pDevTools.Visible then
   begin
-    btn_pDevtools.Caption:= 'Devtools ausblenden';
+    btn_pDevtools.Caption:= rs_PCMDevManager_BTNDevToolsDisable;
     ShowDevToolsonPanel(itmpnl_pDevTools, pnl_pDevTools,splt_p);
   end
   else begin
-    btn_pDevtools.Caption:= 'Devtools einblenden';
+    btn_pDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_pDevTools.Visible:= false;
     splt_p.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -1766,16 +1767,16 @@ begin
     AURL:= 'http:/192.168.178.10:82/PCM-DEV/PCM/_boards/board/t/PCM-Team/Issues';
     FWebBrowser.Navigate(AURL);
 
-    btn_JDevtools.Caption:= 'Devtools einblenden';
+    btn_JDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
-    btn_CDevtools.Caption:= 'Devtools einblenden';
+    btn_CDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
-    btn_SDevtools.Caption:= 'Devtools einblenden';
+    btn_SDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
-    btn_PDevtools.Caption:= 'Devtools einblenden';
+    btn_PDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_pDevTools.Visible:= false;
     splt_p.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -1797,16 +1798,16 @@ begin
     InitializeBrowser(pnl_BrowserJiraPriv);
     AURL:= 'https://pcm-software.atlassian.net/jira/software/projects/PCM/boards/1';
     FWebBrowser.Navigate(AURL);
-    btn_ADevtools.Caption:= 'Devtools einblenden';
+    btn_ADevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
-    btn_CDevtools.Caption:= 'Devtools einblenden';
+    btn_CDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
-    btn_SDevtools.Caption:= 'Devtools einblenden';
+    btn_SDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
-    btn_PDevtools.Caption:= 'Devtools einblenden';
+    btn_PDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_pDevTools.Visible:= false;
     splt_p.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -1828,16 +1829,16 @@ begin
     InitializeBrowser(pnl_BrowserConfluence);
     AURL:= 'https://pcm-software.atlassian.net/wiki';
     FWebBrowser.Navigate(AURL);
-    btn_JDevtools.Caption:= 'Devtools einblenden';
+    btn_JDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
-    btn_ADevtools.Caption:= 'Devtools einblenden';
+    btn_ADevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
-    btn_SDevtools.Caption:= 'Devtools einblenden';
+    btn_SDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
-    btn_PDevtools.Caption:= 'Devtools einblenden';
+    btn_PDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_pDevTools.Visible:= false;
     splt_p.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -1859,16 +1860,16 @@ begin
     InitializeBrowser(pnl_BrowserSwagger);
     AURL:= 'https://pcmapps.ddns.net:8443';
     FWebBrowser.Navigate(AURL);
-    btn_JDevtools.Caption:= 'Devtools einblenden';
+    btn_JDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
-    btn_ADevtools.Caption:= 'Devtools einblenden';
+    btn_ADevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
-    btn_CDevtools.Caption:= 'Devtools einblenden';
+    btn_CDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
-    btn_PDevtools.Caption:= 'Devtools einblenden';
+    btn_PDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_pDevTools.Visible:= false;
     splt_p.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -1884,16 +1885,16 @@ begin
     InitializeBrowser(pnl_BrowserPCMApps);
     AURL:= 'https://pcm-apps.de/Home';
     FWebBrowser.Navigate(AURL);
-    btn_JDevtools.Caption:= 'Devtools einblenden';
+    btn_JDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
-    btn_ADevtools.Caption:= 'Devtools einblenden';
+    btn_ADevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
-    btn_CDevtools.Caption:= 'Devtools einblenden';
+    btn_CDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
-    btn_SDevtools.Caption:= 'Devtools einblenden';
+    btn_SDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -1915,16 +1916,16 @@ begin
     InitializeBrowser(pnl_AI);
     AURL:= 'https://www.perplexity.ai/';
     FWebBrowser.Navigate(AURL);
-    btn_JDevtools.Caption:= 'Devtools einblenden';
+    btn_JDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
-    btn_ADevtools.Caption:= 'Devtools einblenden';
+    btn_ADevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
-    btn_CDevtools.Caption:= 'Devtools einblenden';
+    btn_CDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
-    btn_SDevtools.Caption:= 'Devtools einblenden';
+    btn_SDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     if DevToolsHWND <> 0 then
@@ -1947,16 +1948,16 @@ begin
     InitializeBrowser(pnl_Github);
     AURL:= 'https://github.com/JtheK1984?tab=repositories&q=&type=&language=&sort=name';
     FWebBrowser.Navigate(AURL);
-    btn_JDevtools.Caption:= 'Devtools einblenden';
+    btn_JDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_JDevTools.Visible:= false;
     splt_J.Visible:= false;
-    btn_ADevtools.Caption:= 'Devtools einblenden';
+    btn_ADevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_ADevTools.Visible:= false;
     splt_A.Visible:= false;
-    btn_CDevtools.Caption:= 'Devtools einblenden';
+    btn_CDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_CDevTools.Visible:= false;
     splt_C.Visible:= false;
-    btn_SDevtools.Caption:= 'Devtools einblenden';
+    btn_SDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
     itmpnl_SDevTools.Visible:= false;
     splt_S.Visible:= false;
     if DevToolsHWND <> 0 then

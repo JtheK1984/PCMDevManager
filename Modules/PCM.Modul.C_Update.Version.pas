@@ -90,7 +90,9 @@ implementation
 
 {$R *.dfm}
 
-uses PCM.Data;
+uses
+  PCM.Data,
+  PCM.Strings;
 ////////////////////////////////////////////////////////////////////////////////
 // HELPER                                                                     //
 ////////////////////////////////////////////////////////////////////////////////
@@ -193,7 +195,7 @@ begin
     dtedt_Date.date:= ADate;
     edt_Beschreibung.text:= '';
     mem_Statement.text:= '';
-    btn_SQLSave.caption:= 'Version anlegen';
+    btn_SQLSave.caption:= rs_PCMDevManager_BTNVerNew;
     SetPanelsVisible(False);
   end
   else begin
@@ -215,7 +217,7 @@ begin
       edt_Version.Text:= sMain + '.' + sSub
     else
       edt_Version.Text:= sMain + '.' + IntToStr(StrToInt(sSub) + 1);
-    btn_sqlSave.caption:= 'Version Speichern';
+    btn_sqlSave.caption:= rs_PCMDevManager_BTNVerSav;
     SetPanelsVisible(True);
   end;
 end;

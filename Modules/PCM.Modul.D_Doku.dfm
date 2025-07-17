@@ -109,7 +109,7 @@ object frm_Doku: Tfrm_Doku
       Left = 10000
       Top = 10000
       Width = 952
-      Height = 63
+      Height = 58
       Align = dalNone
       BarManager = brmgr_Main
       Visible = False
@@ -290,7 +290,7 @@ object frm_Doku: Tfrm_Doku
       CaptionOptions.Visible = False
       Control = dxBarDockControl1
       ControlOptions.AutoColor = True
-      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalHeight = 58
       ControlOptions.OriginalWidth = 1232
       ControlOptions.ShowBorder = False
       Index = 0

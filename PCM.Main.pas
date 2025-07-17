@@ -429,12 +429,12 @@ begin
           end;
         3:
           begin
-            sModulCaption := 'i'  + 'Entwicklung Projekte' ;
+            sModulCaption := 'i'  + rs_PCMDevManager_Modul_DevPro;
             dm_PCM.iModulTab:= 1;
           end;
         4:
           begin
-            sModulCaption := 'i'  + 'Entwicklung Web' ;
+            sModulCaption := 'i'  + rs_PCMDevManager_Modul_DevWeb;
             dm_PCM.iModulTab:= 1;
           end;
         5:
@@ -454,17 +454,17 @@ begin
           end;
 				8:
 					begin
-            sModulCaption := 'i'  + 'Rest-API Dokumentation' ;
+            sModulCaption := 'i'  + rs_PCMDevManager_Modul_API;
             dm_PCM.iModulTab:= 1;
           end;
         9:
 					begin
-            sModulCaption := 'i'  + 'Dokumentation' ;
+            sModulCaption := 'i'  + rs_PCMDevManager_Modul_Dokumentation;
             dm_PCM.iModulTab:= 1;
           end;
         10:
 					begin
-            sModulCaption := 'i'  + 'Update XML' ;
+            sModulCaption := 'i'  + rs_PCMDevManager_Modul_UpdateXML;
             dm_PCM.iModulTab:= 1;
           end;
         end;

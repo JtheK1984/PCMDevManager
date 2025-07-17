@@ -65,7 +65,7 @@ implementation
 
 {$R *.dfm}
 
-uses PCM.Data, PCM.Main, PCM.Modul.C_Update;
+uses PCM.Data, PCM.Main, PCM.Modul.C_Update, PCM.Strings;
 ////////////////////////////////////////////////////////////////////////////////
 // HELPER                                                                     //
 ////////////////////////////////////////////////////////////////////////////////
@@ -185,7 +185,7 @@ var
   arUpdate: TUpdateStrings;
   strLstDatatypes: TStringlist;
 begin
-  dxLayoutItem5.Caption:= 'XML wird eingelesen';
+  dxLayoutItem5.Caption:= rs_PCMDevManager_CAPXML;
   qry_Allg.SQL.text:= 'Delete From update_updateversion';
   qry_Allg.ExecSQL;
   qry_Allg.SQL.text:= 'Delete From update_updateversion_fields';
@@ -241,7 +241,7 @@ begin
   for iArrayCount := 0 to High(arUpdate) do
   begin
     prgbr_Status.Position:= prgbr_Status.Position + 1;
-    dxLayoutItem5.caption:= 'Datenbank: ' + arUpdate[iArrayCount].sProgramm + '     Version: ' + IntToStr(arUpdate[iArrayCount].iVersionMain) + '.' + IntToStr(arUpdate[iArrayCount].iVersionSub);
+    dxLayoutItem5.caption:= rs_PCMDevManager_CAPDatabase + arUpdate[iArrayCount].sProgramm + '     Version: ' + IntToStr(arUpdate[iArrayCount].iVersionMain) + '.' + IntToStr(arUpdate[iArrayCount].iVersionSub);
 
 
     iSQLStatement:= SetSQLStatementCombo(arUpdate[iArrayCount].sStatement);

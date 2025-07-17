@@ -23,8 +23,6 @@ object frm_Config: Tfrm_Config
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitWidth = 1195
-    ExplicitHeight = 922
     object dxBarDockControl1: TdxBarDockControl
       Left = 19
       Top = 44

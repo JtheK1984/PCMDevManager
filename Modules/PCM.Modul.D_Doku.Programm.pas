@@ -41,7 +41,7 @@ implementation
 {$R *.dfm}
 
 uses  PCM.Data,
-      PCM.Modul.D_Doku;
+      PCM.Modul.D_Doku, PCM.Strings;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //
@@ -75,7 +75,7 @@ begin
       end
       else
       begin
-        MessageDlg('Bitte Applikation wählen',mtWarning,[mbOk],0);
+        MessageDlg(rs_PCMDevManager_MSGChooseApp,mtWarning,[mbOk],0);
         exit;
       end;
       result:= true;

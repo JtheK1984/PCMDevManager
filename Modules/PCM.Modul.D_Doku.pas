@@ -122,7 +122,8 @@ uses  PCM.Data,
       PCM.Modul.C_Update.Version,
       PCM.Modul.D_Doku.Programm,
       PCM.Modul.D_Doku.Version,
-      PCM.Main;
+      PCM.Main,
+      PCM.Strings;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //
@@ -1329,7 +1330,7 @@ begin
 
   if dm_PCM.qry_Doku.FieldByName('ID').AsInteger > 0 then
   begin
-    iButton:=  MessageDlg('Möchten Die den eintrag wirklich löschen?', TMsgDlgType.mtWarning,[mbYes,mbno],0);
+    iButton:=  MessageDlg(rs_PCMDevManager_MSGDeleteEntry, TMsgDlgType.mtWarning,[mbYes,mbno],0);
     if iButton = 6 then
        dm_PCM.qry_Doku.Delete;
   end;

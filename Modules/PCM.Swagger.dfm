@@ -40,7 +40,7 @@ object frm_Swagger: Tfrm_Swagger
     ExplicitHeight = 726
     object stbr_Rest: TdxStatusBar
       Left = 12
-      Top = 981
+      Top = 871
       Width = 1159
       Height = 20
       Panels = <
@@ -66,7 +66,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object btn_Checkserver: TcxButton
       Left = 10000
-      Top = 9803
+      Top = 9113
       Width = 1101
       Height = 25
       Caption = 'Execute'
@@ -76,7 +76,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object mem_CheckServer_Example: TcxMemo
       Left = 10000
-      Top = 9803
+      Top = 9113
       Lines.Strings = (
         '{'
         '  "HasError": false,'
@@ -99,7 +99,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object btn_CheckLogin: TcxButton
       Left = 10000
-      Top = 9750
+      Top = 9060
       Width = 1101
       Height = 25
       Caption = 'Rest - Execute'
@@ -109,7 +109,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object btn_CheckLoginSQL: TcxButton
       Left = 10000
-      Top = 9803
+      Top = 9113
       Width = 1101
       Height = 25
       Caption = 'SQL - Execute'
@@ -119,7 +119,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object mem_GetLogin_Example: TcxMemo
       Left = 10000
-      Top = 9803
+      Top = 9113
       Lines.Strings = (
         '{'
         '  "HasError": false,'
@@ -151,7 +151,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object mem_SetDeviceID_Example: TcxMemo
       Left = 10000
-      Top = 9803
+      Top = 9113
       Lines.Strings = (
         '{'
         '  "Device": ['
@@ -179,7 +179,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object btn_SetDeviceID: TcxButton
       Left = 10000
-      Top = 9803
+      Top = 9113
       Width = 1101
       Height = 25
       Caption = 'Rest - Execute'
@@ -189,7 +189,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object edt_GetContacts_Parameter: TcxTextEdit
       Left = 10000
-      Top = 9910
+      Top = 9220
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 7
@@ -199,7 +199,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object btn_GetContacts: TcxButton
       Left = 10000
-      Top = 9910
+      Top = 9220
       Width = 1101
       Height = 25
       Caption = 'Rest - Execute'
@@ -209,7 +209,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object btn_GetContactsSQL: TcxButton
       Left = 10000
-      Top = 9910
+      Top = 9220
       Width = 1101
       Height = 25
       Caption = 'SQL - Execute'
@@ -219,7 +219,7 @@ object frm_Swagger: Tfrm_Swagger
     end
     object mem_GetContacts_Example: TcxMemo
       Left = 10000
-      Top = 9910
+      Top = 9220
       Lines.Strings = (
         '{'
         '  "HasError": false,'
@@ -784,7 +784,7 @@ object frm_Swagger: Tfrm_Swagger
       AlignHorz = ahClient
       AlignVert = avTop
       CaptionOptions.ImageIndex = 2
-      CaptionOptions.Text = 'SetVouchers: elege f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
+      CaptionOptions.Text = 'SetVouchers: Belege f'#252'r Benutzer anlegen / '#228'ndern / l'#246'schen'
       Index = 16
     end
     object lagrp_PCMAPPGetGiftCards: TdxLayoutGroup

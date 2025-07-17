@@ -87,7 +87,9 @@ implementation
 
 {$R *.dfm}
 
-uses PCM.Data;
+uses
+  PCM.Data,
+  PCM.Strings;
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //
 ////////////////////////////////////////////////////////////////////////////////
@@ -109,7 +111,7 @@ begin
   bNew:= ANew;
   if ANew then
   begin
-    btn_SQLSave.caption:= 'Version anlegen';
+    btn_SQLSave.caption:= rs_PCMDevManager_BTNVerNew;
     cmbbx_Prog.ItemIndex:= -1;
     edt_width.EditValue:= 0;
   end
@@ -195,17 +197,17 @@ procedure Tfrm_PCM_VersionDoku.btn_SQLSaveClick(Sender: TObject);
 begin
   if cmbbx_Prog.ItemIndex = -1 then
   begin
-    MessageDlg('Bitte Programm auswählen!', mtWarning, [mbOk], 0);
+    MessageDlg(rs_PCMDevManager_MSGCHooseProgramm, mtWarning, [mbOk], 0);
     exit;
   end;
   if cmbbx_Sort.ItemIndex = -1 then
   begin
-    MessageDlg('Bitte Sortierung auswählen!', mtWarning, [mbOk], 0);
+    MessageDlg(rs_PCMDevManager_MSGCHooseSort, mtWarning, [mbOk], 0);
     exit;
   end;
   if edt_Bez.Text = '' then
   begin
-    MessageDlg('Bitte Bezeichnung eingeben!', mtWarning, [mbOk], 0);
+    MessageDlg(rs_PCMDevManager_MSGSetDesc, mtWarning, [mbOk], 0);
     exit;
   end;
 
@@ -272,7 +274,7 @@ begin
 
   end;
   dm_PCM.qry_Doku.Refresh;
-  if (Sender as TdxBarLargeButton).Caption = 'Version &speichern' then
+  if (Sender as TdxBarLargeButton).Caption = rs_PCMDevManager_BTNVerSav then
   begin
     Close;
   end;
