@@ -73,7 +73,7 @@ implementation
 
 {$R *.dfm}
 
-uses PCM.Main,PCM.Data,PCM.Functions.Synch.Wait;
+uses PCM.Main,PCM.Data,PCM.Functions.Synch.Wait, PCM.Strings;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Helper Functions                                                           //
@@ -329,7 +329,7 @@ begin
 //  grpbx_Loading.Align := alClient;
 //  grpbx_Loading.Visible := true;
   Application.ProcessMessages;
-  ShowWaitForm(TForm(Self), PWideChar('Dateiendungen werden geladen...'), 1,417, 65);
+  ShowWaitForm(TForm(Self), PWideChar(rs_PCMDevManager_WAIT_FileEnd), 1,417, 65);
   LoadingExtensions;
   CloseWaitForm;
 end;

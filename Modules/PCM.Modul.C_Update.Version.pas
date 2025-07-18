@@ -196,7 +196,7 @@ begin
     edt_Beschreibung.text:= '';
     mem_Statement.text:= '';
     btn_SQLSave.caption:= rs_PCMDevManager_BTNVerNew;
-    SetPanelsVisible(False);
+//    SetPanelsVisible(False);
   end
   else begin
     dtedt_Date.date:= ADate;
@@ -218,7 +218,7 @@ begin
     else
       edt_Version.Text:= sMain + '.' + IntToStr(StrToInt(sSub) + 1);
     btn_sqlSave.caption:= rs_PCMDevManager_BTNVerSav;
-    SetPanelsVisible(True);
+//    SetPanelsVisible(True);
   end;
 end;
 

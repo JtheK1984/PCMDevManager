@@ -490,7 +490,7 @@ begin
           finally
             Screen.Cursor := crDefault;
           end;
-          ShowWaitForm(TForm(Self), PWideChar('Formular wird geladen'), 1,417, 65);
+          ShowWaitForm(TForm(Self), PWideChar(rs_General_Formload), 1,417, 65);
           frm_TabForm := TForm((mModule.Instance)^);
           iPageIndex := CreateNewTabSheet('tsh' + sModul);
           frm_TabForm.Parent := pc_Main.Pages[iPageIndex];

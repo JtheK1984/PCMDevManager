@@ -297,7 +297,7 @@ object frm_Config: Tfrm_Config
     object brdckCtrl_Delphi: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1147
+      Width = 1238
       Height = 63
       Align = dalNone
       BarManager = brmgr_main
@@ -306,8 +306,8 @@ object frm_Config: Tfrm_Config
     object grd_Delphi: TcxGrid
       Left = 10000
       Top = 10000
-      Width = 1147
-      Height = 554
+      Width = 1238
+      Height = 444
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -420,6 +420,11 @@ object frm_Config: Tfrm_Config
           Caption = 'Nummer'
           DataBinding.FieldName = 'NUMBER'
           DataBinding.IsNullValueType = True
+          Visible = False
+          VisibleForExpressionEditor = bFalse
+          VisibleForCustomization = False
+          VisibleForEditForm = bFalse
+          VisibleForRowLayout = bFalse
         end
         object grdDBTblView_DelphiCONCATMajorMinorOutputBuild: TcxGridDBColumn
           Caption = 'Version'
@@ -472,7 +477,7 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 15
       Visible = False
-      Width = 868
+      Width = 963
     end
     object edt_Projectname: TcxDBTextEdit
       AlignWithMargins = True
@@ -496,7 +501,7 @@ object frm_Config: Tfrm_Config
       TabOrder = 13
       Visible = False
       OnExit = btn_HelperprogSaveClick
-      Width = 868
+      Width = 963
     end
     object edt_Projectpath: TcxDBButtonEdit
       AlignWithMargins = True
@@ -518,7 +523,7 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 14
       Visible = False
-      Width = 868
+      Width = 963
     end
     object chkbx_32Bit: TcxDBCheckBox
       AlignWithMargins = True
@@ -538,7 +543,7 @@ object frm_Config: Tfrm_Config
       Transparent = True
       Visible = False
       Height = 19
-      Width = 220
+      Width = 239
     end
     object chkbx_64Bit: TcxDBCheckBox
       AlignWithMargins = True
@@ -558,7 +563,7 @@ object frm_Config: Tfrm_Config
       Transparent = True
       Visible = False
       Height = 20
-      Width = 220
+      Width = 239
     end
     object chkbx_Mobile: TcxDBCheckBox
       AlignWithMargins = True
@@ -578,7 +583,7 @@ object frm_Config: Tfrm_Config
       Transparent = True
       Visible = False
       Height = 19
-      Width = 221
+      Width = 240
     end
     object chkbx_Licence: TcxDBCheckBox
       AlignWithMargins = True
@@ -594,7 +599,7 @@ object frm_Config: Tfrm_Config
       Transparent = True
       Visible = False
       Height = 13
-      Width = 220
+      Width = 239
     end
     object chkbx_Language: TcxDBCheckBox
       AlignWithMargins = True
@@ -614,7 +619,7 @@ object frm_Config: Tfrm_Config
       Transparent = True
       Visible = False
       Height = 19
-      Width = 220
+      Width = 239
     end
     object cxDBMaskEdit3: TcxDBMaskEdit
       AlignWithMargins = True
@@ -710,13 +715,13 @@ object frm_Config: Tfrm_Config
       TabOrder = 16
       Visible = False
       OnExit = btn_HelperprogSaveClick
-      Width = 868
+      Width = 963
     end
     object grd_Git: TcxGrid
       Left = 10000
       Top = 10000
-      Width = 1147
-      Height = 683
+      Width = 1238
+      Height = 567
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -829,7 +834,7 @@ object frm_Config: Tfrm_Config
       TabOrder = 29
       Visible = False
       OnExit = btn_HelperprogSaveClick
-      Width = 897
+      Width = 992
     end
     object edt_Scriptpath: TcxDBButtonEdit
       AlignWithMargins = True
@@ -851,12 +856,12 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 30
       Visible = False
-      Width = 897
+      Width = 992
     end
     object brdckCtrl_Git: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1147
+      Width = 1238
       Height = 63
       Align = dalNone
       BarManager = brmgr_main
@@ -1530,7 +1535,7 @@ object frm_Config: Tfrm_Config
       Parent = dxLayoutGroup17
       AlignHorz = ahClient
       AlignVert = avTop
-      CaptionOptions.Text = 'Label'
+      CaptionOptions.Text = 'Lizenzierung:'
       Index = 0
     end
     object dxLayoutLabeledItem5: TdxLayoutLabeledItem
@@ -1929,8 +1934,8 @@ object frm_Config: Tfrm_Config
     Connection = dm_PCM.con_PCM
     SQL.Strings = (
       
-        'SELECT Name,Path,Script,Logo,64Bit,32Bit,Mobile, Lizenz, Localiz' +
-        'e,Programm,Major,Minor,Output,Build,Beschreibung'
+        'SELECT ID,Name,Path,Script,Logo,64Bit,32Bit,Mobile, Lizenz, Loca' +
+        'lize,Programm,Major,Minor,Output,Build,Beschreibung'
       ',CONCAT(Major,'#39'.'#39',Minor,'#39'.'#39',Output,'#39'.'#39',Build)'
       'From devmanager_projects'
       'order by Path,Name')

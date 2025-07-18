@@ -3,7 +3,7 @@ object frm_Doku: Tfrm_Doku
   Top = 0
   Caption = 'PCM - Updategenerator'
   ClientHeight = 600
-  ClientWidth = 1000
+  ClientWidth = 1432
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,7 +18,7 @@ object frm_Doku: Tfrm_Doku
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1000
+    Width = 1432
     Height = 600
     Align = alClient
     TabOrder = 0
@@ -27,7 +27,7 @@ object frm_Doku: Tfrm_Doku
     object grd_Version: TcxGrid
       Left = 10000
       Top = 10000
-      Width = 905
+      Width = 1337
       Height = 455
       TabOrder = 2
       Visible = False
@@ -108,8 +108,8 @@ object frm_Doku: Tfrm_Doku
     object dxBarDockControl1: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 952
-      Height = 58
+      Width = 1384
+      Height = 63
       Align = dalNone
       BarManager = brmgr_Main
       Visible = False
@@ -247,7 +247,7 @@ object frm_Doku: Tfrm_Doku
       Style.TransparentBorder = False
       TabOrder = 0
       Height = 525
-      Width = 952
+      Width = 1384
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient
@@ -290,7 +290,7 @@ object frm_Doku: Tfrm_Doku
       CaptionOptions.Visible = False
       Control = dxBarDockControl1
       ControlOptions.AutoColor = True
-      ControlOptions.OriginalHeight = 58
+      ControlOptions.OriginalHeight = 63
       ControlOptions.OriginalWidth = 1232
       ControlOptions.ShowBorder = False
       Index = 0
@@ -403,6 +403,7 @@ object frm_Doku: Tfrm_Doku
     LookAndFeel.NativeStyle = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
+    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 304

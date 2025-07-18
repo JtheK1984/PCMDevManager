@@ -3,7 +3,7 @@ object frm_Ticket: Tfrm_Ticket
   Top = 0
   Caption = 'PCM - DEV - Workspace'
   ClientHeight = 700
-  ClientWidth = 900
+  ClientWidth = 1400
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,17 +17,18 @@ object frm_Ticket: Tfrm_Ticket
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 900
+    Width = 1400
     Height = 700
     Align = alClient
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     OptionsImage.Images = imglst_16x16
+    ExplicitWidth = 900
     object brdckCtrl_Jira: TdxBarDockControl
       Left = 19
       Top = 45
-      Width = 858
+      Width = 1358
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
@@ -35,7 +36,7 @@ object frm_Ticket: Tfrm_Ticket
     object brdckCtrl_JiraBrowser: TdxBarDockControl
       Left = 28
       Top = 148
-      Width = 836
+      Width = 1336
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
@@ -127,7 +128,7 @@ object frm_Ticket: Tfrm_Ticket
     object grd_Jira: TcxGrid
       Left = 10000
       Top = 10000
-      Width = 1064
+      Width = 836
       Height = 200
       TabOrder = 9
       Visible = False
@@ -336,7 +337,7 @@ object frm_Ticket: Tfrm_Ticket
       TabOrder = 10
       Visible = False
       Height = 19
-      Width = 524
+      Width = 304
     end
     object cxDBTextEdit18: TcxDBTextEdit
       AlignWithMargins = True
@@ -353,7 +354,7 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 11
       Visible = False
-      Width = 524
+      Width = 304
     end
     object cxDBTextEdit19: TcxDBTextEdit
       AlignWithMargins = True
@@ -370,7 +371,7 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 13
       Visible = False
-      Width = 524
+      Width = 304
     end
     object cxDBTextEdit21: TcxDBTextEdit
       AlignWithMargins = True
@@ -387,7 +388,7 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 12
       Visible = False
-      Width = 524
+      Width = 304
     end
     object cxRichEdit1: TcxRichEdit
       Left = 10000
@@ -420,7 +421,7 @@ object frm_Ticket: Tfrm_Ticket
       TabOrder = 14
       Visible = False
       Height = 14
-      Width = 585
+      Width = 365
     end
     object cxDBTextEdit22: TcxDBTextEdit
       AlignWithMargins = True
@@ -459,7 +460,7 @@ object frm_Ticket: Tfrm_Ticket
     object brdckCtrl_Azure: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1092
+      Width = 1358
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
@@ -468,7 +469,7 @@ object frm_Ticket: Tfrm_Ticket
     object brdckCtrl_AzureMax: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1064
+      Width = 1336
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
@@ -477,8 +478,8 @@ object frm_Ticket: Tfrm_Ticket
     object grd_Azure: TcxGrid
       Left = 10000
       Top = 10000
-      Width = 1064
-      Height = 572
+      Width = 1336
+      Height = 516
       TabOrder = 21
       Visible = False
       object grd_tblView_Azure: TcxGridDBTableView
@@ -537,6 +538,7 @@ object frm_Ticket: Tfrm_Ticket
           Width = 60
         end
         object cxGridDBColumn9: TcxGridDBColumn
+          Caption = 'Priorit'#228't'
           DataBinding.FieldName = 'Prio'
           DataBinding.IsNullValueType = True
         end
@@ -616,7 +618,7 @@ object frm_Ticket: Tfrm_Ticket
     object stbr_main: TdxStatusBar
       Left = 28
       Top = 644
-      Width = 836
+      Width = 1336
       Height = 20
       Panels = <
         item
@@ -712,8 +714,8 @@ object frm_Ticket: Tfrm_Ticket
       TabOrder = 20
       Visible = False
       OnResize = pnl_ADevToolsResize
-      Height = 243
-      Width = 1064
+      Height = 213
+      Width = 1336
     end
     object pnl_BrowserAzurePriv: TcxGroupBox
       Left = 10000
@@ -725,8 +727,8 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 19
       Visible = False
-      Height = 243
-      Width = 1064
+      Height = 214
+      Width = 1336
     end
     object pnl_BrowserConfluence: TcxGroupBox
       Left = 10000
@@ -806,7 +808,7 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 2
       Height = 201
-      Width = 836
+      Width = 1336
     end
     object pnl_JDevTools: TcxGroupBox
       Left = 28
@@ -819,7 +821,7 @@ object frm_Ticket: Tfrm_Ticket
       TabOrder = 3
       OnResize = pnl_JDevToolsResize
       Height = 200
-      Width = 836
+      Width = 1336
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient

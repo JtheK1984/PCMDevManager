@@ -1992,6 +1992,15 @@ begin
   GlobalWebView2Loader.UserDataFolder := GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\CustomCache';
   GlobalWebView2Loader.StartWebView2;
   InitializeBrowser(pnl_BrowserJiraPriv);
+  grdDBTblView_JiraBetreff.Caption:=  rs_PCMManager_Betreff;
+  grdDBTblView_JiraStichwort.Caption:= rs_PCMDevManager_COL_Stichwort;
+  grdDBTblView_JiraBeschreibung.Caption:= rs_PCM_Beschreibung;
+  grdDBTblView_JiraFixVersion.Caption:= rs_PCMDevManager_COL_FixVersion;
+  cxGridDBColumn5.Caption:= rs_PCMManager_Betreff;
+  cxGridDBColumn9.Caption:= rs_PCM_Prioritaet;
+  cxGridDBColumn12.Caption:= rs_PCMDevManager_COL_Stichwort;
+  cxGridDBColumn13.Caption:= rs_PCM_Beschreibung;
+  cxGridDBColumn14.Caption:= rs_PCMDevManager_COL_Zugewiesen;
   Loadjirastatus;
 end;
 {$EndRegion}

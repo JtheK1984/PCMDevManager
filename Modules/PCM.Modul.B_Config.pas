@@ -417,7 +417,6 @@ procedure Tfrm_Config.FormActivate(Sender: TObject);
 begin
   FormShow(Self);
 end;
-
 procedure Tfrm_Config.FormShow(Sender: TObject);
   procedure opendata;
   begin
@@ -428,6 +427,7 @@ procedure Tfrm_Config.FormShow(Sender: TObject);
   end;
 begin
   opendata;
+  grdDBTblView_DelphiBeschreibung.Caption:= rs_PCM_Beschreibung;
 end;
 {$EndRegion Formfunktionen}
 

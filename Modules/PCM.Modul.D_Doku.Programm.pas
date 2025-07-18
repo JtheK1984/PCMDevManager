@@ -53,7 +53,7 @@ begin
   dm_PCM.qry_Work.SQL.Text:= 'SELECT Programm FROM lizenzgenerator_programme GROUP BY Programm ORDER BY Programm';
   dm_PCM.qry_Work.Open;
   cmbbx_Prog.Properties.Items.Clear;
-  cmbbx_Prog.Properties.Items.Add('Alle');
+  cmbbx_Prog.Properties.Items.Add(rs_PCMDevManager_CMBBX_Alle);
   while not dm_PCM.qry_Work.Eof do
   begin
     cmbbx_Prog.Properties.Items.Add(StringReplace(dm_PCM.qry_Work.FieldByName('Programm').AsString,'-',' - ',[rfIgnoreCase,rfReplaceAll]));

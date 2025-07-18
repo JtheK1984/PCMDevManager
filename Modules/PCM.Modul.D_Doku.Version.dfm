@@ -23,8 +23,8 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     TabOrder = 4
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitWidth = 740
-    ExplicitHeight = 579
+    ExplicitWidth = 894
+    ExplicitHeight = 620
     object mem_statement: TSynMemo
       Left = 23
       Top = 315
@@ -480,7 +480,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       TabOrder = 6
       Transparent = True
       Height = 19
-      Width = 67
+      Width = 100
     end
     object chkbx_Newpage: TcxCheckBox
       AlignWithMargins = True
@@ -618,7 +618,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       CaptionOptions.Visible = False
       Control = chkbx_leer
       ControlOptions.OriginalHeight = 19
-      ControlOptions.OriginalWidth = 67
+      ControlOptions.OriginalWidth = 100
       ControlOptions.ShowBorder = False
       Index = 1
     end

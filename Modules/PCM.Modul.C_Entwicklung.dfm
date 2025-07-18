@@ -2,8 +2,8 @@ object frm_Dev: Tfrm_Dev
   Left = 0
   Top = 0
   Caption = 'PCM - DEV - Workspace'
-  ClientHeight = 600
-  ClientWidth = 1280
+  ClientHeight = 851
+  ClientWidth = 1508
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,15 +17,15 @@ object frm_Dev: Tfrm_Dev
   object lactrl_Main: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1280
-    Height = 600
+    Width = 1508
+    Height = 851
     Align = alClient
     TabOrder = 0
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     object grd_Helpprogs: TcxGrid
       Left = 28
       Top = 76
-      Width = 1220
+      Width = 1448
       Height = 140
       BevelInner = bvLowered
       BevelKind = bkFlat
@@ -103,8 +103,8 @@ object frm_Dev: Tfrm_Dev
     object grd_Projects: TcxGrid
       Left = 28
       Top = 332
-      Width = 1220
-      Height = 95
+      Width = 1448
+      Height = 246
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -173,6 +173,7 @@ object frm_Dev: Tfrm_Dev
           Width = 390
         end
         object grdDBTblViewCol_ProjectsImage: TcxGridDBColumn
+          Caption = 'Image'
           DataBinding.FieldName = 'Logo'
           DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageProperties'
@@ -220,16 +221,16 @@ object frm_Dev: Tfrm_Dev
     object brdckCtrl_Projects: TdxBarDockControl
       Left = 28
       Top = 263
-      Width = 1220
+      Width = 1448
       Height = 63
       Align = dalNone
       BarManager = brmgr_Main
     end
     object grd_Scripts: TcxGrid
       Left = 28
-      Top = 474
-      Width = 1220
-      Height = 94
+      Top = 625
+      Width = 1448
+      Height = 194
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -287,6 +288,7 @@ object frm_Dev: Tfrm_Dev
           Width = 1140
         end
         object grdDBTblViewCol_ScriptsImage: TcxGridDBColumn
+          Caption = 'Image'
           DataBinding.FieldName = 'Logo'
           PropertiesClassName = 'TcxImageProperties'
           Properties.GraphicClassName = 'TdxPNGImage'
@@ -835,7 +837,6 @@ object frm_Dev: Tfrm_Dev
       AlignHorz = ahClient
       AlignVert = avClient
       CaptionOptions.Text = 'New Group'
-      ItemIndex = 1
       LayoutDirection = ldTabbed
       ShowBorder = False
       OnTabChanged = pc_SourceCodeTabChanged

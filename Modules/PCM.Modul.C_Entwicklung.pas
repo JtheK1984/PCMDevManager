@@ -708,10 +708,10 @@ end;
 procedure Tfrm_Dev.btn_CreateMSBUILDAllClick(Sender: TObject);
 begin
   qry_projects.First;
-  ShowWaitForm(TForm(Self), PWideChar('Script werden erstellt'), qry_projects.Recordcount * 2,417, 65);
+  ShowWaitForm(TForm(Self), PWideChar(rs_PCMDevManager_WAIT_Scripts), qry_projects.Recordcount * 2,417, 65);
   while not qry_projects.eof do
   begin
-    WaitFormSetText('Script ' + qry_projects.FieldByName('Name').AsString + ' wird erstellt');
+    WaitFormSetText('Script ' + qry_projects.FieldByName('Name').AsString + rs_PCMDevManager_WAIT_Create);
     WaitFormStep;
     if qry_projects.FieldByName('Script').AsString <> '' then
     begin
@@ -755,14 +755,14 @@ Var
   sFile: String;
 begin
   qry_Projects.First;
-  ShowWaitForm(TForm(Self), PWideChar('Script werden erstellt'), qry_projects.Recordcount,417, 65);
+  ShowWaitForm(TForm(Self), PWideChar(rs_PCMDevManager_WAIT_Scripts), qry_projects.Recordcount,417, 65);
   while not qry_Projects.eof do
   begin
     if qry_Projects.FieldByName('ID').AsInteger > 0 then
     begin
       sPath:= StringReplace(qry_Projects.FieldByName('Path').AsString,qry_Projects.FieldByName('Name').AsString + '.dproj','',[rfReplaceAll,rfIgnoreCase]);
       sFile:= StringReplace(qry_Projects.FieldByName('Name').AsString,'.dproj','.exe',[rfReplaceAll,rfIgnoreCase]);
-      WaitFormSetText('Ressourcefile ' + sFile + ' wird erstellt');
+      WaitFormSetText('Ressourcefile ' + sFile + rs_PCMDevManager_WAIT_Create);
       WaitFormStep;
       CreateResFile(sPath,
                     sFile,
@@ -792,7 +792,7 @@ var
 begin
   // MS Build Scripte
   qry_projects.First;
-  ShowWaitForm(TForm(Self), PWideChar('Script werden erstellt'), qry_projects.Recordcount * 2,417, 65);
+  ShowWaitForm(TForm(Self), PWideChar(rs_PCMDevManager_WAIT_Scripts), qry_projects.Recordcount * 2,417, 65);
   try
     // Sonstige Scripte löschen
     qry_Scripts.First;
@@ -805,7 +805,7 @@ begin
     // Sonstige Scripte
     sBasePath:= 'E:\Projekte\Windows\';
     qry_projects.First;
-    WaitFormSetText('sonstige Script werden erstellt');
+    WaitFormSetText(rs_PCMDevManager_WAIT_CreateOther);
     slClearDCU:= TSTringlist.Create;
     slGitMainPull:= TSTringlist.Create;
     slGitMainPush:= TSTringlist.Create;
@@ -1712,6 +1712,8 @@ procedure Tfrm_Dev.FormShow(Sender: TObject);
   end;
 begin
   opendata;
+  grdDBTblView_VersionsArchitektur.Caption:= rs_PCMDevManager_COL_Architektur;
+  grdDBTblViewCol_ProjectsLicence.Caption := rs_PCMDevManager_COL_Licence;
   SetButtons;
   grdDBTblView_Versions.OnFocusedRecordChanged := nil;
   LoadValues;

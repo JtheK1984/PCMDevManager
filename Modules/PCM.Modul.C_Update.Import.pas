@@ -184,6 +184,8 @@ var
   iVorkomma,iNachkomma: integer;
   arUpdate: TUpdateStrings;
   strLstDatatypes: TStringlist;
+  wYear,wMonth,wDay: Word;
+  sDateValue: String;
 begin
   dxLayoutItem5.Caption:= rs_PCMDevManager_CAPXML;
   qry_Allg.SQL.text:= 'Delete From update_updateversion';
@@ -202,7 +204,13 @@ begin
       Node_Version := Node_Programm.ChildNodes['version'];
       while Assigned(Node_Version) do
       begin
-        dDateVersion:= StrToDate(VarToStr(Node_Version.Attributes['date']));
+        sDateValue:= VarToStr(Node_Version.Attributes['date']);
+        wYear:= StrToInt(Copy(sDateValue,7,4));
+        wMonth:= StrToInt(Copy(sDateValue,4,2));
+        wDay:= StrToInt(Copy(sDateValue,1,2));
+
+
+        dDateVersion:= EncodeDate(wYear,wMonth,wDay);
         iMajor:= StrToInt(VarToStr(Node_Version.Attributes['major']));
         iMinor:= StrToInt(VarToStr(Node_Version.Attributes['minor']));
         Node_Description := Node_Version.ChildNodes['description'];

@@ -86,7 +86,7 @@ const
   DB_ADS = 2;
   DB_FB = 3;
   PCM_Programmnummer =  4;
-  PCM_Logname = 'PCMDEV';
+  PCM_Logname = 'PCMDevManager';
   PCM_Connectionname =  'pcm_DEV';
   PCM_Alias = 'PCMDEV';
   user = 'Jens.Henske@outlook.com';

@@ -4,8 +4,8 @@ object frm_PCM_Import: Tfrm_PCM_Import
   BorderIcons = []
   BorderStyle = bsDialog
   Caption = 'PCM - Updategenerator: Import'
-  ClientHeight = 130
-  ClientWidth = 433
+  ClientHeight = 154
+  ClientWidth = 444
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,17 +17,19 @@ object frm_PCM_Import: Tfrm_PCM_Import
   object dxLayoutControl1: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 433
-    Height = 130
+    Width = 444
+    Height = 154
     Align = alClient
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    ExplicitWidth = 427
+    ExplicitHeight = 113
     object btn_import: TcxButton
       AlignWithMargins = True
       Left = 12
       Top = 42
-      Width = 201
+      Width = 207
       Height = 25
       Margins.Left = 6
       Margins.Top = 0
@@ -41,9 +43,9 @@ object frm_PCM_Import: Tfrm_PCM_Import
     end
     object cxButton2: TcxButton
       AlignWithMargins = True
-      Left = 220
+      Left = 226
       Top = 42
-      Width = 200
+      Width = 206
       Height = 25
       Margins.Left = 4
       Margins.Top = 0
@@ -64,7 +66,7 @@ object frm_PCM_Import: Tfrm_PCM_Import
       Margins.Bottom = 5
       Style.TransparentBorder = False
       TabOrder = 4
-      Width = 408
+      Width = 420
     end
     object edt_Importfile: TcxTextEdit
       AlignWithMargins = True
@@ -80,11 +82,11 @@ object frm_PCM_Import: Tfrm_PCM_Import
       Style.TransparentBorder = False
       TabOrder = 0
       Height = 23
-      Width = 378
+      Width = 390
     end
     object cxButton1: TcxButton
       AlignWithMargins = True
-      Left = 397
+      Left = 409
       Top = 12
       Width = 23
       Height = 21
@@ -95,7 +97,7 @@ object frm_PCM_Import: Tfrm_PCM_Import
       OnClick = cxButton1Click
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
-      AlignHorz = ahRight
+      AlignHorz = ahClient
       AlignVert = avClient
       Hidden = True
       LayoutDirection = ldHorizontal
