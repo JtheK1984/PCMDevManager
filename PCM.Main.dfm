@@ -40,6 +40,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     OptionsStyle.CustomStyles.Background = navbrStyleIt_main
     OptionsView.HamburgerMenu.NavigationPaneMode = npmNone
     OptionsView.HamburgerMenu.SpaceBetweenGroups = 50
+    ExplicitHeight = 731
     object navbrgrp_Optionen: TdxNavBarGroup
       Caption = 'Optionen'
       SelectedLinkIndex = -1
@@ -231,6 +232,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Style.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.NativeStyle = False
     TabOrder = 1
+    ExplicitWidth = 1068
+    ExplicitHeight = 731
     Height = 748
     Width = 1074
     object pc_main: TcxPageControl
@@ -254,6 +257,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
       Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea, pcoNoArrows, pcoRedrawOnResize, pcoSort, pcoUsePageColorForTab]
       LookAndFeel.NativeStyle = False
       OnPageChanging = pc_mainPageChanging
+      ExplicitWidth = 1062
+      ExplicitHeight = 725
       ClientRectBottom = 736
       ClientRectLeft = 2
       ClientRectRight = 1062
@@ -262,6 +267,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
         AllowCloseButton = False
         Caption = 'Dashboard'
         ImageIndex = 79
+        ExplicitWidth = 1054
+        ExplicitHeight = 691
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
@@ -270,6 +277,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
           Align = alClient
           TabOrder = 0
           LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+          ExplicitWidth = 1054
+          ExplicitHeight = 691
           object chartctrl_Customer: TdxChartControl
             Left = 19
             Top = 42

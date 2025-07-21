@@ -163,9 +163,9 @@ type
     tb_Projects: TdxBar;
     btn_CreateMSBUILD: TdxBarLargeButton;
     btn_CreateMSBUILDAll: TdxBarLargeButton;
-    dxBarLargeButton3: TdxBarLargeButton;
-    dxBarLargeButton4: TdxBarLargeButton;
-    dxBarLargeButton5: TdxBarLargeButton;
+    btn_trenn1: TdxBarLargeButton;
+    btn_trenn2: TdxBarLargeButton;
+    btn_trenn3: TdxBarLargeButton;
     dxLayoutGroup1: TdxLayoutGroup;
     dxLayoutGroup2: TdxLayoutGroup;
     dxLayoutItem1: TdxLayoutItem;
@@ -247,6 +247,9 @@ type
     chkbx_Copy: TcxDBCheckBox;
     odlg_Script: TdxOpenFileDialog;
     odlg_Files: TdxOpenFileDialog;
+    btn_trenn4: TdxBarLargeButton;
+    btn_CreateReadME: TdxBarLargeButton;
+    btn_CreateReadMEAll: TdxBarLargeButton;
     procedure FormActivate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btn_CreateHelpScriptsClick(Sender: TObject);
@@ -284,6 +287,8 @@ type
     procedure chkbx_CopyPropertiesEditValueChanged(Sender: TObject);
     procedure chkbx_CopyClick(Sender: TObject);
     procedure grdDBTblView_VersionsFocusedRecordChanged(Sender: TcxCustomGridTableView; APrevFocusedRecord, AFocusedRecord: TcxCustomGridRecord; ANewItemRecordFocusingChanged: Boolean);
+    procedure btn_CreateReadMEClick(Sender: TObject);
+    procedure btn_CreateReadMEAllClick(Sender: TObject);
   private
     { Private-Deklarationen }
     AppConfig: TAppConfig;
@@ -291,9 +296,9 @@ type
     bSetttingsChanged: Boolean;
     recFiles: TBackupfiles;
     function GetNotepad : string;
-
     procedure CreateMSBuild(AName,APath,AScript: String;A64,A32,AMobile,Alizenz,Alocalize: Boolean);
     procedure CreateResFile(APath,AFile,AMajor,AMinor,ARevision,ABuild,ADescription: String;A64Bit,A32Bit,AMobile: Boolean);
+    procedure CreateReadMe(APath,AFile,AMajor,AMinor,ARevision,ABuild,ADescription,ADLL,AComponents: String);
     procedure LoadFileExt(sNewFileExt: String);
     procedure SetButtons;
   public
@@ -306,10 +311,12 @@ var
   bCancelCopy : Boolean;
   {$EndRegion Var}
 const
+  {$Region Const}
   CEXM_CANCEL = WM_USER + 1;
   CEXM_CONTINUE = WM_USER + 2;
   CEXM_MAXBYTES = WM_USER + 3;
-
+  sDelphiVersion = 'DELPHI 12.3 Athens';
+  {$EndRegion Const}
 implementation
 
 uses
@@ -529,6 +536,55 @@ begin
   end;
   CreateOverMsBuild(APath,AScript,AName);
 end;
+procedure Tfrm_Dev.CreateReadMe(APath,AFile,AMajor,AMinor,ARevision,ABuild,ADescription,ADLL,AComponents: String);
+var
+  slVersionH: TStringList;
+  sFileWithoutExt: String;
+begin
+  sFileWithoutExt:= StringReplace(AFile,'.exe','',[rfReplaceAll,rfIgnoreCase]);
+  sFileWithoutExt:= StringReplace(sFileWithoutExt,'PCM','PCM-',[rfReplaceAll,rfIgnoreCase]);
+  slVersionH := TStringList.Create;
+  try
+    slVersionH.Add('# Projekt:');
+    slVersionH.Add('  ' + AFile + '.exe Version: ' + AMajor + '.' + AMinor + '.' + ABuild + '.' + ARevision);
+    slVersionH.Add('');
+    slVersionH.Add('# Kurzbeschreibung:');
+    slVersionH.Add('  ' + ADescription);
+    slVersionH.Add('');
+    slVersionH.Add('# Entwicklungsumgebung:');
+    slVersionH.Add('  ' + sDelphiVersion);
+    slVersionH.Add('');
+    slVersionH.Add('# Entwickler:');
+    slVersionH.Add('  Jens Henske');
+    slVersionH.Add('');
+    if sFileWithoutExt = 'PCM-Functions' then
+    begin
+      slVersionH.Add('# Enthaltene Units und Formualare PCM-Functions');
+      slVersionH.Add(ADLL);
+    end
+    else begin
+      slVersionH.Add('# Abhängigkeiten zu folgenden Sub-Modulen:');
+      slVersionH.Add('  - PCM-Functions');
+      slVersionH.Add('  (Dokumentation: [Azure DevOps](https://pcmapps.ddns.net:2443/PCM-DEV/PCM/PCMFunctions) [GitHub](https://github.com/JtheK1984/PCMFunctions))');
+      slVersionH.Add('');
+      slVersionH.Add('# Abhängigkeiten zu folgenden DLLs:');
+      slVersionH.Add(ADLL);
+    end;
+    slVersionH.Add('');
+    slVersionH.Add('# Erforderliche Komponenten (DELPHI-IDE):');
+    slVersionH.Add(AComponents);
+    slVersionH.Add('');
+    slVersionH.Add('# Erforderliche Scripte (nur für die Buildpipelines in Azure DevOps):');
+    slVersionH.Add('  - PrepareBuild.cmd (Umgebungsvariablen für Delphi anpassen, wird für den Build benötigt)');
+    slVersionH.Add('  - PrepareCopy.cmd (erzeugte Versionen werden in das Inno-Setupverzeichnis abgelgt)');
+    slVersionH.Add('');
+    slVersionH.Add('# Stand:');
+    slVersionH.Add('  ' + DateToStr(Date));
+    slVersionH.SaveToFile(Apath + 'README.md',TUTF8Encoding.Create(False));
+  finally
+    slVersionH.Free;
+  end;
+end;
 procedure Tfrm_Dev.CreateResFile(APath,AFile,AMajor,AMinor,ARevision,ABuild,ADescription: String;A64Bit,A32Bit,AMobile: Boolean);
   procedure CreateVersionH(APath, AMajor,AMinor,ARevision, ABuild: String);
   var
@@ -586,12 +642,12 @@ begin
       slVersionH.Add('    BEGIN');
       slVersionH.Add('      VALUE "FileDescription", "' + ADescription + '\0"');
       slVersionH.Add('      VALUE "FileVersion", VERSION_STRING_FULL "\0"');
-      slVersionH.Add('      VALUE "InternalName", "'+ AFile +'\0"');
+      slVersionH.Add('      VALUE "InternalName", "'+ AFile + '.exe \0"');
       slVersionH.Add('      VALUE "LegalCopyright", "PCM (Jens Henske)\0"');
       slVersionH.Add('      VALUE "ProductName", "' + sFileWithoutExt + ' 64-Bit\0"');
-      slVersionH.Add('      VALUE "ProductVersion",VERSION_STRING_SMALL "\0"');
+      slVersionH.Add('      VALUE "ProductVersion",VERSION_STRING_SMALL"\0"');
       slVersionH.Add('      VALUE "CompanyName", "PCM\0"');
-      slVersionH.Add('      VALUE "OriginalFilename", "'+ AFile +' (64-Bit)\0"');
+      slVersionH.Add('      VALUE "OriginalFilename", "'+ AFile + '.exe (64-Bit)\0"');
       slVersionH.Add('      VALUE "Comments", "\0"');
       slVersionH.Add('    END');
       slVersionH.Add('  END');
@@ -635,9 +691,9 @@ begin
       slVersionH.Add('    BEGIN');
       slVersionH.Add('      VALUE "FileDescription", "' + ADescription + '\0"');
       slVersionH.Add('      VALUE "FileVersion", VERSION_STRING_FULL "\0"');
-      slVersionH.Add('      VALUE "InternalName", "' + sFileWithoutExt + '.exe \0"');
+      slVersionH.Add('      VALUE "InternalName", "' + AFile + '.exe \0"');
       slVersionH.Add('      VALUE "LegalCopyright", "PCM (Jens Henske)\0"');
-      slVersionH.Add('      VALUE "ProductName", "' + AFile + ' 32-Bit\0"');
+      slVersionH.Add('      VALUE "ProductName", "' + sFileWithoutExt + ' 32-Bit\0"');
       slVersionH.Add('      VALUE "ProductVersion",VERSION_STRING_SMALL "\0"');
       slVersionH.Add('      VALUE "CompanyName", "PCM\0"');
       slVersionH.Add('      VALUE "OriginalFilename", "' + AFile + '.exe (32-Bit)\0"');
@@ -846,6 +902,32 @@ begin
       slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Release\' + qry_projects.FieldByName('Name').AsString + '.exe /f /q /a');
       slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Debug\' + qry_projects.FieldByName('Name').AsString + '.exe /f /q /a');
       slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Debug\' + qry_projects.FieldByName('Name').AsString + '.exe /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Release\' + qry_projects.FieldByName('Name').AsString + '.drc /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Release\' + qry_projects.FieldByName('Name').AsString + '.drc /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Debug\' + qry_projects.FieldByName('Name').AsString + '.drc /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Debug\' + qry_projects.FieldByName('Name').AsString + '.drc /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Release\' + qry_projects.FieldByName('Name').AsString + '.~ntp /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Release\' + qry_projects.FieldByName('Name').AsString + '.~ntp /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Debug\' + qry_projects.FieldByName('Name').AsString + '.~ntp /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Debug\' + qry_projects.FieldByName('Name').AsString + '.~ntp /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Release\' + qry_projects.FieldByName('Name').AsString + '.DE /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Release\' + qry_projects.FieldByName('Name').AsString + '.DE /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Debug\' + qry_projects.FieldByName('Name').AsString + '.DE /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Debug\' + qry_projects.FieldByName('Name').AsString + '.DE /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Release\' + qry_projects.FieldByName('Name').AsString + '.EN /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Release\' + qry_projects.FieldByName('Name').AsString + '.EN /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Debug\' + qry_projects.FieldByName('Name').AsString + '.EN /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Debug\' + qry_projects.FieldByName('Name').AsString + '.EN /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Release\' + qry_projects.FieldByName('Name').AsString + '.nds /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Release\' + qry_projects.FieldByName('Name').AsString + '.nds /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Debug\' + qry_projects.FieldByName('Name').AsString + '.nds /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Debug\' + qry_projects.FieldByName('Name').AsString + '.nds /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Release\' + qry_projects.FieldByName('Name').AsString + '.ntr /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Release\' + qry_projects.FieldByName('Name').AsString + '.ntr /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Debug\' + qry_projects.FieldByName('Name').AsString + '.ntr /f /q /a');
+      slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Debug\' + qry_projects.FieldByName('Name').AsString + '.ntr /f /q /a');
+
+
       slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Release\WebView2Loader.dll /f /q /a');
       slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win32\Release\WebView2Loader.dll /f /q /a');
       slClearDCU.Add('del ' + sBasePath + '\' + qry_projects.FieldByName('Name').AsString + '\Win64\Debug\WebView2Loader.dll /f /q /a');
@@ -1033,6 +1115,57 @@ begin
     bSetttingsChanged := True;
   end;
 end;
+procedure Tfrm_Dev.btn_CreateReadMEClick(Sender: TObject);
+Var
+  sPath: String;
+  sFile: String;
+begin
+  if qry_Projects.FieldByName('ID').AsInteger > 0 then
+  begin
+    sPath:= StringReplace(qry_Projects.FieldByName('Path').AsString,qry_Projects.FieldByName('Name').AsString + '.dproj','',[rfReplaceAll,rfIgnoreCase]);
+    sFile:= StringReplace(qry_Projects.FieldByName('Name').AsString,'.dproj','.exe',[rfReplaceAll,rfIgnoreCase]);
+    CreateReadme(sPath,
+                  sFile,
+                  qry_Projects.FieldByName('Major').AsString,
+                  qry_Projects.FieldByName('Minor').AsString,
+                  qry_Projects.FieldByName('Build').AsString,
+                  qry_Projects.FieldByName('Output').AsString,
+                  qry_Projects.FieldByName('Beschreibung').AsString,
+                  qry_Projects.FieldByName('DLL').AsString,
+                  qry_Projects.FieldByName('components').AsString);
+  end;
+end;
+
+procedure Tfrm_Dev.btn_CreateReadMEAllClick(Sender: TObject);
+Var
+  sPath: String;
+  sFile: String;
+begin
+  qry_Projects.First;
+  ShowWaitForm(TForm(Self), PWideChar(rs_PCMDevManager_WAIT_Scripts), qry_projects.Recordcount,417, 65);
+  while not qry_Projects.eof do
+  begin
+    if qry_Projects.FieldByName('ID').AsInteger > 0 then
+    begin
+      sPath:= StringReplace(qry_Projects.FieldByName('Path').AsString,qry_Projects.FieldByName('Name').AsString + '.dproj','',[rfReplaceAll,rfIgnoreCase]);
+      sFile:= StringReplace(qry_Projects.FieldByName('Name').AsString,'.dproj','.exe',[rfReplaceAll,rfIgnoreCase]);
+      WaitFormSetText('Readmefile ' + sFile + rs_PCMDevManager_WAIT_Create);
+      WaitFormStep;
+      CreateReadme(sPath,
+                  sFile,
+                  qry_Projects.FieldByName('Major').AsString,
+                  qry_Projects.FieldByName('Minor').AsString,
+                  qry_Projects.FieldByName('Build').AsString,
+                  qry_Projects.FieldByName('Output').AsString,
+                  qry_Projects.FieldByName('Beschreibung').AsString,
+                  qry_Projects.FieldByName('DLL').AsString,
+                  qry_Projects.FieldByName('components').AsString);
+    end;
+    qry_Projects.Next;
+  end;
+  CloseWaitForm;
+end;
+
 procedure Tfrm_Dev.chkbx_AktivClick(Sender: TObject);
 var
   iIndex: Integer;

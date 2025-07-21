@@ -280,16 +280,19 @@ object frm_Dev: Tfrm_Dev
         object grdDBTblViewCol_ScriptsProgname: TcxGridDBColumn
           Caption = 'Programmname'
           DataBinding.FieldName = 'Name'
+          DataBinding.IsNullValueType = True
           Width = 200
         end
         object grdDBTblViewCol_ScriptsProgpath: TcxGridDBColumn
           Caption = 'Programmpfad'
           DataBinding.FieldName = 'Path'
+          DataBinding.IsNullValueType = True
           Width = 1140
         end
         object grdDBTblViewCol_ScriptsImage: TcxGridDBColumn
           Caption = 'Image'
           DataBinding.FieldName = 'Logo'
+          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageProperties'
           Properties.GraphicClassName = 'TdxPNGImage'
           Width = 60
@@ -332,14 +335,17 @@ object frm_Dev: Tfrm_Dev
         OptionsView.Indicator = True
         object grdDBTblView_VersionsName: TcxGridDBColumn
           DataBinding.FieldName = 'Name'
+          DataBinding.IsNullValueType = True
           Width = 800
         end
         object grdDBTblView_VersionsVersion: TcxGridDBColumn
           DataBinding.FieldName = 'Version'
+          DataBinding.IsNullValueType = True
           Width = 100
         end
         object grdDBTblView_VersionsArchitektur: TcxGridDBColumn
           DataBinding.FieldName = 'Architektur'
+          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageComboBoxProperties'
           Properties.Items = <
             item
@@ -360,6 +366,7 @@ object frm_Dev: Tfrm_Dev
         object grdDBTblView_VersionsArchitektur1: TcxGridDBColumn
           Caption = 'Architektur 2'
           DataBinding.FieldName = 'Architektur1'
+          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageComboBoxProperties'
           Properties.Items = <
             item
@@ -1918,7 +1925,6 @@ object frm_Dev: Tfrm_Dev
     Top = 303
   end
   object qry_Scripts: TFDQuery
-    Active = True
     Connection = dm_PCM.con_PCM
     SQL.Strings = (
       'Select * From devmanager_scripts'
@@ -1974,7 +1980,7 @@ object frm_Dev: Tfrm_Dev
         end
         item
           Visible = True
-          ItemName = 'dxBarLargeButton3'
+          ItemName = 'btn_trenn1'
         end
         item
           Visible = True
@@ -1986,7 +1992,7 @@ object frm_Dev: Tfrm_Dev
         end
         item
           Visible = True
-          ItemName = 'dxBarLargeButton4'
+          ItemName = 'btn_trenn2'
         end
         item
           Visible = True
@@ -1998,11 +2004,23 @@ object frm_Dev: Tfrm_Dev
         end
         item
           Visible = True
-          ItemName = 'dxBarLargeButton5'
+          ItemName = 'btn_trenn3'
         end
         item
           Visible = True
           ItemName = 'btn_CreateHelpScripts'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_trenn4'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_CreateReadME'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_CreateReadMEAll'
         end>
       OneOnRow = True
       Row = 0
@@ -2125,17 +2143,17 @@ object frm_Dev: Tfrm_Dev
       LargeImageIndex = 125
       Width = 125
     end
-    object dxBarLargeButton3: TdxBarLargeButton
+    object btn_trenn1: TdxBarLargeButton
       Category = 0
       Enabled = False
       Visible = ivAlways
     end
-    object dxBarLargeButton4: TdxBarLargeButton
+    object btn_trenn2: TdxBarLargeButton
       Category = 0
       Enabled = False
       Visible = ivAlways
     end
-    object dxBarLargeButton5: TdxBarLargeButton
+    object btn_trenn3: TdxBarLargeButton
       Category = 0
       Enabled = False
       Visible = ivAlways
@@ -2190,9 +2208,33 @@ object frm_Dev: Tfrm_Dev
       LargeImageIndex = 122
       Width = 125
     end
+    object btn_trenn4: TdxBarLargeButton
+      Category = 0
+      Enabled = False
+      Visible = ivAlways
+    end
+    object btn_CreateReadME: TdxBarLargeButton
+      Caption = 'Readme.md erstellen'
+      Category = 0
+      Hint = 'Readme.md erstellen'
+      Visible = ivAlways
+      OnClick = btn_CreateReadMEClick
+      AutoGrayScale = False
+      LargeImageIndex = 125
+      SyncImageIndex = False
+      ImageIndex = 125
+    end
+    object btn_CreateReadMEAll: TdxBarLargeButton
+      Caption = 'Alle Readme.md erstellen'
+      Category = 0
+      Hint = 'Alle Readme.md erstellen'
+      Visible = ivAlways
+      OnClick = btn_CreateReadMEAllClick
+      AutoGrayScale = False
+      LargeImageIndex = 125
+    end
   end
   object qry_SourceAPP: TFDQuery
-    Active = True
     Connection = dm_PCM.con_PCM
     SQL.Strings = (
       'SELECT * FROM service_config_quellcode_apps'

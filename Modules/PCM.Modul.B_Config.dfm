@@ -143,8 +143,8 @@ object frm_Config: Tfrm_Config
     object grd_Helper: TcxGrid
       Left = 10000
       Top = 10000
-      Width = 1125
-      Height = 683
+      Width = 1220
+      Height = 567
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -241,7 +241,7 @@ object frm_Config: Tfrm_Config
       TabOrder = 8
       Visible = False
       OnExit = btn_HelperprogSaveClick
-      Width = 960
+      Width = 1055
     end
     object edt_Progpfad: TcxDBButtonEdit
       AlignWithMargins = True
@@ -263,7 +263,7 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 9
       Visible = False
-      Width = 960
+      Width = 1055
     end
     object img_ConfigHelpprogsLogo: TcxDBImage
       AlignWithMargins = True
@@ -288,7 +288,7 @@ object frm_Config: Tfrm_Config
     object brdckCtrl_Main: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1147
+      Width = 1238
       Height = 63
       Align = dalNone
       BarManager = brmgr_main
@@ -307,7 +307,7 @@ object frm_Config: Tfrm_Config
       Left = 10000
       Top = 10000
       Width = 1238
-      Height = 444
+      Height = 202
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -317,7 +317,7 @@ object frm_Config: Tfrm_Config
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 27
+      TabOrder = 29
       Visible = False
       LockedStateImageOptions.Effect = lsieDark
       object grdDBTblView_Delphi: TcxGridDBTableView
@@ -358,28 +358,23 @@ object frm_Config: Tfrm_Config
         object grdDBTblViewCol_NameDelphi: TcxGridDBColumn
           Caption = 'Projektname'
           DataBinding.FieldName = 'Name'
-          DataBinding.IsNullValueType = True
           Width = 150
         end
         object grdDBTblViewCol_PfadDelphi: TcxGridDBColumn
           Caption = 'Projektpfad'
           DataBinding.FieldName = 'Path'
-          DataBinding.IsNullValueType = True
           Width = 450
         end
         object grdDBTblViewCol_ScriptDelphi: TcxGridDBColumn
           DataBinding.FieldName = 'Script'
-          DataBinding.IsNullValueType = True
           Width = 350
         end
         object grdDBTblView_DelphiBeschreibung: TcxGridDBColumn
           DataBinding.FieldName = 'Beschreibung'
-          DataBinding.IsNullValueType = True
           Width = 200
         end
         object grdDBTblViewCol_LogoDelphi: TcxGridDBColumn
           DataBinding.FieldName = 'Logo'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageProperties'
           Properties.GraphicClassName = 'TdxPNGImage'
           Width = 60
@@ -387,32 +382,27 @@ object frm_Config: Tfrm_Config
         object grdDBTblViewCol_64BitDelphi: TcxGridDBColumn
           Caption = '64-Bit'
           DataBinding.FieldName = '64Bit'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_32BitDelphi: TcxGridDBColumn
           Caption = '32-Bit'
           DataBinding.FieldName = '32Bit'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_MobileDelphi: TcxGridDBColumn
           DataBinding.FieldName = 'Mobile'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_LizenzDelphi: TcxGridDBColumn
           DataBinding.FieldName = 'Lizenz'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_LocalizeDelphi: TcxGridDBColumn
           DataBinding.FieldName = 'Localize'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
@@ -429,7 +419,6 @@ object frm_Config: Tfrm_Config
         object grdDBTblView_DelphiCONCATMajorMinorOutputBuild: TcxGridDBColumn
           Caption = 'Version'
           DataBinding.FieldName = 'CONCAT(Major,'#39'.'#39',Minor,'#39'.'#39',Output,'#39'.'#39',Build)'
-          DataBinding.IsNullValueType = True
           Width = 60
         end
       end
@@ -539,7 +528,7 @@ object frm_Config: Tfrm_Config
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 19
+      TabOrder = 21
       Transparent = True
       Visible = False
       Height = 19
@@ -559,7 +548,7 @@ object frm_Config: Tfrm_Config
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 18
+      TabOrder = 20
       Transparent = True
       Visible = False
       Height = 20
@@ -579,7 +568,7 @@ object frm_Config: Tfrm_Config
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 20
+      TabOrder = 22
       Transparent = True
       Visible = False
       Height = 19
@@ -595,7 +584,7 @@ object frm_Config: Tfrm_Config
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 21
+      TabOrder = 23
       Transparent = True
       Visible = False
       Height = 13
@@ -615,7 +604,7 @@ object frm_Config: Tfrm_Config
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 22
+      TabOrder = 24
       Transparent = True
       Visible = False
       Height = 19
@@ -634,7 +623,7 @@ object frm_Config: Tfrm_Config
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 23
+      TabOrder = 25
       Visible = False
       Height = 21
       Width = 30
@@ -652,7 +641,7 @@ object frm_Config: Tfrm_Config
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 24
+      TabOrder = 26
       Visible = False
       Height = 21
       Width = 30
@@ -670,7 +659,7 @@ object frm_Config: Tfrm_Config
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 25
+      TabOrder = 27
       Visible = False
       Height = 21
       Width = 30
@@ -688,7 +677,7 @@ object frm_Config: Tfrm_Config
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 26
+      TabOrder = 28
       Visible = False
       Height = 21
       Width = 30
@@ -731,7 +720,7 @@ object frm_Config: Tfrm_Config
       Font.Name = 'Tahoma'
       Font.Style = []
       ParentFont = False
-      TabOrder = 32
+      TabOrder = 34
       Visible = False
       LockedStateImageOptions.Effect = lsieDark
       object grdDBTblView_Git: TcxGridDBTableView
@@ -806,7 +795,7 @@ object frm_Config: Tfrm_Config
       Properties.GraphicClassName = 'TdxPNGImage'
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 31
+      TabOrder = 33
       Transparent = True
       Visible = False
       Height = 50
@@ -831,7 +820,7 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       Style.IsFontAssigned = True
-      TabOrder = 29
+      TabOrder = 31
       Visible = False
       OnExit = btn_HelperprogSaveClick
       Width = 992
@@ -854,7 +843,7 @@ object frm_Config: Tfrm_Config
       Properties.OnButtonClick = edt_ScriptpathPropertiesButtonClick
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 30
+      TabOrder = 32
       Visible = False
       Width = 992
     end
@@ -895,10 +884,34 @@ object frm_Config: Tfrm_Config
       Properties.OnButtonClick = edt_otherPropertiesButtonClick
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 34
+      TabOrder = 36
       Visible = False
       Height = 19
       Width = 1094
+    end
+    object cxDBMemo1: TcxDBMemo
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'DLL'
+      DataBinding.DataSource = ds_Projects
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 18
+      Visible = False
+      Height = 170
+      Width = 1099
+    end
+    object cxDBMemo2: TcxDBMemo
+      Left = 10000
+      Top = 10000
+      DataBinding.DataField = 'Components'
+      DataBinding.DataSource = ds_Projects
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 19
+      Visible = False
+      Height = 60
+      Width = 1099
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient
@@ -921,7 +934,7 @@ object frm_Config: Tfrm_Config
       AlignHorz = ahClient
       AlignVert = avClient
       CaptionOptions.Text = 'Restkonfiguration'
-      ItemIndex = 2
+      ItemIndex = 1
       Index = 0
     end
     object dxLayoutItem1: TdxLayoutItem
@@ -1099,6 +1112,7 @@ object frm_Config: Tfrm_Config
       AlignHorz = ahClient
       AlignVert = avClient
       CaptionOptions.Text = 'Delphi-Projekte'
+      ItemIndex = 1
       Index = 2
     end
     object dxLayoutItem13: TdxLayoutItem
@@ -1119,6 +1133,7 @@ object frm_Config: Tfrm_Config
       AlignHorz = ahClient
       AlignVert = avClient
       CaptionOptions.Text = 'Delphi-Projekte'
+      ItemIndex = 1
       Index = 1
     end
     object dxLayoutItem14: TdxLayoutItem
@@ -1448,6 +1463,7 @@ object frm_Config: Tfrm_Config
       AlignHorz = ahClient
       AlignVert = avTop
       CaptionOptions.Text = 'New Group'
+      ItemIndex = 1
       LayoutDirection = ldHorizontal
       ShowBorder = False
       Index = 0
@@ -1468,7 +1484,7 @@ object frm_Config: Tfrm_Config
       CaptionOptions.Text = 'New Group'
       LayoutDirection = ldHorizontal
       ShowBorder = False
-      Index = 1
+      Index = 2
     end
     object dxLayoutGroup14: TdxLayoutGroup
       Parent = dxLayoutGroup13
@@ -1552,7 +1568,7 @@ object frm_Config: Tfrm_Config
       CaptionOptions.Text = 'New Group'
       LayoutDirection = ldHorizontal
       ShowBorder = False
-      Index = 2
+      Index = 3
     end
     object dxLayoutGroup22: TdxLayoutGroup
       Parent = dxLayoutGroup33
@@ -1577,6 +1593,30 @@ object frm_Config: Tfrm_Config
       CaptionOptions.Text = 'New Group'
       ShowBorder = False
       Index = 0
+    end
+    object dxLayoutGroup25: TdxLayoutGroup
+      Parent = dxLayoutGroup19
+      CaptionOptions.Text = 'New Group'
+      ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem18: TdxLayoutItem
+      Parent = dxLayoutGroup25
+      CaptionOptions.Text = 'Abh'#228'ngigkeiten:'
+      Control = cxDBMemo1
+      ControlOptions.OriginalHeight = 170
+      ControlOptions.OriginalWidth = 185
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem37: TdxLayoutItem
+      Parent = dxLayoutGroup25
+      CaptionOptions.Text = 'Komponenten:'
+      Control = cxDBMemo2
+      ControlOptions.OriginalHeight = 60
+      ControlOptions.OriginalWidth = 185
+      ControlOptions.ShowBorder = False
+      Index = 1
     end
   end
   object brmgr_main: TdxBarManager
@@ -1936,7 +1976,7 @@ object frm_Config: Tfrm_Config
       
         'SELECT ID,Name,Path,Script,Logo,64Bit,32Bit,Mobile, Lizenz, Loca' +
         'lize,Programm,Major,Minor,Output,Build,Beschreibung'
-      ',CONCAT(Major,'#39'.'#39',Minor,'#39'.'#39',Output,'#39'.'#39',Build)'
+      ',CONCAT(Major,'#39'.'#39',Minor,'#39'.'#39',Output,'#39'.'#39',Build),DLL, Components'
       'From devmanager_projects'
       'order by Path,Name')
     Left = 31
@@ -1976,7 +2016,6 @@ object frm_Config: Tfrm_Config
     Top = 373
   end
   object qry_Config: TFDQuery
-    Active = True
     Connection = dm_PCM.con_PCM
     SQL.Strings = (
       'Select * From devmanager_config')

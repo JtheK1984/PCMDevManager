@@ -21,7 +21,7 @@ uses
   Vcl.VirtualImage, Vcl.BaseImageCollection, Vcl.ImageCollection,
   cxButtonEdit, dxShellDialogs,Vcl.FileCtrl, system.json, Rest.Types,
   cxImageComboBox, dxUIAClasses, dxLayoutContainer, dxLayoutcxEditAdapters,
-  dxLayoutControlAdapters, dxLayoutControl;
+  dxLayoutControlAdapters, dxLayoutControl, cxMemo;
   {$EndRegion Uses}
 type
   {$Region Type}
@@ -187,6 +187,11 @@ type
     dxLayoutGroup22: TdxLayoutGroup;
     dxLayoutGroup23: TdxLayoutGroup;
     dxLayoutGroup24: TdxLayoutGroup;
+    dxLayoutGroup25: TdxLayoutGroup;
+    dxLayoutItem18: TdxLayoutItem;
+    dxLayoutItem37: TdxLayoutItem;
+    cxDBMemo1: TcxDBMemo;
+    cxDBMemo2: TcxDBMemo;
     procedure btn_HelperprogCancelClick(Sender: TObject);
     procedure btn_HelperprogDeleteClick(Sender: TObject);
     procedure btn_HelperprogNewClick(Sender: TObject);
