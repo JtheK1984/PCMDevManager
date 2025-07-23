@@ -47,7 +47,7 @@ var
 begin
   Checkinis;
   ifini:=TIniFile.create(GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\PCM.ini');
-  slocale:=ifini.ReadString('PCMDEV','Language','de');
+  slocale:=ifini.ReadString('PCMDevManager','Language','de');
   ifini.Free;
   GlobalWebView2Loader                := TWVLoader.Create(nil);
   GlobalWebView2Loader.UserDataFolder := GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\CustomCache';
@@ -55,10 +55,10 @@ begin
   Application.Initialize;
   {$IFDEF WIN64}
   Application.Title:= 'PCM - Devmanager 64-Bit';
-  TNtTranslator.SetNew(slocale,[],'de');
   {$else}
   Application.Title:= 'PCM - Devmanager 32-Bit';
   {$ENDIF}
+  TNtTranslator.SetNew(slocale,[],'de');												 
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(Tdm_PCM, dm_PCM);
   Application.CreateForm(Tfrm_PCM_Main, frm_PCM_Main);

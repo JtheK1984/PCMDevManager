@@ -21,7 +21,7 @@ BEGIN
   BEGIN
     BLOCK "040704B0"
     BEGIN
-      VALUE "FileDescription", "Applikation zum Verwalten von Entwicklungsprojekten\0"
+      VALUE "FileDescription", "PCM - DEVManager\0"
       VALUE "FileVersion", VERSION_STRING_FULL "\0"
       VALUE "InternalName", "PCMDEVManager.exe \0"
       VALUE "LegalCopyright", "PCM (Jens Henske)\0"

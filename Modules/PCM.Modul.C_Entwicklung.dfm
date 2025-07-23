@@ -3,7 +3,7 @@ object frm_Dev: Tfrm_Dev
   Top = 0
   Caption = 'PCM - DEV - Workspace'
   ClientHeight = 851
-  ClientWidth = 1508
+  ClientWidth = 1900
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,7 +17,7 @@ object frm_Dev: Tfrm_Dev
   object lactrl_Main: TdxLayoutControl
     Left = 0
     Top = 0
-    Width = 1508
+    Width = 1900
     Height = 851
     Align = alClient
     TabOrder = 0
@@ -25,7 +25,7 @@ object frm_Dev: Tfrm_Dev
     object grd_Helpprogs: TcxGrid
       Left = 28
       Top = 76
-      Width = 1448
+      Width = 1840
       Height = 140
       BevelInner = bvLowered
       BevelKind = bkFlat
@@ -103,7 +103,7 @@ object frm_Dev: Tfrm_Dev
     object grd_Projects: TcxGrid
       Left = 28
       Top = 332
-      Width = 1448
+      Width = 1840
       Height = 246
       BevelInner = bvLowered
       BevelKind = bkFlat
@@ -221,7 +221,7 @@ object frm_Dev: Tfrm_Dev
     object brdckCtrl_Projects: TdxBarDockControl
       Left = 28
       Top = 263
-      Width = 1448
+      Width = 1840
       Height = 63
       Align = dalNone
       BarManager = brmgr_Main
@@ -229,7 +229,7 @@ object frm_Dev: Tfrm_Dev
     object grd_Scripts: TcxGrid
       Left = 28
       Top = 625
-      Width = 1448
+      Width = 1840
       Height = 194
       BevelInner = bvLowered
       BevelKind = bkFlat
@@ -2021,6 +2021,18 @@ object frm_Dev: Tfrm_Dev
         item
           Visible = True
           ItemName = 'btn_CreateReadMEAll'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton1'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton2'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton3'
         end>
       OneOnRow = True
       Row = 0
@@ -2232,6 +2244,24 @@ object frm_Dev: Tfrm_Dev
       OnClick = btn_CreateReadMEAllClick
       AutoGrayScale = False
       LargeImageIndex = 125
+    end
+    object dxBarLargeButton1: TdxBarLargeButton
+      Category = 0
+      Enabled = False
+      Visible = ivAlways
+    end
+    object dxBarLargeButton2: TdxBarLargeButton
+      Caption = 'PrepareCopyCMD erstellen'
+      Category = 0
+      Hint = 'PrepareCopyCMD erstellen'
+      Visible = ivNever
+      OnClick = dxBarLargeButton2Click
+    end
+    object dxBarLargeButton3: TdxBarLargeButton
+      Caption = 'Alle PrepareCopyCMD erstellen'
+      Category = 0
+      Hint = 'Alle PrepareCopyCMD erstellen'
+      Visible = ivNever
     end
   end
   object qry_SourceAPP: TFDQuery

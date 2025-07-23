@@ -2,7 +2,7 @@
   PCMDEVManager.exe Version: 1.0.0.0
 
 # Kurzbeschreibung:
-  Applikation zum Verwalten von Entwicklungsprojekten
+  PCM - DEVManager
 
 # Entwicklungsumgebung:
   DELPHI 12.3 Athens
@@ -34,4 +34,4 @@
   - PrepareCopy.cmd (erzeugte Versionen werden in das Inno-Setupverzeichnis abgelgt)
 
 # Stand:
-  21.07.2025
+  23.07.2025
