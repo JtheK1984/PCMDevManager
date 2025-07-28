@@ -77,7 +77,7 @@ type
     { Private-Deklarationen }
     bNew: boolean;
     sStatement: string;
-    procedure SetPanelsVisible(AVisible: boolean);
+//    procedure SetPanelsVisible(AVisible: boolean);
   public
     { Public-Deklarationen }
     procedure Execute(ANew: boolean;AID: integer;AProgram: string;ADate: TDate;Aversion,ADesccription,AStatement,ATable: String);
@@ -96,17 +96,16 @@ uses
 ////////////////////////////////////////////////////////////////////////////////
 // HELPER                                                                     //
 ////////////////////////////////////////////////////////////////////////////////
-
-procedure Tfrm_PCM_Version.SetPanelsVisible(AVisible: boolean);
-begin
-  grpbx_1date.visible:= AVisible;
-
-  grpbx_2Version.visible:= AVisible;
-
-  grpbx_3Beschreibung.visible:= AVisible;
-  grpbx_4SQL.visible:= AVisible;
-  grpbx_5Statement.visible:= AVisible;
-end;
+//procedure Tfrm_PCM_Version.SetPanelsVisible(AVisible: boolean);
+//begin
+//  grpbx_1date.visible:= AVisible;
+//
+//  grpbx_2Version.visible:= AVisible;
+//
+//  grpbx_3Beschreibung.visible:= AVisible;
+//  grpbx_4SQL.visible:= AVisible;
+//  grpbx_5Statement.visible:= AVisible;
+//end;
 ////////////////////////////////////////////////////////////////////////////////
 // MAIN                                                                     //
 ////////////////////////////////////////////////////////////////////////////////

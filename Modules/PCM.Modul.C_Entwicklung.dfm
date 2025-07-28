@@ -2,8 +2,8 @@ object frm_Dev: Tfrm_Dev
   Left = 0
   Top = 0
   Caption = 'PCM - DEV - Workspace'
-  ClientHeight = 851
-  ClientWidth = 1900
+  ClientHeight = 720
+  ClientWidth = 1200
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,16 +16,19 @@ object frm_Dev: Tfrm_Dev
   TextHeight = 13
   object lactrl_Main: TdxLayoutControl
     Left = 0
-    Top = 0
-    Width = 1900
-    Height = 851
+    Top = 127
+    Width = 1200
+    Height = 593
     Align = alClient
     TabOrder = 0
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+    ExplicitTop = 0
+    ExplicitWidth = 1900
+    ExplicitHeight = 851
     object grd_Helpprogs: TcxGrid
       Left = 28
       Top = 76
-      Width = 1840
+      Width = 1140
       Height = 140
       BevelInner = bvLowered
       BevelKind = bkFlat
@@ -102,9 +105,9 @@ object frm_Dev: Tfrm_Dev
     end
     object grd_Projects: TcxGrid
       Left = 28
-      Top = 332
-      Width = 1840
-      Height = 246
+      Top = 272
+      Width = 1140
+      Height = 137
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -221,16 +224,15 @@ object frm_Dev: Tfrm_Dev
     object brdckCtrl_Projects: TdxBarDockControl
       Left = 28
       Top = 263
-      Width = 1840
-      Height = 63
+      Width = 1140
       Align = dalNone
       BarManager = brmgr_Main
     end
     object grd_Scripts: TcxGrid
       Left = 28
-      Top = 625
-      Width = 1840
-      Height = 194
+      Top = 456
+      Width = 1140
+      Height = 105
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -302,21 +304,12 @@ object frm_Dev: Tfrm_Dev
         GridView = grdDBTblView_Scripts
       end
     end
-    object dxBarDockControl1: TdxBarDockControl
-      Left = 10000
-      Top = 10000
-      Width = 1238
-      Height = 63
-      Align = dalNone
-      BarManager = brmgr_Main
-      Visible = False
-    end
     object grd_Versions: TcxGrid
       Left = 10000
       Top = 10000
-      Width = 1220
-      Height = 119
-      TabOrder = 5
+      Width = 1140
+      Height = 181
+      TabOrder = 4
       Visible = False
       object grdDBTblView_Versions: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
@@ -394,7 +387,7 @@ object frm_Dev: Tfrm_Dev
       Top = 10000
       Width = 1216
       Height = 251
-      TabOrder = 20
+      TabOrder = 19
       Visible = False
       object grdDBTblView_Progs: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
@@ -459,7 +452,7 @@ object frm_Dev: Tfrm_Dev
       StyleFocused.LookAndFeel.Kind = lfUltraFlat
       StyleHot.LookAndFeel.Kind = lfUltraFlat
       StyleReadOnly.LookAndFeel.Kind = lfUltraFlat
-      TabOrder = 11
+      TabOrder = 10
       Transparent = True
       Visible = False
       OnClick = chkbx_AktivClick
@@ -480,9 +473,9 @@ object frm_Dev: Tfrm_Dev
       Properties.OnEditValueChanged = edt_DestinationPropertiesEditValueChanged
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 9
+      TabOrder = 8
       Visible = False
-      Width = 534
+      Width = 495
     end
     object edt_Files: TcxDBButtonEdit
       Left = 10000
@@ -498,9 +491,9 @@ object frm_Dev: Tfrm_Dev
       Properties.OnEditValueChanged = edt_FilesPropertiesEditValueChanged
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 10
+      TabOrder = 9
       Visible = False
-      Width = 1053
+      Width = 973
     end
     object edt_Name: TcxDBTextEdit
       Left = 10000
@@ -509,9 +502,9 @@ object frm_Dev: Tfrm_Dev
       DataBinding.DataSource = ds_SourceAPP
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 6
+      TabOrder = 5
       Visible = False
-      Width = 1017
+      Width = 937
     end
     object edt_Source: TcxDBButtonEdit
       Left = 10000
@@ -527,9 +520,9 @@ object frm_Dev: Tfrm_Dev
       Properties.OnEditValueChanged = edt_SourcePropertiesEditValueChanged
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 8
+      TabOrder = 7
       Visible = False
-      Width = 530
+      Width = 489
     end
     object edt_Version: TcxDBMaskEdit
       Left = 10000
@@ -539,7 +532,7 @@ object frm_Dev: Tfrm_Dev
       Properties.EditMask = '!0.0;1;_'
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 7
+      TabOrder = 6
       Visible = False
       Width = 50
     end
@@ -564,9 +557,9 @@ object frm_Dev: Tfrm_Dev
         end>
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 12
+      TabOrder = 11
       Visible = False
-      Width = 518
+      Width = 477
     end
     object cxDBImageComboBox1: TcxDBImageComboBox
       Left = 10000
@@ -589,9 +582,9 @@ object frm_Dev: Tfrm_Dev
         end>
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 13
+      TabOrder = 12
       Visible = False
-      Width = 518
+      Width = 479
     end
     object edt_PathSetup: TcxDBButtonEdit
       Left = 10000
@@ -606,9 +599,9 @@ object frm_Dev: Tfrm_Dev
       Properties.OnEditValueChanged = edt_PathSetupPropertiesEditValueChanged
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 16
+      TabOrder = 15
       Visible = False
-      Width = 1117
+      Width = 1037
     end
     object edt_PathExe: TcxDBButtonEdit
       Left = 10000
@@ -623,9 +616,9 @@ object frm_Dev: Tfrm_Dev
       Properties.OnEditValueChanged = edt_PathExePropertiesEditValueChanged
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 17
+      TabOrder = 16
       Visible = False
-      Width = 906
+      Width = 826
     end
     object chkbx_PathExeApk: TcxDBCheckBox
       Left = 10000
@@ -644,7 +637,7 @@ object frm_Dev: Tfrm_Dev
       Style.Color = clWindowFrame
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 18
+      TabOrder = 17
       Transparent = True
       Visible = False
     end
@@ -661,9 +654,9 @@ object frm_Dev: Tfrm_Dev
       Properties.OnEditValueChanged = edt_MSBuildPropertiesEditValueChanged
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 14
+      TabOrder = 13
       Visible = False
-      Width = 930
+      Width = 850
     end
     object cxDBCheckBox1: TcxDBCheckBox
       Left = 10000
@@ -681,7 +674,7 @@ object frm_Dev: Tfrm_Dev
       Style.Color = clWindowFrame
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 15
+      TabOrder = 14
       Transparent = True
       Visible = False
       OnClick = cxDBCheckBox1Click
@@ -703,7 +696,7 @@ object frm_Dev: Tfrm_Dev
       Style.Color = clWindowFrame
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 19
+      TabOrder = 18
       Transparent = True
       Visible = False
       OnClick = chkbx_CopyClick
@@ -747,7 +740,7 @@ object frm_Dev: Tfrm_Dev
       CaptionOptions.Visible = False
       Control = brdckCtrl_Projects
       ControlOptions.AutoColor = True
-      ControlOptions.OriginalHeight = 63
+      ControlOptions.OriginalHeight = 3
       ControlOptions.OriginalWidth = 823
       ControlOptions.ShowBorder = False
       Index = 0
@@ -797,6 +790,7 @@ object frm_Dev: Tfrm_Dev
       CaptionOptions.Text = 'New Group'
       LayoutDirection = ldTabbed
       ShowBorder = False
+      OnTabChanging = dxLayoutGroup1TabChanging
       Index = 0
     end
     object dxLayoutGroup2: TdxLayoutGroup
@@ -804,28 +798,15 @@ object frm_Dev: Tfrm_Dev
       AlignHorz = ahClient
       AlignVert = avClient
       CaptionOptions.Text = 'Quellcodesicherung'
-      ItemIndex = 2
+      ItemIndex = 1
       Index = 1
-    end
-    object dxLayoutItem1: TdxLayoutItem
-      Parent = dxLayoutGroup2
-      AlignHorz = ahClient
-      AlignVert = avTop
-      CaptionOptions.Text = 'New Item'
-      CaptionOptions.Visible = False
-      Control = dxBarDockControl1
-      ControlOptions.AutoColor = True
-      ControlOptions.OriginalHeight = 63
-      ControlOptions.OriginalWidth = 1280
-      ControlOptions.ShowBorder = False
-      Index = 0
     end
     object dxLayoutGroup3: TdxLayoutGroup
       Parent = dxLayoutGroup2
       AlignHorz = ahClient
       AlignVert = avClient
       CaptionOptions.Text = 'Allgemein'
-      Index = 1
+      Index = 0
     end
     object dxLayoutItem2: TdxLayoutItem
       Parent = dxLayoutGroup3
@@ -847,7 +828,7 @@ object frm_Dev: Tfrm_Dev
       LayoutDirection = ldTabbed
       ShowBorder = False
       OnTabChanged = pc_SourceCodeTabChanged
-      Index = 2
+      Index = 1
     end
     object dxLayoutGroup5: TdxLayoutGroup
       Parent = pc_SourceCode
@@ -1199,6 +1180,84 @@ object frm_Dev: Tfrm_Dev
       Transparent = True
       Height = 17
       Width = 546
+    end
+  end
+  object dxRibbon1: TdxRibbon
+    Left = 0
+    Top = 0
+    Width = 1200
+    Height = 127
+    BarManager = brmgr_Main
+    Style = rsOffice365
+    ColorSchemeName = 'DevExpressDarkStyle'
+    Contexts = <>
+    TabOrder = 6
+    TabStop = False
+    ExplicitTop = -6
+    object rbTab_Proj: TdxRibbonTab
+      Caption = 'Project-Files'
+      Groups = <
+        item
+          Caption = 'DProj bearbeiten'
+          ToolbarName = 'tb_Project'
+        end>
+      Index = 0
+    end
+    object rbTab_MSBuild: TdxRibbonTab
+      Active = True
+      Caption = 'MSBuild'
+      Groups = <
+        item
+          Caption = 'MSBuild verwalten'
+          ToolbarName = 'tb_MSbuild'
+        end>
+      Index = 1
+    end
+    object rbTab_Res: TdxRibbonTab
+      Caption = 'Ressource-Files'
+      Groups = <
+        item
+          Caption = 'Ressourcen verwalten'
+          ToolbarName = 'tb_Res'
+        end>
+      Index = 2
+    end
+    object rbTab_Readme: TdxRibbonTab
+      Caption = 'Readme-Files'
+      Groups = <
+        item
+          Caption = 'Readme verwalten'
+          ToolbarName = 'tb_Readme'
+        end>
+      Index = 3
+    end
+    object rbTab_Prepare: TdxRibbonTab
+      Caption = 'PrepareCopy-Files'
+      Groups = <
+        item
+          Caption = 'Readme verwalten'
+          ToolbarName = 'tb_Prepare'
+        end>
+      Index = 4
+    end
+    object rbTab_Script: TdxRibbonTab
+      Caption = 'Script-Files'
+      Groups = <
+        item
+          Caption = 'Hilfsscripte verwalten'
+          ToolbarName = 'tb_help'
+        end>
+      Index = 5
+    end
+    object rbTab_Backup: TdxRibbonTab
+      Caption = 'Quellcode-Backup'
+      Groups = <
+        item
+          Caption = 'Sicherungen verwalten'
+          ToolbarName = 'tb_Sicherung'
+        end>
+      Visible = False
+      Index = 6
     end
   end
   object imglst_16x16: TcxImageList
@@ -1958,11 +2017,13 @@ object frm_Dev: Tfrm_Dev
     Left = 408
     Top = 392
     PixelsPerInch = 96
-    object tb_Projects: TdxBar
-      Caption = 'Custom 1'
+    object tb_Readme: TdxBar
+      AllowClose = False
+      AllowCustomizing = False
+      AllowQuickCustomizing = False
+      AllowReset = False
+      Caption = 'Readme'
       CaptionButtons = <>
-      DockControl = brdckCtrl_Projects
-      DockedDockControl = brdckCtrl_Projects
       DockedLeft = 0
       DockedTop = 0
       FloatLeft = 859
@@ -1972,47 +2033,7 @@ object frm_Dev: Tfrm_Dev
       ItemLinks = <
         item
           Visible = True
-          ItemName = 'btn_EditMSBUILD'
-        end
-        item
-          Visible = True
-          ItemName = 'btn_EditDproj'
-        end
-        item
-          Visible = True
-          ItemName = 'btn_trenn1'
-        end
-        item
-          Visible = True
-          ItemName = 'btn_CreateMSBUILD'
-        end
-        item
-          Visible = True
-          ItemName = 'btn_CreateMSBUILDAll'
-        end
-        item
-          Visible = True
-          ItemName = 'btn_trenn2'
-        end
-        item
-          Visible = True
-          ItemName = 'btn_CreateRESFiles'
-        end
-        item
-          Visible = True
-          ItemName = 'btn_CreateRESFilesAll'
-        end
-        item
-          Visible = True
-          ItemName = 'btn_trenn3'
-        end
-        item
-          Visible = True
-          ItemName = 'btn_CreateHelpScripts'
-        end
-        item
-          Visible = True
-          ItemName = 'btn_trenn4'
+          ItemName = 'btn_EditReadMe'
         end
         item
           Visible = True
@@ -2021,18 +2042,6 @@ object frm_Dev: Tfrm_Dev
         item
           Visible = True
           ItemName = 'btn_CreateReadMEAll'
-        end
-        item
-          Visible = True
-          ItemName = 'dxBarLargeButton1'
-        end
-        item
-          Visible = True
-          ItemName = 'dxBarLargeButton2'
-        end
-        item
-          Visible = True
-          ItemName = 'dxBarLargeButton3'
         end>
       OneOnRow = True
       Row = 0
@@ -2043,11 +2052,13 @@ object frm_Dev: Tfrm_Dev
       Visible = True
       WholeRow = False
     end
-    object brmgr_MainBar1: TdxBar
-      Caption = 'Custom 2'
+    object tb_Sicherung: TdxBar
+      AllowClose = False
+      AllowCustomizing = False
+      AllowQuickCustomizing = False
+      AllowReset = False
+      Caption = 'Backup'
       CaptionButtons = <>
-      DockControl = dxBarDockControl1
-      DockedDockControl = dxBarDockControl1
       DockedLeft = 0
       DockedTop = 0
       FloatLeft = 1309
@@ -2083,6 +2094,177 @@ object frm_Dev: Tfrm_Dev
       Visible = True
       WholeRow = False
     end
+    object tb_MSbuild: TdxBar
+      AllowClose = False
+      AllowCustomizing = False
+      AllowQuickCustomizing = False
+      AllowReset = False
+      Caption = 'MSBuild'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1929
+      FloatTop = 3
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btn_EditMSBUILD'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_CreateMSBUILD'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_CreateMSBUILDAll'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object tb_Project: TdxBar
+      AllowClose = False
+      AllowCustomizing = False
+      AllowQuickCustomizing = False
+      AllowReset = False
+      Caption = 'Project'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1929
+      FloatTop = 3
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btn_EditDproj'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_NewProj'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object tb_Res: TdxBar
+      AllowClose = False
+      AllowCustomizing = False
+      AllowQuickCustomizing = False
+      AllowReset = False
+      Caption = 'Ressource'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1229
+      FloatTop = 3
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btn_EditRes'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_CreateRESFiles'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_CreateRESFilesAll'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object tb_Prepare: TdxBar
+      AllowClose = False
+      AllowCustomizing = False
+      AllowQuickCustomizing = False
+      Caption = 'Prepare'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1229
+      FloatTop = 3
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btn_EditPrepare'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_PrepareCopyCMD'
+        end
+        item
+          Visible = True
+          ItemName = 'btn_PrepareCopyCMDAll'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
+    object tb_help: TdxBar
+      AllowClose = False
+      AllowCustomizing = False
+      AllowQuickCustomizing = False
+      AllowReset = False
+      Caption = 'Help'
+      CaptionButtons = <>
+      DockedLeft = 0
+      DockedTop = 0
+      FloatLeft = 1229
+      FloatTop = 3
+      FloatClientWidth = 0
+      FloatClientHeight = 0
+      ItemLinks = <
+        item
+          Visible = True
+          ItemName = 'btn_CreateHelpScripts'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton1'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton2'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton3'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton4'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton5'
+        end
+        item
+          Visible = True
+          ItemName = 'dxBarLargeButton6'
+        end>
+      OneOnRow = True
+      Row = 0
+      UseOwnFont = False
+      Visible = True
+      WholeRow = False
+    end
     object btn_CreateHelpScripts: TdxBarLargeButton
       Caption = 'Scripte erstellen'
       Category = 0
@@ -2090,85 +2272,10 @@ object frm_Dev: Tfrm_Dev
       Visible = ivAlways
       OnClick = btn_CreateHelpScriptsClick
       AutoGrayScale = False
-      LargeImageIndex = 125
+      LargeImageIndex = 27
       Width = 150
-    end
-    object btn_EditMSBUILD: TdxBarLargeButton
-      Caption = 'MSBuild bearbeiten'
-      Category = 0
-      Hint = 'MSBuild bearbeiten'
-      Visible = ivAlways
-      OnClick = btn_EditMSBUILDClick
-      AutoGrayScale = False
-      LargeImageIndex = 125
-      Width = 125
-    end
-    object btn_CreateRESFiles: TdxBarLargeButton
-      Caption = 'Res-Files erstellen'
-      Category = 0
-      Hint = 'Res-Files erstellen'
-      Visible = ivAlways
-      OnClick = btn_CreateRESFilesClick
-      AutoGrayScale = False
-      LargeImageIndex = 125
-      Width = 125
-    end
-    object btn_CreateRESFilesAll: TdxBarLargeButton
-      Caption = 'Alle Res-Files erstellen'
-      Category = 0
-      Hint = 'Alle Res-Files erstellen'
-      Visible = ivAlways
-      OnClick = btn_CreateRESFilesAllClick
-      AutoGrayScale = False
-      LargeImageIndex = 125
-      Width = 125
-    end
-    object btn_EditDproj: TdxBarLargeButton
-      Caption = 'Dproj bearbeiten'
-      Category = 0
-      Hint = 'Dproj bearbeiten'
-      Visible = ivAlways
-      OnClick = btn_EditDprojClick
-      AutoGrayScale = False
-      LargeImageIndex = 125
-      Width = 125
       SyncImageIndex = False
-      ImageIndex = 125
-    end
-    object btn_CreateMSBUILD: TdxBarLargeButton
-      Caption = 'MSBuild erstellen'
-      Category = 0
-      Hint = 'MSBuild erstellen'
-      Visible = ivAlways
-      OnClick = btn_CreateMSBUILDClick
-      AutoGrayScale = False
-      LargeImageIndex = 125
-      Width = 125
-    end
-    object btn_CreateMSBUILDAll: TdxBarLargeButton
-      Caption = 'Alle MSBuild erstellen'
-      Category = 0
-      Hint = 'Alle MSBuild erstellen'
-      Visible = ivAlways
-      OnClick = btn_CreateMSBUILDAllClick
-      AutoGrayScale = False
-      LargeImageIndex = 125
-      Width = 125
-    end
-    object btn_trenn1: TdxBarLargeButton
-      Category = 0
-      Enabled = False
-      Visible = ivAlways
-    end
-    object btn_trenn2: TdxBarLargeButton
-      Category = 0
-      Enabled = False
-      Visible = ivAlways
-    end
-    object btn_trenn3: TdxBarLargeButton
-      Category = 0
-      Enabled = False
-      Visible = ivAlways
+      ImageIndex = 27
     end
     object btn_ConfigNew: TdxBarLargeButton
       Caption = 'Neue Konfig.'
@@ -2220,11 +2327,6 @@ object frm_Dev: Tfrm_Dev
       LargeImageIndex = 122
       Width = 125
     end
-    object btn_trenn4: TdxBarLargeButton
-      Category = 0
-      Enabled = False
-      Visible = ivAlways
-    end
     object btn_CreateReadME: TdxBarLargeButton
       Caption = 'Readme.md erstellen'
       Category = 0
@@ -2232,7 +2334,8 @@ object frm_Dev: Tfrm_Dev
       Visible = ivAlways
       OnClick = btn_CreateReadMEClick
       AutoGrayScale = False
-      LargeImageIndex = 125
+      LargeImageIndex = 27
+      Width = 125
       SyncImageIndex = False
       ImageIndex = 125
     end
@@ -2243,25 +2346,169 @@ object frm_Dev: Tfrm_Dev
       Visible = ivAlways
       OnClick = btn_CreateReadMEAllClick
       AutoGrayScale = False
-      LargeImageIndex = 125
+      LargeImageIndex = 27
+      Width = 125
     end
-    object dxBarLargeButton1: TdxBarLargeButton
-      Category = 0
-      Enabled = False
-      Visible = ivAlways
-    end
-    object dxBarLargeButton2: TdxBarLargeButton
+    object btn_PrepareCopyCMD: TdxBarLargeButton
       Caption = 'PrepareCopyCMD erstellen'
       Category = 0
       Hint = 'PrepareCopyCMD erstellen'
-      Visible = ivNever
-      OnClick = dxBarLargeButton2Click
+      Visible = ivAlways
+      OnClick = btn_PrepareCopyCMDClick
+      AutoGrayScale = False
+      LargeImageIndex = 27
     end
-    object dxBarLargeButton3: TdxBarLargeButton
+    object btn_PrepareCopyCMDAll: TdxBarLargeButton
       Caption = 'Alle PrepareCopyCMD erstellen'
       Category = 0
       Hint = 'Alle PrepareCopyCMD erstellen'
-      Visible = ivNever
+      Visible = ivAlways
+      OnClick = btn_PrepareCopyCMDAllClick
+      AutoGrayScale = False
+      LargeImageIndex = 27
+    end
+    object btn_EditMSBUILD: TdxBarLargeButton
+      Tag = 1
+      Caption = 'MSBuild bearbeiten'
+      Category = 0
+      Hint = 'MSBuild bearbeiten'
+      Visible = ivAlways
+      OnClick = OpenFileClick
+      LargeImageIndex = 125
+      Width = 125
+    end
+    object btn_CreateMSBUILD: TdxBarLargeButton
+      Caption = 'MSBuild erstellen'
+      Category = 0
+      Hint = 'MSBuild erstellen'
+      Visible = ivAlways
+      OnClick = btn_CreateMSBUILDClick
+      AutoGrayScale = False
+      LargeImageIndex = 27
+      Width = 125
+    end
+    object btn_CreateMSBUILDAll: TdxBarLargeButton
+      Caption = 'Alle MSBuild erstellen'
+      Category = 0
+      Hint = 'Alle MSBuild erstellen'
+      Visible = ivAlways
+      OnClick = btn_CreateMSBUILDAllClick
+      AutoGrayScale = False
+      LargeImageIndex = 27
+      Width = 125
+    end
+    object btn_EditDproj: TdxBarLargeButton
+      Caption = 'DProj bearbeiten'
+      Category = 0
+      Hint = 'DProj bearbeiten'
+      Visible = ivAlways
+      OnClick = OpenFileClick
+      AutoGrayScale = False
+      LargeImageIndex = 125
+      Width = 125
+    end
+    object btn_NewProj: TdxBarLargeButton
+      Caption = 'Neues Projekt'
+      Category = 0
+      Hint = 'Neues Projekt'
+      Visible = ivAlways
+      LargeImageIndex = 27
+      Width = 125
+    end
+    object btn_CreateRESFiles: TdxBarLargeButton
+      Caption = 'Res-Files erstellen'
+      Category = 0
+      Hint = 'Res-Files erstellen'
+      Visible = ivAlways
+      OnClick = btn_CreateRESFilesClick
+      LargeImageIndex = 27
+      Width = 125
+    end
+    object btn_CreateRESFilesAll: TdxBarLargeButton
+      Caption = 'Alle Res-Files erstellen'
+      Category = 0
+      Hint = 'Alle Res-Files erstellen'
+      Visible = ivAlways
+      OnClick = btn_CreateRESFilesAllClick
+      LargeImageIndex = 27
+      Width = 125
+    end
+    object btn_EditRes: TdxBarLargeButton
+      Tag = 2
+      Caption = 'Res-Files bearbeiten'
+      Category = 0
+      Hint = 'Res-Files bearbeiten'
+      Visible = ivAlways
+      OnClick = OpenFileClick
+      LargeImageIndex = 125
+      Width = 125
+    end
+    object btn_EditReadMe: TdxBarLargeButton
+      Tag = 3
+      Caption = 'Readme.md bearbeiten'
+      Category = 0
+      Hint = 'Readme.md bearbeiten'
+      Visible = ivAlways
+      OnClick = OpenFileClick
+      LargeImageIndex = 125
+      Width = 125
+    end
+    object btn_EditPrepare: TdxBarLargeButton
+      Tag = 4
+      Caption = 'PrepareCopyCMD bearbeiten'
+      Category = 0
+      Hint = 'PrepareCopyCMD bearbeiten'
+      Visible = ivAlways
+      OnClick = OpenFileClick
+      LargeImageIndex = 125
+      Width = 125
+    end
+    object dxBarLargeButton1: TdxBarLargeButton
+      Caption = 'Clear-DCU bearbeiten'
+      Category = 0
+      Hint = 'Clear-DCU bearbeiten'
+      Visible = ivAlways
+      LargeImageIndex = 125
+      Width = 125
+    end
+    object dxBarLargeButton2: TdxBarLargeButton
+      Caption = 'Git Main Pull bearbeiten'
+      Category = 0
+      Hint = 'Git Main Pull bearbeiten'
+      Visible = ivAlways
+      LargeImageIndex = 125
+      Width = 125
+    end
+    object dxBarLargeButton3: TdxBarLargeButton
+      Caption = 'Git Main Push bearbeiten'
+      Category = 0
+      Hint = 'Git Main Push bearbeiten'
+      Visible = ivAlways
+      LargeImageIndex = 125
+      Width = 125
+    end
+    object dxBarLargeButton4: TdxBarLargeButton
+      Caption = 'Git Sub Pull bearbeiten'
+      Category = 0
+      Hint = 'Git Sub Pull bearbeiten'
+      Visible = ivAlways
+      LargeImageIndex = 125
+    end
+    object dxBarLargeButton5: TdxBarLargeButton
+      Caption = 'Git Sub Push bearbeiten'
+      Category = 0
+      Hint = 'Git Sub Push bearbeiten'
+      Visible = ivAlways
+      LargeImageIndex = 125
+      Width = 125
+    end
+    object dxBarLargeButton6: TdxBarLargeButton
+      Caption = 'MSBUILD PCMALL bearbeiten'
+      Category = 0
+      Hint = 'MSBUILD PCMALL bearbeiten'
+      Visible = ivAlways
+      LargeImageIndex = 125
+      Width = 125
     end
   end
   object qry_SourceAPP: TFDQuery

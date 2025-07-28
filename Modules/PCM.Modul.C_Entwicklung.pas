@@ -94,7 +94,8 @@ uses
   dxLayoutcxEditAdapters,
   cxDropDownEdit,
   cxMaskEdit,Vcl.FileCtrl,
-  cxButtonEdit, dxTaskbarProgress, dxShellDialogs;
+  cxButtonEdit, dxTaskbarProgress, dxShellDialogs, dxCore, dxRibbonSkins,
+  dxRibbonCustomizationForm, dxRibbon;
 
   {$EndRegion Uses}
 type
@@ -114,11 +115,7 @@ type
   Tfrm_Dev = class(TForm)
     brdckCtrl_Projects: TdxBarDockControl;
     brmgr_Main: TdxBarManager;
-    btn_CreateRESFilesAll: TdxBarLargeButton;
-    btn_EditDproj: TdxBarLargeButton;
     btn_CreateHelpScripts: TdxBarLargeButton;
-    btn_EditMSBUILD: TdxBarLargeButton;
-    btn_CreateRESFiles: TdxBarLargeButton;
     ds_helpprogs: TDataSource;
     ds_Projects: TDataSource;
     ds_Scripts: TDataSource;
@@ -160,17 +157,10 @@ type
     qry_helpprogs: TFDQuery;
     qry_Projects: TFDQuery;
     qry_Scripts: TFDQuery;
-    tb_Projects: TdxBar;
-    btn_CreateMSBUILD: TdxBarLargeButton;
-    btn_CreateMSBUILDAll: TdxBarLargeButton;
-    btn_trenn1: TdxBarLargeButton;
-    btn_trenn2: TdxBarLargeButton;
-    btn_trenn3: TdxBarLargeButton;
+    tb_Readme: TdxBar;
     dxLayoutGroup1: TdxLayoutGroup;
     dxLayoutGroup2: TdxLayoutGroup;
-    dxLayoutItem1: TdxLayoutItem;
-    dxBarDockControl1: TdxBarDockControl;
-    brmgr_MainBar1: TdxBar;
+    tb_Sicherung: TdxBar;
     btn_ConfigNew: TdxBarLargeButton;
     btn_ConfigCopy: TdxBarLargeButton;
     btn_ConfigSave: TdxBarLargeButton;
@@ -247,19 +237,45 @@ type
     chkbx_Copy: TcxDBCheckBox;
     odlg_Script: TdxOpenFileDialog;
     odlg_Files: TdxOpenFileDialog;
-    btn_trenn4: TdxBarLargeButton;
     btn_CreateReadME: TdxBarLargeButton;
     btn_CreateReadMEAll: TdxBarLargeButton;
+    btn_PrepareCopyCMD: TdxBarLargeButton;
+    btn_PrepareCopyCMDAll: TdxBarLargeButton;
+    rbTab_MSBuild: TdxRibbonTab;
+    dxRibbon1: TdxRibbon;
+    rbTab_Res: TdxRibbonTab;
+    tb_MSbuild: TdxBar;
+    rbTab_Script: TdxRibbonTab;
+    rbTab_Readme: TdxRibbonTab;
+    rbTab_Prepare: TdxRibbonTab;
+    btn_EditMSBUILD: TdxBarLargeButton;
+    btn_CreateMSBUILD: TdxBarLargeButton;
+    btn_CreateMSBUILDAll: TdxBarLargeButton;
+    rbTab_Proj: TdxRibbonTab;
+    tb_Project: TdxBar;
+    btn_EditDproj: TdxBarLargeButton;
+    tb_Res: TdxBar;
+    btn_NewProj: TdxBarLargeButton;
+    rbTab_Backup: TdxRibbonTab;
+    btn_CreateRESFiles: TdxBarLargeButton;
+    btn_CreateRESFilesAll: TdxBarLargeButton;
+    tb_Prepare: TdxBar;
+    tb_help: TdxBar;
+    btn_EditRes: TdxBarLargeButton;
+    btn_EditReadMe: TdxBarLargeButton;
+    btn_EditPrepare: TdxBarLargeButton;
     dxBarLargeButton1: TdxBarLargeButton;
     dxBarLargeButton2: TdxBarLargeButton;
     dxBarLargeButton3: TdxBarLargeButton;
+    dxBarLargeButton4: TdxBarLargeButton;
+    dxBarLargeButton5: TdxBarLargeButton;
+    dxBarLargeButton6: TdxBarLargeButton;
     procedure FormActivate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure btn_CreateHelpScriptsClick(Sender: TObject);
-    procedure btn_EditMSBUILDClick(Sender: TObject);
     procedure btn_CreateRESFilesClick(Sender: TObject);
     procedure btn_CreateRESFilesAllClick(Sender: TObject);
-    procedure btn_EditDprojClick(Sender: TObject);
+    procedure OpenFileClick(Sender: TObject);
     procedure grdDBTblView_HelpprogsCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
     procedure grdDBTblView_ProjectsCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
     procedure grdDBTblView_ScriptsCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
@@ -292,7 +308,10 @@ type
     procedure grdDBTblView_VersionsFocusedRecordChanged(Sender: TcxCustomGridTableView; APrevFocusedRecord, AFocusedRecord: TcxCustomGridRecord; ANewItemRecordFocusingChanged: Boolean);
     procedure btn_CreateReadMEClick(Sender: TObject);
     procedure btn_CreateReadMEAllClick(Sender: TObject);
-    procedure dxBarLargeButton2Click(Sender: TObject);
+    procedure btn_PrepareCopyCMDClick(Sender: TObject);
+    procedure dxLayoutGroup1TabChanging(Sender: TObject; ANewTabIndex: Integer;
+      var Allow: Boolean);
+    procedure btn_PrepareCopyCMDAllClick(Sender: TObject);
   private
     { Private-Deklarationen }
     AppConfig: TAppConfig;
@@ -300,11 +319,12 @@ type
     bSetttingsChanged: Boolean;
     recFiles: TBackupfiles;
     function GetNotepad : string;
-    procedure CreatePrepareCopy(AName,APath,AScript: String;A64,A32,AMobile,Alizenz,Alocalize: Boolean);
+    procedure CreatePrepareCopy(AName,APath,AScript: String;A64,A32,AMobile,Alizenz,Alocalize: Boolean;AMajor, AMinor: Integer);
     procedure CreateMSBuild(AName,APath,AScript: String;A64,A32,AMobile,Alizenz,Alocalize: Boolean);
     procedure CreateResFile(APath,AFile,AMajor,AMinor,ARevision,ABuild,ADescription: String;A64Bit,A32Bit,AMobile: Boolean);
     procedure CreateReadMe(APath,AFile,AMajor,AMinor,ARevision,ABuild,ADescription,ADLL,AComponents: String);
     procedure LoadFileExt(sNewFileExt: String);
+    procedure OpenFileWithNotepad(ANotepad,AProject: string;ATyp: integer; A32BIt, A64Bit: boolean);
     procedure SetButtons;
   public
     { Public-Deklarationen }
@@ -347,7 +367,7 @@ begin
   Result:= dm_PCM.qry_work.FieldByName('Path').AsString;
   dm_PCM.qry_work.Close;
 end;
-procedure Tfrm_Dev.CreatePrepareCopy(AName,APath,AScript: String;A64,A32,AMobile,Alizenz,Alocalize: Boolean);
+procedure Tfrm_Dev.CreatePrepareCopy(AName,APath,AScript: String;A64,A32,AMobile,Alizenz,Alocalize: Boolean;AMajor, AMinor: Integer);
 var
   slIni: TStringlist;
   sNewPath: String;
@@ -361,170 +381,122 @@ begin
   begin
     exit;
   end;
-  sSaveScript:= StringReplace(AScript,'MSBuild ' + AName + '.bat', AName + '\' + 'MSBuild.bat',[rfIgnorecase,rfReplaceall]);
-  if not FileExists(sSaveScript) then
+  sSaveScript:= StringReplace(AScript,'MSBuild ' + AName + '.bat', AName + '\' + 'PrepareCopy.cmd',[rfIgnorecase,rfReplaceall]);
+  sNewName32:= AName;
+  sNewName64:= AName;
+  if AName = 'PCMBackup' then
   begin
-    sNewName32:= AName;
-    sNewName64:= AName;
-    if AName = 'PCMBackup' then
-    begin
-      sNewName32:= 'PCMService\PCMBackup';
-      sNewName64:= 'PCMService_x64\PCMBackup';
-    end;
-    if AName = 'PCMBackupService' then
-    begin
-      sNewName32:= 'PCMService\PCMBackup';
-      sNewName64:= 'PCMService_x64\PCMBackup';
-    end;
+    sNewName32:= 'PCMService\PCMBackup';
+    sNewName64:= 'PCMService_x64\PCMBackup';
+  end;
+  if AName = 'PCMBackupService' then
+  begin
+    sNewName32:= 'PCMService\PCMBackup';
+    sNewName64:= 'PCMService_x64\PCMBackup';
+  end;
 
-    if AName = 'PCMServiceManager' then
+  if AName = 'PCMServiceManager' then
+  begin
+    sNewName32:= 'PCMService';
+    sNewName64:= 'PCMService_x64';
+  end;
+  slIni:= TSTringlist.Create;
+  // Mobilebuild
+  {$Region MobileBuild}
+  if (AMobile) then
+  begin
+    // Copy
+    {$Region Copy}
+    if A32 then
     begin
-      sNewName32:= 'PCMService';
-      sNewName64:= 'PCMService_x64';
+      slIni.Add('echo "Kopiere Datei ins Setupverzeichnis 32-Bit"');
+      sNewPathApp:= 'Android\Debug\' + AName + '\bin\' + AName + '.apk';
+      sNewPathexe:= 'Win32\Release\' + AName + '.exe';
+      slIni.Add('copy /y /v ' + sNewPathApp + ' "e:\Inno\Setupfiles\Programme\' + AName +'"');
+      slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'"');
     end;
-    slIni:= TSTringlist.Create;
-    // Mobilebuild
-    {$Region MobileBuild}
-    if (AMobile) then
+    if A64 then
     begin
-      slIni.Add('call "C:\Program Files (x86)\Embarcadero\Studio\23.0\bin\rsvars.bat"');
-      slIni.Add('echo "Build erstellen"');
-      sNewPath:=  StringReplace(APath,'\','/',[rfIgnoreCase,rfReplaceAll]);
-      // Build
-      {$Region Build}
-      if A32 then
+      slIni.Add('echo "Kopiere Datei ins Setupverzeichnis 64-Bit"');
+      sNewPathApp:= 'Android64\Debug\' + Aname + '\bin\' + AName + '.apk';
+      sNewPathexe:= 'Win64\Release\' + AName + '.exe';
+      slIni.Add('copy /y /v ' + sNewPathApp + ' "e:\Inno\Setupfiles\Programme\' + AName +'_x64"');
+      slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'_x64"');
+    end;
+    {$EndRegion Copy}
+  end
+  {$EndRegion MobileBuild}
+  // Desktopbuild
+  {$Region DesktopBuild}
+  else begin
+//    sNewPath:=  StringReplace(APath,'\','/',[rfIgnorecase,rfReplaceAll]);
+    // Copy
+    {$Region Copy}
+    if A32 then
+    begin
+      slIni.Add('echo "Kopiere Datei ins Setupverzeichnis 32-Bit"');
+      sNewPathexe:= 'Win32\Release\' + sNewName32 + '.exe';
+      slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'"');
+      if Alocalize then
       begin
-        slIni.Add('msbuild ' + sNewPath + ' /t:Clean;Build /p:config=Release /p:platform=Win32');
-        slIni.Add('msbuild ' + sNewPath + ' /p:config=Debug /p:platform=Android /t:Clean;Make;Deploy');
+        slIni.Add(StringReplace('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'"','exe','DE',[rfIgnorecase,rfReplaceAll]));
+        slIni.Add(StringReplace('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'"','exe','EN',[rfIgnorecase,rfReplaceAll]));
       end;
-      if A64 then
+    end;
+    if A64 then
+    begin
+      slIni.Add('echo "Kopiere Datei ins Setupverzeichnis 64-Bit"');
+      sNewPathexe:= 'Win64\Release\' + AName + '.exe';
+      if (AName = 'PCMBackup') or (AName = 'PCMBackupService') or (AName = 'PCMServiceManager') then
       begin
-        slIni.Add('msbuild ' + sNewPath + ' /t:Clean;Build /p:config=Release /p:platform=Win64');
-        slIni.Add('msbuild ' + sNewPath + ' /p:config=Debug /p:platform=Android64 /t:Clean;Make;Deploy');
-      end;
-      {$EndRegion Build}
-      // Copy
-      {$Region Copy}
-      if A32 then
-      begin
-        slIni.Add('');
-        slIni.Add('echo "Kopiere Datei ins Setupverzeichnis 32-Bit"');
-        sNewPathApp:= StringReplace(APath,Aname + '.dproj','Android\Debug\' + AName + '\bin\' + AName + '.apk',[rfIgnoreCase,rfReplaceAll]);
-        sNewPathexe:= StringReplace(APath,Aname + '.dproj','Win32\Release\' + AName + '.exe',[rfIgnoreCase,rfReplaceAll]);
-        slIni.Add('copy /y /v ' + sNewPathApp + ' "e:\Inno\Setupfiles\Programme\' + AName +'"');
-        slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'"');
-      end;
-      if A64 then
-      begin
-        slIni.Add('');
-        slIni.Add('echo "Kopiere Datei ins Setupverzeichnis 64-Bit"');
-        sNewPathApp:= StringReplace(APath,Aname + '.dproj','Android64\Debug\' + Aname + '\bin\' + AName + '.apk',[rfIgnoreCase,rfReplaceAll]);
-        sNewPathexe:= StringReplace(APath,Aname + '.dproj','Win64\Release\' + AName + '.exe',[rfIgnoreCase,rfReplaceAll]);
-        slIni.Add('copy /y /v ' + sNewPathApp + ' "e:\Inno\Setupfiles\Programme\' + AName +'_x64"');
-        slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'_x64"');
-      end;
-      {$EndRegion Copy}
-    end
-    {$EndRegion MobileBuild}
-    // Desktopbuild
-    {$Region DesktopBuild}
-    else begin
-      slIni.Add('call "C:\Program Files (x86)\Embarcadero\Studio\23.0\bin\rsvars.bat"');
-      slIni.Add('echo "Build erstellen"');
-      sNewPath:=  StringReplace(APath,'\','/',[rfIgnorecase,rfReplaceAll]);
-      // Build
-      {$Region Build}
-      if A32 then
-      begin
-//        if not A64  then
-//        begin
-        if not Alocalize then
+        slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + sNewName64 +'"');
+        if Alocalize then
         begin
-          slIni.Add('msbuild ' + sNewPath + ' /t:Clean;Build;CompressWin32 /p:config=Release /p:platform=Win32');
-        end
-        else begin
-          slIni.Add('msbuild ' + sNewPath + ' /t:Clean;Build;Localize;CompressWin32 /p:config=Release /p:platform=Win32');
-        end;
-//        end
-//        else begin
-//          slIni.Add('msbuild ' + sNewPath + ' /t:Clean;Build;CompressWin32 /p:config=Release /p:platform=Win32');
-//        end;
-      end;
-      if A64 then
-      begin
-        if not Alocalize then
-        begin
-          slIni.Add('msbuild ' + sNewPath + ' /t:Clean;Build;CompressWin64 /p:config=Release /p:platform=Win64');
-        end
-        else begin
-          slIni.Add('msbuild ' + sNewPath + ' /t:Clean;Build;Localize;CompressWin64 /p:config=Release /p:platform=Win64');
-        end;
-      end;
-      {$EndRegion Build}
-      // Copy
-      {$Region Copy}
-      if A32 then
-      begin
-        slIni.Add('');
-        slIni.Add('echo "Kopiere Datei ins Setupverzeichnis 32-Bit"');
-        sNewPathexe:= StringReplace(APath,Aname + '.dproj','Win32\Release\' + sNewName32 + '.exe',[rfIgnorecase,rfReplaceAll]);
-        slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'"');
-//        if not A64 then
-//        begin
-          slIni.Add(StringReplace('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'"','exe','DE',[rfIgnorecase,rfReplaceAll]));
-          slIni.Add(StringReplace('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'"','exe','EN',[rfIgnorecase,rfReplaceAll]));
-//        end;
-      end;
-      if A64 then
-      begin
-        slIni.Add('');
-        slIni.Add('echo "Kopiere Datei ins Setupverzeichnis 64-Bit"');
-        sNewPathexe:= StringReplace(APath,Aname + '.dproj','Win64\Release\' + AName + '.exe',[rfIgnorecase,rfReplaceAll]);
-        if (AName = 'PCMBackup') or (AName = 'PCMBackupService') or (AName = 'PCMServiceManager') then
-        begin
-          slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + sNewName64 +'"');
           slIni.Add(StringReplace('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + sNewName64 +'"','exe','DE',[rfIgnorecase,rfReplaceAll]));
           slIni.Add(StringReplace('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + sNewName64 +'"','exe','EN',[rfIgnorecase,rfReplaceAll]));
-        end
-        else begin
-          slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'_x64"');
+        end;
+      end
+      else begin
+        slIni.Add('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'_x64"');
+        if Alocalize then
+        begin
           slIni.Add(StringReplace('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'_x64"','exe','DE',[rfIgnorecase,rfReplaceAll]));
           slIni.Add(StringReplace('copy /y /v ' + sNewPathexe + ' "e:\Inno\Setupfiles\Programme\' + AName +'_x64"','exe','EN',[rfIgnorecase,rfReplaceAll]));
         end;
       end;
-      slIni.Add('');
-      slIni.Add('echo "Kopiere Doku ins Setupverzeichnis"');
-      sNewPathDoc:= StringReplace(APath,Aname + '.dproj','' + AName + '.exe',[rfIgnorecase,rfReplaceAll]);
-      slIni.Add(StringReplace('copy /y /v ' + sNewPathDoc + ' "e:\Inno\Setupfiles\Programme\' + sNewName32 +'"','exe','docx',[rfIgnorecase,rfReplaceAll]));
-      slIni.Add(StringReplace('copy /y /v ' + sNewPathDoc + ' "e:\Inno\Setupfiles\Programme\' + sNewName32 +'"','exe','pdf',[rfIgnorecase,rfReplaceAll]));
-      slIni.Add(StringReplace('copy /y /v ' + sNewPathDoc + ' "e:\Inno\Setupfiles\Programme\' + sNewName32 +'"','exe','htm',[rfIgnorecase,rfReplaceAll]));
+    end;
+    slIni.Add('');
+    slIni.Add('echo "Kopiere Doku ins Setupverzeichnis"');
+    sNewPathDoc:= StringReplace(APath,Aname + '.dproj','' + AName + '.exe',[rfIgnorecase,rfReplaceAll]);
+    slIni.Add('copy /y /v ' + Aname + '.docx "e:\Inno\Setupfiles\Programme\' + sNewName32 +'"');
+    slIni.Add('copy /y /v ' + Aname + '.pdf "e:\Inno\Setupfiles\Programme\' + sNewName32 +'"');
+    slIni.Add('copy /y /v ' + Aname + '.htm "e:\Inno\Setupfiles\Programme\' + sNewName32 +'"');
 
-      if ALizenz then
+
+    if ALizenz then
+    begin
+      slIni.Add('');
+      slIni.Add('echo "Demolizenz erstellen"');
+      if not A64  then
       begin
-        slIni.Add('');
-        slIni.Add('echo "Demolizenz erstellen"');
-        if not A64  then
+        slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + StringReplace(AName,'PCM','PCM-',[rfIgnorecase,rfReplaceAll]) + ' /' + AMajor.ToString +'.' + AMinor.ToString + ' /E:\Inno\Setupfiles\Programme\' + AName);
+      end
+      else begin
+        if (AName = 'PCMBackup') or (AName = 'PCMBackupService') or (AName = 'PCMServiceManager') then
         begin
-          slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + StringReplace(AName,'PCM','PCM-',[rfIgnorecase,rfReplaceAll]) + ' /1.6 /E:\Inno\Setupfiles\Programme\' + AName);
+          slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + StringReplace(AName,'PCM','PCM-',[rfIgnorecase,rfReplaceAll]) + ' /' + AMajor.ToString +'.' + AMinor.ToString + ' /E:\Inno\Setupfiles\Programme\' + sNewName32 );
         end
         else begin
-          if (AName = 'PCMBackup') or (AName = 'PCMBackupService') or (AName = 'PCMServiceManager') then
-          begin
-            slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + StringReplace(AName,'PCM','PCM-',[rfIgnorecase,rfReplaceAll]) + ' /1.6 /E:\Inno\Setupfiles\Programme\' + sNewName32 );
-          end
-          else begin
-            slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + StringReplace(AName,'PCM','PCM-',[rfIgnorecase,rfReplaceAll]) + ' /1.6 /E:\Inno\Setupfiles\Programme\' + AName + '_x64');
-          end;
+          slIni.Add('call "E:\Inno\Setupfiles\Programme\PCMLizenzgenerator\PCMLizenzgenerator.exe" /' + StringReplace(AName,'PCM','PCM-',[rfIgnorecase,rfReplaceAll]) + ' /' + AMajor.ToString +'.' + AMinor.ToString + ' /E:\Inno\Setupfiles\Programme\' + AName);
         end;
       end;
-      {$EndRegion Copy}
     end;
-    {$EndRegion DesktopBuild}
-    slIni.SaveToFile(sSaveScript);
-    slini.Free;
+    {$EndRegion Copy}
   end;
+  {$EndRegion DesktopBuild}
+  slIni.SaveToFile(sSaveScript);
+  slini.Free;
 end;
-
 procedure Tfrm_Dev.CreateMSBuild(AName,APath,AScript: String;A64,A32,AMobile,Alizenz,Alocalize: Boolean);
   procedure CreateOverMsBuild(APath,AScript,AName: String);
   var
@@ -919,11 +891,43 @@ begin
     strlstFileExt.Free;
   end;
 end;
+procedure Tfrm_Dev.OpenFileWithNotepad(ANotepad,AProject: string;ATyp: integer; A32BIt, A64Bit: boolean);
+var
+  AProject1: String;
+begin
+  case ATyp of
+  1:
+    begin
+      AProject:= StringReplace(qry_Projects.FieldByName('Path').asString,qry_Projects.FieldByName('name').asString + '.dproj','MsBuild.bat',[rfreplaceall]);
+    end;
+  2:
+    begin
+      AProject:= StringReplace(qry_Projects.FieldByName('Path').asString,qry_Projects.FieldByName('name').asString + '.dproj','versioninfo32.rc',[rfreplaceall]);
+      AProject1:= StringReplace(qry_Projects.FieldByName('Path').asString,qry_Projects.FieldByName('name').asString + '.dproj','versioninfo64.rc',[rfreplaceall]);
+    end;
+  3:
+    begin
+      AProject:= StringReplace(qry_Projects.FieldByName('Path').asString,qry_Projects.FieldByName('name').asString + '.dproj','README.md',[rfreplaceall]);
+    end;
+  4:
+    begin
+      AProject:= StringReplace(qry_Projects.FieldByName('Path').asString,qry_Projects.FieldByName('name').asString + '.dproj','PrepareCopy.cmd',[rfreplaceall]);
+    end;
+  end;
+  if (ANotepad <> '') and FileExists(AProject) then
+  begin
+    shellexecute(0,'open',Pchar(ANotepad),PChar('"' + AProject + '"'),nil,SW_SHOWDEFAULT);
+    if AProject1 <> '' then
+      shellexecute(0,'open',Pchar(ANotepad),PChar('"' + AProject1 + '"'),nil,SW_SHOWDEFAULT);
+  end
+  else begin
+    MessageDlg(rs_PCMDevManager_MSGNoMainScript, mtWarning, [mbOk], 0);
+  end;
+end;
 procedure Tfrm_Dev.SetButtons;
 begin
   btn_ConfigSave.Enabled := qry_SourceAPP.State in [dsInsert, dsEdit];
   btn_ConfigDelete.Enabled := (not qry_SourceAPP.Eof) and not (qry_SourceAPP.State in [dsInsert, dsEdit]);
-
 end;
 {$EndRegion Hilfsfunktionen}
 ////////////////////////////////////////////////////////////////////////////////
@@ -1223,35 +1227,10 @@ begin
   end;
   CloseWaitForm;
 end;
-procedure Tfrm_Dev.btn_EditDprojClick(Sender: TObject);
-var
-  sPath: String;
-  sPathSub: String;
+procedure Tfrm_Dev.OpenFileClick(Sender: TObject);
 begin
-  sPath:= GetNotepad;
-  sPathSub:= qry_Projects.FieldByName('Path').asString;
-  if (sPath <> '') and FileExists(sPathSub) then
-  begin
-    shellexecute(0,'open',Pchar(sPath),PChar('"' + sPathSub + '"'),nil,SW_SHOWDEFAULT);
-  end
-  else begin
-    MessageDlg(rs_PCMDevManager_MSGNoMainScript, mtWarning, [mbOk], 0);
-  end;
+  OpenFileWithNotepad(GetNotepad,qry_Projects.FieldByName('Path').asString,(Sender as TdxBarLargeButton).Tag, qry_Projects.FieldByName('64Bit').asBoolean,qry_Projects.FieldByName('32Bit').asBoolean )
 
-end;
-procedure Tfrm_Dev.btn_EditMSBUILDClick(Sender: TObject);
-var
-  sPath,sPathSub: String;
-begin
-  sPath:= GetNotepad;
-  sPathSub:= StringReplace(qry_Projects.FieldByName('Path').asString,qry_Projects.FieldByName('name').asString + '.dproj','MsBuild.bat',[rfreplaceall]);
-  if (sPath <> '') and FileExists(sPathSub) then
-  begin
-    shellexecute(0,'open',Pchar(sPath),PChar('"' + sPathSub + '"'),nil,SW_SHOWDEFAULT);
-  end
-  else begin
-    MessageDlg(rs_PCMDevManager_MSGNoMainScript, mtWarning, [mbOk], 0);
-  end;
 end;
 procedure Tfrm_Dev.grdDBTblView_HelpprogsCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
 begin
@@ -1298,7 +1277,68 @@ begin
     bSetttingsChanged := True;
   end;
 end;
-procedure Tfrm_Dev.dxBarLargeButton2Click(Sender: TObject);
+procedure Tfrm_Dev.dxLayoutGroup1TabChanging(Sender: TObject;
+  ANewTabIndex: Integer; var Allow: Boolean);
+begin
+  case ANewTabIndex of
+  0:
+    begin
+      rbTab_Proj.Visible:= true;
+      rbTab_MSBuild.Visible:= true;
+      rbTab_Res.Visible:= true;
+      rbTab_Readme.Visible:= true;
+      rbTab_Prepare.Visible:= true;
+      rbTab_Script.Visible:= true;
+      rbTab_Backup.Visible:= false;
+      dxRibbon1.ActiveTab := dxRibbon1.Tabs[0];
+    end;
+  1:
+    begin
+      rbTab_Proj.Visible:= false;
+      rbTab_MSBuild.Visible:= false;
+      rbTab_Res.Visible:= false;
+      rbTab_Readme.Visible:= false;
+      rbTab_Prepare.Visible:= false;
+      rbTab_Script.Visible:= false;
+      rbTab_Backup.Visible:= true;
+      dxRibbon1.ActiveTab := dxRibbon1.Tabs[6];
+    end;
+  end;
+end;
+
+procedure Tfrm_Dev.btn_PrepareCopyCMDAllClick(Sender: TObject);
+var
+  sPath: String;
+  sFile: String;
+begin
+  qry_Projects.First;
+  ShowWaitForm(TForm(Self), PWideChar(rs_PCMDevManager_WAIT_Scripts), qry_projects.Recordcount,417, 65);
+  while not qry_Projects.eof do
+  begin
+    if qry_Projects.FieldByName('ID').AsInteger > 0 then
+    begin
+      sPath:= StringReplace(qry_Projects.FieldByName('Path').AsString,qry_Projects.FieldByName('Name').AsString + '.dproj','',[rfReplaceAll,rfIgnoreCase]);
+      sFile:= StringReplace(qry_Projects.FieldByName('Name').AsString,'.dproj','.exe',[rfReplaceAll,rfIgnoreCase]);
+      WaitFormSetText('repareCopy ' + sFile + rs_PCMDevManager_WAIT_Create);
+      WaitFormStep;
+      CreatePrepareCopy(qry_projects.FieldByName('Name').AsString,
+                    qry_projects.FieldByName('Path').AsString,
+                    qry_projects.FieldByName('Script').AsString,
+                    qry_projects.FieldByName('64Bit').AsBoolean,
+                    qry_projects.FieldByName('32Bit').AsBoolean,
+                    qry_projects.FieldByName('Mobile').AsBoolean,
+                    qry_projects.FieldByName('Lizenz').AsBoolean,
+                    qry_projects.FieldByName('Localize').AsBoolean,
+                    qry_projects.FieldByName('Major').AsInteger,
+                    qry_projects.FieldByName('Minor').AsInteger
+                    );
+    end;
+    qry_Projects.Next;
+  end;
+  CloseWaitForm;
+end;
+
+procedure Tfrm_Dev.btn_PrepareCopyCMDClick(Sender: TObject);
 begin
   CreatePrepareCopy(qry_projects.FieldByName('Name').AsString,
                     qry_projects.FieldByName('Path').AsString,
@@ -1307,7 +1347,10 @@ begin
                     qry_projects.FieldByName('32Bit').AsBoolean,
                     qry_projects.FieldByName('Mobile').AsBoolean,
                     qry_projects.FieldByName('Lizenz').AsBoolean,
-                    qry_projects.FieldByName('Localize').AsBoolean);
+                    qry_projects.FieldByName('Localize').AsBoolean,
+                    qry_projects.FieldByName('Major').AsInteger,
+                    qry_projects.FieldByName('Minor').AsInteger
+                    );
 end;
 procedure Tfrm_Dev.btn_CreateReadMEClick(Sender: TObject);
 Var

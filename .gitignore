@@ -74,3 +74,4 @@ modules/
 /save.png
 /Win64/Debug
 /Win32/Release/*.nds
+/Win32/Release/*.ntr
