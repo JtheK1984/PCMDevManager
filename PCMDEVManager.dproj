@@ -7,7 +7,7 @@
         <Program_Soluling>E:\Solu\SoluMake.exe</Program_Soluling>
         <MainSource>PCMDEVManager.dpr</MainSource>
         <Base>True</Base>
-        <Config Condition="'$(Config)'==''">Release</Config>
+        <Config Condition="'$(Config)'==''">Debug</Config>
         <Platform Condition="'$(Platform)'==''">Win32</Platform>
         <TargetedPlatforms>3</TargetedPlatforms>
         <AppType>Application</AppType>
@@ -200,6 +200,10 @@ $(PreBuildEvent)]]></PreBuildEvent>
             <Form>fSourceBackup_FileExt</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Modules\PCM.Modul.C_Entwicklung.NewProject.pas">
+            <Form>frm_NewProject</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -226,19 +230,18 @@ $(PreBuildEvent)]]></PreBuildEvent>
             </Delphi.Personality>
             <Deployment Version="5">
                 <DeployFile LocalName="Win32\Debug\PCMDEVManager.exe" Configuration="Debug" Class="ProjectOutput"/>
+                <DeployFile LocalName="Win32\Debug\PCMDEVManager.exe" Configuration="Debug" Class="ProjectOutput">
+                    <Platform Name="Win32">
+                        <RemoteName>PCMDEVManager.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="Win32\Debug\ZMIJiraMigrationV2.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="Win32\Release\ZMIJiraMigrationV2.exe" Configuration="Release" Class="ProjectOutput"/>
                 <DeployFile LocalName="Win64\Debug\PCMDEVManager.exe" Configuration="Debug" Class="ProjectOutput"/>
                 <DeployFile LocalName="Win64\Debug\PCMDEVManager.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>PCMDEVManager.exe</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="Win64\Debug\PCMDEVManager.rsm" Configuration="Debug" Class="DebugSymbols"/>
-                <DeployFile LocalName="Win64\Debug\PCMDEVManager.rsm" Configuration="Debug" Class="DebugSymbols">
-                    <Platform Name="Win64">
-                        <RemoteName>PCMDEVManager.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

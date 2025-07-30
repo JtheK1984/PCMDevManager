@@ -24,29 +24,31 @@ object frm_Config: Tfrm_Config
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     object dxBarDockControl1: TdxBarDockControl
-      Left = 19
-      Top = 44
+      Left = 10000
+      Top = 10000
       Width = 1238
       Height = 63
       Align = dalNone
       BarManager = brmgr_main
+      Visible = False
     end
     object btn_MSSQLtest: TcxButton
       AlignWithMargins = True
-      Left = 28
-      Top = 220
+      Left = 10000
+      Top = 10000
       Width = 1220
       Height = 25
       Margins.Left = 7
       Margins.Right = 7
       Caption = 'Verbindung testen'
       TabOrder = 4
+      Visible = False
       OnClick = btn_MSSQLtestClick
     end
     object cmbbx_Type: TcxDBImageComboBox
       AlignWithMargins = True
-      Left = 112
-      Top = 145
+      Left = 10000
+      Top = 10000
       Margins.Left = 7
       Margins.Top = 0
       Margins.Right = 7
@@ -66,12 +68,13 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 1
+      Visible = False
       Width = 1136
     end
     object cmbbx_port: TcxDBImageComboBox
       AlignWithMargins = True
-      Left = 112
-      Top = 195
+      Left = 10000
+      Top = 10000
       Margins.Left = 7
       Margins.Top = 0
       Margins.Right = 7
@@ -91,12 +94,13 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 3
+      Visible = False
       Width = 1136
     end
     object edt_BaseUrl: TcxDBTextEdit
       AlignWithMargins = True
-      Left = 112
-      Top = 170
+      Left = 10000
+      Top = 10000
       Margins.Left = 7
       Margins.Top = 0
       Margins.Right = 7
@@ -105,12 +109,13 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 2
+      Visible = False
       Width = 1136
     end
     object edt_Benutzer: TcxDBTextEdit
       AlignWithMargins = True
-      Left = 112
-      Top = 292
+      Left = 10000
+      Top = 10000
       Margins.Left = 7
       Margins.Top = 0
       Margins.Right = 7
@@ -120,13 +125,14 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 5
+      Visible = False
       Height = 19
       Width = 1136
     end
     object edt_Passwort: TcxDBTextEdit
       AlignWithMargins = True
-      Left = 112
-      Top = 317
+      Left = 10000
+      Top = 10000
       Margins.Left = 7
       Margins.Top = 0
       Margins.Right = 7
@@ -137,6 +143,7 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 6
+      Visible = False
       Height = 19
       Width = 1136
     end
@@ -295,17 +302,16 @@ object frm_Config: Tfrm_Config
       Visible = False
     end
     object brdckCtrl_Delphi: TdxBarDockControl
-      Left = 10000
-      Top = 10000
+      Left = 19
+      Top = 44
       Width = 1238
       Height = 63
       Align = dalNone
       BarManager = brmgr_main
-      Visible = False
     end
     object grd_Delphi: TcxGrid
-      Left = 10000
-      Top = 10000
+      Left = 19
+      Top = 575
       Width = 1238
       Height = 202
       BevelInner = bvLowered
@@ -318,7 +324,6 @@ object frm_Config: Tfrm_Config
       Font.Style = []
       ParentFont = False
       TabOrder = 29
-      Visible = False
       LockedStateImageOptions.Effect = lsieDark
       object grdDBTblView_Delphi: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
@@ -358,23 +363,28 @@ object frm_Config: Tfrm_Config
         object grdDBTblViewCol_NameDelphi: TcxGridDBColumn
           Caption = 'Projektname'
           DataBinding.FieldName = 'Name'
+          DataBinding.IsNullValueType = True
           Width = 150
         end
         object grdDBTblViewCol_PfadDelphi: TcxGridDBColumn
           Caption = 'Projektpfad'
           DataBinding.FieldName = 'Path'
+          DataBinding.IsNullValueType = True
           Width = 450
         end
         object grdDBTblViewCol_ScriptDelphi: TcxGridDBColumn
           DataBinding.FieldName = 'Script'
+          DataBinding.IsNullValueType = True
           Width = 350
         end
         object grdDBTblView_DelphiBeschreibung: TcxGridDBColumn
           DataBinding.FieldName = 'Beschreibung'
+          DataBinding.IsNullValueType = True
           Width = 200
         end
         object grdDBTblViewCol_LogoDelphi: TcxGridDBColumn
           DataBinding.FieldName = 'Logo'
+          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageProperties'
           Properties.GraphicClassName = 'TdxPNGImage'
           Width = 60
@@ -382,27 +392,32 @@ object frm_Config: Tfrm_Config
         object grdDBTblViewCol_64BitDelphi: TcxGridDBColumn
           Caption = '64-Bit'
           DataBinding.FieldName = '64Bit'
+          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_32BitDelphi: TcxGridDBColumn
           Caption = '32-Bit'
           DataBinding.FieldName = '32Bit'
+          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_MobileDelphi: TcxGridDBColumn
           DataBinding.FieldName = 'Mobile'
+          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_LizenzDelphi: TcxGridDBColumn
           DataBinding.FieldName = 'Lizenz'
+          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_LocalizeDelphi: TcxGridDBColumn
           DataBinding.FieldName = 'Localize'
+          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
@@ -419,6 +434,7 @@ object frm_Config: Tfrm_Config
         object grdDBTblView_DelphiCONCATMajorMinorOutputBuild: TcxGridDBColumn
           Caption = 'Version'
           DataBinding.FieldName = 'CONCAT(Major,'#39'.'#39',Minor,'#39'.'#39',Output,'#39'.'#39',Build)'
+          DataBinding.IsNullValueType = True
           Width = 60
         end
       end
@@ -428,8 +444,8 @@ object frm_Config: Tfrm_Config
     end
     object img_DelphiLogo: TcxDBImage
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 1148
+      Top = 145
       Margins.Left = 5
       Margins.Top = 5
       Margins.Right = 5
@@ -442,14 +458,13 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 17
       Transparent = True
-      Visible = False
       Height = 100
       Width = 100
     end
     object edt_ProjectMSBuild: TcxDBButtonEdit
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 149
+      Top = 195
       Margins.Left = 5
       Margins.Top = 2
       Margins.Right = 5
@@ -465,13 +480,12 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 15
-      Visible = False
       Width = 963
     end
     object edt_Projectname: TcxDBTextEdit
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 149
+      Top = 145
       Margins.Left = 5
       Margins.Top = 2
       Margins.Right = 5
@@ -488,14 +502,13 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       Style.IsFontAssigned = True
       TabOrder = 13
-      Visible = False
       OnExit = btn_HelperprogSaveClick
       Width = 963
     end
     object edt_Projectpath: TcxDBButtonEdit
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 149
+      Top = 170
       Margins.Left = 5
       Margins.Top = 2
       Margins.Right = 5
@@ -511,13 +524,12 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 14
-      Visible = False
       Width = 963
     end
     object chkbx_32Bit: TcxDBCheckBox
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 273
+      Top = 513
       Margins.Left = 4
       Margins.Top = 0
       Margins.Right = 4
@@ -530,14 +542,13 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 21
       Transparent = True
-      Visible = False
       Height = 19
       Width = 239
     end
     object chkbx_64Bit: TcxDBCheckBox
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 28
+      Top = 513
       Margins.Left = 2
       Margins.Top = 0
       Margins.Right = 4
@@ -550,14 +561,13 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 20
       Transparent = True
-      Visible = False
       Height = 20
       Width = 239
     end
     object chkbx_Mobile: TcxDBCheckBox
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 518
+      Top = 513
       Margins.Left = 4
       Margins.Top = 0
       Margins.Right = 4
@@ -570,14 +580,13 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 22
       Transparent = True
-      Visible = False
       Height = 19
       Width = 240
     end
     object chkbx_Licence: TcxDBCheckBox
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 764
+      Top = 513
       AutoSize = False
       Caption = 'Version ben'#246'tigt Lizenz'
       DataBinding.DataField = 'Lizenz'
@@ -586,14 +595,13 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 23
       Transparent = True
-      Visible = False
       Height = 13
       Width = 239
     end
     object chkbx_Language: TcxDBCheckBox
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 1009
+      Top = 513
       Margins.Left = 6
       Margins.Top = 0
       Margins.Right = 4
@@ -606,14 +614,13 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       TabOrder = 24
       Transparent = True
-      Visible = False
       Height = 19
       Width = 239
     end
     object cxDBMaskEdit3: TcxDBMaskEdit
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 149
+      Top = 539
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 122
@@ -624,14 +631,13 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 25
-      Visible = False
       Height = 21
       Width = 30
     end
     object cxDBMaskEdit2: TcxDBMaskEdit
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 301
+      Top = 539
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 122
@@ -642,14 +648,13 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 26
-      Visible = False
       Height = 21
       Width = 30
     end
     object cxDBMaskEdit4: TcxDBMaskEdit
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 453
+      Top = 539
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 110
@@ -660,14 +665,13 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 27
-      Visible = False
       Height = 21
       Width = 30
     end
     object cxDBMaskEdit5: TcxDBMaskEdit
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 605
+      Top = 539
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 110
@@ -678,14 +682,13 @@ object frm_Config: Tfrm_Config
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 28
-      Visible = False
       Height = 21
       Width = 30
     end
     object cxDBTextEdit1: TcxDBTextEdit
       AlignWithMargins = True
-      Left = 10000
-      Top = 10000
+      Left = 149
+      Top = 220
       Margins.Left = 5
       Margins.Top = 2
       Margins.Right = 5
@@ -702,7 +705,6 @@ object frm_Config: Tfrm_Config
       Style.TransparentBorder = False
       Style.IsFontAssigned = True
       TabOrder = 16
-      Visible = False
       OnExit = btn_HelperprogSaveClick
       Width = 963
     end
@@ -890,26 +892,24 @@ object frm_Config: Tfrm_Config
       Width = 1094
     end
     object cxDBMemo1: TcxDBMemo
-      Left = 10000
-      Top = 10000
+      Left = 149
+      Top = 251
       DataBinding.DataField = 'DLL'
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 18
-      Visible = False
       Height = 170
       Width = 1099
     end
     object cxDBMemo2: TcxDBMemo
-      Left = 10000
-      Top = 10000
+      Left = 149
+      Top = 427
       DataBinding.DataField = 'Components'
       DataBinding.DataSource = ds_Projects
       Style.HotTrack = False
       Style.TransparentBorder = False
       TabOrder = 19
-      Visible = False
       Height = 60
       Width = 1099
     end
@@ -925,6 +925,7 @@ object frm_Config: Tfrm_Config
       Parent = dxLayoutControl1Group_Root
       AlignHorz = ahClient
       AlignVert = avClient
+      ItemIndex = 2
       LayoutDirection = ldTabbed
       ShowBorder = False
       Index = 0

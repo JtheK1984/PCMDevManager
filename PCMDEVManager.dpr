@@ -25,7 +25,8 @@ uses
   PCM.Modul.D_Doku.Version in 'Modules\PCM.Modul.D_Doku.Version.pas',
   PCMDEVManager.dxSettings in 'PCMDEVManager.dxSettings.pas',
   PCM.Servicemanager.Sourcecode.NewProg in 'Modules\PCM.Servicemanager.Sourcecode.NewProg.pas' {fSourceBackup_NewConfig},
-  PCM.Servicemanager.Sourcecode.Extension in 'Modules\PCM.Servicemanager.Sourcecode.Extension.pas' {fSourceBackup_FileExt};
+  PCM.Servicemanager.Sourcecode.Extension in 'Modules\PCM.Servicemanager.Sourcecode.Extension.pas' {fSourceBackup_FileExt},
+  PCM.Modul.C_Entwicklung.NewProject in 'Modules\PCM.Modul.C_Entwicklung.NewProject.pas' {frm_NewProject};
 
 {$R *.res}
 
@@ -62,5 +63,6 @@ begin
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(Tdm_PCM, dm_PCM);
   Application.CreateForm(Tfrm_PCM_Main, frm_PCM_Main);
+  Application.CreateForm(Tfrm_NewProject, frm_NewProject);
   Application.Run;
 end.

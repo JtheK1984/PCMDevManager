@@ -16,15 +16,12 @@ object frm_Dev: Tfrm_Dev
   TextHeight = 13
   object lactrl_Main: TdxLayoutControl
     Left = 0
-    Top = 127
+    Top = 132
     Width = 1200
-    Height = 593
+    Height = 588
     Align = alClient
     TabOrder = 0
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitTop = 0
-    ExplicitWidth = 1900
-    ExplicitHeight = 851
     object grd_Helpprogs: TcxGrid
       Left = 28
       Top = 76
@@ -107,7 +104,7 @@ object frm_Dev: Tfrm_Dev
       Left = 28
       Top = 272
       Width = 1140
-      Height = 137
+      Height = 135
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -230,9 +227,9 @@ object frm_Dev: Tfrm_Dev
     end
     object grd_Scripts: TcxGrid
       Left = 28
-      Top = 456
+      Top = 454
       Width = 1140
-      Height = 105
+      Height = 102
       BevelInner = bvLowered
       BevelKind = bkFlat
       BorderStyle = cxcbsNone
@@ -1186,14 +1183,13 @@ object frm_Dev: Tfrm_Dev
     Left = 0
     Top = 0
     Width = 1200
-    Height = 127
+    Height = 132
     BarManager = brmgr_Main
     Style = rsOffice365
-    ColorSchemeName = 'DevExpressDarkStyle'
+    ColorSchemeName = 'Colorful'
     Contexts = <>
-    TabOrder = 6
+    TabOrder = 2
     TabStop = False
-    ExplicitTop = -6
     object rbTab_Proj: TdxRibbonTab
       Caption = 'Project-Files'
       Groups = <
@@ -1204,7 +1200,6 @@ object frm_Dev: Tfrm_Dev
       Index = 0
     end
     object rbTab_MSBuild: TdxRibbonTab
-      Active = True
       Caption = 'MSBuild'
       Groups = <
         item
@@ -1241,6 +1236,7 @@ object frm_Dev: Tfrm_Dev
       Index = 4
     end
     object rbTab_Script: TdxRibbonTab
+      Active = True
       Caption = 'Script-Files'
       Groups = <
         item
@@ -2412,6 +2408,7 @@ object frm_Dev: Tfrm_Dev
       Category = 0
       Hint = 'Neues Projekt'
       Visible = ivAlways
+      OnClick = btn_NewProjClick
       LargeImageIndex = 27
       Width = 125
     end
