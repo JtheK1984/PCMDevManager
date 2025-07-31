@@ -1191,6 +1191,7 @@ object frm_Dev: Tfrm_Dev
     TabOrder = 2
     TabStop = False
     object rbTab_Proj: TdxRibbonTab
+      Active = True
       Caption = 'Project-Files'
       Groups = <
         item
@@ -1236,7 +1237,6 @@ object frm_Dev: Tfrm_Dev
       Index = 4
     end
     object rbTab_Script: TdxRibbonTab
-      Active = True
       Caption = 'Script-Files'
       Groups = <
         item

@@ -24,7 +24,6 @@ object frm_Ticket: Tfrm_Ticket
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     OptionsImage.Images = imglst_16x16
-    ExplicitWidth = 900
     object brdckCtrl_Jira: TdxBarDockControl
       Left = 19
       Top = 45
@@ -53,13 +52,13 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 5
       Visible = False
-      Width = 1064
+      Width = 1336
     end
     object Chatcrtl_Desktop: TdxChartControl
       Left = 10000
       Top = 10000
-      Width = 1064
-      Height = 547
+      Width = 1336
+      Height = 491
       BorderStyle = cxcbsNone
       Legend.Title.Visible = False
       Titles = <>
@@ -573,7 +572,7 @@ object frm_Ticket: Tfrm_Ticket
     object brdckCtrl_Confluence: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1092
+      Width = 1358
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
@@ -582,7 +581,7 @@ object frm_Ticket: Tfrm_Ticket
     object brdckCtrl_Swagger: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1092
+      Width = 1358
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
@@ -591,7 +590,7 @@ object frm_Ticket: Tfrm_Ticket
     object brdckCtrl_PCMAPPS: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1092
+      Width = 1358
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
@@ -600,7 +599,7 @@ object frm_Ticket: Tfrm_Ticket
     object brdckCtrl_AI: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1092
+      Width = 1358
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
@@ -609,7 +608,7 @@ object frm_Ticket: Tfrm_Ticket
     object brdckCtrl_Github: TdxBarDockControl
       Left = 10000
       Top = 10000
-      Width = 1092
+      Width = 1358
       Height = 63
       Align = dalNone
       BarManager = bmgr_main
@@ -659,8 +658,8 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 35
       Visible = False
-      Height = 625
-      Width = 1092
+      Height = 563
+      Width = 1358
     end
     object pnl_AI: TcxGroupBox
       Left = 10000
@@ -672,8 +671,8 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 33
       Visible = False
-      Height = 625
-      Width = 1092
+      Height = 563
+      Width = 1358
     end
     object pnl_BrowserPCMApps: TcxGroupBox
       Left = 10000
@@ -685,8 +684,8 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 30
       Visible = False
-      Height = 304
-      Width = 1092
+      Height = 272
+      Width = 1358
     end
     object pnl_pDevTools: TcxGroupBox
       Left = 10000
@@ -700,8 +699,8 @@ object frm_Ticket: Tfrm_Ticket
       TabOrder = 31
       Visible = False
       OnResize = pnl_PDevtoolsResize
-      Height = 304
-      Width = 1092
+      Height = 271
+      Width = 1358
     end
     object pnl_ADevTools: TcxGroupBox
       Left = 10000
@@ -740,8 +739,8 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 23
       Visible = False
-      Height = 304
-      Width = 1092
+      Height = 272
+      Width = 1358
     end
     object pnl_CDevTools: TcxGroupBox
       Left = 10000
@@ -754,8 +753,8 @@ object frm_Ticket: Tfrm_Ticket
       TabOrder = 24
       Visible = False
       OnResize = pnl_CDevToolsResize
-      Height = 304
-      Width = 1092
+      Height = 271
+      Width = 1358
     end
     object pnl_SDevtools: TcxGroupBox
       Left = 10000
@@ -768,8 +767,8 @@ object frm_Ticket: Tfrm_Ticket
       TabOrder = 28
       Visible = False
       OnResize = pnl_SDevtoolsResize
-      Height = 197
-      Width = 1092
+      Height = 174
+      Width = 1358
     end
     object pnl_SNotepad: TcxGroupBox
       Left = 10000
@@ -782,8 +781,8 @@ object frm_Ticket: Tfrm_Ticket
       TabOrder = 27
       Visible = False
       OnResize = pnl_SNotepadResize
-      Height = 197
-      Width = 1092
+      Height = 175
+      Width = 1358
     end
     object pnl_BrowserSwagger: TcxGroupBox
       Left = 10000
@@ -795,8 +794,8 @@ object frm_Ticket: Tfrm_Ticket
       Style.TransparentBorder = False
       TabOrder = 26
       Visible = False
-      Height = 197
-      Width = 1092
+      Height = 174
+      Width = 1358
     end
     object pnl_BrowserJiraPriv: TcxGroupBox
       Left = 28
@@ -1986,9 +1985,21 @@ object frm_Ticket: Tfrm_Ticket
       Category = 0
       Hint = 'Azure-Board'
       Visible = ivAlways
+      LargeGlyph.SourceDPI = 96
+      LargeGlyph.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000001974455874536F6674776172650041646F626520496D616765526561
+        647971C9653C0000000B744558745469746C6500486F6D653B1E746438000000
+        EB49444154785EEDD3BD0DC230104771A2CCC508D067010660842813F0215121
+        216006188079686811E6288C907CE445E793D2B8788D25FBFF6B3C09218CDA17
+        D0759DA5EA93E19E0BA0968ED28E110CB08C9FA5F089110CC818D711B3F61A7E
+        2380715C47F801787C231D3484001EF9001EAFA45A43CCDBCB3422CC001E8F40
+        463060F8F83AFD768C2040E63823089039CE08A90280C7382300C0E32E081DC0
+        E39E080D7082714FC456032CA45704C0B80511014FA9D10011B192C29F8140C1
+        DDBDD4E037EC03DC6FCBBE00A07FC3A40848CE0702B43793732BA0000A007207
+        9872011480770018AF027803B71C994C215DB42C0000000049454E44AE426082}
       OnClick = btn_ABoardClick
       AutoGrayScale = False
-      LargeImageIndex = 83
       Width = 125
     end
     object btn_JReadTickets: TdxBarLargeButton
@@ -2006,6 +2017,19 @@ object frm_Ticket: Tfrm_Ticket
       Category = 0
       Hint = 'Jira-Board'
       Visible = ivAlways
+      LargeGlyph.SourceDPI = 96
+      LargeGlyph.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000001974455874536F6674776172650041646F626520496D616765526561
+        647971C9653C0000000B744558745469746C6500486F6D653B1E746438000000
+        EB49444154785EEDD3BD0DC230104771A2CCC508D067010660842813F0215121
+        216006188079686811E6288C907CE445E793D2B8788D25FBFF6B3C09218CDA17
+        D0759DA5EA93E19E0BA0968ED28E110CB08C9FA5F089110CC818D711B3F61A7E
+        2380715C47F801787C231D3484001EF9001EAFA45A43CCDBCB3422CC001E8F40
+        463060F8F83AFD768C2040E63823089039CE08A90280C7382300C0E32E081DC0
+        E39E080D7082714FC456032CA45704C0B80511014FA9D10011B192C29F8140C1
+        DDBDD4E037EC03DC6FCBBE00A07FC3A40848CE0702B43793732BA0000A007207
+        9872011480770018AF027803B71C994C215DB42C0000000049454E44AE426082}
       OnClick = btn_JBoardClick
       AutoGrayScale = False
       LargeImageIndex = 83
@@ -2171,6 +2195,19 @@ object frm_Ticket: Tfrm_Ticket
       Category = 0
       Hint = 'Homepage'
       Visible = ivAlways
+      LargeGlyph.SourceDPI = 96
+      LargeGlyph.Data = {
+        89504E470D0A1A0A0000000D4948445200000020000000200806000000737A7A
+        F40000001974455874536F6674776172650041646F626520496D616765526561
+        647971C9653C0000000B744558745469746C6500486F6D653B1E746438000000
+        EB49444154785EEDD3BD0DC230104771A2CCC508D067010660842813F0215121
+        216006188079686811E6288C907CE445E793D2B8788D25FBFF6B3C09218CDA17
+        D0759DA5EA93E19E0BA0968ED28E110CB08C9FA5F089110CC818D711B3F61A7E
+        2380715C47F801787C231D3484001EF9001EAFA45A43CCDBCB3422CC001E8F40
+        463060F8F83AFD768C2040E63823089039CE08A90280C7382300C0E32E081DC0
+        E39E080D7082714FC456032CA45704C0B80511014FA9D10011B192C29F8140C1
+        DDBDD4E037EC03DC6FCBBE00A07FC3A40848CE0702B43793732BA0000A007207
+        9872011480770018AF027803B71C994C215DB42C0000000049454E44AE426082}
       OnClick = btn_PBoardClick
       AutoGrayScale = False
       LargeImageIndex = 83
@@ -3221,15 +3258,17 @@ object frm_Ticket: Tfrm_Ticket
     Top = 136
   end
   object httpAuth_Azure: THTTPBasicAuthenticator
-    Password = 'cg4ta23fevivrdvxerqnedgf5hm7iuw6bqqmd7sebyl2toqgt2ha'
+    Username = 'Jens.Henske@outlook.com'
+    Password = 'JensHenske1984'
     Left = 640
     Top = 528
   end
   object RESTClient_azure: TRESTClient
     Authenticator = httpAuth_Azure
-    BaseURL = 
-      'https://3e0h2cz1k1ji0ttu.myfritz.net:2443/PCM-DEV/PCM-Desktop/_a' +
-      'pis/wit'
+    Accept = 'application/json, text/plain; q=0.9, text/html;q=0.8,'
+    AcceptCharset = 'utf-8, *;q=0.8'
+    BaseURL = 'https://pcmapps.ddns.net:2443/PCM-DEV/PCM-Desktop/_apis/wit'
+    ContentType = 'application/x-www-form-urlencoded'
     Params = <>
     SynchronizedEvents = False
     Left = 640
@@ -3296,5 +3335,16 @@ object frm_Ticket: Tfrm_Ticket
     SynchronizedEvents = False
     Left = 728
     Top = 584
+  end
+  object RESTRequest1: TRESTRequest
+    AssignedValues = [rvAcceptCharset]
+    AcceptCharset = 'utf-8, *;q=0.8'
+    Client = RESTClient_azure
+    Method = rmPOST
+    Params = <>
+    Resource = 'wiql?api-version=7.0'
+    SynchronizedEvents = False
+    Left = 936
+    Top = 544
   end
 end

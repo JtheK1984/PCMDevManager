@@ -997,10 +997,10 @@ end;
 procedure Tfrm_Dev.btn_NewProjClick(Sender: TObject);
 begin
   Application.CreateForm(Tfrm_NewProject,frm_NewProject);
-  if qry_Projects.State in [dsInsert, dsedit] then
-    qry_Projects.Post;
-  qry_Projects.Append;
-  qry_Projects.Insert;
+//  if qry_Projects.State in [dsInsert, dsedit] then
+//    qry_Projects.Post;
+//  qry_Projects.Append;
+//  qry_Projects.Insert;
   frm_NewProject.ShowModal
 end;
 

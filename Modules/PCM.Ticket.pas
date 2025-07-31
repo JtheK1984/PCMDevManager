@@ -246,10 +246,10 @@ type
     pnl_BrowserJiraPriv: TcxGroupBox;
     pnl_JDevTools: TcxGroupBox;
     dxLayoutGroup3: TdxLayoutGroup;
+    RESTRequest1: TRESTRequest;
     procedure FormShow(Sender: TObject);
     procedure btn_AReadTicketsClick(Sender: TObject);
     procedure grdDBTblView_JiraBeschreibungGetCellHint(Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord; ACellViewInfo: TcxGridTableDataCellViewInfo; const AMousePos: TPoint;var AHintText: TCaption; var AIsHintMultiLine: Boolean;var AHintTextRect: TRect);
-    procedure btn_ABoardClick(Sender: TObject);
     procedure qry_Tickets_privAfterScroll(DataSet: TDataSet);
     procedure FormActivate(Sender: TObject);
     procedure btn_JBoardClick(Sender: TObject);
@@ -283,6 +283,7 @@ type
     procedure btn_SSwaggerUIClick(Sender: TObject);
     procedure btn_AIMinMaxBrowserClick(Sender: TObject);
     procedure btn_GitMinMaxBrowserPrivClick(Sender: TObject);
+    procedure btn_ABoardClick(Sender: TObject);
   private
     { Private-Deklarationen }
     AURL: String;
@@ -311,6 +312,7 @@ var
 const
   {$Region Const}
   sPCMUser = 'Jens.Henske@outlook.com';
+//  sPCMPassword = 'ATATT3xFfGF0iQrrgHOsh9mn_iGaM42eML00AmuvQ2wG7T9eStdE6Xz76hm1uao3bKe_ec3VQft0ZmK_JgeZbzs11EcqIqQk-O3N-eBEWaY1jrDNcOhGSTXNdWoy0A1uGysseED-N6zoDjQ64GlZHiEhVag7FVVZuUE0QNk8IIZAohNZrHEzBrI=44DFC1E6';
   sPCMPassword = 'ATATT3xFfGF07HMGLsAvw7ShQHo_OHJYzLDS5lGKBGqiKF-LOamh0ZCt_jdYHDojFwIkZ47i5nOqliH7zl8vTrPL5BXZKF3yxjGIFSYqlZ3rrW_7fidxWtv_RxGvs9_G7D75BDdHBr7eJ00v_im-4ec_tEcLS5On_HqJ7kgiNtkw-QFow1j9x9c=F1F05D50';
   {$EndRegion Const}
 implementation
@@ -321,6 +323,7 @@ uses
   PCM.Data,
   PCM.Helper,
   PCM.Strings,
+  PCM.Functions.Synch.Wait,
   uwvLoader;
   {$EndRegion Uses}
 ////////////////////////////////////////////////////////////////////////////////
@@ -332,6 +335,7 @@ var
   RestRequest: TRESTRequest;
   sTest: String;
   joResult: TJSONObject;
+  RESTResponseJira : TRESTResponse;
 begin
   ArestClient.BaseURL := ABaseURl;
   RestRequest := TRESTRequest.Create(nil);
@@ -346,8 +350,20 @@ begin
     end;
     RestRequest.Execute;
     joResult := TJSONObject.ParseJSONValue(RestRequest.Response.JSONText) as TJSONObject;
-    sTest:= joResult.ToString;
-    Result := joResult;
+    if Pos('?destroy=true&api-version=7.0',AResource) = 0 then
+    begin
+      sTest:= joResult.ToString;
+      Result := joResult;
+    end
+    else begin
+      RESTResponseJira := TRESTResponse.Create(nil);
+      RestRequest.Response := RESTResponseJira;
+      if (RESTResponseJira.StatusCode = 204) or (RESTResponseJira.StatusCode =  404) then
+        joResult:= nil;
+
+      Result:=joResult;
+      RESTResponseJira.Free;
+    end;
   finally
     RestRequest.Free;
   end;
@@ -581,7 +597,7 @@ procedure Tfrm_Ticket.btn_JReadTicketsClick(Sender: TObject);
       RestRequest.Timeout := 600000;
       if joLogin <> nil then
       begin
-        RestRequest.Body.Add(joLogin);
+//        RestRequest.Body.Add(joLogin);
       end;
       RestRequest.Execute;
       result := TJSONObject.ParseJSONValue(RestRequest.Response.JSONText) as TJSONObject;
@@ -666,6 +682,8 @@ procedure Tfrm_Ticket.btn_JReadTicketsClick(Sender: TObject);
     dm_PCM.qry_Work.open;
     iCounter:= dm_PCM.qry_Work.FieldByName('Anzahl').AsInteger;
     dm_PCM.qry_Work.Close;
+    if AType = 'Neue Funktion' then
+      AType := 'Issue';
     if iCounter = 0 then
     begin
       dm_PCM.qry_Work.SQL.Text:= 'Insert into manager_tickets_priv ' +
@@ -959,338 +977,11 @@ begin
 end;
 // Azure
 procedure Tfrm_Ticket.btn_ABoardClick(Sender: TObject);
-  function API_Auth_Jira(ABaseUrl,AUser,APassword: String; AMethod: TRESTRequestMethod = rmPost): TJSONObject;
-  var
-    RestRequest: TRESTRequest;
-    joLogin: TJSONObject;
-  begin
-    RESTClient_Jira.BaseURL := ABaseUrl;
-    HTTPAuth_Jira.Password := APassword;
-    httpAuth_Jira.Username := AUser;
-    joLogin := TJSONObject.Create;
-    joLogin.AddPair(TJSONPair.Create('username', AUser));
-    joLogin.AddPair(TJSONPair.Create('password', APassword));
-    RestRequest := TRESTRequest.Create(nil);
-    try
-      RestRequest.Client := RESTClient_Jira;
-      RestRequest.Method := rmGet;
-      RestRequest.Timeout := 600000;
-      if joLogin <> nil then
-      begin
-        RestRequest.Body.Add(joLogin);
-      end;
-      RestRequest.Execute;
-      result := TJSONObject.ParseJSONValue(RestRequest.Response.JSONText) as TJSONObject;
-    finally
-      RestRequest.Free;
-    end;
-  end;
-  function RestRequest(ABaseUrl: String; ArestClient: TRestClient; ARequestBody: TJSONObject; AResource: String; AGETPOST: TRESTRequestMethod = rmPost): TJSONObject;
-  var
-    RestRequest: TRESTRequest;
-    sTest: String;
-    joResult: TJSONObject;
-  begin
-    ArestClient.BaseURL := ABaseURl;
-    RestRequest := TRESTRequest.Create(nil);
-    try
-      RestRequest.Client := ArestClient;
-      RestRequest.Method := AGETPOST;
-      RestRequest.Resource := AResource;
-      RestRequest.Timeout := 600000;
-      if ARequestBody <> nil then
-      begin
-        RestRequest.Body.Add(ARequestBody);
-      end;
-      RestRequest.Execute;
-      joResult := TJSONObject.ParseJSONValue(RestRequest.Response.JSONText) as TJSONObject;
-      sTest:= joResult.ToString;
-      Result := joResult;
-    finally
-      RestRequest.Free;
-    end;
-  end;
-  procedure WriteInDB(ATicketInt: Integer;ATicket,AStatus,ABetreff,AType,AEpic,ASprint,APrio,AFixVersion,AApp,ALabel,Adesc,AAssignee,AReporter,ATester,Atester2,AMelder,AStorypoint,AUHD,ALand,AKDNR,ABetrifft: String);
-  var
-    iID,iCounter,iCounterEpic,iIDEpic,iIDPrio: Integer;
-  begin
-    if (AEpic <> '') and (AEpic <> 'kein Epic') then
-    begin
-      dm_PCM.qry_Work.SQL.Text:= 'Select Count(*) as Anzahl From  manager_tickets_priv Where Ticket_Nr = :Ticket_Nr';
-      dm_PCM.qry_Work.ParamByName('Ticket_Nr').asString:= AEpic;
-      dm_PCM.qry_Work.open;
-      iCounterEpic:= dm_PCM.qry_Work.FieldByName('Anzahl').AsInteger;
-      dm_PCM.qry_Work.Close;
-      if iCounterEpic > 0 then
-      begin
-        dm_PCM.qry_Work.SQL.Text:= 'Select ID From  manager_tickets_priv Where Ticket_Nr = :Ticket_Nr';
-        dm_PCM.qry_Work.ParamByName('Ticket_Nr').asString:= AEpic;
-        dm_PCM.qry_Work.open;
-        iIDEpic:= dm_PCM.qry_Work.FieldByName('ID').AsInteger;
-        dm_PCM.qry_Work.Close;
-      end
-      else begin
-        iIDEpic:= 0;
-      end;
-    end
-    else begin
-      iIDEpic:= 0;
-    end;
-    dm_PCM.qry_Work.SQL.Text:= 'Select ID From  manager_tickets_priority Where Bezeichnung = :Bezeichnung';
-    dm_PCM.qry_Work.ParamByName('Bezeichnung').asString:= APrio;
-    dm_PCM.qry_Work.open;
-    iIDPrio:= dm_PCM.qry_Work.FieldByName('ID').AsInteger;
-    dm_PCM.qry_Work.Close;
-
-
-
-    dm_PCM.qry_Work.SQL.Text:= 'Select Count(*) as Anzahl From manager_tickets_priv Where Ticket_Nr = :Ticket_Nr';
-    dm_PCM.qry_Work.ParamByName('Ticket_Nr').asString:= ATicket;
-    dm_PCM.qry_Work.open;
-    iCounter:= dm_PCM.qry_Work.FieldByName('Anzahl').AsInteger;
-    dm_PCM.qry_Work.Close;
-    if iCounter = 0 then
-    begin
-      dm_PCM.qry_Work.SQL.Text:= 'Insert into manager_tickets_priv ' +
-                                 ' (Ticket_Nr,Nr,STATUS,ID_tickets_priority,Epic,Board,Betreff,Stichwort,TYPE,App,FixVersion,Beschreibung,ID_Ticket,Sprint,Assignee,Reporter,Tester,Tester2,Melder,UHD,Land,KDNR,BetrifftVerison) ' +
-                                 'Values' +
-                                 ' (:Ticket_Nr,:Nr,:STATUS,:ID_tickets_priority,:Epic,:Board,:Betreff,:Stichwort,:TYPE,:App,:FixVersion,:Beschreibung,:ID_Ticket,:Sprint,:Zugewiesen,:Reporter,:Tester,:Tester2,:Melder,:UHD,:Land,:KDNR,:BetrifftVerison)';
-      dm_PCM.qry_Work.ParamByName('Ticket_Nr').AsString:= ATicket;
-      dm_PCM.qry_Work.ParamByName('Nr').AsInteger:= ATicketInt;
-      dm_PCM.qry_Work.ParamByName('ID_Ticket').AsInteger:= iIDEpic;
-      dm_PCM.qry_Work.ParamByName('STATUS').AsString:= AStatus;
-      dm_PCM.qry_Work.ParamByName('ID_tickets_priority').asInteger:= iIDPrio;
-      dm_PCM.qry_Work.ParamByName('Epic').AsString:= AEpic;
-      dm_PCM.qry_Work.ParamByName('Betreff').AsString:= ABetreff;
-      dm_PCM.qry_Work.ParamByName('TYPE').AsString:= AType;
-      dm_PCM.qry_Work.ParamByName('Sprint').AsString:= ASprint;
-      dm_PCM.qry_Work.ParamByName('FixVersion').AsString:= AFixVersion;
-      dm_PCM.qry_Work.ParamByName('App').AsString:= AApp;
-      dm_PCM.qry_Work.ParamByName('Stichwort').AsString:= ALabel;
-      dm_PCM.qry_Work.ParamByName('Beschreibung').asString:= ADesc;
-      dm_PCM.qry_Work.ParamByName('Zugewiesen').AsString:= AAssignee;
-      dm_PCM.qry_Work.ParamByName('Board').AsString:= AKDNR;
-      dm_PCM.qry_Work.ParamByName('Reporter').AsString:= AReporter;
-      dm_PCM.qry_Work.ParamByName('Tester').AsString:= ATester;
-      dm_PCM.qry_Work.ParamByName('Tester2').AsString:= ATester2;
-      dm_PCM.qry_Work.ParamByName('Melder').AsString:= AMelder;
-      dm_PCM.qry_Work.ParamByName('UHD').AsString:= AUHD;
-      dm_PCM.qry_Work.ParamByName('Land').AsString:= ALand;
-      dm_PCM.qry_Work.ParamByName('KDNR').AsString:= AKDNR;
-      dm_PCM.qry_Work.ParamByName('BetrifftVerison').AsString:= ABetrifft;
-      dm_PCM.qry_Work.ExecSQL;
-    end
-    else
-    begin
-      dm_PCM.qry_Work.SQL.Text:= 'Select ID From manager_tickets_priv Where Ticket_Nr = :Ticket_Nr';
-      dm_PCM.qry_Work.ParamByName('Ticket_Nr').AsString:= ATicket;
-      dm_PCM.qry_Work.open;
-      iID:= dm_PCM.qry_Work.FieldByName('ID').AsInteger;
-      dm_PCM.qry_Work.Close;
-      dm_PCM.qry_Work.SQL.Text:= 'Update manager_tickets_priv ' +
-      ' Set Ticket_Nr = :Ticket_Nr,' +
-      'Nr = :Nr,'  +
-      'ID_Ticket = :ID_Ticket, ' +
-      'STATUS = :STATUS,' +
-      'Betreff = :Betreff,' +
-      'Epic = :Epic, ' +
-      'ID_tickets_priority = :ID_tickets_priority, ' +
-      'TYPE = :TYPE, ' +
-      'Sprint = :Sprint, ' +
-
-      'FixVersion = :FixVersion, ' +
-      'App = :App, ' +
-      'Stichwort = :Stichwort, ' +
-      'Beschreibung = :Beschreibung, ' +
-      'Assignee = :Zugewiesen, ' +
-      'Tester = :Tester, ' +
-      'Tester2 = :Tester2, ' +
-      'Board = :Board, ' +
-      'Reporter = :Reporter, '   +
-      'Melder = :Melder, ' +
-      'UHD = :UHD, ' +
-      'Land = :Land, ' +
-      'KDNR = :KDNR,' +
-      'BetrifftVerison = :BetrifftVerison ' +
-      'Where ID = :ID';
-      dm_PCM.qry_Work.ParamByName('Ticket_Nr').AsString:= ATicket;
-      dm_PCM.qry_Work.ParamByName('Nr').AsInteger:= ATicketInt;
-      dm_PCM.qry_Work.ParamByName('ID_Ticket').AsInteger:= iIDEpic;
-      dm_PCM.qry_Work.ParamByName('STATUS').AsString:= AStatus;
-      dm_PCM.qry_Work.ParamByName('ID_tickets_priority').asInteger:= iIDPrio;
-      dm_PCM.qry_Work.ParamByName('Epic').AsString:= AEpic;
-      dm_PCM.qry_Work.ParamByName('Betreff').AsString:= ABetreff;
-      dm_PCM.qry_Work.ParamByName('TYPE').AsString:= AType;
-      dm_PCM.qry_Work.ParamByName('Sprint').AsString:= ASprint;
-      dm_PCM.qry_Work.ParamByName('FixVersion').AsString:= AFixVersion;
-      dm_PCM.qry_Work.ParamByName('App').AsString:= AApp;
-      dm_PCM.qry_Work.ParamByName('Stichwort').AsString:= ALabel;
-      dm_PCM.qry_Work.ParamByName('Beschreibung').asString:= ADesc;
-      dm_PCM.qry_Work.ParamByName('Zugewiesen').AsString:= AAssignee;
-      dm_PCM.qry_Work.ParamByName('Board').AsString:= AKDNR;
-      dm_PCM.qry_Work.ParamByName('Reporter').AsString:= AReporter;
-      dm_PCM.qry_Work.ParamByName('Tester').AsString:= ATester;
-      dm_PCM.qry_Work.ParamByName('Tester2').AsString:= ATester2;
-      dm_PCM.qry_Work.ParamByName('Melder').AsString:= AMelder;
-      dm_PCM.qry_Work.ParamByName('UHD').AsString:= AUHD;
-      dm_PCM.qry_Work.ParamByName('Land').AsString:= ALand;
-      dm_PCM.qry_Work.ParamByName('KDNR').AsString:= AKDNR;
-      dm_PCM.qry_Work.ParamByName('BetrifftVerison').AsString:= ABetrifft;
-      dm_PCM.qry_Work.ParamByName('ID').AsInteger:= iID;
-      dm_PCM.qry_Work.ExecSQL;
-    end;
-    qry_Tickets_priv.refresh;
-  end;
-var
-  jarIssues,
-//  jarComponent,
-  jarFixVersion: TJSONArray;
-//  joFields1,joLand, joUHD,  joTester2, joTester,joReporter,
-  joMelder, joAssignee,joFixVersion,jopriority,josprint,joStatus,joIssuetype, joParent,joFields,joBody, joResult: TJSONObject;
-//  jaLand,
-  jaCustom1,  jaSprint: TJSONArray;
-//  sBetrifftV1,
-  sBetrifftV,
-//  sVersion,
-  sKDNR,
-//  sLand1,
-  sLand, sUHD, sDesc,sStorypoint, sMelder,sTester2, sTester,
-//  sactive,
-  sReporter,
-//  sApp1,
-  sSprintstate,sAssi,sname,sApp,sFixVersion,sPrio, sEpic,sType, sBetreff,sStatus, sSprint, sTicket: String;
-  i,i1, iTicket: integer;
-  sJText,sJsonString: string;
 begin
-  qry_Tickets_priv.AfterScroll:= nil;
-  sTicketNr_Ges:= '';
-  Screen.Cursor := crHourGlass;
-  API_Auth_Jira('https://pcm-software.atlassian.net/rest/auth/1/session',sPCMUser,sPCMPassword);
-  Application.ProcessMessages;
-  sJText:='{"fields": ["summary","status","issuetype","components","parent","customfield_10036","customfield_10020","priority",'+
-    '"fixVersions","labels","assignee","reporter","versions","description"],'+
-    '"jql": "assignee = ''jens.henske@outlook.com'' and status in (10000,10001,10003,10011,10007) ORDER BY issue ASC","startAt": 0, "maxResults": 100 }';
-
-  joBody := TJSONObject.ParseJSONValue(sJText) as TJSONObject;
-  joResult := RestRequest('https://pcm-software.atlassian.net/rest',RESTClient_jira,joBody, '/api/2/search');
-  joResult.TryGetValue<TJSONArray>('issues', jarIssues);
-  for i := 0 to jarIssues.Count - 1 do
-  begin
-    joResult := TJSONObject.ParseJSONValue(jarIssues.Items[i].ToString) as TJSONObject;
-    // Ticketnummer
-    Application.ProcessMessages;
-    if (joResult.GetValue('key').Null) OR (not joResult.TryGetValue<String>('key', sTicket)) then
-      sTicket:= '';
-    iTicket:= StrToInt(StringReplace(StringReplace(sTicket,'APP-','',[rfReplaceAll, rfIgnoreCase]),'PCM-','',[rfReplaceAll, rfIgnoreCase]));
-    sTicketNr_Ges:= sTicketNr_Ges + ',' + StringReplace(StringReplace(sTicket,'APP-','',[rfReplaceAll, rfIgnoreCase]),'PCM-','',[rfReplaceAll, rfIgnoreCase]);
-    // Summary
-    Application.ProcessMessages;
-    joResult.TryGetValue<TJSONObject>('fields', joFields);
-    if (joFields.GetValue('summary').null) or (not joFields.TryGetValue<String>('summary', sBetreff)) then
-      sBetreff:= '';
-    // Status
-    Application.ProcessMessages;
-    joFields.TryGetValue<TJSONObject>('status', joStatus);
-    if (joStatus.GetValue('name').null) or (not joStatus.TryGetValue<String>('name', sStatus)) then
-      sStatus := '';
-    // Tickettyp
-    Application.ProcessMessages;
-    joFields.TryGetValue<TJSONObject>('issuetype',joIssuetype);
-    if (joFields.GetValue('summary').null) or (not joIssuetype.TryGetValue<String>('name', sType)) then
-      sType := '';
-    // EPIC
-    Application.ProcessMessages;
-    joParent:= nil;
-    joFields.TryGetValue<TJSONObject>('parent',joParent);
-    sEpic:='';
-    if joParent <> nil then
-      joParent.TryGetValue<String>('key', sEpic)
-    else
-      sEpic:= 'kein Epic';
-    if (sType = 'Epic') or (sEpic = '') then
-      sEpic:= 'Ohne';
-    // Priorität
-    Application.ProcessMessages;
-    joFields.TryGetValue<TJSONObject>('priority',jopriority);
-    if jopriority <> nil  then
-      jopriority.TryGetValue<String>('name', sPrio)
-    else
-      sPrio:= '';
-    // LösungsVersion
-    Application.ProcessMessages;
-    sFixVersion:= '';
-    joFields.TryGetValue<TJSonArray>('fixVersions',jarFixVersion);
-    for i1 := 0 to jarFixVersion.Count - 1 do
-    begin
-      joFixVersion := TJSONObject.ParseJSONValue(jarFixVersion.Items[i1].ToString) as TJSONObject;
-      joFixVersion.TryGetValue<String>('name',sFixVersion);
-    end;
-    // Stichwort
-    Application.ProcessMessages;
-    joFields.TryGetValue<TJSonArray>('labels',jaCustom1);
-    sname:= '';
-    for i1 := 0 to jaCustom1.Count - 1 do
-    begin
-      sname:= sname + ';' + StringReplace(jaCustom1.Items[i1].ToString,'"','',[rfreplaceall]);
-    end;
-    if sname = ''  then
-      sname := 'kein Wert'
-    else
-      sname := Copy(sname, 2, Length(sname));
-    // Beschreibung
-    Application.ProcessMessages;
-    joFields.TryGetValue<String>('description', sDesc);
-    // Zugewiesen
-    Application.ProcessMessages;
-    joFields.TryGetValue<TJSONObject>('assignee',joAssignee);
-    joAssignee.TryGetValue<String>('displayName', sAssi);
-//  Länderversion
-    Application.ProcessMessages;
-    sLand:= '';
-    if (not joFields.GetValue('customfield_10036').null) then
-    begin
-      joFields.TryGetValue<TJSONObject>('customfield_10036',joMelder);
-      if joMelder <> nil then
-        joMelder.TryGetValue<String>('value', sLand);
-    end;
-    // Sprint
-    sSprint:= '';
-    sSprintstate:= '';
-    sJsonString:=joFields.ToString;
-    sJsonString:= StringReplace(sJsonString,'"customfield_10020":null','"customfield_10020":[]',[rfreplaceall,rfIgnorecase]);
-    joFields:=TJSONObject.ParseJSONValue(sJsonString) as TJSONObject;
-    joFields.TryGetValue<TJSonArray>('customfield_10020',jaSprint);
-    for i1 := 0 to jaSprint.Count - 1 do
-    begin
-       joSprint := TJSONObject.ParseJSONValue(jaSprint.Items[i1].ToString) as TJSONObject;
-       joSprint.TryGetValue<String>('state',sSprintstate);
-       if sSprintstate = 'active' then
-         joSprint.TryGetValue<String>('name',sSprint);
-    end;
-    Application.ProcessMessages;
-    stbr_main.Panels[1].Text:= 'Tickets ' + IntToStr(i + 1) + ' von ' + IntToStr(jarIssues.Count) + ' wird eingelesen';
-    stbr_main.Panels[2].Text:= 'aktuelles Tickets: ' + sTicket + ' - ' + sBetreff;
-    if Pos('APP',sTicket) > 0 then
-      sKDNR:= 'PCM MobileApp'
-    else
-      sKDNR:= 'PCM Desktopapp';
-    WriteInDB(iTicket,sTicket,sStatus,sBetreff,sType,sEpic,sSprint,sPrio,sFixVersion,sApp,sName,sdesc,Sassi,sReporter,sTester,sTester2,sMelder,sStorypoint,sUHD,sLand,sKDNR,sBetrifftV);
-  end;
-  sTicketNr_ges:= Copy(sTicketNr_ges, 2, Length(sTicketNr_ges));
-  dm_PCM.qry_Work.SQL.Text:= 'Delete From manager_tickets where nr not in (' + sTicketNr_ges + ')';
-  try
-    dm_PCM.qry_Work.ExecSQL;
-  except
-  end;
-  qry_Tickets_priv.refresh;
-  LoadJiraStatus;
-  qry_Tickets_priv.AfterScroll:= qry_Tickets_privAfterScroll;
-  Screen.Cursor := crDefault;
-
-  AURL:= 'https://3e0h2cz1k1ji0ttu.myfritz.net:2443/PCM-DEV/PCM/_boards/board/t/PCM-Team/Issues';
+  AURL:= 'https://pcmapps.ddns.net:2443/PCM-DEV/PCM/_boards/board/t/PCM-Team/Issues';
   FWebBrowser.Navigate(AURL);
-
 end;
+
 procedure Tfrm_Ticket.btn_ADevToolsClick(Sender: TObject);
 begin
   if not itmpnl_ADevTools.Visible then
@@ -1322,7 +1013,6 @@ begin
     frm_PCM_Browser_FullScreen.Execute(True,'Perplexity AI',Aurl);
   end;
 end;
-
 procedure Tfrm_Ticket.btn_AMinMaxBrowserPrivClick(Sender: TObject);
 begin
   Application.CreateForm(Tfrm_PCM_Browser_FullScreen, frm_PCM_Browser_FullScreen);
@@ -1347,9 +1037,6 @@ procedure Tfrm_Ticket.btn_AReadTicketsClick(Sender: TObject);
     i,iTicket: integer;
   begin
     SetLength(arATickets,0);
-
-
-
     sJText:= '{"query": "Select [System.Id], [System.Title], [System.State] From WorkItems "}';
     joBody := TJSONObject.ParseJSONValue(sJText) as TJSONObject;
     joResult := RestRequest('https://pcmapps.ddns.net:2443/PCM-DEV/PCM/_apis/wit',RESTClient_azure,joBody, '/wiql?api-version=7.0');
@@ -1367,17 +1054,110 @@ procedure Tfrm_Ticket.btn_AReadTicketsClick(Sender: TObject);
     end;
     for i := 0 to High(arATickets) do
     begin
-      RestRequest('https://pcmapps.ddns.net:2443/PCM-DEV/PCM/_apis/wit',RESTClient_azure,nil, '/workitems/' + IntToStr(arATickets[i].iTicketnr) +'?api-version=7.0',TRESTRequestMethod.rmDELETE);
+      RestRequest('https://pcmapps.ddns.net:2443/PCM-DEV/PCM/_apis/wit',RESTClient_azure,nil, '/workitems/' + IntToStr(arATickets[i].iTicketnr) +'?destroy=true&api-version=7.0',TRESTRequestMethod.rmDELETE);
     end;
   end;
   procedure SynchWithJira;
+  var
+    RESTClientJira: TRESTClient;
+    RESTRequestJira: TRESTRequest;
+    RESTResponseJira: TRESTResponse;
+    JsonPatchJira: TJSONArray;
+    JsonObjJira: TJSONObject;
+    AuthHeaderJira: string;
   begin
     dm_PCM.qry_Work.SQL.Text:= 'SELECT * FROM manager_tickets_priv';
+    dm_PCM.qry_Work.FetchOptions.Mode:= fmAll;
+    dm_PCM.qry_Work.FetchOptions.RecordCountMode:= cmTotal;
+
     dm_PCM.qry_Work.Open;
+    ShowWaitForm(TForm(Self), PWideChar('Tickets erstellen'), dm_PCM.qry_Work.Recordcount ,417, 65);
     while not dm_PCM.qry_Work.Eof do
     begin
+      RESTClientJira := TRESTClient.Create(nil);
+      RESTRequestJira := TRESTRequest.Create(nil);
+      RESTResponseJira := TRESTResponse.Create(nil);
+      try
+        WaitFormSetText('Ticket: ' + dm_PCM.qry_Work.FieldByName('Ticket_nr').asString + ' wird angelegt');
+        RESTClientJira.BaseURL := 'https://pcmapps.ddns.net:2443/PCM-DEV/PCM/_apis/wit';
+        RESTRequestJira.Client := RESTClientJira;
+        RESTRequestJira.Response := RESTResponseJira;
 
+        // API endpoint for creating a work item
+        RESTRequestJira.Resource := 'workitems/$' + dm_PCM.qry_Work.FieldByName('Type').asString + '?api-version=7.0';
+        RESTRequestJira.Method := rmPOST;
+        RESTRequestJira.Accept := 'application/json';
+        RESTClientJira.ContentType := 'application/json-patch+json';
+
+        // Prepare JSON Patch body
+        JsonPatchJira := TJSONArray.Create;
+
+        JsonObjJira := TJSONObject.Create;
+        JsonObjJira.AddPair('op', 'add');
+        JsonObjJira.AddPair('path', '/fields/System.Title');
+        JsonObjJira.AddPair('value', dm_PCM.qry_Work.FieldByName('Betreff').asString);
+        JsonPatchJira.AddElement(JsonObjJira);
+
+        JsonObjJira := TJSONObject.Create;
+        JsonObjJira.AddPair('op', 'add');
+        JsonObjJira.AddPair('path', '/fields/System.Description');
+        JsonObjJira.AddPair('value', dm_PCM.qry_Work.FieldByName('Beschreibung').asString);
+        JsonPatchJira.AddElement(JsonObjJira);
+
+        JsonObjJira := TJSONObject.Create;
+        JsonObjJira.AddPair('op', 'add');
+        JsonObjJira.AddPair('path', '/fields/System.State');
+        if dm_PCM.qry_Work.FieldByName('Status').AsString = 'Zu erledigen' then
+          JsonObjJira.AddPair('value', 'TO DO');
+        if dm_PCM.qry_Work.FieldByName('Status').AsString = 'In Arbeit' then
+          JsonObjJira.AddPair('value', 'IN PROGRESS');
+        if dm_PCM.qry_Work.FieldByName('Status').AsString = 'QM' then
+          JsonObjJira.AddPair('value', 'TESTUNG');
+        if dm_PCM.qry_Work.FieldByName('Status').AsString = 'Bug occured' then
+          JsonObjJira.AddPair('value', 'BUG OCCURED');
+        if dm_PCM.qry_Work.FieldByName('Status').AsString = 'Fertig' then
+          JsonObjJira.AddPair('value', 'DONE');
+        JsonPatchJira.AddElement(JsonObjJira);
+
+
+
+
+        JsonObjJira := TJSONObject.Create;
+        JsonObjJira.AddPair('op', 'add');
+        JsonObjJira.AddPair('path', '/fields/Custom.Applikation');
+        JsonObjJira.AddPair('value', dm_PCM.qry_Work.FieldByName('Land').asString);
+        JsonPatchJira.AddElement(JsonObjJira);
+
+        JsonObjJira := TJSONObject.Create;
+        JsonObjJira.AddPair('op', 'add');
+        JsonObjJira.AddPair('path', '/fields/Custom.JiraTicket');
+        JsonObjJira.AddPair('value', dm_PCM.qry_Work.FieldByName('Ticket_nr').asString);
+        JsonPatchJira.AddElement(JsonObjJira);
+
+        JsonObjJira := TJSONObject.Create;
+        JsonObjJira.AddPair('op', 'add');
+        JsonObjJira.AddPair('path', '/fields/System.AssignedTo');
+        JsonObjJira.AddPair('value', 'Jens Henske');
+        JsonPatchJira.AddElement(JsonObjJira);
+
+        RESTRequestJira.Body.ClearBody;
+        RESTRequestJira.Body.Add(JsonPatchJira.ToString, 'application/json-patch+json');
+        RESTClientJira.Authenticator:= httpAuth_Azure;
+        RESTRequestJira.Execute;
+        Waitformstep;
+        if RESTResponseJira.StatusCode <> 200 then
+          ShowMessage(Format('Failed to create work item. Status: %d, Message: %s', [RESTResponseJira.StatusCode, RESTResponseJira.Content]));
+      finally
+        JsonPatchJira.Free;
+        RESTClientJira.Free;
+        RESTRequestJira.Free;
+        RESTResponseJira.Free;
+      end;
+      dm_PCM.qry_Work.Next;
     end;
+    CloseWaitForm;
+    dm_PCM.qry_Work.FetchOptions.Mode:= fmOnDemand;
+    dm_PCM.qry_Work.FetchOptions.RecordCountMode:= cmVisible;
     dm_PCM.qry_Work.Close;
   end;
   procedure WriteInDB(ATicketInt: Integer;ATicket,AStatus,ABetreff,AType,AEpic,ASprint,APrio,AFixVersion,AApp,ALabel,Adesc,AAssignee,AName,AFaellig: String);
@@ -1702,6 +1482,7 @@ begin
     ShowNotepadonPanel(itmpnl_SNotepad,pnl_SNotepad,splt_SNp);
   end
 end;
+
 // PCMAPPS
 procedure Tfrm_Ticket.btn_PBoardClick(Sender: TObject);
 begin
@@ -1764,7 +1545,8 @@ begin
     GlobalWebView2Loader.UserDataFolder := GetEnvironmentVariable('LOCALAPPDATA') + '\PCM\CustomCache';
     GlobalWebView2Loader.StartWebView2;
     InitializeBrowser(pnl_BrowserAzurePriv);
-    AURL:= 'http:/192.168.178.10:82/PCM-DEV/PCM/_boards/board/t/PCM-Team/Issues';
+//    AURL:= 'http:/192.168.178.10:82/PCM-DEV/PCM/_boards/board/t/PCM-Team/Issues';
+      AURL:= 'https://pcmapps.ddns.net:2443/PCM-DEV/PCM/_boards/board/t/PCM-Team/Issues';
     FWebBrowser.Navigate(AURL);
 
     btn_JDevtools.Caption:= rs_PCMDevManager_BTNDevToolsEnable;
