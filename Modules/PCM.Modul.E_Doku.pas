@@ -1,4 +1,4 @@
-unit PCM.Modul.D_Doku;
+unit PCM.Modul.E_Doku;
 
 interface
 
@@ -118,10 +118,8 @@ implementation
 uses  PCM.Data,
       PCM.Functions,
       PCM.Functions.Synch.Wait,
-      PCM.Modul.C_Update.Import,
-      PCM.Modul.C_Update.Version,
-      PCM.Modul.D_Doku.Programm,
-      PCM.Modul.D_Doku.Version,
+      PCM.Modul.E_Doku.Programm,
+      PCM.Modul.E_Doku.Version,
       PCM.Main,
       PCM.Strings;
 

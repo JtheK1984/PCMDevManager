@@ -23,8 +23,8 @@ object frm_DokuCreate: Tfrm_DokuCreate
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitWidth = 419
-    ExplicitHeight = 86
+    ExplicitWidth = 433
+    ExplicitHeight = 107
     object cmbbx_Prog: TcxComboBox
       AlignWithMargins = True
       Left = 12
@@ -37,6 +37,7 @@ object frm_DokuCreate: Tfrm_DokuCreate
       Style.TransparentBorder = False
       TabOrder = 0
       Text = 'cmbbx_Prog'
+      OnKeyUp = cmbbx_ProgKeyUp
       Width = 415
     end
     object btn_Save: TcxButton

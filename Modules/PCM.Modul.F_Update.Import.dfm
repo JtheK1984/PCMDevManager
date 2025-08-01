@@ -23,8 +23,6 @@ object frm_PCM_Import: Tfrm_PCM_Import
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitWidth = 427
-    ExplicitHeight = 113
     object btn_import: TcxButton
       AlignWithMargins = True
       Left = 12

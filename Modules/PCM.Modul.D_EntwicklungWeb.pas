@@ -1,4 +1,4 @@
-unit PCM.Ticket;
+unit PCM.Modul.D_EntwicklungWeb;
 
 interface
 
@@ -1064,7 +1064,6 @@ procedure Tfrm_Ticket.btn_AReadTicketsClick(Sender: TObject);
     RESTResponseJira: TRESTResponse;
     JsonPatchJira: TJSONArray;
     JsonObjJira: TJSONObject;
-    AuthHeaderJira: string;
   begin
     dm_PCM.qry_Work.SQL.Text:= 'SELECT * FROM manager_tickets_priv';
     dm_PCM.qry_Work.FetchOptions.Mode:= fmAll;

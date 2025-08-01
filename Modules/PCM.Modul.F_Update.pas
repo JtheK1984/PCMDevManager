@@ -1,4 +1,4 @@
-unit PCM.Modul.C_Update;
+unit PCM.Modul.F_Update;
 
 interface
 
@@ -68,7 +68,7 @@ implementation
 
 {$R *.dfm}
 
-uses PCM.Data, PCM.Functions, PCM.Modul.C_Update.Import, PCM.Modul.C_Update.Version;
+uses PCM.Data, PCM.Functions, PCM.Modul.F_Update.Import, PCM.Modul.F_Update.Version;
 
 procedure Tfrm_Update.btn_VersionChangeClick(Sender: TObject);
 begin

@@ -168,7 +168,7 @@ $(PreBuildEvent)]]></PreBuildEvent>
             <Form>dm_PCM</Form>
             <DesignClass>TDataModule</DesignClass>
         </DCCReference>
-        <DCCReference Include="Modules\PCM.Ticket.pas">
+        <DCCReference Include="Modules\PCM.Modul.D_EntwicklungWeb.pas">
             <Form>frm_Ticket</Form>
         </DCCReference>
         <DCCReference Include="Modules\PCM.Modul.C_Entwicklung.pas">
@@ -181,22 +181,22 @@ $(PreBuildEvent)]]></PreBuildEvent>
             <Form>SplashScreen</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Modules\PCM.Swagger.pas">
+        <DCCReference Include="Modules\PCM.Modul.G_Swagger.pas">
             <Form>frm_Swagger</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Modules\PCM.Modul.C_Update.Import.pas"/>
-        <DCCReference Include="Modules\PCM.Modul.C_Update.pas"/>
-        <DCCReference Include="Modules\PCM.Modul.C_Update.Version.pas"/>
-        <DCCReference Include="Modules\PCM.Modul.D_Doku.pas"/>
-        <DCCReference Include="Modules\PCM.Modul.D_Doku.Programm.pas"/>
-        <DCCReference Include="Modules\PCM.Modul.D_Doku.Version.pas"/>
+        <DCCReference Include="Modules\PCM.Modul.F_Update.Import.pas"/>
+        <DCCReference Include="Modules\PCM.Modul.F_Update.pas"/>
+        <DCCReference Include="Modules\PCM.Modul.F_Update.Version.pas"/>
+        <DCCReference Include="Modules\PCM.Modul.E_Doku.pas"/>
+        <DCCReference Include="Modules\PCM.Modul.E_Doku.Programm.pas"/>
+        <DCCReference Include="Modules\PCM.Modul.E_Doku.Version.pas"/>
         <DCCReference Include="PCMDEVManager.dxSettings.pas"/>
-        <DCCReference Include="Modules\PCM.Servicemanager.Sourcecode.NewProg.pas">
+        <DCCReference Include="Modules\PCM.Modul.C_Entwicklung.Sourcecode.NewProg.pas">
             <Form>fSourceBackup_NewConfig</Form>
             <FormType>dfm</FormType>
         </DCCReference>
-        <DCCReference Include="Modules\PCM.Servicemanager.Sourcecode.Extension.pas">
+        <DCCReference Include="Modules\PCM.Modul.C_Entwicklung.Sourcecode.Extension.pas">
             <Form>fSourceBackup_FileExt</Form>
             <FormType>dfm</FormType>
         </DCCReference>

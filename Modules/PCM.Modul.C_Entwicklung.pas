@@ -350,8 +350,8 @@ uses
   PCM.Main,
   PCM.Data,
   PCM.Strings,
-  PCM.Servicemanager.Sourcecode.Extension,
-  PCM.Servicemanager.Sourcecode.NewProg,
+  PCM.Modul.C_Entwicklung.Sourcecode.Extension,
+  PCM.Modul.C_Entwicklung.Sourcecode.NewProg,
   PCM.Functions.Synch.Wait,
   PCM.Helper, PCM.Modul.C_Entwicklung.NewProject;
   {$EndRegion uses}

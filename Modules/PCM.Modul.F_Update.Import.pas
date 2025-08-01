@@ -1,4 +1,4 @@
-unit PCM.Modul.C_Update.Import;
+unit PCM.Modul.F_Update.Import;
 
 interface
 
@@ -65,7 +65,7 @@ implementation
 
 {$R *.dfm}
 
-uses PCM.Data, PCM.Main, PCM.Modul.C_Update, PCM.Strings;
+uses PCM.Data, PCM.Main, PCM.Modul.F_Update, PCM.Strings;
 ////////////////////////////////////////////////////////////////////////////////
 // HELPER                                                                     //
 ////////////////////////////////////////////////////////////////////////////////

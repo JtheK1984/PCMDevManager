@@ -183,8 +183,12 @@ uses  PCM.Benutzerverwaltung,
       PCM.Helper,
 			PCM.Strings,
       PCM.SQL,
-      PCM.Ticket,
-      PCM.Modul.C_Entwicklung, PCM.splash, PCM.Swagger,PCM.Modul.C_Update,PCM.Modul.D_Doku;
+      PCM.Modul.D_EntwicklungWeb,
+      PCM.Modul.C_Entwicklung,
+      PCM.splash,
+      PCM.Modul.G_Swagger,
+      PCM.Modul.F_Update,
+      PCM.Modul.E_Doku;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //

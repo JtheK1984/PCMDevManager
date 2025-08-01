@@ -22,10 +22,8 @@ object fSourceBackup_NewConfig: TfSourceBackup_NewConfig
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitLeft = 48
-    ExplicitTop = -56
-    ExplicitWidth = 300
-    ExplicitHeight = 250
+    ExplicitWidth = 440
+    ExplicitHeight = 93
     object edt_ConfigName: TcxTextEdit
       Left = 66
       Top = 28

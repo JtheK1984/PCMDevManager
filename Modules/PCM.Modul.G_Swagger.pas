@@ -1,4 +1,4 @@
-unit PCM.Swagger;
+unit PCM.Modul.G_Swagger;
 
 interface
 

@@ -1,4 +1,4 @@
-unit PCM.Modul.D_Doku.Programm;
+unit PCM.Modul.E_Doku.Programm;
 
 interface
 
@@ -25,6 +25,8 @@ type
     dxLayoutGroup4: TdxLayoutGroup;
     procedure btn_CancelClick(Sender: TObject);
     procedure btn_SaveClick(Sender: TObject);
+    procedure cmbbx_ProgKeyUp(Sender: TObject; var Key: Word;
+      Shift: TShiftState);
   private
     { Private-Deklarationen }
     FShowModal : boolean;
@@ -41,7 +43,7 @@ implementation
 {$R *.dfm}
 
 uses  PCM.Data,
-      PCM.Modul.D_Doku, PCM.Strings;
+      PCM.Modul.E_Doku, PCM.Strings;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //
@@ -91,6 +93,13 @@ procedure Tfrm_DokuCreate.btn_SaveClick(Sender: TObject);
 begin
   ModalResult:= mrOK;
 end;
+procedure Tfrm_DokuCreate.cmbbx_ProgKeyUp(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if (Key = 13) and (cmbbx_Prog.ItemIndex > -1) then
+    btn_SaveClick(Sender);
+end;
+
 procedure Tfrm_DokuCreate.btn_CancelClick(Sender: TObject);
 begin
   ModalResult:= mrCancel;
