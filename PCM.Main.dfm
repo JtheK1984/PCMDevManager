@@ -3,8 +3,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
   Top = 0
   AlphaBlend = True
   Caption = 'PCM - Manager'
-  ClientHeight = 783
-  ClientWidth = 1274
+  ClientHeight = 749
+  ClientWidth = 1262
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -26,7 +26,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Left = 0
     Top = 35
     Width = 200
-    Height = 748
+    Height = 714
     Align = alLeft
     ActiveGroupIndex = 0
     TabOrder = 0
@@ -40,7 +40,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
     OptionsStyle.CustomStyles.Background = navbrStyleIt_main
     OptionsView.HamburgerMenu.NavigationPaneMode = npmNone
     OptionsView.HamburgerMenu.SpaceBetweenGroups = 50
-    ExplicitHeight = 731
     object navbrgrp_Optionen: TdxNavBarGroup
       Caption = 'Optionen'
       SelectedLinkIndex = -1
@@ -232,15 +231,13 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Style.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.NativeStyle = False
     TabOrder = 1
-    ExplicitWidth = 1068
-    ExplicitHeight = 731
-    Height = 748
-    Width = 1074
+    Height = 714
+    Width = 1062
     object pc_main: TcxPageControl
       Left = 3
       Top = 3
-      Width = 1068
-      Height = 742
+      Width = 1056
+      Height = 708
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
@@ -257,33 +254,27 @@ object frm_PCM_Main: Tfrm_PCM_Main
       Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea, pcoNoArrows, pcoRedrawOnResize, pcoSort, pcoUsePageColorForTab]
       LookAndFeel.NativeStyle = False
       OnPageChanging = pc_mainPageChanging
-      ExplicitWidth = 1062
-      ExplicitHeight = 725
-      ClientRectBottom = 736
+      ClientRectBottom = 702
       ClientRectLeft = 2
-      ClientRectRight = 1062
+      ClientRectRight = 1050
       ClientRectTop = 28
       object ts_Dashboard: TcxTabSheet
         AllowCloseButton = False
         Caption = 'Dashboard'
         ImageIndex = 79
-        ExplicitWidth = 1054
-        ExplicitHeight = 691
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
-          Width = 1060
-          Height = 708
+          Width = 1048
+          Height = 674
           Align = alClient
           TabOrder = 0
           LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-          ExplicitWidth = 1054
-          ExplicitHeight = 691
           object chartctrl_Customer: TdxChartControl
             Left = 19
             Top = 42
-            Width = 1022
-            Height = 647
+            Width = 1010
+            Height = 613
             BorderStyle = cxcbsNone
             Legend.Title.Visible = False
             Titles = <>

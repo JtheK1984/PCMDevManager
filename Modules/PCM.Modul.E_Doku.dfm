@@ -25,12 +25,11 @@ object frm_Doku: Tfrm_Doku
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
     object grd_Version: TcxGrid
-      Left = 10000
-      Top = 10000
+      Left = 22
+      Top = 119
       Width = 1337
       Height = 455
       TabOrder = 2
-      Visible = False
       LookAndFeel.NativeStyle = False
       object tv_Version: TcxGridDBTableView
         Navigator.Buttons.CustomButtons = <>
@@ -47,18 +46,15 @@ object frm_Doku: Tfrm_Doku
         OptionsView.IndicatorWidth = 10
         object tv_VersionBeschreibung: TcxGridDBColumn
           DataBinding.FieldName = 'Beschreibung'
-          DataBinding.IsNullValueType = True
           Width = 300
         end
         object tv_VersionSortierung: TcxGridDBColumn
           DataBinding.FieldName = 'Sortierung'
-          DataBinding.IsNullValueType = True
           SortIndex = 1
           SortOrder = soAscending
         end
         object tv_VersionProgram: TcxGridDBColumn
           DataBinding.FieldName = 'Program'
-          DataBinding.IsNullValueType = True
           Visible = False
           GroupIndex = 0
           SortIndex = 0
@@ -68,35 +64,35 @@ object frm_Doku: Tfrm_Doku
         object tv_Versionheader: TcxGridDBColumn
           Caption = #220'berschrift'
           DataBinding.FieldName = 'header'
-          DataBinding.IsNullValueType = True
           Width = 200
         end
         object tv_Versionheadertype: TcxGridDBColumn
           Caption = #220'berschrift-Typ'
           DataBinding.FieldName = 'headertype'
-          DataBinding.IsNullValueType = True
           Width = 100
         end
         object tv_VersionBild: TcxGridDBColumn
           DataBinding.FieldName = 'Bild'
-          DataBinding.IsNullValueType = True
           Width = 600
+        end
+        object tv_VersionBildBase64: TcxGridDBColumn
+          Caption = 'Image'
+          DataBinding.FieldName = 'BildBase64'
+          OnGetDataText = tv_VersionBildBase64GetDataText
+          OnGetDisplayText = tv_VersionBildBase64GetDisplayText
         end
         object tv_VersionBreite: TcxGridDBColumn
           DataBinding.FieldName = 'Breite'
-          DataBinding.IsNullValueType = True
           Width = 51
         end
         object tv_VersionNewPage: TcxGridDBColumn
           Caption = 'Neue Seite'
           DataBinding.FieldName = 'NewPage'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 80
         end
         object tv_VersionColumn1: TcxGridDBColumn
           DataBinding.FieldName = 'Leerzeile'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 80
         end
@@ -106,17 +102,16 @@ object frm_Doku: Tfrm_Doku
       end
     end
     object dxBarDockControl1: TdxBarDockControl
-      Left = 10000
-      Top = 10000
+      Left = 22
+      Top = 49
       Width = 1384
       Height = 63
       Align = dalNone
       BarManager = brmgr_Main
-      Visible = False
     end
     object btn_DokuMainbottom: TcxButton
-      Left = 10000
-      Top = 10000
+      Left = 1376
+      Top = 210
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -144,12 +139,11 @@ object frm_Doku: Tfrm_Doku
         25B26F4AE8F495860B5476FE2F78CB041B0B9464F3419BC8E0E7F7365DF1DF3F
         EB7C93A1EABC6E0000000049454E44AE426082}
       TabOrder = 6
-      Visible = False
       OnClick = btn_DokuMainbottomClick
     end
     object btn_DokuMaindown: TcxButton
-      Left = 10000
-      Top = 10000
+      Left = 1376
+      Top = 183
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -172,12 +166,11 @@ object frm_Doku: Tfrm_Doku
         DF0AF028EA9990D9A44955E7288770BDE317B2235FE05F0BBC8FCE27FE0F6EA2
         80779755FCCF7803E8D0E0915AAA27200000000049454E44AE426082}
       TabOrder = 5
-      Visible = False
       OnClick = btn_DokuMaindownClick
     end
     object btn_DokuMainUp: TcxButton
-      Left = 10000
-      Top = 10000
+      Left = 1376
+      Top = 156
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -201,12 +194,11 @@ object frm_Doku: Tfrm_Doku
         8680039A01E43960E2FA7E7E235675430C00005416CE3539D1B3B10000000049
         454E44AE426082}
       TabOrder = 4
-      Visible = False
       OnClick = btn_DokuMainUpClick
     end
     object btn_DokuMainTop: TcxButton
-      Left = 10000
-      Top = 10000
+      Left = 1376
+      Top = 129
       Width = 20
       Height = 20
       OptionsImage.Glyph.SourceDPI = 96
@@ -234,18 +226,18 @@ object frm_Doku: Tfrm_Doku
         7CA0D726F09FB2072FB045838AFBEDC22F58E6680A1520C2DE0000000049454E
         44AE426082}
       TabOrder = 3
-      Visible = False
       OnClick = btn_DokuMainTopClick
     end
     object grpbx_Browser: TcxGroupBox
-      Left = 22
-      Top = 49
+      Left = 10000
+      Top = 10000
       PanelStyle.Active = True
       ParentBackground = False
       ParentColor = False
       Style.Color = 7566195
       Style.TransparentBorder = False
       TabOrder = 0
+      Visible = False
       Height = 525
       Width = 1384
     end
@@ -261,6 +253,7 @@ object frm_Doku: Tfrm_Doku
       Parent = dxLayoutControl1Group_Root
       AlignHorz = ahClient
       AlignVert = avClient
+      ItemIndex = 1
       LayoutDirection = ldTabbed
       ShowBorder = False
       Index = 0

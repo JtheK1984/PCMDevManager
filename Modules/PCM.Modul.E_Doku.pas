@@ -73,6 +73,7 @@ type
     dxLayoutItem7: TdxLayoutItem;
     grpbx_Browser: TcxGroupBox;
     dxLayoutGroup1: TdxLayoutGroup;
+    tv_VersionBildBase64: TcxGridDBColumn;
     procedure btn_CollapseClick(Sender: TObject);
     procedure btn_DokuMainbottomClick(Sender: TObject);
     procedure btn_DokuMaindownClick(Sender: TObject);
@@ -90,6 +91,10 @@ type
     procedure btn_VersionExportPDFClick(Sender: TObject);
     procedure btn_VersionExportHTMLPDFClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
+    procedure tv_VersionBildBase64GetDataText(Sender: TcxCustomGridTableItem;
+      ARecordIndex: Integer; var AText: string);
+    procedure tv_VersionBildBase64GetDisplayText(Sender: TcxCustomGridTableItem;
+      ARecord: TcxCustomGridRecord; var AText: string);
   private
     { Private-Deklarationen }
     function Base64FromBitmap(Bitmap: TImage): String;
@@ -179,15 +184,19 @@ begin
         dm_PCM.qry_Work.open;
         while not dm_PCM.qry_Work.eof do
         begin
-          if dm_PCM.qry_Work.FieldByname('bild').AsString = '' then
+          if dm_PCM.qry_Work.FieldByname('BildBase64').AsString = '' then
           begin
             slDoku.Text:= slDoku.Text + dm_PCM.qry_Work.FieldByname('body').AsString;
           end
           else begin
-            bmPicture:= TImage.Create(Self);
-            bmPicture.Picture.LoadFromFile(dm_PCM.qry_Work.FieldByname('bild').AsString);
-            sbase64 := StringReplace(Base64FromBitmap(bmPicture),CRLF,'',[rfReplaceAll]);
+//            bmPicture:= TImage.Create(Self);
+//            bmPicture.Picture.LoadFromFile(dm_PCM.qry_Work.FieldByname('bild').AsString);
+//            sbase64 := StringReplace(Base64FromBitmap(bmPicture),CRLF,'',[rfReplaceAll]);
             slDoku.Text:= slDoku.Text + StringReplace(dm_PCM.qry_Work.FieldByname('body').AsString,'{BILD}',sbase64,[rfIgnoreCase,rfReplaceAll]);
+
+
+
+            slDoku.Text:= slDoku.Text + StringReplace(dm_PCM.qry_Work.FieldByname('body').AsString,'{BILD}',dm_PCM.qry_Work.FieldByname('BildBase64').AsString,[rfIgnoreCase,rfReplaceAll]);
             fBreite:= dm_PCM.qry_Work.FieldByname('Breite').AsFloat;
             if fBreite = 0 then
             begin
@@ -229,15 +238,15 @@ begin
       dm_PCM.qry_Work.open;
       while not dm_PCM.qry_Work.eof do
       begin
-        if dm_PCM.qry_Work.FieldByname('bild').AsString = '' then
+        if dm_PCM.qry_Work.FieldByname('BildBase64').AsString = '' then
         begin
           slDoku.Text:= slDoku.Text + dm_PCM.qry_Work.FieldByname('body').AsString;
         end
         else begin
-          bmPicture:= TImage.Create(Self);
-          bmPicture.Picture.LoadFromFile(dm_PCM.qry_Work.FieldByname('bild').AsString);
-          sbase64 := StringReplace(Base64FromBitmap(bmPicture),CRLF,'',[rfReplaceAll]);
-          slDoku.Text:= slDoku.Text + StringReplace(dm_PCM.qry_Work.FieldByname('body').AsString,'{BILD}',sbase64,[rfIgnoreCase,rfReplaceAll]);
+//          bmPicture:= TImage.Create(Self);
+//          bmPicture.Picture.LoadFromFile(dm_PCM.qry_Work.FieldByname('bild').AsString);
+//          sbase64 := StringReplace(Base64FromBitmap(bmPicture),CRLF,'',[rfReplaceAll]);
+          slDoku.Text:= slDoku.Text + StringReplace(dm_PCM.qry_Work.FieldByname('body').AsString,'{BILD}',dm_PCM.qry_Work.FieldByname('Bildbase64').AsString,[rfIgnoreCase,rfReplaceAll]);
           fBreite:= dm_PCM.qry_Work.FieldByname('Breite').AsFloat;
           if fBreite = 0 then
           begin
@@ -262,6 +271,26 @@ begin
   end;
 end;
 procedure Tfrm_Doku.CreateDokuDOCPDF(AApplikation: String; AAll: boolean);
+  procedure SaveBase64ImageToFile(const Base64Str, FileName: string);
+  var
+    BinaryStream: TMemoryStream;
+    Base64Stream: TStringStream;
+  begin
+    // Create a stream from the Base64 string
+    Base64Stream := TStringStream.Create(Base64Str, TEncoding.ASCII);
+    BinaryStream := TMemoryStream.Create;
+    try
+      Base64Stream.Position := 0;
+      // Decode Base64 string into binary data stream
+      TNetEncoding.Base64.Decode(Base64Stream, BinaryStream);
+      BinaryStream.Position := 0;
+      // Save the binary stream to a file
+      BinaryStream.SaveToFile(FileName);
+    finally
+      Base64Stream.Free;
+      BinaryStream.Free;
+    end;
+  end;
 var
   WordApp: OleVariant;
   WordDoc: OleVariant;
@@ -284,7 +313,7 @@ begin
     begin
       sProgramm:= StringReplace(dm_PCM.qry_work_Sub.FieldByName('Programm').AsString,'-',' - ',[rfIgnoreCase,rfReplaceAll]);
       WordApp := CreateOleObject('Word.Application');
-      WaitFormSetText(rs_PCMDevManager_WAIT_DokuPDF);
+      WaitFormSetText(sProgramm + ' ' + rs_PCMDevManager_WAIT_DokuPDF);
       WriteLog(PCM_Logname,'Dokument wird geöffnet',0);
       WordDoc := WordApp.Documents.Open(ExtractFilePath(Paramstr(0)) + 'PCMVorlage.docx');
 
@@ -306,7 +335,7 @@ begin
         while not dm_PCM.qry_Work.eof do
         begin
           // Überschrift
-          WaitFormSetText(rs_PCMDevManager_WAIT_Doku + dm_PCM.qry_Work.FieldByname('header').AsString);
+          WaitFormSetText(sProgramm + ' ' + rs_PCMDevManager_WAIT_Doku + dm_PCM.qry_Work.FieldByname('header').AsString);
           WriteLog(PCM_Logname,'Schreibe Header ' + dm_PCM.qry_Work.FieldByname('header').AsString ,0);
           Application.ProcessMessages;
           if dm_PCM.qry_Work.FieldByname('header').AsString <> '' then
@@ -662,7 +691,9 @@ begin
               Table.Cell(1, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
               Table.Cell(1, 1).width:= 453;
               // Font and Background color
-              InlineShapes:= Table.Cell(2, 1).Range.InlineShapes.AddPicture(dm_PCM.qry_Work.FieldByname('bild').AsString, False, True);
+              SaveBase64ImageToFile(dm_PCM.qry_Work.FieldByname('bildbase64').AsString,ExtractFilePath(ParamStr(0)) + 'temp.png');
+              InlineShapes:= Table.Cell(2, 1).Range.InlineShapes.AddPicture(ExtractFilePath(ParamStr(0)) + 'temp.png', False, True);
+              DeleteFile(ExtractFilePath(ParamStr(0)) + 'temp.png');
               Table.Cell(2, 1).width:= 48;
               Table.Cell(2, 2).Range.Text := 'Der Benutzer PCM ist der standardmäßig eingerichtete Benutzer. Er besitzt alle Rechte in der PCM – Software.';
               Table.Cell(2, 2).width:= 405;
@@ -687,7 +718,7 @@ begin
                 InsertRange.Style:= 'Standard';
                 {$EndRegion Content}
               end;
-              if dm_PCM.qry_Work.FieldByname('bild').AsString <> '' then
+              if dm_PCM.qry_Work.FieldByname('bildbase64').AsString <> '' then
               begin
                 // Image
                 {$Region Bild}
@@ -699,7 +730,9 @@ begin
                 begin
                   InsertRange.InsertBreak(wdPageBreak);
                 end;
-                InlineShapes:= WordDoc.InlineShapes.AddPicture(dm_PCM.qry_Work.FieldByname('bild').AsString, False, True, InsertRange);
+                SaveBase64ImageToFile(dm_PCM.qry_Work.FieldByname('bildbase64').AsString,ExtractFilePath(ParamStr(0)) + 'temp.png');
+                InlineShapes:= WordDoc.InlineShapes.AddPicture(ExtractFilePath(ParamStr(0)) + 'temp.png', False, True, InsertRange);
+                DeleteFile(ExtractFilePath(ParamStr(0)) + 'temp.png');
                 InlineShapes.Select;
                 OriginalWidth := InlineShapes.width;
                 OriginalHeight := InlineShapes.Height;
@@ -730,9 +763,9 @@ begin
         WordApp.Selection.WholeStory;
         WordApp.Selection.Fields.Update;
         WriteLog(PCM_Logname,'Dokumentation PDF speichern: ' + ExtractFilePath(Paramstr(0)) + 'Doku\'+ StringReplace(sProgramm,' - ','',[rfIgnoreCase,rfReplaceAll]) ,0);
-        WaitFormSetText(rs_PCMDevManager_WAIT_SavePDF);
+        WaitFormSetText(sProgramm + ' ' + rs_PCMDevManager_WAIT_SavePDF);
         WordApp.ActiveDocument.SaveAs2(ExtractFilePath(Paramstr(0)) + 'Doku\'+ StringReplace(sProgramm,' - ','',[rfIgnoreCase,rfReplaceAll]),17);
-        WaitFormSetText(rs_PCMDevManager_WAIT_SaveDOC);
+        WaitFormSetText(sProgramm + ' ' + rs_PCMDevManager_WAIT_SaveDOC);
         WriteLog(PCM_Logname,rs_PCMDevManager_WAIT_SaveDOC + ExtractFilePath(Paramstr(0)) + 'Doku\'+ StringReplace(sProgramm,' - ','',[rfIgnoreCase,rfReplaceAll]),0);
         WordApp.ActiveDocument.SaveAs(ExtractFilePath(Paramstr(0)) + 'Doku\'+ StringReplace(sProgramm,' - ','',[rfIgnoreCase,rfReplaceAll])  +'.docx');
         if not VarIsNull(WordApp) then
@@ -1104,7 +1137,9 @@ begin
             Table.Cell(1, 1).Shading.BackgroundPatternColor := RGB(51, 75, 106);
             Table.Cell(1, 1).width:= 453;
             // Font and Background color
-            InlineShapes:= Table.Cell(2, 1).Range.InlineShapes.AddPicture(dm_PCM.qry_Work.FieldByname('bild').AsString, False, True);
+            SaveBase64ImageToFile(dm_PCM.qry_Work.FieldByname('bildbase64').AsString,ExtractFilePath(ParamStr(0)) + 'temp.png');
+            InlineShapes:= Table.Cell(2, 1).Range.InlineShapes.AddPicture(ExtractFilePath(ParamStr(0)) + 'temp.png', False, True);
+            DeleteFile(ExtractFilePath(ParamStr(0)) + 'temp.png');
             Table.Cell(2, 1).width:= 48;
             Table.Cell(2, 2).Range.Text := 'Der Benutzer PCM ist der standardmäßig eingerichtete Benutzer. Er besitzt alle Rechte in der PCM – Software.';
             Table.Cell(2, 2).width:= 405;
@@ -1129,7 +1164,7 @@ begin
               InsertRange.Style:= 'Standard';
               {$EndRegion Content}
             end;
-            if dm_PCM.qry_Work.FieldByname('bild').AsString <> '' then
+            if dm_PCM.qry_Work.FieldByname('bildbase64').AsString <> '' then
             begin
               // Image
               {$Region Bild}
@@ -1141,7 +1176,9 @@ begin
               begin
                 InsertRange.InsertBreak(wdPageBreak);
               end;
-              InlineShapes:= WordDoc.InlineShapes.AddPicture(dm_PCM.qry_Work.FieldByname('bild').AsString, False, True, InsertRange);
+              SaveBase64ImageToFile(dm_PCM.qry_Work.FieldByname('bildbase64').AsString,ExtractFilePath(ParamStr(0)) + 'temp.png');
+              InlineShapes:= WordDoc.InlineShapes.AddPicture(ExtractFilePath(ParamStr(0)) + 'temp.png', False, True, InsertRange);
+              DeleteFile(ExtractFilePath(ParamStr(0)) + 'temp.png');
               InlineShapes.Select;
               OriginalWidth := InlineShapes.width;
               OriginalHeight := InlineShapes.Height;
@@ -1351,9 +1388,9 @@ begin
     iMax:= dm_PCM.qry_Work.FieldByname('Maximal').AsInteger;
     dm_PCM.qry_Work.Close;
     dm_PCM.qry_Work.SQL.Text:= 'Insert into doku_body ' +
-                               '(Beschreibung,Program,Sortierung,body,header,headertype,content,Bild,NewPage,Breite) ' +
+                               '(Beschreibung,Program,Sortierung,body,header,headertype,content,Bild,BildBase64,NewPage,Breite) ' +
                                'Values ' +
-                               '(:Beschreibung,:Program,:Sortierung,:body,:header,:headertype,:content,:Bild,:NewPage,:Breite)';
+                               '(:Beschreibung,:Program,:Sortierung,:body,:header,:headertype,:content,:Bild,:BildBase64,:NewPage,:Breite)';
     dm_PCM.qry_Work.ParamByName('Beschreibung').asString:= dm_PCM.qry_Doku.FieldByName('Beschreibung').AsString;
     dm_PCM.qry_Work.ParamByName('Program').asString:= sApplikation;
     dm_PCM.qry_Work.ParamByName('Sortierung').asinteger:= iMax;
@@ -1362,6 +1399,7 @@ begin
     dm_PCM.qry_Work.ParamByName('Headertype').asString:= dm_PCM.qry_Doku.FieldByName('Headertype').AsString;
     dm_PCM.qry_Work.ParamByName('content').asString:= dm_PCM.qry_Doku.FieldByName('content').AsString;
     dm_PCM.qry_Work.ParamByName('Bild').asString:= dm_PCM.qry_Doku.FieldByName('Bild').AsString;
+    dm_PCM.qry_Work.ParamByName('BildBase64').AsMemo:= dm_PCM.qry_Doku.FieldByName('BildBase64').asString;
     dm_PCM.qry_Work.ParamByName('Newpage').asString:= dm_PCM.qry_Doku.FieldByName('Newpage').AsString;
     dm_PCM.qry_Work.ParamByName('Breite').AsFloat:= dm_PCM.qry_Doku.FieldByName('Breite').AsFloat;
     dm_PCM.qry_Work.execsql;
@@ -1451,6 +1489,19 @@ procedure Tfrm_Doku.btn_VersionRefreshClick(Sender: TObject);
 begin
   dm_PCM.qry_Doku.Refresh;
 end;
+procedure Tfrm_Doku.tv_VersionBildBase64GetDataText(
+  Sender: TcxCustomGridTableItem; ARecordIndex: Integer; var AText: string);
+begin
+//
+end;
+
+procedure Tfrm_Doku.tv_VersionBildBase64GetDisplayText(
+  Sender: TcxCustomGridTableItem; ARecord: TcxCustomGridRecord;
+  var AText: string);
+begin
+//
+end;
+
 procedure Tfrm_Doku.tv_VersionCellDblClick(Sender: TcxCustomGridTableView; ACellViewInfo: TcxGridTableDataCellViewInfo; AButton: TMouseButton; AShift: TShiftState; var AHandled: Boolean);
 begin
   btn_VersionChangeClick(Self);

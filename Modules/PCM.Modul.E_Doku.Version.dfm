@@ -27,9 +27,9 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     ExplicitHeight = 620
     object mem_statement: TSynMemo
       Left = 23
-      Top = 315
-      Width = 854
-      Height = 87
+      Top = 442
+      Width = 837
+      Height = 20
       SingleLineMode = False
       Constraints.MinWidth = 20
       Color = clWindowFrame
@@ -39,7 +39,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Font.Height = -13
       Font.Name = 'Courier New'
       Font.Style = []
-      TabOrder = 7
+      TabOrder = 10
       CodeFolding.GutterShapeSize = 11
       CodeFolding.CollapsedLineColor = clGrayText
       CodeFolding.FolderBarLinesColor = clGrayText
@@ -299,7 +299,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Style.TransparentBorder = False
       TabOrder = 1
       Height = 23
-      Width = 757
+      Width = 740
     end
     object cmbbx_Prog: TcxComboBox
       AlignWithMargins = True
@@ -315,7 +315,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Style.TransparentBorder = False
       TabOrder = 0
       Height = 23
-      Width = 757
+      Width = 740
     end
     object edt_Bez: TcxTextEdit
       AlignWithMargins = True
@@ -330,12 +330,12 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Style.TransparentBorder = False
       TabOrder = 2
       Height = 23
-      Width = 757
+      Width = 740
     end
     object edt_Header: TcxTextEdit
       AlignWithMargins = True
       Left = 121
-      Top = 455
+      Top = 515
       Margins.Left = 8
       Margins.Top = 0
       Margins.Right = 0
@@ -343,14 +343,14 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       AutoSize = False
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 8
+      TabOrder = 11
       Height = 23
-      Width = 757
+      Width = 740
     end
     object cmbbx_HeaderType: TcxComboBox
       AlignWithMargins = True
       Left = 121
-      Top = 485
+      Top = 545
       Margins.Left = 8
       Margins.Top = 0
       Margins.Right = 0
@@ -365,15 +365,15 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
         'Standard')
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 9
+      TabOrder = 12
       Height = 23
-      Width = 757
+      Width = 740
     end
     object mem_content: TSynMemo
       Left = 23
-      Top = 537
-      Width = 854
-      Height = 77
+      Top = 597
+      Width = 837
+      Height = 20
       SingleLineMode = False
       Constraints.MinWidth = 20
       Color = clWindowFrame
@@ -383,7 +383,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Font.Height = -13
       Font.Name = 'Courier New'
       Font.Style = []
-      TabOrder = 10
+      TabOrder = 13
       CodeFolding.GutterShapeSize = 11
       CodeFolding.CollapsedLineColor = clGrayText
       CodeFolding.FolderBarLinesColor = clGrayText
@@ -432,7 +432,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     object edt_bild: TcxButtonEdit
       AlignWithMargins = True
       Left = 121
-      Top = 172
+      Top = 299
       Margins.Left = 8
       Margins.Top = 0
       Margins.Right = 0
@@ -446,27 +446,27 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Properties.OnButtonClick = edt_bildPropertiesButtonClick
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 3
+      TabOrder = 7
       Height = 23
-      Width = 557
+      Width = 740
     end
     object edt_width: TcxMaskEdit
-      Left = 757
-      Top = 172
+      Left = 340
+      Top = 236
       AutoSize = False
       Properties.MaskKind = emkRegExpr
       Properties.EditMask = '\d+,\d\d'
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 4
+      TabOrder = 6
       Text = '1'
       Height = 23
-      Width = 121
+      Width = 521
     end
     object chkbx_leer: TcxCheckBox
       AlignWithMargins = True
       Left = 206
-      Top = 222
+      Top = 349
       Margins.Left = 10
       Margins.Top = 0
       Margins.Right = 0
@@ -477,7 +477,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       ParentBiDiMode = False
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 6
+      TabOrder = 9
       Transparent = True
       Height = 19
       Width = 100
@@ -485,7 +485,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     object chkbx_Newpage: TcxCheckBox
       AlignWithMargins = True
       Left = 121
-      Top = 222
+      Top = 349
       Margins.Left = 10
       Margins.Top = 0
       Margins.Right = 0
@@ -496,10 +496,37 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       ParentBiDiMode = False
       Style.HotTrack = False
       Style.TransparentBorder = False
-      TabOrder = 5
+      TabOrder = 8
       Transparent = True
       Height = 19
       Width = 78
+    end
+    object cxImage1: TcxImage
+      Left = 121
+      Top = 172
+      Style.HotTrack = False
+      Style.TransparentBorder = False
+      TabOrder = 3
+      Height = 100
+      Width = 140
+    end
+    object cxButton1: TcxButton
+      Left = 268
+      Top = 172
+      Width = 593
+      Height = 25
+      Caption = 'Bild laden'
+      TabOrder = 4
+      OnClick = cxButton1Click
+    end
+    object cxButton2: TcxButton
+      Left = 268
+      Top = 204
+      Width = 593
+      Height = 25
+      Caption = 'Bild l'#246'schen'
+      TabOrder = 5
+      OnClick = cxButton2Click
     end
     object dxLayoutControl1Group_Root: TdxLayoutGroup
       AlignHorz = ahClient
@@ -567,13 +594,15 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Parent = dxLayoutGroup19
       AlignHorz = ahClient
       AlignVert = avTop
+      Visible = False
       LayoutDirection = ldHorizontal
-      Index = 3
+      Index = 4
     end
     object dxLayoutItem4: TdxLayoutItem
       Parent = dxLayoutGroup8
       AlignHorz = ahClient
       AlignVert = avTop
+      Visible = False
       CaptionOptions.Text = 'Bild:'
       Control = edt_bild
       ControlOptions.OriginalHeight = 23
@@ -582,22 +611,20 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       Index = 0
     end
     object dxLayoutItem5: TdxLayoutItem
-      Parent = dxLayoutGroup8
-      AlignHorz = ahRight
-      AlignVert = avTop
+      Parent = dxLayoutGroup3
       CaptionOptions.Text = 'Breite in cm:'
       Control = edt_width
       ControlOptions.OriginalHeight = 23
       ControlOptions.OriginalWidth = 121
       ControlOptions.ShowBorder = False
-      Index = 1
+      Index = 2
     end
     object dxLayoutGroup11: TdxLayoutGroup
       Parent = dxLayoutGroup19
       AlignHorz = ahClient
       ItemIndex = 1
       LayoutDirection = ldHorizontal
-      Index = 4
+      Index = 5
     end
     object dxLayoutItem6: TdxLayoutItem
       Parent = dxLayoutGroup11
@@ -628,7 +655,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       AlignVert = avClient
       CaptionOptions.Text = 'HTM'
       LayoutDirection = ldHorizontal
-      Index = 5
+      Index = 6
     end
     object dxLayoutItem8: TdxLayoutItem
       Parent = dxLayoutGroup14
@@ -647,7 +674,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       AlignVert = avClient
       CaptionOptions.Text = 'DOC / PDF'
       ItemIndex = 1
-      Index = 6
+      Index = 7
     end
     object dxLayoutItem9: TdxLayoutItem
       Parent = dxLayoutGroup15
@@ -687,9 +714,53 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
       AlignHorz = ahClient
       AlignVert = avClient
       CaptionOptions.Text = 'New Group'
-      ItemIndex = 6
+      ItemIndex = 4
       ShowBorder = False
       Index = 0
+    end
+    object dxLayoutGroup1: TdxLayoutGroup
+      Parent = dxLayoutGroup19
+      CaptionOptions.ShowHyperlinkHint = bTrue
+      ItemIndex = 1
+      LayoutDirection = ldHorizontal
+      Index = 3
+    end
+    object dxLayoutItem12: TdxLayoutItem
+      Parent = dxLayoutGroup3
+      AlignHorz = ahClient
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = cxButton1
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 200
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutItem13: TdxLayoutItem
+      Parent = dxLayoutGroup1
+      CaptionOptions.Text = 'Bild:'
+      Control = cxImage1
+      ControlOptions.OriginalHeight = 100
+      ControlOptions.OriginalWidth = 140
+      ControlOptions.ShowBorder = False
+      Index = 0
+    end
+    object dxLayoutGroup3: TdxLayoutGroup
+      Parent = dxLayoutGroup1
+      AlignHorz = ahClient
+      CaptionOptions.Text = 'New Group'
+      ShowBorder = False
+      Index = 1
+    end
+    object dxLayoutItem14: TdxLayoutItem
+      Parent = dxLayoutGroup3
+      CaptionOptions.Text = 'New Item'
+      CaptionOptions.Visible = False
+      Control = cxButton2
+      ControlOptions.OriginalHeight = 25
+      ControlOptions.OriginalWidth = 200
+      ControlOptions.ShowBorder = False
+      Index = 1
     end
   end
   object qry_Allg: TFDQuery
