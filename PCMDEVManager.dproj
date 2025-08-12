@@ -204,6 +204,7 @@ $(PreBuildEvent)]]></PreBuildEvent>
             <Form>frm_NewProject</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Modules\PCM.DevManager.Strings.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
@@ -242,6 +243,12 @@ $(PreBuildEvent)]]></PreBuildEvent>
                 <DeployFile LocalName="Win64\Debug\PCMDEVManager.exe" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win64">
                         <RemoteName>PCMDEVManager.exe</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="Win64\Debug\PCMDEVManager.rsm" Configuration="Debug" Class="DebugSymbols">
+                    <Platform Name="Win64">
+                        <RemoteName>PCMDEVManager.rsm</RemoteName>
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>

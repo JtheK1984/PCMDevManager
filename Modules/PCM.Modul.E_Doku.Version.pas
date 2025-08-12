@@ -100,7 +100,8 @@ implementation
 uses
   {$Region uses}
   PCM.Data,
-  PCM.Strings;
+  PCM.Helper,
+  PCM.Devmanager.Strings;
   {$EndRegion uses}
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //
@@ -321,17 +322,17 @@ procedure Tfrm_PCM_VersionDoku.btn_SQLSaveClick(Sender: TObject);
 begin
   if cmbbx_Prog.ItemIndex = -1 then
   begin
-    MessageDlg(rs_PCMDevManager_MSGCHooseProgramm, mtWarning, [mbOk], 0);
+    SetMessageDialog(2,rs_PCMDevManager_MSGCHooseProgramm,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
     exit;
   end;
   if cmbbx_Sort.ItemIndex = -1 then
   begin
-    MessageDlg(rs_PCMDevManager_MSGCHooseSort, mtWarning, [mbOk], 0);
+    SetMessageDialog(2,rs_PCMDevManager_MSGCHooseSort,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
     exit;
   end;
   if edt_Bez.Text = '' then
   begin
-    MessageDlg(rs_PCMDevManager_MSGSetDesc, mtWarning, [mbOk], 0);
+    SetMessageDialog(2,rs_PCMDevManager_MSGSetDesc,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
     exit;
   end;
 

@@ -26,7 +26,8 @@ uses
   PCMDEVManager.dxSettings in 'PCMDEVManager.dxSettings.pas',
   PCM.Modul.C_Entwicklung.Sourcecode.NewProg in 'Modules\PCM.Modul.C_Entwicklung.Sourcecode.NewProg.pas' {fSourceBackup_NewConfig},
   PCM.Modul.C_Entwicklung.Sourcecode.Extension in 'Modules\PCM.Modul.C_Entwicklung.Sourcecode.Extension.pas' {fSourceBackup_FileExt},
-  PCM.Modul.C_Entwicklung.NewProject in 'Modules\PCM.Modul.C_Entwicklung.NewProject.pas' {frm_NewProject};
+  PCM.Modul.C_Entwicklung.NewProject in 'Modules\PCM.Modul.C_Entwicklung.NewProject.pas' {frm_NewProject},
+  PCM.DevManager.Strings in 'Modules\PCM.DevManager.Strings.pas';
 
 {$R *.res}
 

@@ -121,12 +121,13 @@ implementation
 {$R *.dfm}
 
 uses  PCM.Data,
+      PCM.Helper,
       PCM.Functions,
       PCM.Functions.Synch.Wait,
       PCM.Modul.E_Doku.Programm,
       PCM.Modul.E_Doku.Version,
       PCM.Main,
-      PCM.Strings;
+      PCM.Devmanager.Strings;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //
@@ -1407,14 +1408,10 @@ begin
   end;
 end;
 procedure Tfrm_Doku.btn_VersionDeleteClick(Sender: TObject);
-var
-  iButton: integer;
 begin
-
   if dm_PCM.qry_Doku.FieldByName('ID').AsInteger > 0 then
   begin
-    iButton:=  MessageDlg(rs_PCMDevManager_MSGDeleteEntry, TMsgDlgType.mtWarning,[mbYes,mbno],0);
-    if iButton = 6 then
+    if SetMessageDialog(2,rs_PCMDevManager_MSGDeleteEntry,[rs_general_BTN_Yes,rs_general_BTN_NO,''],[mrYes,mrNo,mrNone]) = mrYes then
        dm_PCM.qry_Doku.Delete;
   end;
 end;

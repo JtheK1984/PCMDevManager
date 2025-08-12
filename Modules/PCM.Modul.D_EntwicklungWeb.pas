@@ -322,7 +322,7 @@ uses
   PCM.Browser.FullScreen,
   PCM.Data,
   PCM.Helper,
-  PCM.Strings,
+  PCM.Devmanager.Strings,
   PCM.Functions.Synch.Wait,
   uwvLoader;
   {$EndRegion Uses}

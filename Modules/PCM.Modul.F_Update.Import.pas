@@ -65,7 +65,7 @@ implementation
 
 {$R *.dfm}
 
-uses PCM.Data, PCM.Main, PCM.Modul.F_Update, PCM.Strings;
+uses PCM.Data, PCM.Main, PCM.Modul.F_Update, PCM.Devmanager.Strings;
 ////////////////////////////////////////////////////////////////////////////////
 // HELPER                                                                     //
 ////////////////////////////////////////////////////////////////////////////////

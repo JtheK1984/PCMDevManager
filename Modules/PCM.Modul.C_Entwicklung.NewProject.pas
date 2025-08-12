@@ -98,10 +98,9 @@ implementation
 uses
   PCM.data,
   PCM.Functions.Synch.Wait,
-  PCM.Strings,
+  PCM.Helper,
+  PCM.Devmanager.Strings,
   PCM.Modul.C_Entwicklung;
-
-
 
 
 procedure Tfrm_NewProject.CopyFunctions;
@@ -292,7 +291,7 @@ begin
     CloseWaitForm;
   end
   else begin
-    MessageDlg('Projekt existiert schon',TMsgDlgType.mtWarning,[mbOk],0);
+    SetMessageDialog(2,rs_DevManager_MSG_Projektexistiert,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
   end;
 end;
 

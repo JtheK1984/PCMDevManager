@@ -3,8 +3,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
   Top = 0
   AlphaBlend = True
   Caption = 'PCM - Manager'
-  ClientHeight = 749
-  ClientWidth = 1262
+  ClientHeight = 732
+  ClientWidth = 1256
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -26,7 +26,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Left = 0
     Top = 35
     Width = 200
-    Height = 714
+    Height = 697
     Align = alLeft
     ActiveGroupIndex = 0
     TabOrder = 0
@@ -231,13 +231,13 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Style.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.NativeStyle = False
     TabOrder = 1
-    Height = 714
-    Width = 1062
+    Height = 697
+    Width = 1056
     object pc_main: TcxPageControl
       Left = 3
       Top = 3
-      Width = 1056
-      Height = 708
+      Width = 1050
+      Height = 691
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
@@ -254,9 +254,9 @@ object frm_PCM_Main: Tfrm_PCM_Main
       Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea, pcoNoArrows, pcoRedrawOnResize, pcoSort, pcoUsePageColorForTab]
       LookAndFeel.NativeStyle = False
       OnPageChanging = pc_mainPageChanging
-      ClientRectBottom = 702
+      ClientRectBottom = 685
       ClientRectLeft = 2
-      ClientRectRight = 1050
+      ClientRectRight = 1044
       ClientRectTop = 28
       object ts_Dashboard: TcxTabSheet
         AllowCloseButton = False
@@ -265,16 +265,16 @@ object frm_PCM_Main: Tfrm_PCM_Main
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
-          Width = 1048
-          Height = 674
+          Width = 1042
+          Height = 657
           Align = alClient
           TabOrder = 0
           LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
           object chartctrl_Customer: TdxChartControl
             Left = 19
             Top = 42
-            Width = 1010
-            Height = 613
+            Width = 1004
+            Height = 596
             BorderStyle = cxcbsNone
             Legend.Title.Visible = False
             Titles = <>

@@ -234,8 +234,9 @@ implementation
 
 uses
   PCM.Main,
+  PCM.Helper,
   PCM.Data,
-  PCM.Strings;
+  PCM.Devmanager.Strings;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Buttons                                                                    //
@@ -282,13 +283,13 @@ begin
     bHasError:= StrToBool(JSONResult.GetValue<TJSONBool>('HasError').ToString);
     if not bHasError then
     begin
-      MessageDlg(rs_PCMDevManager_MSGCheckSQLCONSuc,mtInformation,[mbOk],0);
+      SetMessageDialog(1,rs_PCMDevManager_MSGDeleteEntry,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
     end
     else begin
-      MessageDlg(rs_PCMDevManager_MSGCheckSQLCONErr,mtInformation,[mbOk],0);
+      SetMessageDialog(1,rs_PCMDevManager_MSGDeleteEntry,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
     end;
   except
-    MessageDlg(rs_PCMDevManager_MSGCheckSQLCONErr,mtInformation,[mbOk],0);
+    SetMessageDialog(1,rs_PCMDevManager_MSGDeleteEntry,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
   end;
 end;
 procedure Tfrm_Config.edt_otherPropertiesButtonClick(Sender: TObject; AButtonIndex: Integer);

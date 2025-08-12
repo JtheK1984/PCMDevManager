@@ -42,8 +42,8 @@ implementation
 
 {$R *.dfm}
 
-uses  PCM.Data,
-      PCM.Modul.E_Doku, PCM.Strings;
+uses  PCM.Data, PCM.Helper,
+      PCM.Modul.E_Doku, PCM.Devmanager.Strings;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Hilfsfunktionen                                                            //
@@ -77,7 +77,7 @@ begin
       end
       else
       begin
-        MessageDlg(rs_PCMDevManager_MSGChooseApp,mtWarning,[mbOk],0);
+        SetMessageDialog(2,rs_PCMDevManager_MSGChooseApp,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
         exit;
       end;
       result:= true;

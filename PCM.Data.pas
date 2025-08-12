@@ -89,6 +89,7 @@ const
   PCM_Logname = 'PCMDevManager';
   PCM_Connectionname =  'pcm_DEV';
   PCM_Alias = 'PCMDEV';
+  PCM_Lizenz = false;
   user = 'Jens.Henske@outlook.com';
   pass = 'JensHenske1234';
 

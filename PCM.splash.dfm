@@ -2400,6 +2400,7 @@ object SplashScreen: TSplashScreen
       StyleHot.LookAndFeel.NativeStyle = False
       TabOrder = 3
       Transparent = True
+      ExplicitTop = 465
       Width = 1000
     end
   end
@@ -2444,5 +2445,12 @@ object SplashScreen: TSplashScreen
     OnTimer = Timer6Timer
     Left = 152
     Top = 432
+  end
+  object Timer11: TTimer
+    Enabled = False
+    Interval = 250
+    OnTimer = Timer11Timer
+    Left = 88
+    Top = 144
   end
 end

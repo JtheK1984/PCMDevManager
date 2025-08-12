@@ -23,7 +23,6 @@ object frm_PCM_Version: Tfrm_PCM_Version
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitWidth = 906
     object dtedt_Date: TcxDateEdit
       AlignWithMargins = True
       Left = 103

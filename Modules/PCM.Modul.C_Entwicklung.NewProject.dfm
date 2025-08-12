@@ -21,8 +21,6 @@ object frm_NewProject: Tfrm_NewProject
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitWidth = 956
-    ExplicitHeight = 542
     object btn_Save: TcxButton
       Left = 12
       Top = 491

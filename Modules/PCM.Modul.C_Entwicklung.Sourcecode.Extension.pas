@@ -73,7 +73,7 @@ implementation
 
 {$R *.dfm}
 
-uses PCM.Main,PCM.Data,PCM.Functions.Synch.Wait, PCM.Strings;
+uses PCM.Main,PCM.Data,PCM.Functions.Synch.Wait, PCM.Devmanager.Strings;
 
 ////////////////////////////////////////////////////////////////////////////////
 // Helper Functions                                                           //

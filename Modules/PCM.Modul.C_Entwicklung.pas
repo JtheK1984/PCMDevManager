@@ -349,7 +349,7 @@ uses
   {$Region uses}
   PCM.Main,
   PCM.Data,
-  PCM.Strings,
+  PCM.Devmanager.Strings,
   PCM.Modul.C_Entwicklung.Sourcecode.Extension,
   PCM.Modul.C_Entwicklung.Sourcecode.NewProg,
   PCM.Functions.Synch.Wait,
@@ -919,7 +919,7 @@ begin
       shellexecute(0,'open',Pchar(ANotepad),PChar('"' + AProject1 + '"'),nil,SW_SHOWDEFAULT);
   end
   else begin
-    MessageDlg(rs_PCMDevManager_MSGNoMainScript, mtWarning, [mbOk], 0);
+    SetMessageDialog(2,rs_PCMDevManager_MSGNoMainScript,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
   end;
 end;
 procedure Tfrm_Dev.SetButtons;
@@ -1264,7 +1264,7 @@ begin
         ShellExecute(Application.Handle,'open',PChar(qry_Projects.FieldByName('Script').asString),nil, nil, SW_NORMAL);
       end
       else begin
-        MessageDlg(rs_PCMDevManager_MSGNoMainScript, mtWarning, [mbOk], 0);
+        SetMessageDialog(2,rs_PCMDevManager_MSGNoMainScript,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
       end;
     end;
   end;
@@ -1464,7 +1464,7 @@ var
   sNewFileExt: String;
 begin
   if edt_Source.Text = '' then
-    MessageDlg(rs_PCMService_KeinQuellVerzeichnis1 + slinebreak + rs_PCMService_KeinQuellVerzeichnis2,TMsgDlgType.mtInformation,[mbOk],0)
+    SetMessageDialog(2,rs_PCMService_KeinQuellVerzeichnis1 + slinebreak + rs_PCMService_KeinQuellVerzeichnis2,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone])
   else
   begin
     Application.CreateForm(TfSourceBackup_FileExt, fSourceBackup_FileExt);
