@@ -75,3 +75,170 @@ modules/
 /Win64/Debug
 /Win32/Release/*.nds
 /Win32/Release/*.ntr
+/Win64/Release/CustomCache/EBWebView/Breadcrumbs
+/Win64/Release/CustomCache/EBWebView/BrowserMetrics/BrowserMetrics-6875F943-42B0.pma
+/Win64/Release/CustomCache/EBWebView/Crashpad/metadata
+/Win64/Release/CustomCache/EBWebView/Crashpad/settings.dat
+/Win64/Release/CustomCache/EBWebView/Crashpad/throttle_store.dat
+/Win64/Release/CustomCache/EBWebView/CrashpadMetrics-active.pma
+/Win64/Release/CustomCache/EBWebView/Default/AutofillStrikeDatabase/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/AutofillStrikeDatabase/LOG
+/Win64/Release/CustomCache/EBWebView/Default/BookmarkMergedSurfaceOrdering
+/Win64/Release/CustomCache/EBWebView/Default/BrowsingTopicsSiteData
+/Win64/Release/CustomCache/EBWebView/Default/BrowsingTopicsSiteData-journal
+/Win64/Release/CustomCache/EBWebView/Default/BrowsingTopicsState
+/Win64/Release/CustomCache/EBWebView/Default/BudgetDatabase/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/BudgetDatabase/LOG
+/Win64/Release/CustomCache/EBWebView/Default/ClientCertificates/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/ClientCertificates/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Code Cache/js/index
+/Win64/Release/CustomCache/EBWebView/Default/Code Cache/js/index-dir/the-real-index
+/Win64/Release/CustomCache/EBWebView/Default/Code Cache/wasm/index
+/Win64/Release/CustomCache/EBWebView/Default/Code Cache/wasm/index-dir/the-real-index
+/Win64/Release/CustomCache/EBWebView/Default/DIPS
+/Win64/Release/CustomCache/EBWebView/Default/DawnGraphiteCache/data_0
+/Win64/Release/CustomCache/EBWebView/Default/DawnGraphiteCache/data_1
+/Win64/Release/CustomCache/EBWebView/Default/DawnGraphiteCache/data_2
+/Win64/Release/CustomCache/EBWebView/Default/DawnGraphiteCache/data_3
+/Win64/Release/CustomCache/EBWebView/Default/DawnGraphiteCache/index
+/Win64/Release/CustomCache/EBWebView/Default/DawnWebGPUCache/data_0
+/Win64/Release/CustomCache/EBWebView/Default/DawnWebGPUCache/data_1
+/Win64/Release/CustomCache/EBWebView/Default/DawnWebGPUCache/data_2
+/Win64/Release/CustomCache/EBWebView/Default/DawnWebGPUCache/data_3
+/Win64/Release/CustomCache/EBWebView/Default/DawnWebGPUCache/index
+/Win64/Release/CustomCache/EBWebView/Default/Download Service/EntryDB/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/Download Service/EntryDB/LOG
+/Win64/Release/CustomCache/EBWebView/Default/EdgeEDrop/EdgeEDropSQLite.db
+/Win64/Release/CustomCache/EBWebView/Default/EdgeEDrop/EdgeEDropSQLite.db-journal
+/Win64/Release/CustomCache/EBWebView/Default/Extension Rules/000003.log
+/Win64/Release/CustomCache/EBWebView/Default/Extension Rules/CURRENT
+/Win64/Release/CustomCache/EBWebView/Default/Extension Rules/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/Extension Rules/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Extension Rules/MANIFEST-000001
+/Win64/Release/CustomCache/EBWebView/Default/Extension Scripts/000003.log
+/Win64/Release/CustomCache/EBWebView/Default/Extension Scripts/CURRENT
+/Win64/Release/CustomCache/EBWebView/Default/Extension Scripts/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/Extension Scripts/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Extension Scripts/MANIFEST-000001
+/Win64/Release/CustomCache/EBWebView/Default/Extension State/000003.log
+/Win64/Release/CustomCache/EBWebView/Default/Extension State/CURRENT
+/Win64/Release/CustomCache/EBWebView/Default/Extension State/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/Extension State/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Extension State/MANIFEST-000001
+/Win64/Release/CustomCache/EBWebView/Default/ExtensionActivityComp
+/Win64/Release/CustomCache/EBWebView/Default/ExtensionActivityComp-journal
+/Win64/Release/CustomCache/EBWebView/Default/ExtensionActivityEdge
+/Win64/Release/CustomCache/EBWebView/Default/ExtensionActivityEdge-journal
+/Win64/Release/CustomCache/EBWebView/Default/Favicons
+/Win64/Release/CustomCache/EBWebView/Default/Favicons-journal
+/Win64/Release/CustomCache/EBWebView/Default/Feature Engagement Tracker/AvailabilityDB/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/Feature Engagement Tracker/AvailabilityDB/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Feature Engagement Tracker/EventDB/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/Feature Engagement Tracker/EventDB/LOG
+/Win64/Release/CustomCache/EBWebView/Default/GPUCache/data_0
+/Win64/Release/CustomCache/EBWebView/Default/GPUCache/data_1
+/Win64/Release/CustomCache/EBWebView/Default/GPUCache/data_2
+/Win64/Release/CustomCache/EBWebView/Default/GPUCache/data_3
+/Win64/Release/CustomCache/EBWebView/Default/GPUCache/index
+/Win64/Release/CustomCache/EBWebView/Default/History
+/Win64/Release/CustomCache/EBWebView/Default/History-journal
+/Win64/Release/CustomCache/EBWebView/Default/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Local Storage/leveldb/000003.log
+/Win64/Release/CustomCache/EBWebView/Default/Local Storage/leveldb/CURRENT
+/Win64/Release/CustomCache/EBWebView/Default/Local Storage/leveldb/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/Local Storage/leveldb/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Local Storage/leveldb/MANIFEST-000001
+/Win64/Release/CustomCache/EBWebView/Default/Login Data
+/Win64/Release/CustomCache/EBWebView/Default/Login Data-journal
+/Win64/Release/CustomCache/EBWebView/Default/Network Action Predictor
+/Win64/Release/CustomCache/EBWebView/Default/Network Action Predictor-journal
+/Win64/Release/CustomCache/EBWebView/Default/Network/Cookies
+/Win64/Release/CustomCache/EBWebView/Default/Network/Cookies-journal
+/Win64/Release/CustomCache/EBWebView/Default/Network/Network Persistent State
+/Win64/Release/CustomCache/EBWebView/Default/Network/NetworkDataMigrated
+/Win64/Release/CustomCache/EBWebView/Default/Network/Reporting and NEL
+/Win64/Release/CustomCache/EBWebView/Default/Network/Reporting and NEL-journal
+/Win64/Release/CustomCache/EBWebView/Default/Network/SCT Auditing Pending Reports
+/Win64/Release/CustomCache/EBWebView/Default/Network/Sdch Dictionaries
+/Win64/Release/CustomCache/EBWebView/Default/Network/Trust Tokens
+/Win64/Release/CustomCache/EBWebView/Default/Network/Trust Tokens-journal
+/Win64/Release/CustomCache/EBWebView/Default/PersistentOriginTrials/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/PersistentOriginTrials/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Preferences
+/Win64/Release/CustomCache/EBWebView/Default/PreferredApps
+/Win64/Release/CustomCache/EBWebView/Default/README
+/Win64/Release/CustomCache/EBWebView/Default/Safe Browsing Network/NetworkDataMigrated
+/Win64/Release/CustomCache/EBWebView/Default/Safe Browsing Network/Safe Browsing Cookies
+/Win64/Release/CustomCache/EBWebView/Default/Safe Browsing Network/Safe Browsing Cookies-journal
+/Win64/Release/CustomCache/EBWebView/Default/Secure Preferences
+/Win64/Release/CustomCache/EBWebView/Default/ServerCertificate
+/Win64/Release/CustomCache/EBWebView/Default/ServerCertificate-journal
+/Win64/Release/CustomCache/EBWebView/Default/Session Storage/000001.dbtmp
+/Win64/Release/CustomCache/EBWebView/Default/Session Storage/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/Session Storage/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Session Storage/MANIFEST-000001
+/Win64/Release/CustomCache/EBWebView/Default/Shared Dictionary/cache/index
+/Win64/Release/CustomCache/EBWebView/Default/Shared Dictionary/cache/index-dir/the-real-index
+/Win64/Release/CustomCache/EBWebView/Default/Shared Dictionary/db
+/Win64/Release/CustomCache/EBWebView/Default/Shared Dictionary/db-journal
+/Win64/Release/CustomCache/EBWebView/Default/SharedStorage
+/Win64/Release/CustomCache/EBWebView/Default/Site Characteristics Database/000003.log
+/Win64/Release/CustomCache/EBWebView/Default/Site Characteristics Database/CURRENT
+/Win64/Release/CustomCache/EBWebView/Default/Site Characteristics Database/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/Site Characteristics Database/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Site Characteristics Database/MANIFEST-000001
+/Win64/Release/CustomCache/EBWebView/Default/Sync Data/LevelDB/000003.log
+/Win64/Release/CustomCache/EBWebView/Default/Sync Data/LevelDB/CURRENT
+/Win64/Release/CustomCache/EBWebView/Default/Sync Data/LevelDB/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/Sync Data/LevelDB/LOG
+/Win64/Release/CustomCache/EBWebView/Default/Sync Data/LevelDB/MANIFEST-000001
+/Win64/Release/CustomCache/EBWebView/Default/Top Sites
+/Win64/Release/CustomCache/EBWebView/Default/Top Sites-journal
+/Win64/Release/CustomCache/EBWebView/Default/Web Data
+/Win64/Release/CustomCache/EBWebView/Default/Web Data-journal
+/Win64/Release/CustomCache/EBWebView/Default/commerce_subscription_db/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/commerce_subscription_db/LOG
+/Win64/Release/CustomCache/EBWebView/Default/discounts_db/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/discounts_db/LOG
+/Win64/Release/CustomCache/EBWebView/Default/favorites_diagnostic.log
+/Win64/Release/CustomCache/EBWebView/Default/heavy_ad_intervention_opt_out.db
+/Win64/Release/CustomCache/EBWebView/Default/heavy_ad_intervention_opt_out.db-journal
+/Win64/Release/CustomCache/EBWebView/Default/optimization_guide_hint_cache_store/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/optimization_guide_hint_cache_store/LOG
+/Win64/Release/CustomCache/EBWebView/Default/parcel_tracking_db/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/parcel_tracking_db/LOG
+/Win64/Release/CustomCache/EBWebView/Default/shared_proto_db/000003.log
+/Win64/Release/CustomCache/EBWebView/Default/shared_proto_db/CURRENT
+/Win64/Release/CustomCache/EBWebView/Default/shared_proto_db/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/shared_proto_db/LOG
+/Win64/Release/CustomCache/EBWebView/Default/shared_proto_db/MANIFEST-000001
+/Win64/Release/CustomCache/EBWebView/Default/shared_proto_db/metadata/000003.log
+/Win64/Release/CustomCache/EBWebView/Default/shared_proto_db/metadata/CURRENT
+/Win64/Release/CustomCache/EBWebView/Default/shared_proto_db/metadata/LOCK
+/Win64/Release/CustomCache/EBWebView/Default/shared_proto_db/metadata/LOG
+/Win64/Release/CustomCache/EBWebView/Default/shared_proto_db/metadata/MANIFEST-000001
+/Win64/Release/CustomCache/EBWebView/GrShaderCache/data_0
+/Win64/Release/CustomCache/EBWebView/GrShaderCache/data_1
+/Win64/Release/CustomCache/EBWebView/GrShaderCache/data_2
+/Win64/Release/CustomCache/EBWebView/GrShaderCache/data_3
+/Win64/Release/CustomCache/EBWebView/GrShaderCache/index
+/Win64/Release/CustomCache/EBWebView/GraphiteDawnCache/data_0
+/Win64/Release/CustomCache/EBWebView/GraphiteDawnCache/data_1
+/Win64/Release/CustomCache/EBWebView/GraphiteDawnCache/data_2
+/Win64/Release/CustomCache/EBWebView/GraphiteDawnCache/data_3
+/Win64/Release/CustomCache/EBWebView/GraphiteDawnCache/index
+/Win64/Release/CustomCache/EBWebView/Last Version
+/Win64/Release/CustomCache/EBWebView/Local State
+/Win64/Release/CustomCache/EBWebView/ShaderCache/data_0
+/Win64/Release/CustomCache/EBWebView/ShaderCache/data_1
+/Win64/Release/CustomCache/EBWebView/ShaderCache/data_2
+/Win64/Release/CustomCache/EBWebView/ShaderCache/data_3
+/Win64/Release/CustomCache/EBWebView/ShaderCache/index
+/Win64/Release/CustomCache/EBWebView/SmartScreen/RemoteData/customSettings
+/Win64/Release/CustomCache/EBWebView/SmartScreen/RemoteData/customSettings_F95BA787499AB4FA9EFFF472CE383A14
+/Win64/Release/CustomCache/EBWebView/SmartScreen/RemoteData/edgeSettings
+/Win64/Release/CustomCache/EBWebView/SmartScreen/RemoteData/edgeSettings_2.0-0
+/Win64/Release/CustomCache/EBWebView/Variations
+/Win64/Release/CustomCache/EBWebView/component_crx_cache/metadata.json
+/Win64/Release/CustomCache/EBWebView/extensions_crx_cache/metadata.json
