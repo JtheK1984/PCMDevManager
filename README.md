@@ -4,6 +4,10 @@
 # Kurzbeschreibung:
   PCM - DEVManager
 
+# Kurzbeschreibung:
+  - Entwicklungstool mit direkter Integration zu Jira, Confluence, Azure Devops per RestAPI
+  - autmatisierte Dokumentation der Applikationen bzw Handbuch
+
 # Entwicklungsumgebung:
   DELPHI 12.3 Athens
 
