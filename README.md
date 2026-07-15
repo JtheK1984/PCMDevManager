@@ -4,7 +4,7 @@
 # Kurzbeschreibung:
   PCM - DEVManager
 
-# Kurzbeschreibung:
+# Beschreibung:
   - Entwicklungstool mit direkter Integration zu Jira, Confluence, Azure Devops per RestAPI
   - autmatisierte Dokumentation der Applikationen bzw Handbuch
 
