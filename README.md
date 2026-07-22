@@ -4,6 +4,10 @@
 # Kurzbeschreibung:
   PCM - DEVManager
 
+# Beschreibung:
+  - Entwicklungstool mit direkter Integration zu Jira, Confluence, Azure Devops per RestAPI
+  - autmatisierte Dokumentation der Applikationen bzw Handbuch
+
 # Entwicklungsumgebung:
   DELPHI 12.3 Athens
 
@@ -34,4 +38,4 @@
   - PrepareCopy.cmd (erzeugte Versionen werden in das Inno-Setupverzeichnis abgelgt)
 
 # Stand:
-  12.08.2025
+  12.07.2026
