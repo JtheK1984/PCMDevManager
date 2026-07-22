@@ -126,6 +126,7 @@ begin
   dm_PCM.qry_Work.SQL.Text:= 'SELECT Programm FROM lizenzgenerator_programme GROUP BY Programm ORDER BY Programm';
   dm_PCM.qry_Work.Open;
   cmbbx_Prog.Properties.Items.Clear;
+  cmbbx_Prog.Properties.Items.Add('PCM - Installation');
   while not dm_PCM.qry_Work.Eof do
   begin
     cmbbx_Prog.Properties.Items.Add(StringReplace(dm_PCM.qry_Work.FieldByName('Programm').AsString,'-',' - ',[rfIgnoreCase,rfReplaceAll]));
@@ -330,16 +331,23 @@ begin
     SetMessageDialog(2,rs_PCMDevManager_MSGCHooseSort,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
     exit;
   end;
+  if cmbbx_HeaderType.ItemIndex = -1 then
+  begin
+    SetMessageDialog(2,rs_PCMDevManager_MSGCHooseHeaderType,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
+    exit;
+  end;
+
   if edt_Bez.Text = '' then
   begin
     SetMessageDialog(2,rs_PCMDevManager_MSGSetDesc,[rs_general_BTN_Ok,'',''],[mrOk,mrNone,mrNone]);
     exit;
   end;
 
+
   if bNew then
   begin
     qry_Allg.SQL.Text:= 'Insert INTO doku_body ' +
-                        '(Beschreibung,Program,body,Sortierung,header,headertype,content,bild,newpage,Breite,Leerzeile;BildBase64) VALUES (:Beschreibung,:Program,:body,:Sortierung,:header,:headertype,:content,:bild,:newpage,:Breite,:Leerzeile,:BildBase64)';
+                        '(Beschreibung,Program,body,Sortierung,header,headertype,content,bild,newpage,Breite,Leerzeile,BildBase64) VALUES (:Beschreibung,:Program,:body,:Sortierung,:header,:headertype,:content,:bild,:newpage,:Breite,:Leerzeile,:BildBase64)';
     qry_Allg.ParamByName('Beschreibung').asString:=  edt_Bez.text;
     qry_Allg.ParamByName('Program').AsString:=  cmbbx_Prog.Properties.Items[cmbbx_Prog.ItemIndex];
     qry_Allg.ParamByName('body').AsString:=  mem_Statement.Text;

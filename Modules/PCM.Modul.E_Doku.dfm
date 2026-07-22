@@ -32,13 +32,8 @@ object frm_Doku: Tfrm_Doku
       TabOrder = 2
       LookAndFeel.NativeStyle = False
       object tv_Version: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        ScrollbarAnnotations.CustomAnnotations = <>
         OnCellDblClick = tv_VersionCellDblClick
         DataController.DataSource = dm_PCM.ds_doku
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
         OptionsData.Deleting = False
         OptionsData.Editing = False
         OptionsData.Inserting = False
@@ -46,18 +41,15 @@ object frm_Doku: Tfrm_Doku
         OptionsView.IndicatorWidth = 10
         object tv_VersionBeschreibung: TcxGridDBColumn
           DataBinding.FieldName = 'Beschreibung'
-          DataBinding.IsNullValueType = True
           Width = 300
         end
         object tv_VersionSortierung: TcxGridDBColumn
           DataBinding.FieldName = 'Sortierung'
-          DataBinding.IsNullValueType = True
           SortIndex = 1
           SortOrder = soAscending
         end
         object tv_VersionProgram: TcxGridDBColumn
           DataBinding.FieldName = 'Program'
-          DataBinding.IsNullValueType = True
           Visible = False
           GroupIndex = 0
           SortIndex = 0
@@ -67,42 +59,35 @@ object frm_Doku: Tfrm_Doku
         object tv_Versionheader: TcxGridDBColumn
           Caption = #220'berschrift'
           DataBinding.FieldName = 'header'
-          DataBinding.IsNullValueType = True
           Width = 200
         end
         object tv_Versionheadertype: TcxGridDBColumn
           Caption = #220'berschrift-Typ'
           DataBinding.FieldName = 'headertype'
-          DataBinding.IsNullValueType = True
           Width = 100
         end
         object tv_VersionBild: TcxGridDBColumn
           DataBinding.FieldName = 'Bild'
-          DataBinding.IsNullValueType = True
           Width = 600
         end
         object tv_VersionBildBase64: TcxGridDBColumn
           Caption = 'Image'
           DataBinding.FieldName = 'BildBase64'
-          DataBinding.IsNullValueType = True
           OnGetDataText = tv_VersionBildBase64GetDataText
           OnGetDisplayText = tv_VersionBildBase64GetDisplayText
         end
         object tv_VersionBreite: TcxGridDBColumn
           DataBinding.FieldName = 'Breite'
-          DataBinding.IsNullValueType = True
           Width = 51
         end
         object tv_VersionNewPage: TcxGridDBColumn
           Caption = 'Neue Seite'
           DataBinding.FieldName = 'NewPage'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 80
         end
         object tv_VersionColumn1: TcxGridDBColumn
           DataBinding.FieldName = 'Leerzeile'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 80
         end
@@ -406,7 +391,6 @@ object frm_Doku: Tfrm_Doku
     LookAndFeel.NativeStyle = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
-    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 304

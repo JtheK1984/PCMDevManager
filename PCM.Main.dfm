@@ -3,8 +3,8 @@ object frm_PCM_Main: Tfrm_PCM_Main
   Top = 0
   AlphaBlend = True
   Caption = 'PCM - Manager'
-  ClientHeight = 732
-  ClientWidth = 1256
+  ClientHeight = 715
+  ClientWidth = 1250
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -26,7 +26,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Left = 0
     Top = 35
     Width = 200
-    Height = 697
+    Height = 680
     Align = alLeft
     ActiveGroupIndex = 0
     TabOrder = 0
@@ -40,6 +40,7 @@ object frm_PCM_Main: Tfrm_PCM_Main
     OptionsStyle.CustomStyles.Background = navbrStyleIt_main
     OptionsView.HamburgerMenu.NavigationPaneMode = npmNone
     OptionsView.HamburgerMenu.SpaceBetweenGroups = 50
+    ExplicitHeight = 663
     object navbrgrp_Optionen: TdxNavBarGroup
       Caption = 'Optionen'
       SelectedLinkIndex = -1
@@ -231,13 +232,15 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Style.LookAndFeel.NativeStyle = False
     StyleDisabled.LookAndFeel.NativeStyle = False
     TabOrder = 1
-    Height = 697
-    Width = 1056
+    ExplicitWidth = 1044
+    ExplicitHeight = 663
+    Height = 680
+    Width = 1050
     object pc_main: TcxPageControl
       Left = 3
       Top = 3
-      Width = 1050
-      Height = 691
+      Width = 1044
+      Height = 674
       Margins.Left = 0
       Margins.Top = 0
       Margins.Right = 0
@@ -254,27 +257,33 @@ object frm_PCM_Main: Tfrm_PCM_Main
       Properties.Options = [pcoAlwaysShowGoDialogButton, pcoGradient, pcoGradientClientArea, pcoNoArrows, pcoRedrawOnResize, pcoSort, pcoUsePageColorForTab]
       LookAndFeel.NativeStyle = False
       OnPageChanging = pc_mainPageChanging
-      ClientRectBottom = 685
+      ExplicitWidth = 1038
+      ExplicitHeight = 657
+      ClientRectBottom = 668
       ClientRectLeft = 2
-      ClientRectRight = 1044
+      ClientRectRight = 1038
       ClientRectTop = 28
       object ts_Dashboard: TcxTabSheet
         AllowCloseButton = False
         Caption = 'Dashboard'
         ImageIndex = 79
+        ExplicitWidth = 1030
+        ExplicitHeight = 623
         object dxLayoutControl1: TdxLayoutControl
           Left = 0
           Top = 0
-          Width = 1042
-          Height = 657
+          Width = 1036
+          Height = 640
           Align = alClient
           TabOrder = 0
           LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
+          ExplicitWidth = 1030
+          ExplicitHeight = 623
           object chartctrl_Customer: TdxChartControl
             Left = 19
             Top = 42
-            Width = 1004
-            Height = 596
+            Width = 998
+            Height = 579
             BorderStyle = cxcbsNone
             Legend.Title.Visible = False
             Titles = <>
@@ -608,7 +617,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
     Top = 232
   end
   object lafCtrl_Main: TcxLookAndFeelController
-    NativeStyle = True
     SkinName = 'DevExpressDarkStyle'
     Left = 88
     Top = 104
@@ -640,7 +648,6 @@ object frm_PCM_Main: Tfrm_PCM_Main
     MenusShowRecentItemsFirst = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
-    Style = bmsUseLookAndFeel
     UseSystemFont = True
     Left = 472
     Top = 192

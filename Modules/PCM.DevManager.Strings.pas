@@ -36,6 +36,7 @@ resourcestring
   rs_PCMDevManager_Modul_UpdateXML = 'Update XML' ;
   rs_PCMDevManager_MSGCHooseProgramm = 'Bitte Programm auswählen!';
   rs_PCMDevManager_MSGCHooseSort = 'Bitte Sortierung auswählen!';
+  rs_PCMDevManager_MSGCHooseHeaderType = 'Bitte Überschrifttyp auswählen!';
   rs_PCMDevManager_MSGSetDesc = 'Bitte Bezeichnung eingeben!';
   rs_PCMDevManager_MSGChooseApp = 'Bitte Applikation wählen';
   rs_PCMDevManager_MSGDeleteEntry = 'Möchten Die den eintrag wirklich löschen?';

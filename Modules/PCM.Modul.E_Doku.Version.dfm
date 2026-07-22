@@ -720,7 +720,7 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     end
     object dxLayoutGroup1: TdxLayoutGroup
       Parent = dxLayoutGroup19
-      CaptionOptions.ShowHyperlinkHint = bTrue
+      CaptionOptions.FormattedText.ShowHyperlinkHint = bTrue
       ItemIndex = 1
       LayoutDirection = ldHorizontal
       Index = 3
@@ -784,7 +784,6 @@ object frm_PCM_VersionDoku: Tfrm_PCM_VersionDoku
     LookAndFeel.NativeStyle = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
-    Style = bmsUseLookAndFeel
     UseFullReset = True
     UseSystemFont = True
     Left = 384

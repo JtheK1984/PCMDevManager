@@ -9,7 +9,7 @@ object dm_PCM: Tdm_PCM
       'Password=pcm'
       'User_Name=root'
       'Database=pcm'
-      'Server=pcm-dev'
+      'Server=127.0.0.1'
       'DriverID=MySQL')
     ResourceOptions.AssignedValues = [rvAutoReconnect]
     ResourceOptions.AutoReconnect = True

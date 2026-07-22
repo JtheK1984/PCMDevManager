@@ -56,6 +56,7 @@ begin
   dm_PCM.qry_Work.Open;
   cmbbx_Prog.Properties.Items.Clear;
   cmbbx_Prog.Properties.Items.Add(rs_PCMDevManager_CMBBX_Alle);
+  cmbbx_Prog.Properties.Items.Add('PCM - Installation');
   while not dm_PCM.qry_Work.Eof do
   begin
     cmbbx_Prog.Properties.Items.Add(StringReplace(dm_PCM.qry_Work.FieldByName('Programm').AsString,'-',' - ',[rfIgnoreCase,rfReplaceAll]));

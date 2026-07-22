@@ -40,15 +40,12 @@ object frm_Dev: Tfrm_Dev
       LockedStateImageOptions.Effect = lsieDark
       LookAndFeel.NativeStyle = False
       object grdDBTblView_Helpprogs: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
         FilterBox.CustomizeDialog = False
-        ScrollbarAnnotations.CustomAnnotations = <>
         OnCellDblClick = grdDBTblView_HelpprogsCellDblClick
         DataController.DataSource = ds_helpprogs
         DataController.Filter.PercentWildcard = '*'
         DataController.Filter.UnderscoreWildcard = '?'
         DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
-        DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <
           item
             Kind = skCount
@@ -77,7 +74,6 @@ object frm_Dev: Tfrm_Dev
         object grdDBTblViewCol_HelpProgsProgname: TcxGridDBColumn
           Caption = 'Programmname'
           DataBinding.FieldName = 'Name'
-          DataBinding.IsNullValueType = True
           SortIndex = 0
           SortOrder = soAscending
           Width = 200
@@ -85,12 +81,10 @@ object frm_Dev: Tfrm_Dev
         object grdDBTblViewCol_HelpProgsProgpath: TcxGridDBColumn
           Caption = 'Programmpfad'
           DataBinding.FieldName = 'Path'
-          DataBinding.IsNullValueType = True
           Width = 1140
         end
         object grdDBTblViewCol_HelpProgsImage: TcxGridDBColumn
           DataBinding.FieldName = 'Logo'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageProperties'
           Properties.GraphicClassName = 'TdxPNGImage'
           Width = 60
@@ -117,15 +111,12 @@ object frm_Dev: Tfrm_Dev
       TabOrder = 2
       LockedStateImageOptions.Effect = lsieDark
       object grdDBTblView_Projects: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
         FilterBox.CustomizeDialog = False
-        ScrollbarAnnotations.CustomAnnotations = <>
         OnCellDblClick = grdDBTblView_ProjectsCellDblClick
         DataController.DataSource = ds_Projects
         DataController.Filter.PercentWildcard = '*'
         DataController.Filter.UnderscoreWildcard = '?'
         DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
-        DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <
           item
             Kind = skCount
@@ -154,7 +145,6 @@ object frm_Dev: Tfrm_Dev
         object grdDBTblViewCol_ProjectsProgname: TcxGridDBColumn
           Caption = 'Programmname'
           DataBinding.FieldName = 'Name'
-          DataBinding.IsNullValueType = True
           SortIndex = 1
           SortOrder = soAscending
           Width = 200
@@ -162,20 +152,17 @@ object frm_Dev: Tfrm_Dev
         object grdDBTblViewCol_ProjectsProgpath: TcxGridDBColumn
           Caption = 'Programmpfad'
           DataBinding.FieldName = 'Path'
-          DataBinding.IsNullValueType = True
           SortIndex = 0
           SortOrder = soAscending
           Width = 450
         end
         object grdDBTblViewCol_ProjectsScript: TcxGridDBColumn
           DataBinding.FieldName = 'Script'
-          DataBinding.IsNullValueType = True
           Width = 390
         end
         object grdDBTblViewCol_ProjectsImage: TcxGridDBColumn
           Caption = 'Image'
           DataBinding.FieldName = 'Logo'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageProperties'
           Properties.GraphicClassName = 'TdxPNGImage'
           Width = 60
@@ -184,32 +171,27 @@ object frm_Dev: Tfrm_Dev
           AlternateCaption = '60'
           Caption = '64-Bit'
           DataBinding.FieldName = '64Bit'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_Projects32Bit: TcxGridDBColumn
           Caption = '32-Bit'
           DataBinding.FieldName = '32Bit'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_ProjectsMobile: TcxGridDBColumn
           DataBinding.FieldName = 'Mobile'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_ProjectsLicence: TcxGridDBColumn
           DataBinding.FieldName = 'Lizenz'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
         object grdDBTblViewCol_ProjectsLocalize: TcxGridDBColumn
           DataBinding.FieldName = 'Localize'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Width = 60
         end
@@ -242,15 +224,12 @@ object frm_Dev: Tfrm_Dev
       TabOrder = 3
       LockedStateImageOptions.Effect = lsieDark
       object grdDBTblView_Scripts: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
         FilterBox.CustomizeDialog = False
-        ScrollbarAnnotations.CustomAnnotations = <>
         OnCellDblClick = grdDBTblView_ScriptsCellDblClick
         DataController.DataSource = ds_Scripts
         DataController.Filter.PercentWildcard = '*'
         DataController.Filter.UnderscoreWildcard = '?'
         DataController.Options = [dcoAnsiSort, dcoCaseInsensitive, dcoAssignGroupingValues, dcoAssignMasterDetailKeys, dcoSaveExpanding]
-        DataController.Summary.DefaultGroupSummaryItems = <>
         DataController.Summary.FooterSummaryItems = <
           item
             Kind = skCount
@@ -279,19 +258,16 @@ object frm_Dev: Tfrm_Dev
         object grdDBTblViewCol_ScriptsProgname: TcxGridDBColumn
           Caption = 'Programmname'
           DataBinding.FieldName = 'Name'
-          DataBinding.IsNullValueType = True
           Width = 200
         end
         object grdDBTblViewCol_ScriptsProgpath: TcxGridDBColumn
           Caption = 'Programmpfad'
           DataBinding.FieldName = 'Path'
-          DataBinding.IsNullValueType = True
           Width = 1140
         end
         object grdDBTblViewCol_ScriptsImage: TcxGridDBColumn
           Caption = 'Image'
           DataBinding.FieldName = 'Logo'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageProperties'
           Properties.GraphicClassName = 'TdxPNGImage'
           Width = 60
@@ -309,13 +285,8 @@ object frm_Dev: Tfrm_Dev
       TabOrder = 4
       Visible = False
       object grdDBTblView_Versions: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        ScrollbarAnnotations.CustomAnnotations = <>
         OnFocusedRecordChanged = grdDBTblView_VersionsFocusedRecordChanged
         DataController.DataSource = ds_SourceAPP
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
         OptionsBehavior.IncSearch = True
         OptionsData.Deleting = False
         OptionsData.Editing = False
@@ -325,17 +296,14 @@ object frm_Dev: Tfrm_Dev
         OptionsView.Indicator = True
         object grdDBTblView_VersionsName: TcxGridDBColumn
           DataBinding.FieldName = 'Name'
-          DataBinding.IsNullValueType = True
           Width = 800
         end
         object grdDBTblView_VersionsVersion: TcxGridDBColumn
           DataBinding.FieldName = 'Version'
-          DataBinding.IsNullValueType = True
           Width = 100
         end
         object grdDBTblView_VersionsArchitektur: TcxGridDBColumn
           DataBinding.FieldName = 'Architektur'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageComboBoxProperties'
           Properties.Items = <
             item
@@ -356,7 +324,6 @@ object frm_Dev: Tfrm_Dev
         object grdDBTblView_VersionsArchitektur1: TcxGridDBColumn
           Caption = 'Architektur 2'
           DataBinding.FieldName = 'Architektur1'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxImageComboBoxProperties'
           Properties.Items = <
             item
@@ -387,13 +354,8 @@ object frm_Dev: Tfrm_Dev
       TabOrder = 19
       Visible = False
       object grdDBTblView_Progs: TcxGridDBTableView
-        Navigator.Buttons.CustomButtons = <>
-        ScrollbarAnnotations.CustomAnnotations = <>
         OnCellClick = grdDBTblView_ProgsCellClick
         DataController.DataSource = ds_SourceDir
-        DataController.Summary.DefaultGroupSummaryItems = <>
-        DataController.Summary.FooterSummaryItems = <>
-        DataController.Summary.SummaryGroups = <>
         OptionsBehavior.IncSearch = True
         OptionsData.Deleting = False
         OptionsData.Inserting = False
@@ -402,12 +364,10 @@ object frm_Dev: Tfrm_Dev
         OptionsView.Indicator = True
         object grdDBTblView_ProgsRecId: TcxGridDBColumn
           DataBinding.FieldName = 'RecId'
-          DataBinding.IsNullValueType = True
           Visible = False
         end
         object grdDBTblView_ProgsBackup: TcxGridDBColumn
           DataBinding.FieldName = 'Backup'
-          DataBinding.IsNullValueType = True
           PropertiesClassName = 'TcxCheckBoxProperties'
           Properties.Alignment = taRightJustify
           Properties.ValueChecked = '1'
@@ -417,7 +377,6 @@ object frm_Dev: Tfrm_Dev
         object grdDBTblView_ProgsProgram: TcxGridDBColumn
           Caption = 'Programm'
           DataBinding.FieldName = 'Program'
-          DataBinding.IsNullValueType = True
           Options.Editing = False
           SortIndex = 0
           SortOrder = soAscending
@@ -1191,7 +1150,6 @@ object frm_Dev: Tfrm_Dev
     TabOrder = 2
     TabStop = False
     object rbTab_Proj: TdxRibbonTab
-      Active = True
       Caption = 'Project-Files'
       Groups = <
         item
@@ -1201,6 +1159,7 @@ object frm_Dev: Tfrm_Dev
       Index = 0
     end
     object rbTab_MSBuild: TdxRibbonTab
+      Active = True
       Caption = 'MSBuild'
       Groups = <
         item
@@ -2008,7 +1967,6 @@ object frm_Dev: Tfrm_Dev
     LookAndFeel.NativeStyle = False
     NotDocking = [dsNone, dsLeft, dsTop, dsRight, dsBottom]
     PopupMenuLinks = <>
-    Style = bmsUseLookAndFeel
     UseSystemFont = True
     Left = 408
     Top = 392

@@ -23,8 +23,6 @@ object frm_DokuCreate: Tfrm_DokuCreate
     TabOrder = 0
     AutoSize = True
     LayoutLookAndFeel = dm_PCM.dxLayoutSkinLookAndFeel1
-    ExplicitWidth = 433
-    ExplicitHeight = 107
     object cmbbx_Prog: TcxComboBox
       AlignWithMargins = True
       Left = 12
